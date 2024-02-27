@@ -16,14 +16,6 @@
 }
 
 .#{$prefix} {
-    &text-soft {
-        color: $color-text-soft;
-    }
-
-    &text-inverse {
-        color: $color-text-inverse;
-    }
-
     &text-default {
         color: $color-text-default;
     }
