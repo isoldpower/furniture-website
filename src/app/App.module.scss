@@ -3,3 +3,11 @@
     flex-direction: column;
     align-items: center;
 }
+
+.pageLayout__activeModals {
+    pointer-events: none;
+
+    &:empty {
+        visibility: hidden;
+    }
+}
