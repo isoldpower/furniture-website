@@ -1,0 +1,54 @@
+{
+  "sections": [
+    {
+      "title": "CozyCraft",
+      "links": [
+        {
+          "text": "Главная",
+          "href": "/"
+        },
+        {
+          "text": "Каталог",
+          "href": "/catalog"
+        },
+        {
+          "text": "Преимущества",
+          "href": "/#benefits"
+        },
+        {
+          "text": "Этапы работы",
+          "href": "/#process"
+        },
+        {
+          "text": "Материалы",
+          "href": "/materials"
+        }
+      ]
+    },
+    {
+      "title": "Каталог",
+      "links": [
+        {
+          "text": "Кухня",
+          "href": "/catalog/kitchen"
+        },
+        {
+          "text": "Гостиная",
+          "href": "/catalog/livingroom"
+        },
+        {
+          "text": "Спальня",
+          "href": "/catalog/bedroom"
+        },
+        {
+          "text": "Прихожая",
+          "href": "/catalog/hallway"
+        },
+        {
+          "text": "Мягкая мебель",
+          "href": "/catalog/soft"
+        }
+      ]
+    }
+  ]
+}

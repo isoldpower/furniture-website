@@ -1,9 +1,11 @@
 import '@/app/scss/main.scss';
+import classes from './Home.module.scss';
 
 const Home = () => {
     return (
-        <div>
-            <h1 className={`cc-heading-1`}>Это домашняя страница</h1>
+        <div className={`${classes.homePage__wrapper}`}>
+            <div className={`${classes.homePage__content}`}>
+            </div>
         </div>
     );
 };
