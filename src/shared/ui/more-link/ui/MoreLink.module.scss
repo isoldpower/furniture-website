@@ -1,0 +1,10 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.moreLink__content {
+    line-height: 100%;
+}
+
+.moreLink__arrow {
+    margin-bottom: -3px;
+}

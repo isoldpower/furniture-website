@@ -1,1 +1,6 @@
 @use '@/app/scss/useMain' as *;
+
+.homePage__more {
+    display: inline-block;
+    background-color: $color-back-1;
+}

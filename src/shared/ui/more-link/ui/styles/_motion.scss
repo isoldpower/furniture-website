@@ -1,0 +1,10 @@
+@use '@/app/scss/useMain' as *;
+
+.moreLink__wrapper:is(:hover, :focus-visible) {
+    color: $color-accent-500;
+    outline: none;
+
+    & > * > span {
+        transform: rotate(-90deg);
+    }
+}
