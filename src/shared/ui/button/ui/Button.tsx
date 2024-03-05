@@ -1,4 +1,4 @@
-import {AnchorHTMLAttributes, ButtonHTMLAttributes, FC} from "react";
+import {ButtonHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Button.module.scss';
 import {ButtonData} from "@/shared/ui/button/model";

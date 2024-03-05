@@ -1,3 +1,11 @@
 @use '@/app/scss/useMain' as *;
 
-// Interactions code
+.button:is(:hover, :focus-visible){
+    cursor: pointer;
+    background-color: var(--_hover-background);
+    color: var(--_hover-color);
+}
+
+.button:focus-visible {
+    outline: 2px solid $color-neutral-100;
+}

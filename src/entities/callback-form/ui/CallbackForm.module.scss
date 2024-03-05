@@ -1,0 +1,25 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.callbackForm__wrapper {
+    display: flex;
+    text-align: left;
+    background-color: $color-back-1;
+}
+
+.callbackForm__content {
+    min-width: 288px;
+}
+
+.callbackForm__fields {
+    @include mq(laptop) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mq(desktop) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.callbackForm__hint {
+    color: $color-soft-text-2;
+}

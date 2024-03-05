@@ -8,8 +8,8 @@ interface AdaptiveLinkProps extends LinkProps {
 
 export const AdaptiveLink: FC<AdaptiveLinkProps> = ({className, children, ...props}: AdaptiveLinkProps) => {
     return (
-        <Link className={`${classes.adaptiveLink__wrapper} ${className}`} {...props}>
-            <div className={`${classes.adaptiveLink__content}`} tabIndex={0}>
+        <Link className={`${classes.adaptiveLink__wrapper}`} {...props}>
+            <div className={`${classes.adaptiveLink__content} ${className}`} tabIndex={0}>
                 {children}
             </div>
         </Link>

@@ -17,12 +17,6 @@
     border-radius: $button-border-radius;
     padding: $size-4 $size-7;
 
-    &:is(:hover, :focus) {
-        cursor: pointer;
-        background-color: var(--_hover-background);
-        color: var(--_hover-color);
-    }
-
     &[itemType='default'] {
         --background-color: transparent;
         --color: var(--neutral-1000);

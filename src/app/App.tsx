@@ -11,7 +11,7 @@ export const App = () => {
     return (
         <>
             <WebsiteHeader />
-            <main style={{zIndex: 98, minHeight: '90vw'}} id='body'>
+            <main style={{zIndex: 98, minHeight: '90dvh'}} id='body'>
                 <div id={layers.inactiveModals} className={'absolute-stretch'} style={{position: 'fixed', zIndex: 99, visibility: 'hidden'}}>
                     <ProvideSideHeader id={'side-header'}>
                         <SideHeader />

@@ -1,3 +1,5 @@
 @use '@/app/scss/useMain' as *;
 
-// Interactions code
+.adaptiveLink__content:focus {
+    outline: none;
+}

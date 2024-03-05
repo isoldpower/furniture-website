@@ -1,0 +1,5 @@
+@use '@/app/scss/useMain' as *;
+
+.inputField__field:focus-visible {
+    outline: 2px solid $color-accent-500;
+}
