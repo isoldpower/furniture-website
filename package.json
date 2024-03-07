@@ -10,7 +10,12 @@
     "build:mobile": "webpack --env mode=production --env platform=mobile",
     "build:desktop": "webpack --env mode=production --env platform=desktop",
     "lint": "eslint . --ext .tsx,.ts",
-    "typecheck": "tsc --build --clean"
+    "typecheck": "tsc --build --clean",
+    "test": "npm-run-all test:*",
+    "test:e2e": "echo E2E tests mock...",
+    "test:unit": "echo UNIT tests mock...",
+    "test:integration": "echo INTEGRATION tests mock...",
+    "test:snapshot": "echo SNAPSHOT tests mock..."
   },
   "keywords": [],
   "author": "",
