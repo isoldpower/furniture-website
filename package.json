@@ -9,8 +9,8 @@
     "build:prod": "webpack --env mode=production",
     "build:mobile": "webpack --env mode=production --env platform=mobile",
     "build:desktop": "webpack --env mode=production --env platform=desktop",
-    "typescheck": "tsc",
-    "lint": "eslint . --ext .tsx"
+    "lint": "eslint . --ext .tsx,.ts",
+    "typecheck": "tsc --build --clean"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +34,7 @@
     "eslint-plugin-react": "^7.34.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
