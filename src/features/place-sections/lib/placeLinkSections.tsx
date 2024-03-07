@@ -17,7 +17,7 @@ export const placeSections = (sections: LinksSection[]) => {
 export const placeSectionLinks = (links: LinkData[]) => {
     return links.map((link, key) => (
         <li className={`${classes.footer__listItem}`} key={key}>
-            <AdaptiveLink to={link.href}>{link.text}</AdaptiveLink>
+            <AdaptiveLink className={`${classes.footer__listLink}`} to={link.href}>{link.text}</AdaptiveLink>
         </li>
     ))
 }

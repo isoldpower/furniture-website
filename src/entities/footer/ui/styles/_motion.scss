@@ -1,3 +1,23 @@
 @use '@/app/scss/useMain' as *;
 
-// Interactions code
+.footer__socialLink {
+    &:hover {
+        opacity: 0.5;
+    }
+    &:focus-visible {
+        outline: 2px solid $color-accent-500;
+    }
+}
+
+.footer__agreementItem > a > *,
+.footer__listLink {
+    &:hover {
+        color: $color-soft-text-1;
+    }
+
+    &:focus-visible {
+        outline: none;
+        text-decoration: underline;
+        color: $color-soft-text-1;
+    }
+}

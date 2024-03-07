@@ -6,8 +6,8 @@ const Home = () => {
     return (
         <div className={`${classes.homePage__wrapper}`}>
             <div className={`${classes.homePage__content}`}>
-                <div className={`${classes.homePage__callbackSection}`}>
-                    <CallbackSection />
+                <div className={`${classes.homePage__callbackSection} cc-pb-15 cc-tablet-pb-17`}>
+                    <CallbackSection className={`${classes.homePage__callbackSection}`}/>
                 </div>
             </div>
         </div>
