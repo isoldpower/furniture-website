@@ -1,6 +1,6 @@
 import {WindowParams} from "../types";
 import {getElement} from "./utilities";
-import {getActiveModalsLayer, getBody, getInactiveModalsLayer} from "@/app/constants/layers";
+import {getActiveModalsLayer, getBody, getInactiveModalsLayer} from "@/shared/constants/layers";
 
 export const switchLayer = (isActive: boolean, window: WindowParams): boolean => {
     const activeParent = getActiveModalsLayer<HTMLElement>();

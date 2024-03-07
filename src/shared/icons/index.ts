@@ -11,5 +11,6 @@ import Reference from './ref.svg';
 import Telegram from './telegram.svg';
 import Vk from './vk.svg';
 import Whatsapp from './whatsapp.svg';
+import Slash from './slash.svg';
 
-export {ArrowLeft, Telegram, ArrowRight, Vk, Icon, Menu, MenuSmall, Whatsapp, Reference, Cross, QuoteOpen, QuoteClose, Logo}
+export {Slash, ArrowLeft, Telegram, ArrowRight, Vk, Icon, Menu, MenuSmall, Whatsapp, Reference, Cross, QuoteOpen, QuoteClose, Logo}

@@ -1,7 +1,6 @@
 import '@/app/scss/main.scss';
 import classes from './Home.module.scss';
 import {CallbackSection} from "@/widgets/callback-section/ui/CallbackSection";
-import {MoreLink} from "@/shared/ui/more-link/ui/MoreLink";
 
 const Home = () => {
     return (
