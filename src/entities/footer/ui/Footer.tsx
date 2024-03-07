@@ -24,7 +24,7 @@ export const Footer: FC<FooterProps> = ({className, data, ...props}: FooterProps
                             <ul className={`${classes.footer__socialNetworks} cc-flex cc-gap-3 cc-pt-4`}>
                                 {data.links.map((link, key) => (
                                     <li className={`${classes.footer__social}`} key={key}>
-                                        <a className={`${classes.footer__socialLink}`} href={link.href} target={'_blank'}>
+                                        <a className={`${classes.footer__socialLink}`} href={link.href} target={'_blank'} rel="noreferrer">
                                             <div tabIndex={0}>
                                                 {link.icon}
                                             </div>

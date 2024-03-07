@@ -11,19 +11,17 @@ interface OpenCatalogProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     data?: OpenCatalogData;
 }
 
-export const OpenCatalog: FC<OpenCatalogProps> = ({className, children, type, ...props}: OpenCatalogProps) => {
+export const OpenCatalog: FC<OpenCatalogProps> = ({className, children, ...props}: OpenCatalogProps) => {
     const switchCatalog = () => {
         console.log('open catalog');
     }
 
     return (
-        <>
-            <Button onClick={switchCatalog} type='button' data={{variant: 'primary'}} className={`${classes.openCatalog__wrapper} ${className}`} {...props}>
-                <div className={`${classes.openCatalog__content} cc-flex cc-gap-2`}>
-                    {children}
-                    <MenuSmall width={20} height={20}/>
-                </div>
-            </Button>
-        </>
+        <Button onClick={switchCatalog} semantic='button' data={{variant: 'primary'}} className={`${classes.openCatalog__wrapper} ${className}`} {...props}>
+            <div className={`${classes.openCatalog__content} cc-flex cc-gap-2`}>
+                {children}
+                <MenuSmall width={20} height={20}/>
+            </div>
+        </Button>
     );
 };

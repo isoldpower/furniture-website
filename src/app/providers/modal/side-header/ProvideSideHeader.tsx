@@ -2,7 +2,6 @@ import {BaseHTMLAttributes, FC, ReactNode, useEffect} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProvideSideHeader.module.scss';
 import {closeWindow, openWindow, selectActive, useAppDispatch, useTypedSelector, WindowParams} from "@/app/redux";
-import {openModal} from "@/app/redux/features/modal/external/openModal";
 import {addToTrack, removeFromTrack} from "@/app/redux/features/modal/modalSlice";
 
 interface ProvideSideHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
