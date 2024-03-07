@@ -17,10 +17,10 @@ export const OpenCatalog: FC<OpenCatalogProps> = ({className, children, ...props
     }
 
     return (
-        <Button onClick={switchCatalog} semantic='button' data={{variant: 'primary'}} className={`${classes.openCatalog__wrapper} ${className}`} {...props}>
+        <Button className={`${classes.openCatalog__wrapper} ${className}`} data={{variant: 'primary'}} onClick={switchCatalog} semantic='button' {...props}>
             <div className={`${classes.openCatalog__content} cc-flex cc-gap-2`}>
                 {children}
-                <MenuSmall width={20} height={20}/>
+                <MenuSmall height={20} width={20}/>
             </div>
         </Button>
     );

@@ -19,17 +19,17 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderP
             switchHeader: () => dispatch(switchActive()),
             navigationElements: [
                 <OpenCatalog key={0}>Каталог</OpenCatalog>,
-                <NavLink to={'/materials'} className={`${classes.websiteHeader__navigationItem}`} key={1}>
+                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={1} to='/materials'>
                     <div tabIndex={0}>
                         Материалы
                     </div>
                 </NavLink>,
-                <NavLink to={'/portfolio'} className={`${classes.websiteHeader__navigationItem}`} key={2}>
+                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={2} to='/portfolio'>
                     <div tabIndex={0}>
                         Портфолио
                     </div>
                 </NavLink>,
-                <NavLink to={'/about'} className={`${classes.websiteHeader__navigationItem}`} key={3}>
+                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={3} to='/about'>
                     <div tabIndex={0}>
                         О компании
                     </div>

@@ -20,9 +20,9 @@ export const Header: FC<HeaderProps> = ({className, data, ...props}: HeaderProps
         <header className={`${classes.header__wrapper} ${className} cc-px-4 cc-pt-3`} {...props}>
             <div className={`${classes.header__content} cc-px-4 cc-width-1of1 cc-border-radius-1`}>
                 <div className={`${classes.header__logoWrapper} cc-flex cc-align-items-center`}>
-                    <Link to={'/'} className={`${classes.header__logo} cc-flex cc-align-items-center cc-gap-2`}>
+                    <Link className={`${classes.header__logo} cc-flex cc-align-items-center cc-gap-2`} to="/">
                         <Icon className={`${classes.header__logoIcon}`} />
-                        <Logo width={148} height={28} className={`${classes.header__logoText}`} />
+                        <Logo className={`${classes.header__logoText}`} height={28} width={148} />
                     </Link>
                     <div className={`${classes.header__descriptor} cc-fs-100 cc-grid cc-pl-4`}>
                         Качественная мебель
@@ -37,8 +37,8 @@ export const Header: FC<HeaderProps> = ({className, data, ...props}: HeaderProps
                     </ul>
                 </nav>
                 <address className={`${classes.header__phoneNumber} cc-clr-accent-500`}>+7 999 123-34-54</address>
-                <button onClick={data.switchHeader} className={`${classes.header__hamburgerButton}`}>
-                    <Menu width={44} height={44} />
+                <button className={`${classes.header__hamburgerButton}`} onClick={data.switchHeader} type='button'>
+                    <Menu height={44} width={44} />
                 </button>
             </div>
         </header>

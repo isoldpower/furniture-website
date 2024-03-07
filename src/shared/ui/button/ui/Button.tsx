@@ -13,7 +13,7 @@ type FunctionButton = {semantic: 'button'} & ButtonHTMLAttributes<HTMLButtonElem
 
 export const Button: FC<ButtonProps> = ({className, data, ...props}: ButtonProps) => {
     if(props.semantic === 'button')
-        return <button className={`${className} ${classes.button}`} itemType={data?.variant ?? 'default'} {...props} />
+        return <button className={`${className} ${classes.button}`} itemType={data?.variant ?? 'default'} {...props} type='button'/>
     else if(props.semantic === 'link')
         return <NavLink className={`${className} ${classes.button}`} itemType={data?.variant ?? 'default'} {...props} />
 };

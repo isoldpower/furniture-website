@@ -13,7 +13,7 @@ export const MoreLink: FC<MoreLinkProps> = ({className, children, ...props}: Mor
             <div className={`${classes.moreLink__content} cc-flex cc-width-1of1 cc-align-items-center cc-justify-content-center cc-gap-1`} tabIndex={0}>
                 {children}
                 <span className={`${classes.moreLink__arrowWrapper}`}>
-                    <Reference  className={`${classes.moreLink__arrow}`} width={16} height={16}/>
+                    <Reference  className={`${classes.moreLink__arrow}`} height={16} width={16}/>
                 </span>
             </div>
         </Link>

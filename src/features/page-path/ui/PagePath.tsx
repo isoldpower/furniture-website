@@ -20,12 +20,12 @@ export const PagePath: FC<PagePathProps> = ({className, ...props}: PagePathProps
             {chunks.map((path, key) => {
                 return key < chunks.length - 1
                     ? <div className={`${classes.pagePath__chunkWrapper} cc-flex cc-align-items-center cc-gap-1`} key={key}>
-                        <Link to={path} className={`${classes.pagePath__chunkLink}`}>
+                        <Link className={`${classes.pagePath__chunkLink}`} to={path}>
                             {nameByRoute(path)}
                         </Link>
-                        <Slash className={`${classes.pagePath__chunkSeparator}`} width={16} height={16} />
+                        <Slash className={`${classes.pagePath__chunkSeparator}`} height={16} width={16} />
                     </div>
-                    : <div key={key}></div>
+                    : <div key={key} />
             })}
         </nav>
     );

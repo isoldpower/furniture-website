@@ -1,6 +1,6 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import {Footer} from "@/entities/footer/ui/Footer";
+import {Footer} from "@/entities/footer/ui/base/Footer";
 import {placeSections} from "@/features/place-sections/lib/placeLinkSections";
 import {sections} from "@/widgets/website-footer/api";
 import {Telegram, Vk, Whatsapp} from "@/shared/icons";
@@ -15,15 +15,15 @@ export const WebsiteFooter: FC<WebsiteFooterProps> = ({...props}: WebsiteFooterP
             links: [
                 {
                     href: 'https://vk.com/undefined',
-                    icon: <Vk width={24} height={24} color={'#0077FF'} />
+                    icon: <Vk color='#0077FF' height={24} width={24}/>
                 },
                 {
                     href: 'https://whatsapp.com/undefined',
-                    icon: <Whatsapp width={24} height={24} color={'#25D366'} />
+                    icon: <Whatsapp color='#25D366' height={24} width={24}/>
                 },
                 {
                     href: 'https://telegram.com/undefined',
-                    icon: <Telegram width={24} height={24} color={'#229ED9'} />
+                    icon: <Telegram color='#229ED9' height={24} width={24}/>
                 }
             ]
         }} {...props} />

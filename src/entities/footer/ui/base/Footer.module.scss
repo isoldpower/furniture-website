@@ -1,0 +1,49 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles';
+
+.footer__content {
+    background-color: $color-back-1;
+    border-radius: $border-radius-1;
+}
+
+.footer__gutter {
+    @include mq(desktop) {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.footer__upper {
+    @include mq(laptop) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & > * {
+        @include mq(laptop) {
+            width: 100%;
+        }
+
+        @include mq(desktop) {
+            width: auto;
+        }
+    }
+}
+
+.footer__navigationSection {
+    flex-basis: 200px;
+
+    @include mq(laptop) {
+        text-align: left;
+        min-width: 200px;
+    }
+
+    @include mq(desktop) {
+        text-align: left;
+    }
+}
+
+.footer__listItem > * {
+    color: $color-soft-text-2;
+}

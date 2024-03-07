@@ -1,7 +1,7 @@
 import {FormEvent, useState} from "react";
 import {FieldState, FormFieldReturn} from "@/features/use-form/model/types";
 
-export const formField = (validation: RegExp): FormFieldReturn => {
+export const useFormField = (validation: RegExp): FormFieldReturn => {
     const [value, setValue] = useState<string>(undefined);
     const [state, setState] = useState<FieldState>('default');
 
