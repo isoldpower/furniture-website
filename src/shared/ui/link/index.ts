@@ -1,2 +1,2 @@
 export {AdaptiveLink} from './ui/AdaptiveLink';
-export {LinkData} from './model/types';
+export type {LinkData} from './model/types';

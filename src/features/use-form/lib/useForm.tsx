@@ -1,9 +1,9 @@
-import {formField} from "@/features/use-form/model/formField";
+import {useFormField} from "@/features/use-form/lib/useFormField";
 
 export const useForm = () => {
-    const nameField = formField(/^.{0,255}$/i);
-    const mailField = formField(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
-    const phoneField = formField(/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/i);
+    const nameField = useFormField(/^.{0,255}$/i);
+    const mailField = useFormField(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
+    const phoneField = useFormField(/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/i);
 
 
     const requestCall = () => {

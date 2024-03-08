@@ -1,0 +1,14 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.footer__logoIcon {
+    color: $color-accent-500;
+
+    & > *:first-child {
+        opacity: 0.5;
+    }
+}
+
+.footer__paragraph {
+    max-width: 500px;
+}

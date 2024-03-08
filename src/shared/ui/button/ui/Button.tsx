@@ -8,12 +8,12 @@ type ButtonProps = {
     data?: ButtonData;
 } & (AnchorButton | FunctionButton)
 
-type AnchorButton = {type: 'link'} & NavLinkProps;
-type FunctionButton = {type: 'button'} & ButtonHTMLAttributes<HTMLButtonElement>;
+type AnchorButton = {semantic: 'link'} & NavLinkProps;
+type FunctionButton = {semantic: 'button'} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<ButtonProps> = ({className, data, ...props}: ButtonProps) => {
-    if(props.type === 'button')
-        return <button className={`${className} ${classes.button}`} itemType={data?.variant ?? 'default'} {...props} />
-    else if(props.type === 'link')
+    if(props.semantic === 'button')
+        return <button className={`${className} ${classes.button}`} itemType={data?.variant ?? 'default'} {...props} type='button'/>
+    else if(props.semantic === 'link')
         return <NavLink className={`${className} ${classes.button}`} itemType={data?.variant ?? 'default'} {...props} />
 };

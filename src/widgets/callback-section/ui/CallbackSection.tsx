@@ -29,18 +29,18 @@ export const CallbackSection: FC<CallbackSectionProps> = ({className, ...props}:
                 <div className={`${classes.callbackSection__formWrapper} cc-width-1of1`}>
                     <CallbackForm data={{
                         fields: [
-                            <InputField data={{title: 'Ваше имя *'}} placeholder={'Александр'} onInput={form.nameField.onInput} key={0}/>,
-                            <InputField data={{title: 'Ваш номер *'}} placeholder={'89995543332'} onInput={form.phoneField.onInput} key={1}/>,
-                            <InputField data={{title: 'Ваша почта *'}} placeholder={'cozycraft@yandex.ru'} onInput={form.mailField.onInput} key={2} type={"email"} className={`${classes.callbackSection__mailInput}`}/>
+                            <InputField data={{title: 'Ваше имя *'}} key={0} onInput={form.nameField.onInput} placeholder="Александр"/>,
+                            <InputField data={{title: 'Ваш номер *'}} key={1} onInput={form.phoneField.onInput} placeholder="89995543332"/>,
+                            <InputField className={`${classes.callbackSection__mailInput}`} data={{title: 'Ваша почта *'}} key={2} onInput={form.mailField.onInput} placeholder="cozycraft@yandex.ru" type="email"/>
                         ],
                         softText: (
                             <div className={`${classes.callbackSection__hint}`}>Нажимая кнопку “Отправить” вы соглашаетесь с&nbsp;
-                                <AdaptiveLink className={`${classes.callbackSection__hintAnchor} cc-clr-accent-500`} to={'/hello'}>Политикой конфиденциальности</AdaptiveLink>
+                                <AdaptiveLink className={`${classes.callbackSection__hintAnchor} cc-clr-accent-500`} to="/hello">Политикой конфиденциальности</AdaptiveLink>
                                 &nbsp;веб-ресурса
                             </div>
                         ),
                         sendButton: (
-                            <Button type={'button'} data={{variant: 'accent'}} onClick={form.requestCall}>
+                            <Button data={{variant: 'accent'}} onClick={form.requestCall} semantic="button">
                                 Отправить
                             </Button>
                     )}} />

@@ -7,14 +7,14 @@ const routes = [
     {
         path: '/',
         element:
-            <Suspense fallback={'Loading...'}>
+            <Suspense fallback="Loading...">
                 <App/>
             </Suspense>,
         children: [
             {
                 path: '/',
                 element:
-                    <Suspense fallback={'Loading...'}>
+                    <Suspense fallback="Loading...">
                         <Home />
                     </Suspense>
             }

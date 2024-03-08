@@ -10,7 +10,7 @@ import {switchActive, useAppDispatch} from "@/app/redux";
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const WebsiteHeader: FC<WebsiteHeaderProps> = ({className, ...props}: WebsiteHeaderProps) => {
+export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderProps) => {
     const dispatch = useAppDispatch();
 
     return (
@@ -18,18 +18,18 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({className, ...props}: Web
             useHamburger: useHamburger(),
             switchHeader: () => dispatch(switchActive()),
             navigationElements: [
-                <OpenCatalog>Каталог</OpenCatalog>,
-                <NavLink to={'/materials'} className={`${classes.websiteHeader__navigationItem}`}>
+                <OpenCatalog key={0}>Каталог</OpenCatalog>,
+                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={1} to='/materials'>
                     <div tabIndex={0}>
                         Материалы
                     </div>
                 </NavLink>,
-                <NavLink to={'/portfolio'} className={`${classes.websiteHeader__navigationItem}`}>
+                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={2} to='/portfolio'>
                     <div tabIndex={0}>
                         Портфолио
                     </div>
                 </NavLink>,
-                <NavLink to={'/about'} className={`${classes.websiteHeader__navigationItem}`}>
+                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={3} to='/about'>
                     <div tabIndex={0}>
                         О компании
                     </div>

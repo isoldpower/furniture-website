@@ -1,6 +1,4 @@
-import {BuildOptions} from "../types";
-
-export function buildAssetLoader(options: BuildOptions) {
+export function buildAssetLoader() {
     return {
         test: /\.(png|jpe?g|gif)$/i,
         type: 'asset/resource'

@@ -1,0 +1,10 @@
+@use '@/app/scss/useMain' as *;
+
+.footer__socialLink {
+    &:hover {
+        opacity: 0.5;
+    }
+    &:focus-visible {
+        outline: 2px solid $color-accent-500;
+    }
+}
