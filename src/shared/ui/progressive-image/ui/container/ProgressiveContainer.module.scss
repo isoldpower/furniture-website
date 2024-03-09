@@ -1,0 +1,13 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles';
+
+.progressiveContainer {
+    position: relative;
+    height: 0;
+
+    & > * {
+        @extend .absolute-stretch;
+        width: 100%;
+        height: 100%;
+    }
+}

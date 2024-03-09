@@ -14,8 +14,8 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
             <div className={`${classes.homePage__content} cc-grid cc-gap-15 cc-laptop-gap-18`}>
                 <div className={`${classes.homePage__heroWrapper}`}>
                     <section className={`${classes.homePage__heroSection} cc-main-gutter`}>
-                        <HeroDecorationsProvider className="cc-width-1of1">
-                            <HeroSection/>
+                        <HeroDecorationsProvider className={`${classes.homePage__heroWrapper} cc-width-1of1`}>
+                            <HeroSection className={`${classes.homePage__heroContent}`}/>
                         </HeroDecorationsProvider>
                     </section>
                 </div>
