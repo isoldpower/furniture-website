@@ -1,0 +1,14 @@
+@use '@/app/scss/useMain' as *;
+
+.cite__content {
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.03) 0%,
+            rgba(0, 0, 0, 0.03) 25%,
+            rgba(0, 0, 0, 0.03) 50%,
+            rgba(0, 0, 0, 0.03) 75%,
+            rgba(0, 0, 0, 0.03) 100%);
+}
+
+.cite__quoteWrapper.cite__closeQuote {
+    justify-self: flex-end;
+}

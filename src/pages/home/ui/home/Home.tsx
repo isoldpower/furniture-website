@@ -4,6 +4,7 @@ import {CallbackSection} from "@/widgets/callback-section/ui/CallbackSection";
 import {HeroDecorationsProvider} from "@/pages/home/ui/hero-decorations/HeroDecorationsProvider";
 import {BaseHTMLAttributes, FC} from "react";
 import {HeroSection} from "@/pages/home/ui/hero-section/HeroSection";
+import {Cite} from "@/entities/cite/ui/Cite";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -17,6 +18,14 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                         <HeroDecorationsProvider className={`${classes.homePage__heroWrapper} cc-width-1of1 cc-main-gutter-content`}>
                             <HeroSection className={`${classes.homePage__heroContent}`}/>
                         </HeroDecorationsProvider>
+                    </section>
+                </div>
+                <div className={`${classes.homePage__citeSection}`}>
+                    <section className={`${classes.homePage__citeWrapper} cc-main-gutter`}>
+                        <Cite className={`${classes.homePage__cite} cc-main-gutter-content`} data={{
+                            paragraph: 'CozyCraft - производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.',
+                            descriptor: 'CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.'
+                        }}/>
                     </section>
                 </div>
                 <div className={`${classes.homePage__callbackWrapper} cc-pb-15 cc-tablet-pb-17`}>

@@ -1,5 +1,5 @@
 import '@/app/scss/main.scss';
-import {ImgHTMLAttributes, FC, useEffect, useState} from "react";
+import {ImgHTMLAttributes, FC, useEffect, useState, useCallback} from "react";
 import {ProgressiveImageData} from "../../model";
 
 interface ProgressiveImageProps extends ImgHTMLAttributes<HTMLImageElement> {
@@ -10,23 +10,23 @@ export const ProgressiveImage: FC<ProgressiveImageProps> = ({image, ...props}: P
     const [imgSrc, setImgSrc] = useState<string>(image.low);
     const [color, setColor] = useState<string>('transparent');
 
-    useEffect(() => {
-        const image = createEmptyImage();
-        image.onload = loadFullImage;
-    }, [image.low]);
-
-    const createEmptyImage = () => {
+    const createEmptyImage = useCallback(() => {
         const fullImage = new Image();
         fullImage.src = image.original;
         return fullImage;
-    }
+    }, [image.original]);
 
-    const loadFullImage = () => {
+    const loadFullImage = useCallback(() => {
         setImgSrc(image.original);
         setColor('black');
-    }
+    }, [image.original]);
+
+    useEffect(() => {
+        const image = createEmptyImage();
+        image.onload = loadFullImage;
+    }, [image.low, createEmptyImage, loadFullImage]);
 
     return (
-        <img style={{color: color, ...props.style}} src={imgSrc} alt={image.alt} {...props} />
+        <img alt={image.alt} src={imgSrc} style={{color: color, ...props.style}} {...props} />
     );
 };

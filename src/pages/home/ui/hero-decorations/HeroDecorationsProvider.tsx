@@ -12,14 +12,14 @@ export const HeroDecorationsProvider: FC<HeroDecorationsProviderProps> = ({class
         <div className={`${classes.heroDecorations__wrapper} ${className}`} {...props}>
             <div className={`${classes.heroDecorations__content}`}>
                 <div className={`${classes.heroDecorations__imageWrapper} ${classes.heroDecorations__imageFirst} cc-pb-7`}>
-                    <ProgressiveImage image={heroImages[0]} className={`${classes.heroDecorations__image}`}/>
+                    <ProgressiveImage className={`${classes.heroDecorations__image}`} image={heroImages[0]}/>
                 </div>
                 {children}
                 <div className={`${classes.heroDecorations__imageWrapper} ${classes.heroDecorations__imageLeft}`}>
-                    <ProgressiveImage image={heroImages[1]} className={`${classes.heroDecorations__image}`}/>
+                    <ProgressiveImage className={`${classes.heroDecorations__image}`} image={heroImages[1]}/>
                 </div>
                 <div className={`${classes.heroDecorations__imageWrapper} ${classes.heroDecorations__imageLast} cc-pt-9`}>
-                    <ProgressiveImage image={heroImages[2]} className={`${classes.heroDecorations__image}`}/>
+                    <ProgressiveImage className={`${classes.heroDecorations__image}`} image={heroImages[2]}/>
                 </div>
             </div>
         </div>
