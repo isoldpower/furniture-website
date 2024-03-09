@@ -1,0 +1,53 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.homePage__more {
+    display: inline-block;
+    background-color: $color-back-1;
+}
+
+.homePage__heroSection {
+    display: flex;
+    flex-direction: column;
+    padding-top: $size-9;
+
+    @include mq(laptop) {
+        padding-top: $size-13;
+    }
+
+    @include mq(desktop) {
+        padding-top: $size-7;
+    }
+}
+
+.heroSection__content {
+    display: grid;
+}
+
+.heroSection__body {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+}
+
+.heroSection__paragraph {
+    max-width: 700px;
+}
+
+.heroSection__buttons {
+    display: grid;
+
+    @include mq(tablet) {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.heroSection__accentButton,
+.heroSection__aboutButton {
+    width: 100%;
+
+    @include mq(tablet) {
+        width: auto;
+    }
+}

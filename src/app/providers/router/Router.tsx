@@ -1,7 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import {Suspense} from "react";
 import {App} from "@/app/App";
-import Home from "@/pages/home/Home";
+import {Home} from "@/pages/home";
 
 const routes = [
     {

@@ -1,0 +1,73 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.heroDecorations__imageWrapper {
+    pointer-events: none;
+
+    & > * {
+        box-sizing: content-box;
+        width: 110px;
+        height: 72px;
+
+        @include mq(tablet) {
+            width: 204px;
+            height: 134px;
+        }
+    }
+
+    &.heroDecorations__imageFirst > * {
+        @include mq(desktop) {
+            width: 220px;
+            height: 144px;
+        }
+    }
+
+    &.heroDecorations__imageLast > * {
+        @include mq(desktop) {
+            width: 273px;
+            height: 178px;
+        }
+    }
+
+    &.heroDecorations__imageLeft > * {
+        @include mq(desktop) {
+            width: 175px;
+            height: 114px;
+        }
+
+        @include mq(large) {
+            width: 220px;
+            height: 144px;
+        }
+    }
+}
+
+.heroDecorations__imageWrapper.heroDecorations__imageFirst {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.heroDecorations__imageWrapper.heroDecorations__imageLeft {
+    display: none;
+    position: absolute;
+    bottom: 212px;
+
+    @include mq(desktop) {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+.heroDecorations__imageWrapper.heroDecorations__imageLast {
+    display: flex;
+    justify-content: flex-start;
+
+    @include mq(desktop) {
+        justify-content: flex-end;
+        margin-top: -78px;
+    }
+}
+
+.heroDecorations__image {
+    background-color: black;
+}
