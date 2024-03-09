@@ -9,7 +9,7 @@ interface HeroSectionProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const HeroSection: FC<HeroSectionProps> = ({className, ...props}: HeroSectionProps) => {
     return (
         <div className={`${classes.heroSection__wrapper} ${className}`} {...props}>
-            <div className={`${classes.heroSection__content} cc-gap-13 cc-main-gutter-content`}>
+            <div className={`${classes.heroSection__content} cc-gap-13`}>
                 <div className={`${classes.heroSection__body} cc-gap-10`}>
                     <h1 className={`${classes.heroSection__heading} cc-heading-1`}>Корпусная
                         мебель <br/> под заказ</h1>
@@ -19,8 +19,7 @@ export const HeroSection: FC<HeroSectionProps> = ({className, ...props}: HeroSec
                 </div>
                 <div className={`${classes.heroSection__buttons}`}>
                     <Button className={`${classes.heroSection__accentButton}`} data={{variant: 'accent'}}
-                            semantic="link"
-                            to="/catalog">Перейти в каталог</Button>
+                            semantic="link" to="/catalog">Перейти в каталог</Button>
                     <Button className={`${classes.heroSection__aboutButton}`} semantic="link" to="/about">Подробнее
                         о компании</Button>
                 </div>
