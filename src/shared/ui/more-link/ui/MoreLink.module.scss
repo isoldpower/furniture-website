@@ -1,6 +1,11 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
+.moreLink__wrapper {
+    display: inline-block;
+    background-color: $color-back-1;
+}
+
 .moreLink__content {
     line-height: 100%;
 }

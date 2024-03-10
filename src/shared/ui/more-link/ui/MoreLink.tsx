@@ -9,7 +9,7 @@ interface MoreLinkProps extends LinkProps {
 
 export const MoreLink: FC<MoreLinkProps> = ({className, children, ...props}: MoreLinkProps) => {
     return (
-        <Link className={`${classes.moreLink__wrapper} ${className}`} {...props}>
+        <Link className={`${classes.moreLink__wrapper} ${className} cc-px-4 cc-py-3 cc-border-radius-1`} {...props}>
             <div className={`${classes.moreLink__content} cc-flex cc-width-1of1 cc-align-items-center cc-justify-content-center cc-gap-1`} tabIndex={0}>
                 {children}
                 <span className={`${classes.moreLink__arrowWrapper}`}>
