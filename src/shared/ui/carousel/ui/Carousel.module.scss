@@ -1,0 +1,39 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.carousel__wrapper {
+    overflow: hidden;
+}
+
+.carousel__itemsGroup {
+    display: block;
+    white-space: nowrap;
+    will-change: transform;
+    transition: 0.4s ease-in-out;
+}
+
+.carousel__itemWrapper {
+    display: contents;
+
+    &[aria-current=false] > * {
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+    &:first-child > * {
+        padding-left: 0;
+    }
+
+    &:last-child > * {
+        padding-right: 0;
+    }
+
+    & > * {
+        display: inline-block;
+        white-space: normal;
+    }
+}
+
+.carousel__arrow[aria-disabled='true'] {
+    visibility: hidden;
+}

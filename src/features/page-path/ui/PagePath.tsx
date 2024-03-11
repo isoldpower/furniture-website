@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './PagePath.module.scss';
 import {PagePathData} from "@/features/page-path/model";
 import {Link, useLocation} from "react-router-dom";
-import {nameByRoute} from "@/shared/constants";
+import {nameByRoute} from "src/shared/lib/constants";
 import {Slash} from "@/shared/icons";
 import {getPathChunks} from "@/features/page-path/lib";
 

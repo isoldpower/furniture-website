@@ -14,11 +14,11 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({className, data, ...props}:
     const [active, setActive] = useState<number>(0);
 
     return (
-        <div className={`${classes.imagesSlider__wrapper} ${className} cc-flex`} {...props}>
+        <div className={`${classes.imagesSlider__wrapper} ${className} cc-flex`} {...props} onMouseLeave={() => setActive(0)}>
             <div className={`${classes.imagesSlider__content} cc-flex`}>
                 <ImageAreas data={{setActive: setActive, amount: data.images.length}} />
-                <ProgressiveImage image={data.images[active]} className={`${classes.imagesSlider__image}`}/>
-                {data.images.length >= 2 && <ImageBar data={{amount: data.images.length, active: active}} />}
+                <ProgressiveImage className={`${classes.imagesSlider__image}`} image={data.images[active]}/>
+                {data.images.length >= 2 ? <ImageBar data={{amount: data.images.length, active: active}} /> : null}
             </div>
         </div>
     );

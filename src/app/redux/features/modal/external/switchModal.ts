@@ -1,7 +1,7 @@
 import {closeSpecificModal} from "./closeSpecificModal";
 import {openModal} from "./openModal";
 import {ModalState, WindowParams} from "../types";
-import {getActiveModalsLayer, getInactiveModalsLayer} from "@/shared/constants/layers";
+import {getActiveModalsLayer, getInactiveModalsLayer} from "@/shared/lib/constants/layers";
 
 export const switchModal = (state: ModalState, payload: WindowParams) => {
     const activeSearch = getActiveModalsLayer().querySelector<HTMLElement>(`[${payload.attributeKey}='${payload.attributeValue}']`);

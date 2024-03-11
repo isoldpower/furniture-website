@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PageTitle.module.scss';
 import {PagePath} from "@/features/page-path/ui/PagePath";
-import {nameByRoute} from "@/shared/constants";
+import {nameByRoute} from "src/shared/lib/constants";
 import {useLocation} from "react-router-dom";
 
 interface PageTitleData {

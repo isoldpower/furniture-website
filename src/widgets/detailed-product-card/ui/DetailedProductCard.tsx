@@ -15,7 +15,7 @@ export const DetailedProductCard: FC<DetailedProductCardProps> = ({className, da
             title: data.title,
             materials: data.materials,
             href: '/products' + data.postfix,
-            displayImages: <ImagesSlider data={{images: data.images}} />
+            displayImages: <ImagesSlider data={data} />
         }} />
     );
 };

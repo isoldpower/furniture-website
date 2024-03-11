@@ -1,4 +1,8 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
-// Basic selectors here
+.test {
+    background-color: black;
+    display: flex;
+    width: 100%;
+}
