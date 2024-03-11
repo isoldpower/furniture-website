@@ -7,6 +7,7 @@ import {HeroDecorationsProvider, HeroSection} from "../index";
 import {Cite} from "@/entities";
 import {CallbackSection, CatalogDisplay} from "@/widgets";
 import {Button} from "@/shared/ui";
+import {AdvantagesGrid} from "@/widgets/advantages-grid/ui/AdvantagesGrid";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -38,6 +39,11 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                             <Button className="cc-main-gutter-content" data={{variant: 'accent'}} semantic="link"
                                     to={websiteRoutes.catalog}>Перейти в каталог</Button>
                         </div>
+                    </div>
+                </section>
+                <section className={`${classes.homePage__advantagesSection} cc-main-gutter`}>
+                    <div className={`${classes.advantagesSection__wrapper} cc-main-gutter-content`}>
+                        <AdvantagesGrid />
                     </div>
                 </section>
                 <CallbackSection className={`${classes.homePage__callbackSection} cc-pb-15 cc-tablet-pb-17`}/>
