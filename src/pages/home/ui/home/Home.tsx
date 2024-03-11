@@ -5,9 +5,8 @@ import {products} from "@/pages/home/api";
 import {websiteRoutes} from "@/shared/lib";
 import {HeroDecorationsProvider, HeroSection} from "../index";
 import {Cite} from "@/entities";
-import {CallbackSection, CatalogDisplay} from "@/widgets";
+import {AdvantagesGrid, CallbackSection, CatalogDisplay} from "@/widgets";
 import {Button} from "@/shared/ui";
-import {AdvantagesGrid} from "@/widgets/advantages-grid/ui/AdvantagesGrid";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

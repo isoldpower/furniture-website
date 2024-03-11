@@ -4,3 +4,4 @@ export * from './footer';
 export * from './product';
 export * from './callback-form';
 export * from './catalog-spoiler';
+export * from './advantage';

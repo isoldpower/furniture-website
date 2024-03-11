@@ -1,8 +1,8 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './AdvantagesGrid.module.scss';
-import {Advantage} from "@/entities/advantage/ui/Advantage";
 import {advantages} from "@/widgets/advantages-grid/api";
+import {Advantage} from "@/entities";
 
 interface AdvantagesGridProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

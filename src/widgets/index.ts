@@ -5,3 +5,4 @@ export * from './page-title';
 export * from './detailed-product-card';
 export * from './catalog-display';
 export * from './callback-section';
+export * from './advantages-grid';
