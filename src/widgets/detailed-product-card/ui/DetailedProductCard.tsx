@@ -1,9 +1,8 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './DetailedProductCard.module.scss';
-import {ProductData} from "@/entities/product/model";
-import {ProductCard} from "@/entities/product/ui/card/ProductCard";
-import {ImagesSlider} from "@/features/images-slider/ui/slider/ImagesSlider";
+import {ProductCard, ProductData} from "@/entities";
+import {ImagesSlider} from "@/features";
 
 interface DetailedProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: ProductData;

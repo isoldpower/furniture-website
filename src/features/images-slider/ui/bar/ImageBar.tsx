@@ -14,7 +14,7 @@ interface ImageBarProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const ImageBar: FC<ImageBarProps> = ({className, data, ...props}: ImageBarProps) => {
     const bars: ReactNode[] = [];
     for (let i = 0; i < data.amount; i++) {
-        bars.push(<div aria-selected={data.active === i} className={`${classes.imageBar__element}`}/>)
+        bars.push(<div aria-selected={data.active === i} className={`${classes.imageBar__element}`} key={i}/>)
     }
 
     return (

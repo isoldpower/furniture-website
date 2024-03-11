@@ -21,6 +21,50 @@
           "alt": "undefined"
         }
       ]
+    },
+    {
+      "title": "Starqueen 3000",
+      "materials": "Дуб вотан, керамика, ЛДСП",
+      "postfix": "/starqueen3000",
+      "images": [
+        {
+          "low": "https://i.ibb.co/2dHJyz6/image-1low.png",
+          "original": "https://i.ibb.co/chTj9Dw/image-1.png",
+          "alt": "undefined"
+        },
+        {
+          "low": "https://i.ibb.co/0CwwgdJ/image-2low.png",
+          "original": "https://i.ibb.co/g481GQ6/image-2.png",
+          "alt": "undefined"
+        },
+        {
+          "low": "https://i.ibb.co/n1PYVrC/image-3low.png",
+          "original": "https://i.ibb.co/LQ31L11/image-3.png",
+          "alt": "undefined"
+        }
+      ]
+    },
+    {
+      "title": "Starqueen 3000",
+      "materials": "Дуб вотан, керамика, ЛДСП",
+      "postfix": "/starqueen3000",
+      "images": [
+        {
+          "low": "https://i.ibb.co/2dHJyz6/image-1low.png",
+          "original": "https://i.ibb.co/chTj9Dw/image-1.png",
+          "alt": "undefined"
+        },
+        {
+          "low": "https://i.ibb.co/0CwwgdJ/image-2low.png",
+          "original": "https://i.ibb.co/g481GQ6/image-2.png",
+          "alt": "undefined"
+        },
+        {
+          "low": "https://i.ibb.co/n1PYVrC/image-3low.png",
+          "original": "https://i.ibb.co/LQ31L11/image-3.png",
+          "alt": "undefined"
+        }
+      ]
     }
   ]
 }

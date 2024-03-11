@@ -1,0 +1,1 @@
+export {CatalogSpoiler} from './ui/CatalogSpoiler';

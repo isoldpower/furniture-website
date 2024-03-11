@@ -1,4 +1,4 @@
-import {adjustElements, getChildren} from "./utils";
+import {adjustElements, getChildren} from "../../lib/utils";
 
 export const getScroll = (group: HTMLElement, firstActive: number): number => {
     const children = getChildren<HTMLElement>(group);

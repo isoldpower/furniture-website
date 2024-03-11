@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CallbackForm.module.scss';
-import {CallbackFormData} from "@/entities/callback-form/model";
+import {CallbackFormData} from "../model";
 
 interface CallbackFormProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: CallbackFormData;

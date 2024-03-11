@@ -1,9 +1,9 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import {Footer} from "@/entities/footer/ui/base/Footer";
-import {placeSections} from "@/features/place-sections/lib/placeLinkSections";
 import {sections} from "@/widgets/website-footer/api";
 import {Telegram, Vk, Whatsapp} from "@/shared/icons";
+import {placeSections} from "@/features";
+import {Footer} from "@/entities";
 
 interface WebsiteFooterProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

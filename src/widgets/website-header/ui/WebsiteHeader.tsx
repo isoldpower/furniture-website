@@ -1,11 +1,10 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './WebsiteHeader.module.scss';
-import {Header} from "@/entities/header/ui/Header";
-import {OpenCatalog} from "@/features/open-catalog/ui/OpenCatalog";
-import {useHamburger} from "@/features/use-hamburger/lib/useHamburger";
 import {NavLink} from "react-router-dom";
 import {switchActive, useAppDispatch} from "@/app/redux";
+import {Header} from "@/entities";
+import {OpenCatalog, useHamburger} from "@/features";
 
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

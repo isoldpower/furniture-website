@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './FooterBasement.module.scss';
-import {FooterData} from "@/entities/footer/model";
+import {FooterData} from "../../model";
 import {AdaptiveLink} from "@/shared/ui";
 
 interface FooterBasementProps extends BaseHTMLAttributes<HTMLDivElement> {

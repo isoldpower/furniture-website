@@ -37,3 +37,13 @@
 .carousel__arrow[aria-disabled='true'] {
     visibility: hidden;
 }
+
+.carousel__indicator {
+    width: 8px;
+    height: 8px;
+    background-color: $color-back-2;
+
+    &[aria-selected='true'] {
+        background-color: $color-accent-500;
+    }
+}

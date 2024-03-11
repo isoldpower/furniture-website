@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductCard.module.scss';
 import {MoreLink} from "@/shared/ui";
-import {ProductCardData} from "@/entities/product/model";
+import {ProductCardData} from "@/entities";
 
 interface ProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: ProductCardData;

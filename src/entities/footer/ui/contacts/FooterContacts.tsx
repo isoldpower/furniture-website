@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './FooterContacts.module.scss';
 import {Icon, Logo} from "@/shared/icons";
 import {AdaptiveLink} from "@/shared/ui";
-import {FooterData} from "@/entities/footer/model";
+import {FooterData} from "../../model";
 
 interface FooterContactsProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: FooterData;

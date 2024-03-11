@@ -1,9 +1,9 @@
 import {BaseHTMLAttributes, FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './Header.module.scss';
-import {UseHamburgerType} from "@/features/use-hamburger/model";
 import {Icon, Logo, Menu} from "@/shared/icons";
 import {Link} from "react-router-dom";
+import {UseHamburgerType} from "@/features";
 
 interface HeaderData {
     useHamburger: UseHamburgerType;

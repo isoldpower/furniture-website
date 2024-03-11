@@ -1,8 +1,8 @@
 import {ButtonHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './OpenCatalog.module.scss';
-import {Button} from "@/shared/ui/button/ui/Button";
 import {MenuSmall} from "@/shared/icons";
+import {Button} from "@/shared/ui";
 
 interface OpenCatalogData {
 }

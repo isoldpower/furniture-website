@@ -3,7 +3,7 @@ import {DetailedProductCard} from "@/widgets/detailed-product-card/ui/DetailedPr
 import classes from "@/entities/catalog-spoiler/ui/CatalogSpoiler.module.scss";
 import {breakpoints, useDocumentSize} from "@/shared/lib";
 
-export const placeItems = (products: ProductData[]) => {
+export const useItems = (products: ProductData[]) => {
     const width = useDocumentSize().x;
     const amount = width >= breakpoints.desktop ? 3 : 2;
 

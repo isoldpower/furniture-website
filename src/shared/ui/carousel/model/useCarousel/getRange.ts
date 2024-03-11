@@ -1,5 +1,5 @@
-import {adjustElements, getChildren} from "./utils";
-import {Range} from '../model';
+import {adjustElements, getChildren} from "../../lib/utils";
+import {Range} from '../index';
 
 export const getRange = (group: HTMLElement, startingChild?: number): Range => {
     const elements = getChildren<HTMLElement>(group);

@@ -1,2 +1,2 @@
-export * from './getRange';
-export * from './getScroll';
+export * from './utils';
+export * from './placeIndicators';

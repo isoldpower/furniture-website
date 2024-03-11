@@ -1,4 +1,4 @@
-import {useFormField} from "@/features/use-form/lib/useFormField";
+import {useFormField} from "./useFormField";
 
 export const useForm = () => {
     const nameField = useFormField(/^.{0,255}$/i);

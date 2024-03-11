@@ -1,8 +1,8 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Cite.module.scss';
-import {CiteData} from "@/entities/cite/model";
 import {QuoteClose, QuoteOpen} from "@/shared/icons";
+import {CiteData} from "../model";
 
 interface CiteProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: CiteData;

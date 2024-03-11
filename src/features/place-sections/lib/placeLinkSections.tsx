@@ -1,7 +1,6 @@
-import {LinkData} from "@/shared/ui/link/model";
 import classes from "@/entities/footer/ui/base/Footer.module.scss";
-import {AdaptiveLink} from "@/shared/ui/link/ui/AdaptiveLink";
-import {LinksSection} from "@/features/place-sections/model";
+import {LinksSection} from "../model";
+import {AdaptiveLink, LinkData} from "@/shared/ui";
 
 export const placeSections = (sections: LinksSection[]) => {
     return sections.map((section, key) => (

@@ -1,16 +1,19 @@
 import {ReactNode, useEffect, useState} from "react";
 import {Range} from "../types";
-import {getRange, getScroll} from "../../lib";
+import {getRange} from "./getRange";
+import {getScroll} from './getScroll';
+import {useDocumentSize} from "@/shared/lib";
 
 export const useCarousel = (children: ReactNode[], groupId: string) => {
     const [firstElement, setFirstElement] = useState<number>(1);
     const [currentRange, setCurrentRange] = useState<Range>({firstIncluded: 1, lastIncluded: 1});
+    const windowSize = useDocumentSize();
 
     useEffect(() => {
         const group = document.querySelector<HTMLElement>(`#${groupId}`);
         const range = getRange(group, firstElement);
         setCurrentRange(range);
-    }, [firstElement, groupId]);
+    }, [firstElement, groupId, windowSize]);
 
     useEffect(() => {
         const group = document.querySelector<HTMLElement>(`#${groupId}`);
@@ -19,7 +22,7 @@ export const useCarousel = (children: ReactNode[], groupId: string) => {
     }, [groupId, currentRange]);
 
     const setNextPage = () => {
-        setFirstElement(Math.min(children.length - 1, currentRange.lastIncluded + 1));
+        setFirstElement(Math.min(children.length, currentRange.lastIncluded + 1));
     }
 
     const setPreviousPage = () => {

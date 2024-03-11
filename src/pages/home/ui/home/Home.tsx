@@ -1,9 +1,12 @@
 import '@/app/scss/main.scss';
 import classes from './Home.module.scss';
 import {BaseHTMLAttributes, FC} from "react";
-import {Carousel} from "@/shared/ui";
 import {products} from "@/pages/home/api";
-import {DetailedProductCard} from "@/widgets/detailed-product-card/ui/DetailedProductCard";
+import {websiteRoutes} from "@/shared/lib";
+import {HeroDecorationsProvider, HeroSection} from "../index";
+import {Cite} from "@/entities";
+import {CallbackSection, CatalogDisplay} from "@/widgets";
+import {Button} from "@/shared/ui";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -12,39 +15,32 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
     return (
         <div className={`${classes.homePage__wrapper} ${className}`} {...props}>
             <div className={`${classes.homePage__content} cc-flex cc-flex-col cc-gap-15 cc-laptop-gap-18`}>
-                <div className={`${classes.homePage__featuredWrapper}`}>
-                    <section className={`${classes.homePage__featuredSection}`}>
-                        <Carousel data={{title: 'Кухни'}} id="1">
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                            <DetailedProductCard data={products[0]} />
-                        </Carousel>
-                    </section>
-                </div>
-                {/*<div className={`${classes.homePage__heroWrapper}`}>*/}
-                {/*    <section className={`${classes.homePage__heroSection} cc-main-gutter`}>*/}
-                {/*        <HeroDecorationsProvider className={`${classes.homePage__heroWrapper} cc-width-1of1 cc-main-gutter-content`}>*/}
-                {/*            <HeroSection className={`${classes.homePage__heroContent}`}/>*/}
-                {/*        </HeroDecorationsProvider>*/}
-                {/*    </section>*/}
-                {/*</div>*/}
-                {/*<div className={`${classes.homePage__citeSection}`}>*/}
-                {/*    <section className={`${classes.homePage__citeWrapper} cc-main-gutter`}>*/}
-                {/*        <Cite className={`${classes.homePage__cite} cc-main-gutter-content`} data={{*/}
-                {/*            paragraph: 'CozyCraft - производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.',*/}
-                {/*            descriptor: 'CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.'*/}
-                {/*        }}/>*/}
-                {/*    </section>*/}
-                {/*</div>*/}
-                {/*<div className={`${classes.homePage__callbackWrapper} cc-pb-15 cc-tablet-pb-17`}>*/}
-                {/*    <CallbackSection className={`${classes.homePage__callbackSection}`}/>*/}
-                {/*</div>*/}
+                <section className={`${classes.homePage__heroSection} cc-main-gutter`}>
+                    <HeroDecorationsProvider
+                        className={`${classes.homePage__heroWrapper} cc-width-1of1 cc-main-gutter-content`}>
+                        <HeroSection className={`${classes.homePage__heroContent}`}/>
+                    </HeroDecorationsProvider>
+                </section>
+                <section className={`${classes.homePage__citeWrapper} cc-main-gutter`}>
+                    <Cite className={`${classes.homePage__cite} cc-main-gutter-content`} data={{
+                        paragraph: 'CozyCraft - производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.',
+                        descriptor: 'CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.'
+                    }}/>
+                </section>
+                <section className={`${classes.homePage__featuredSection} cc-grid cc-gap-13 cc-laptop-gap-17`}>
+                    <CatalogDisplay data={{title: 'Кухни', href: '/catalog/kitchen', products: products}} id="1"/>
+                    <CatalogDisplay data={{title: 'Гостиные', href: '/catalog/livingroom', products: products}}
+                                    id="2"/>
+                    <CatalogDisplay data={{title: 'Спальни', href: '/catalog/bathroom', products: products}}
+                                    id="3"/>
+                    <div className="cc-main-gutter">
+                        <div className={`${classes.featuredSection__buttonWrapper} cc-main-gutter-content`}>
+                            <Button className="cc-main-gutter-content" data={{variant: 'accent'}} semantic="link"
+                                    to={websiteRoutes.catalog}>Перейти в каталог</Button>
+                        </div>
+                    </div>
+                </section>
+                <CallbackSection className={`${classes.homePage__callbackSection} cc-pb-15 cc-tablet-pb-17`}/>
             </div>
         </div>
     );

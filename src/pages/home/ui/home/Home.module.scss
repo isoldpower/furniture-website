@@ -5,3 +5,12 @@
     display: inline-block;
     background-color: $color-back-1;
 }
+
+.featuredSection__buttonWrapper {
+    width: 100%;
+
+    @include mq(laptop) {
+        width: auto;
+        display: inline-block;
+    }
+}
