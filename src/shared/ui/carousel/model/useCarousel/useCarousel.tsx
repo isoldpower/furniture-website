@@ -1,20 +1,16 @@
-import {ReactNode, useCallback, useEffect, useState} from "react";
+import {ReactNode, useEffect, useState} from "react";
 import {Range} from "../types";
 import {getRange, getScroll} from "../../lib";
 
 export const useCarousel = (children: ReactNode[], groupId: string) => {
-    let firstElement = 1;
+    const [firstElement, setFirstElement] = useState<number>(1);
     const [currentRange, setCurrentRange] = useState<Range>({firstIncluded: 1, lastIncluded: 1});
 
-    const updateRange = useCallback(() => {
+    useEffect(() => {
         const group = document.querySelector<HTMLElement>(`#${groupId}`);
         const range = getRange(group, firstElement);
         setCurrentRange(range);
     }, [firstElement, groupId]);
-
-    useEffect(() => {
-        updateRange();
-    }, [updateRange]);
 
     useEffect(() => {
         const group = document.querySelector<HTMLElement>(`#${groupId}`);
@@ -23,15 +19,13 @@ export const useCarousel = (children: ReactNode[], groupId: string) => {
     }, [groupId, currentRange]);
 
     const setNextPage = () => {
-        firstElement = Math.min(children.length - 1, currentRange.lastIncluded + 1);
-        updateRange();
+        setFirstElement(Math.min(children.length - 1, currentRange.lastIncluded + 1));
     }
 
     const setPreviousPage = () => {
         const possibleFirst = currentRange.firstIncluded - (currentRange.lastIncluded - currentRange.firstIncluded + 1);
-        firstElement = Math.max(1, possibleFirst);
-        updateRange();
+        setFirstElement(Math.max(1, possibleFirst));
     }
 
-    return {setNextPage, setPreviousPage, updateRange, currentRange};
+    return {setNextPage, setPreviousPage, currentRange};
 }

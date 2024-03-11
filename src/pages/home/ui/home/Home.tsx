@@ -1,11 +1,6 @@
 import '@/app/scss/main.scss';
 import classes from './Home.module.scss';
-import {CallbackSection} from "@/widgets/callback-section/ui/CallbackSection";
-import {HeroDecorationsProvider} from "@/pages/home/ui/hero-decorations/HeroDecorationsProvider";
 import {BaseHTMLAttributes, FC} from "react";
-import {HeroSection} from "@/pages/home/ui/hero-section/HeroSection";
-import {Cite} from "@/entities/cite/ui/Cite";
-import {ProductCard} from "@/entities/product/ui/card/ProductCard";
 import {Carousel} from "@/shared/ui";
 import {products} from "@/pages/home/api";
 import {DetailedProductCard} from "@/widgets/detailed-product-card/ui/DetailedProductCard";
