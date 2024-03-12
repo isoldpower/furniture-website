@@ -1,7 +1,4 @@
-export const websiteRoutes = {
-    home: '/',
-    catalog: '/catalog',
-}
+import {websiteRoutes} from "@/shared/lib";
 
 export const nameByRoute = (route: string) => {
     switch (route) {

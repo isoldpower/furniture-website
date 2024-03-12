@@ -1,12 +1,12 @@
 import '@/app/scss/main.scss';
 import classes from './Home.module.scss';
 import {BaseHTMLAttributes, FC} from "react";
-import {products} from "../api";
-import {websiteRoutes} from "@/shared/lib";
+import {websiteRoutes, sectionByPostfix} from "@/shared/lib";
 import {Button} from "@/shared/ui";
 import {AdvantagesGrid, CallbackSection, CatalogDisplay, ProcessGrid, MaterialsDisplay} from "@/widgets";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
 import {Cite} from "@/entities";
+import {getCatalogSections} from "@/pages/home/api";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -28,11 +28,9 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                     }}/>
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-grid cc-gap-13 cc-laptop-gap-17`}>
-                    <CatalogDisplay data={{title: 'Кухни', href: '/catalog/kitchen', products: products}} id="1"/>
-                    <CatalogDisplay data={{title: 'Гостиные', href: '/catalog/livingroom', products: products}}
-                                    id="2"/>
-                    <CatalogDisplay data={{title: 'Спальни', href: '/catalog/bathroom', products: products}}
-                                    id="3"/>
+                    {getCatalogSections().map((section, key) => (
+                        <CatalogDisplay data={{...section, href: sectionByPostfix(section.hrefPostfix)}} id={key.toString()} key={key}/>
+                    ))}
                     <div className="cc-main-gutter">
                         <div className={`${classes.featuredSection__buttonWrapper} cc-main-gutter-content`}>
                             <Button className="cc-main-gutter-content" data={{variant: 'accent'}} semantic="link"

@@ -5,7 +5,7 @@ import {Link, useLocation} from "react-router-dom";
 import {Slash} from "@/shared/icons";
 import {PagePathData} from "../model";
 import {getPathChunks} from "../lib";
-import {nameByRoute} from "@/shared/lib";
+import {nameByRoute} from "@/shared/lib/routing";
 
 interface PagePathProps extends BaseHTMLAttributes<HTMLDivElement> {
     data?: PagePathData;

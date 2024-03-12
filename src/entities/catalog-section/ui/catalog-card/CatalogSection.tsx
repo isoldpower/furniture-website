@@ -14,7 +14,7 @@ export const CatalogSection: FC<CatalogSectionProps> = ({className, data, ...pro
         <div className={`${classes.catalogSection__wrapper} ${className}`} {...props}>
             <div className={`${classes.catalogSection__content}`}>
                 <div className={`${classes.catalogSection__imageWrapper}`}>
-                    <ProgressiveImage image={data.image} className={`${classes.catalogSection__image}`} />
+                    <ProgressiveImage className={`${classes.catalogSection__image}`} image={data.image} />
                 </div>
                 <div className={`${classes.catalogSection__headingWrapper}`}>
                     <h2 className={`${classes.catalogSection__heading} cc-heading-3 cc-clr-neutral-000`}>{data.title}</h2>

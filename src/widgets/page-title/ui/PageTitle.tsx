@@ -1,9 +1,9 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PageTitle.module.scss';
-import {nameByRoute} from "@/shared/lib/constants";
 import {useLocation} from "react-router-dom";
 import {PagePath} from "@/features";
+import {nameByRoute} from "@/shared/lib";
 
 interface PageTitleData {
 }
