@@ -5,3 +5,5 @@ export * from './product';
 export * from './callback-form';
 export * from './catalog-spoiler';
 export * from './advantage';
+
+//TODO: Decompose entities. Change models and interfaces, move them in appropriate place

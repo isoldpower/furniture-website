@@ -1,7 +1,8 @@
+import {ReactNode} from "react";
+
 export interface CarouselData {
-    title: string;
-    href: string;
-    buttonText: string;
+    title: ReactNode;
+    button: ReactNode;
 }
 
 export interface Range {

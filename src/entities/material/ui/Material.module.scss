@@ -1,0 +1,12 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.material__wrapper {
+
+}
+
+.material__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

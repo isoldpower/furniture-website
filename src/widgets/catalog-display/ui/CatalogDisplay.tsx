@@ -19,16 +19,21 @@ interface CatalogDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ...props}: CatalogDisplayProps) => {
     const width = useDocumentSize().x;
+    const items = data.products.map((product, key) => (
+        <DetailedProductCard data={product} key={key} />
+    ));
 
     if (width >= breakpoints.laptop) return <CatalogSpoiler data={data} />
     return (
         <div className={`${classes.catalogDisplay__wrapper} ${className}`} {...props}>
             <div className={`${classes.catalogDisplay__content} cc-grid cc-gap-7`}>
-                <Carousel data={{...data, buttonText: 'Посмотреть все товары'}} id={id}>
-                    {data.products.map((product, key) => (
-                        <DetailedProductCard data={product} key={key} />
-                    ))}
-                </Carousel>
+                <Carousel data={{
+                    ...data,
+                    title: <h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>,
+                    button: <div className={`${classes.catalogDisplay__button} cc-grid cc-pt-7`}>
+                        <MoreLink to={data.href}>Посмотреть все товары</MoreLink>
+                    </div>
+                }} id={id}>{items}</Carousel>
             </div>
         </div>
     );
