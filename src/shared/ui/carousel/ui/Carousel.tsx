@@ -42,7 +42,9 @@ export const Carousel: FC<CarouselProps> = ({className, children, data, ...props
                 <div className={`${classes.carousel__indicatorsWrapper} cc-flex cc-gap-2 cc-pt-7 cc-width-1of1 cc-justify-content-center`}>
                     {placeIndicators(carousel.currentRange, children.length)}
                 </div>
-                <MoreLink to={data.href} className={`${classes.carousel__button} cc-width-1of1 cc-mt-7`}>{data.buttonText}</MoreLink>
+                <div className={`${classes.carousel__button} cc-grid cc-pt-7`}>
+                    <MoreLink to={data.href}>{data.buttonText}</MoreLink>
+                </div>
             </div>
         </div>
     );
