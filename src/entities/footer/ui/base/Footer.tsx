@@ -1,9 +1,9 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Footer.module.scss';
-import {FooterData} from "@/entities/footer/model";
-import {FooterContacts} from "@/entities/footer/ui/contacts/FooterContacts";
-import {FooterBasement} from "@/entities/footer/ui/basement/FooterBasement";
+import {FooterData} from "../../model";
+import {FooterContacts} from "../contacts/FooterContacts";
+import {FooterBasement} from "../basement/FooterBasement";
 
 interface FooterProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: FooterData;

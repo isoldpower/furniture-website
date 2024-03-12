@@ -1,11 +1,11 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PagePath.module.scss';
-import {PagePathData} from "@/features/page-path/model";
 import {Link, useLocation} from "react-router-dom";
-import {nameByRoute} from "@/shared/constants";
 import {Slash} from "@/shared/icons";
-import {getPathChunks} from "@/features/page-path/lib";
+import {PagePathData} from "../model";
+import {getPathChunks} from "../lib";
+import {nameByRoute} from "@/shared/lib";
 
 interface PagePathProps extends BaseHTMLAttributes<HTMLDivElement> {
     data?: PagePathData;

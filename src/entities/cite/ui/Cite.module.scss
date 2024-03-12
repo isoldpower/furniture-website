@@ -1,0 +1,17 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.cite__descriptorWrapper {
+    color: $color-soft-text-1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cite__paragraph {
+    line-height: $body-line-height;
+    max-width: 940px;
+}
+
+.cite__descriptor {
+    max-width: 580px;
+}

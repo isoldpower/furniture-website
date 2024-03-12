@@ -2,7 +2,8 @@
 
 .moreLink__wrapper:is(:hover, :focus-visible) {
     color: $color-accent-500;
-    outline: none;
+    outline: 1px solid $color-neutral-080;
+    background-color: transparent;
 
     & > * > span {
         transform: rotate(-90deg);

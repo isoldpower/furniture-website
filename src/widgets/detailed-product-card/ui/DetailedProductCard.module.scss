@@ -1,0 +1,8 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.test {
+    background-color: black;
+    display: flex;
+    width: 100%;
+}

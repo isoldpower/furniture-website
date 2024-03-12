@@ -1,14 +1,12 @@
 import {BaseHTMLAttributes, FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './Header.module.scss';
-import {UseHamburgerType} from "@/features/use-hamburger/model";
-import {Icon, Logo, Menu} from "@/shared/icons";
+import {Icon, Logo} from "@/shared/icons";
 import {Link} from "react-router-dom";
 
 interface HeaderData {
-    useHamburger: UseHamburgerType;
     navigationElements: ReactNode[];
-    switchHeader: () => void;
+    hamburger: ReactNode;
 }
 
 interface HeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
@@ -37,9 +35,7 @@ export const Header: FC<HeaderProps> = ({className, data, ...props}: HeaderProps
                     </ul>
                 </nav>
                 <address className={`${classes.header__phoneNumber} cc-clr-accent-500`}>+7 999 123-34-54</address>
-                <button className={`${classes.header__hamburgerButton}`} onClick={data.switchHeader} type='button'>
-                    <Menu height={44} width={44} />
-                </button>
+                <div className={`${classes.header__hamburgerButton}`}>{data.hamburger}</div>
             </div>
         </header>
     );

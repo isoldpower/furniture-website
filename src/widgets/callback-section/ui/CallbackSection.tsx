@@ -1,11 +1,9 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CallbackSection.module.scss';
-import {CallbackForm} from "@/entities/callback-form/ui/CallbackForm";
-import {Button} from "@/shared/ui/button/ui/Button";
-import {InputField} from "@/shared/ui/input-field/ui/InputField";
-import {AdaptiveLink} from "@/shared/ui/link/ui/AdaptiveLink";
-import {useForm} from "@/features/use-form/lib";
+import {CallbackForm} from "@/entities";
+import {useForm} from "@/features";
+import {AdaptiveLink, Button, InputField} from "@/shared/ui";
 
 interface CallbackSectionData {
 }

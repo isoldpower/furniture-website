@@ -1,6 +1,6 @@
 import {ModalState, WindowParams} from "../types";
 import {excludeItem, getAffectedWindow} from "./utilities";
-import {getActiveModalsLayer, getInactiveModalsLayer} from "@/shared/constants/layers";
+import {getActiveModalsLayer, getInactiveModalsLayer} from "@/shared/lib/constants/layers";
 
 export const addWindowToTrack = (state: ModalState, payload: WindowParams) => {
     if(getAffectedWindow(state.inactiveWindows, payload) || getAffectedWindow(state.activeWindows, payload)) return;
