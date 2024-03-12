@@ -1,4 +1,27 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
-// Basic selectors here
+.materialsDisplay__grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.materialsDisplay__heading {
+    font-size: 42px;
+
+    @include mq(laptop) {
+        font-size: 64px;
+    }
+}
+
+.materialsDisplay__descriptor {
+    color: $color-soft-text-2;
+}
+
+.materialsDisplay__carousel > * {
+    min-height: 100%;
+}
+
+.materialsDisplay__buttonWrapper {
+    display: grid;
+    justify-items: center;
+}

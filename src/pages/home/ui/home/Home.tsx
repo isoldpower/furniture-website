@@ -8,7 +8,7 @@ import {Cite} from "@/entities";
 import {AdvantagesGrid, CallbackSection, CatalogDisplay} from "@/widgets";
 import {Button} from "@/shared/ui";
 import {ProcessGrid} from "@/widgets/process-grid/ui/ProcessGrid";
-import {Material} from "@/entities/material/ui/Material";
+import {MaterialsDisplay} from "@/widgets/materials-display/ui/MaterialsDisplay";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -53,9 +53,9 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                         <ProcessGrid />
                     </div>
                 </section>
-                <section className={`${classes.homePage__materialsSection} cc-main-gutter`}>
-                    <div className={`${classes.materialsSection__wrapper} cc-main-gutter-content`}>
-                        <Material data={{src: 'https://i.ibb.co/b6K5yLp/wood.png', title: 'Массив', paragraph: 'Массив — натуральное дерево. Основное его отличие от ДСП, МДФ или ДВП в том, что это всегда цельные куски натурального дерева, а не опилки, стружки и другие древесные материалы.', href: '/materials/wood', buttonText: 'Подробнее'}} />
+                <section className={`${classes.homePage__materialsSection}`}>
+                    <div className={`${classes.materialsSection__wrapper}`}>
+                        <MaterialsDisplay />
                     </div>
                 </section>
                 <CallbackSection className={`${classes.homePage__callbackSection} cc-pb-15 cc-tablet-pb-17`}/>

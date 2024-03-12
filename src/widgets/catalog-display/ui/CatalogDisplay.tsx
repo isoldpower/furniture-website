@@ -26,7 +26,7 @@ export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ..
     if (width >= breakpoints.laptop) return <CatalogSpoiler data={data} />
     return (
         <div className={`${classes.catalogDisplay__wrapper} ${className}`} {...props}>
-            <div className={`${classes.catalogDisplay__content} cc-grid cc-gap-7`}>
+            <div className={`${classes.catalogDisplay__content}`}>
                 <Carousel data={{
                     ...data,
                     title: <h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>,

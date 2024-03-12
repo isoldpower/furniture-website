@@ -1,10 +1,15 @@
+import {ReactNode} from "react";
+
 export interface MaterialData {
     src: string;
     title: string;
     paragraph: string;
-    href: string;
+    hrefPostfix: string;
 }
 
-export interface MaterialDisplayData extends MaterialData {
-    buttonText: string;
+export interface MaterialDisplayData {
+    title: string;
+    paragraph: string;
+    src: string;
+    button: ReactNode;
 }

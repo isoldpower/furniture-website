@@ -6,7 +6,7 @@ import {CarouselData, useCarousel} from "../model";
 import {placeIndicators} from "@/shared/ui/carousel/lib";
 
 interface CarouselProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data?: CarouselData;
+    data: CarouselData;
     children: ReactNode[];
     id: string;
 }

@@ -2,11 +2,25 @@
 @use './styles';
 
 .material__wrapper {
-
+    border: 1px solid $color-neutral-050;
 }
 
 .material__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.material__imageWrapper {
+    width: 92px;
+    height: 92px;
+
+    @include mq(tablet) {
+        width: 128px;
+        height: 128px;
+    }
+}
+
+.material__paragraph {
+    color: $color-soft-text-1;
 }
