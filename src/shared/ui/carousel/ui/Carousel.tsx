@@ -4,6 +4,7 @@ import classes from './Carousel.module.scss';
 import {ArrowLeft, ArrowRight} from "@/shared/icons";
 import {CarouselData, useCarousel} from "../model";
 import {placeIndicators} from "@/shared/ui/carousel/lib";
+import {MoreLink} from "@/shared/ui";
 
 interface CarouselProps extends BaseHTMLAttributes<HTMLDivElement> {
     data?: CarouselData;
@@ -41,6 +42,7 @@ export const Carousel: FC<CarouselProps> = ({className, children, data, ...props
                 <div className={`${classes.carousel__indicatorsWrapper} cc-flex cc-gap-2 cc-pt-7 cc-width-1of1 cc-justify-content-center`}>
                     {placeIndicators(carousel.currentRange, children.length)}
                 </div>
+                <MoreLink to={data.href} className={`${classes.carousel__button} cc-width-1of1 cc-mt-7`}>{data.buttonText}</MoreLink>
             </div>
         </div>
     );

@@ -24,16 +24,11 @@ export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ..
     return (
         <div className={`${classes.catalogDisplay__wrapper} ${className}`} {...props}>
             <div className={`${classes.catalogDisplay__content} cc-grid cc-gap-7`}>
-                <Carousel data={data} id={id}>
+                <Carousel data={{...data, buttonText: 'Посмотреть все товары'}} id={id}>
                     {data.products.map((product, key) => (
                         <DetailedProductCard data={product} key={key} />
                     ))}
                 </Carousel>
-                <div className="cc-main-gutter">
-                    <div className="cc-main-gutter-content cc-grid">
-                        <MoreLink to={data.href}>Посмотреть все товары</MoreLink>
-                    </div>
-                </div>
             </div>
         </div>
     );
