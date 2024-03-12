@@ -1,14 +1,12 @@
 import '@/app/scss/main.scss';
 import classes from './Home.module.scss';
 import {BaseHTMLAttributes, FC} from "react";
-import {products} from "@/pages/home/api";
+import {products} from "../api";
 import {websiteRoutes} from "@/shared/lib";
-import {HeroDecorationsProvider, HeroSection} from "../index";
-import {Cite} from "@/entities";
-import {AdvantagesGrid, CallbackSection, CatalogDisplay} from "@/widgets";
 import {Button} from "@/shared/ui";
-import {ProcessGrid} from "@/widgets/process-grid/ui/ProcessGrid";
-import {MaterialsDisplay} from "@/widgets/materials-display/ui/MaterialsDisplay";
+import {AdvantagesGrid, CallbackSection, CatalogDisplay, ProcessGrid, MaterialsDisplay} from "@/widgets";
+import {HeroDecorationsProvider, HeroSection} from "./mixins";
+import {Cite} from "@/entities";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

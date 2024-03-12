@@ -5,6 +5,7 @@ import {breakpoints, useDocumentSize} from "@/shared/lib";
 import {CatalogSpoiler, ProductData} from "@/entities";
 import {Carousel, MoreLink} from "@/shared/ui";
 import {DetailedProductCard} from "@/widgets";
+import {products} from "@/pages/home/api";
 
 interface CatalogDisplayData {
     title: string;
@@ -23,7 +24,13 @@ export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ..
         <DetailedProductCard data={product} key={key} />
     ));
 
-    if (width >= breakpoints.laptop) return <CatalogSpoiler data={data} />
+    if (width >= breakpoints.laptop) return (
+        <CatalogSpoiler data={{...data,
+            button: <MoreLink to={data.href}>Смотреть все товары</MoreLink>}}>
+            {products.map((product, key) => (<DetailedProductCard data={product} key={key}/>))}
+        </CatalogSpoiler>
+    );
+
     return (
         <div className={`${classes.catalogDisplay__wrapper} ${className}`} {...props}>
             <div className={`${classes.catalogDisplay__content}`}>

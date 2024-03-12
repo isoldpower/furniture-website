@@ -1,14 +1,18 @@
 //TODO: Encode SVG into JSON (replace images hrefs with SVG icons loaded from DB)
 
 export interface ProcessData {
-    index: number;
+    id: number;
     paragraph: string;
-    src: string;
+    imgSrc: string;
     alt?: string;
 }
 
 type ProcessVariant = 'default' | 'primary';
 
-export interface ProcessStepData extends ProcessData {
+export interface ProcessDisplayData {
+    order: string;
+    paragraph: string;
+    imgSrc: string;
+    alt?: string;
     variant?: ProcessVariant;
 }

@@ -1,3 +1,4 @@
 import advantagesJson from './advantages.json';
+import {AdvantageData} from "@/entities";
 
-export const advantages = advantagesJson.advantages;
+export const advantages: AdvantageData[] = advantagesJson.advantages;

@@ -1,7 +1,6 @@
-import {ProductData} from "@/entities/product/model";
+import {ReactNode} from "react";
 
 export interface CatalogSpoilerData {
     title: string;
-    href: string;
-    products: ProductData[];
+    button: ReactNode;
 }

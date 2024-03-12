@@ -1,2 +1,2 @@
 export {ProductCard} from './ui/card/ProductCard';
-export * from './model';
+export type {ProductData} from './model';

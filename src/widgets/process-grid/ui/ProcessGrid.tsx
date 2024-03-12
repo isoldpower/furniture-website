@@ -12,8 +12,11 @@ export const ProcessGrid: FC<ProcessGridProps> = ({className, ...props}: Process
         <div className={`${classes.processGrid__wrapper} ${className}`} {...props}>
             <div className={`${classes.processGrid__content} cc-grid cc-gap-5`}>
                 {steps.map((step, key) => (
-                    <ProcessStep className={`${classes.processGrid__item} cc-grid`} data={{...step, variant: key % 2 == 0 ? 'default' : 'primary'}}
-                                 key={key} />
+                    <ProcessStep className={`${classes.processGrid__item} cc-grid`} data={{
+                        ...step,
+                        order: ('0' + step.id).slice(-2),
+                        variant: key % 2 == 0 ? 'default' : 'primary'
+                    }} key={key} />
                 ))}
             </div>
         </div>

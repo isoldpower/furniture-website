@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Material.module.scss';
-import {MaterialDisplayData} from "@/entities/material/model";
+import {MaterialDisplayData} from "../model";
 
 interface MaterialProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: MaterialDisplayData;

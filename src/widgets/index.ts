@@ -6,3 +6,5 @@ export * from './detailed-product-card';
 export * from './catalog-display';
 export * from './callback-section';
 export * from './advantages-grid';
+export * from './materials-display';
+export * from './process-grid';

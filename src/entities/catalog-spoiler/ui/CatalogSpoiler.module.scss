@@ -1,11 +1,6 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
-.catalogSpoiler__item.important {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .catalogSpoiler__invisible {
     width: 0;
     height: 0;
@@ -21,7 +16,7 @@
     }
 }
 
-.catalogSpoiler__moreLink {
+.catalogSpoiler__moreLink > * {
     display: flex;
     justify-content: center;
     align-items: center;

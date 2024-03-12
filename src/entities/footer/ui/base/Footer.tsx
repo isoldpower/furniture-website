@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Footer.module.scss';
-import {FooterData} from "@/entities/footer/model";
+import {FooterData} from "../../model";
 import {FooterContacts} from "../contacts/FooterContacts";
 import {FooterBasement} from "../basement/FooterBasement";
 
