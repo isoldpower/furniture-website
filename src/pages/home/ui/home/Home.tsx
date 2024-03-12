@@ -7,6 +7,7 @@ import {HeroDecorationsProvider, HeroSection} from "../index";
 import {Cite} from "@/entities";
 import {AdvantagesGrid, CallbackSection, CatalogDisplay} from "@/widgets";
 import {Button} from "@/shared/ui";
+import {ProcessGrid} from "@/widgets/process-grid/ui/ProcessGrid";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -43,6 +44,12 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                 <section className={`${classes.homePage__advantagesSection} cc-main-gutter`}>
                     <div className={`${classes.advantagesSection__wrapper} cc-main-gutter-content`}>
                         <AdvantagesGrid />
+                    </div>
+                </section>
+                <section className={`${classes.homePage__processSection} cc-main-gutter`}>
+                    <div className={`${classes.processSection__wrapper} cc-main-gutter-content`}>
+                        <h2 className={`${classes.processSection__heading} cc-pb-7 cc-laptop-pb-11`}>Этапы работы</h2>
+                        <ProcessGrid />
                     </div>
                 </section>
                 <CallbackSection className={`${classes.homePage__callbackSection} cc-pb-15 cc-tablet-pb-17`}/>

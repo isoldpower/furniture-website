@@ -1,0 +1,44 @@
+{
+  "steps": [
+    {
+      "index": 1,
+      "paragraph": "Клиент оставляет зявку на консультацию",
+      "src": "https://i.ibb.co/cch15yj/phone.png"
+    },
+    {
+      "index": 2,
+      "paragraph": "Менеджер в индивидуальном порядке отвечает на все интересующие вопросы, подбирает дизайн-проект",
+      "src": "https://i.ibb.co/PDHx8yq/individual.png"
+    },
+    {
+      "index": 3,
+      "paragraph": "Консультация клиента по основным вопросам",
+      "src": "https://i.ibb.co/R7Y4G7s/paper.png"
+    },
+    {
+      "index": 4,
+      "paragraph": "Замерщик выезжает на объект, отрисовывает второй эскиз проекта, адаптированный под особенности места для мебели",
+      "src": "https://i.ibb.co/8zXCfgB/ruler.png"
+    },
+    {
+      "index": 5,
+      "paragraph": "Расчётный менеджер называет цену проекта.\nКлиент подписывает договор и вносит предоплату в размере 50%",
+      "src": "https://i.ibb.co/8g1YMhG/sign.png"
+    },
+    {
+      "index": 6,
+      "paragraph": "Фабрика изготавливает проект и доставляет в обговоренное время",
+      "src": "https://i.ibb.co/Jpn8368/cabin.png"
+    },
+    {
+      "index": 7,
+      "paragraph": "Клиент оплачивает оставшие 50%",
+      "src": "https://i.ibb.co/3MCvPK1/check.png"
+    },
+    {
+      "index": 8,
+      "paragraph": "Опционально сборщик подьезжает ко времени доставки и исполняет заказ",
+      "src": "https://i.ibb.co/JK6zJTq/worker.png"
+    }
+  ]
+}
