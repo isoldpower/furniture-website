@@ -1,4 +1,4 @@
-//TODO: Encode SVG into JSON (replace images hrefs with SVG icons loaded from DB)
+type ProcessVariant = 'default' | 'primary';
 
 export interface ProcessData {
     id: number;
@@ -6,8 +6,6 @@ export interface ProcessData {
     imgSrc: string;
     alt?: string;
 }
-
-type ProcessVariant = 'default' | 'primary';
 
 export interface ProcessDisplayData {
     order: string;
