@@ -7,3 +7,4 @@ export * from './catalog-spoiler';
 export * from './advantage';
 export * from './material';
 export * from './process-step';
+export * from './catalog-section';

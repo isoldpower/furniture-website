@@ -1,3 +1,3 @@
-export * from './routeTree';
+export * from './navigationTree';
 export * from './websiteRoutes';
 export * from './catalogRouting';

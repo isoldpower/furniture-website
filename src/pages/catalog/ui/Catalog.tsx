@@ -2,9 +2,9 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Catalog.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets";
-import {CatalogSection} from "@/entities/catalog-section/ui/catalog-card/CatalogSection";
 import {Link} from "react-router-dom";
 import {products} from "@/shared/api";
+import {CatalogSectionCard} from "@/entities";
 
 interface CatalogProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -13,7 +13,7 @@ export const Catalog: FC<CatalogProps> = ({className, ...props}: CatalogProps) =
     const sections = products.map((section, key) => (
         <li key={key}>
             <Link to={`/catalog${section.hrefPostfix}`}>
-                <CatalogSection data={section} tabIndex={0}/>
+                <CatalogSectionCard data={section} tabIndex={0}/>
             </Link>
         </li>
     ));

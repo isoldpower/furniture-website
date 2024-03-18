@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './PageTitle.module.scss';
 import {useLocation} from "react-router-dom";
 import {PagePath} from "@/features";
-import {nameByRoute} from "@/shared/lib";
+import {getPageByRoute} from "@/shared/lib";
 
 interface PageTitleData {
 }
@@ -14,7 +14,7 @@ interface PageTitleProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 export const PageTitle: FC<PageTitleProps> = ({className, ...props}: PageTitleProps) => {
     const path = useLocation().pathname;
-    const pageName = nameByRoute(path);
+    const pageName = getPageByRoute(path);
 
     return (
         <div className={`${classes.pageTitle__wrapper} ${className}`} {...props}>
