@@ -12,7 +12,7 @@ export const getPathChunks = (path: string): string[] => {
 }
 
 const nthIndexOf = (string: string, subString: string, index: number) => {
-    let length = string.length;
+    const length = string.length;
     let i = -1;
 
     while (index-- && i++ < length) {

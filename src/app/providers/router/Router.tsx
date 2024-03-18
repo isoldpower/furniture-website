@@ -1,10 +1,10 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createHashRouter} from "react-router-dom";
 import {Suspense} from "react";
 import {App} from "@/app/App";
 import {Home} from "@/pages/home";
 import {websiteRoutes} from "@/shared/lib";
 import {Catalog} from "@/pages/catalog/ui/Catalog";
-import {CatalogSection} from "@/pages/catalog-section/ui/CatalogSection";
+import {CatalogSectionPage} from "@/pages/catalog-section/ui/CatalogSectionPage";
 import {ItemPage} from "@/pages/item-page/ui/ItemPage";
 
 const routes = [
@@ -33,7 +33,7 @@ const routes = [
                 path: websiteRoutes.catalog + '/:section',
                 element:
                     <Suspense fallback="Loading...">
-                        <CatalogSection />
+                        <CatalogSectionPage />
                     </Suspense>
             },
             {
@@ -47,5 +47,5 @@ const routes = [
     }
 ]
 
-export const router = createBrowserRouter(routes);
+export const router = createHashRouter(routes);
 export default routes;

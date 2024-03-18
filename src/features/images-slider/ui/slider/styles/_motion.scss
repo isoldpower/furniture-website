@@ -1,3 +1,5 @@
 @use '@/app/scss/useMain' as *;
 
-// Interactions code
+.imagesSlider__wrapper:hover {
+    cursor: crosshair;
+}

@@ -9,6 +9,7 @@ import {DetailedProductCard} from "@/widgets";
 interface CatalogDisplayData {
     title: string;
     href: string;
+    hrefPostfix: string;
     products: ProductData[];
 }
 
@@ -20,13 +21,13 @@ interface CatalogDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ...props}: CatalogDisplayProps) => {
     const width = useDocumentSize().x;
     const items = data.products.map((product, key) => (
-        <DetailedProductCard data={product} key={key} />
+        <DetailedProductCard data={product} key={key} sectionPostfix={data.hrefPostfix} />
     ));
 
     if (width >= breakpoints.laptop) return (
         <CatalogSpoiler data={{...data,
             button: <MoreLink to={data.href}>Смотреть все товары</MoreLink>}}>
-            {data.products.map((product, key) => (<DetailedProductCard data={product} key={key}/>))}
+            {items}
         </CatalogSpoiler>
     );
 
