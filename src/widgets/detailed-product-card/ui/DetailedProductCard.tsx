@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './DetailedProductCard.module.scss';
 import {ProductCard, ProductData} from "@/entities";
-import {ImagesSlider} from "@/features";
+import {ImagesHover} from "@/features";
 import {websiteRoutes} from "@/shared/lib";
 
 interface DetailedProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
@@ -18,7 +18,7 @@ export const DetailedProductCard: FC<DetailedProductCardProps> = ({className, da
             title: data.title,
             materials: data.materials,
             href: href,
-            displayImages: <ImagesSlider data={data} />
+            displayImages: <ImagesHover data={data} />
         }} />
     );
 };

@@ -13,7 +13,7 @@ interface OpenCatalogProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const OpenCatalog: FC<OpenCatalogProps> = ({className, children, ...props}: OpenCatalogProps) => {
     const switchCatalog = () => {
-        console.log('open catalog');
+        console.log('open catalog-page');
     }
 
     return (

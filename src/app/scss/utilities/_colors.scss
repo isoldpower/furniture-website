@@ -1,4 +1,4 @@
-@use "../abstracts/index" as *;
+@use "../abstracts" as *;
 
 @each $color, $shade-map in $active-theme {
     @each $shade, $value in $shade-map {

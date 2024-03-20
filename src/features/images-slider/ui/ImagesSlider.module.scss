@@ -1,0 +1,140 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.imagesSlider__content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: $size-2;
+
+    @include mq(laptop) {
+        flex-direction: row;
+        gap: $column-spacing;
+    }
+}
+
+.imagesSlider__previewsWrapper {
+    flex-direction: row;
+    width: 100%;
+
+    @include mq(laptop) {
+        flex-direction: column;
+        width: calc(2/7 * 100%);
+    }
+
+    @include mq(large) {
+        width: calc(1/7 * 100%);
+    }
+}
+
+
+.imagesSlider__currentImage {
+    width: 100%;
+    aspect-ratio: 16/10;
+    max-height: 396px;
+    object-fit: cover;
+
+    @include mq(tablet) {
+        max-height: 480px;
+    }
+}
+
+.imageSlider__imageWrapper {
+    width: 100%;
+
+    @include mq(laptop) {
+        width: calc(5/7 * 100%);
+    }
+
+    @include mq(large) {
+        width: calc(2/7 * 100%);
+    }
+}
+
+.imagesSlider__horizontalPreview {
+    @include mq(laptop) {
+        display: none;
+    }
+}
+
+.imagesSlider__horizontalItem {
+    padding-left: $size-1;
+    padding-right: $size-1;
+    box-sizing: border-box;
+    flex-basis: calc(1/3 * 100%);
+
+    @include mq(30em) {
+        flex-basis: calc(1/4 * 100%);
+    }
+
+    @include mq(tablet) {
+        flex-basis: calc(1/5 * 100%);
+    }
+
+    @include mq(50em) {
+        flex-basis: calc(1/6 * 100%);
+    }
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+.imagesSlider__verticalPreview {
+    display: none;
+
+    @include mq(laptop) {
+        display: inline;
+    }
+}
+
+.imagesSlider__previewWrapper {
+    height: 80px;
+}
+
+.imagesSlider__preview {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+
+    @include mq(laptop) {
+        height: auto;
+    }
+
+    &[aria-selected='true'] {
+        outline: 2px solid $color-accent-500;
+        outline-offset: -2px;
+    }
+}
+
+.imageSlider__leftArrow,
+.imageSlider__rightArrow{
+    z-index: 1;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    top: 0;
+    transform: translateY(25%);
+
+    & > svg {
+        width: 100%;
+        height: 100%;
+        color: white;
+
+        & > rect {
+            fill-opacity: 1;
+            color: $color-accent-500;
+        }
+    }
+}
+
+.imageSlider__leftArrow {
+    left: 0;
+}
+
+.imageSlider__rightArrow {
+    right: 0;
+}

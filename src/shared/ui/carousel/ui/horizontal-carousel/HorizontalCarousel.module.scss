@@ -1,0 +1,52 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles';
+
+.horizontalCarousel__wrapper {
+    overflow: hidden;
+}
+
+.horizontalCarousel__itemsGroup {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+    transition: 0.4s ease-in-out;
+}
+
+.horizontalCarousel__itemWrapper {
+    white-space: normal;
+    display: inline-flex;
+    box-sizing: content-box;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &[aria-current=false] {
+        pointer-events: none;
+        opacity: 0.3;
+    }
+}
+
+.horizontalCarousel__title:not(:empty) {
+    margin-bottom: $size-7;
+}
+
+.horizontalCarousel__controls {
+    position: static;
+}
+
+.horizontalCarousel__arrow {
+    display: contents;
+
+    &[aria-disabled='true'] {
+        visibility: hidden;
+    }
+}
+
+.horizontalCarousel__indicator {
+    width: 8px;
+    height: 8px;
+    background-color: $color-back-2;
+
+    &[aria-selected='true'] {
+        background-color: $color-accent-500;
+    }
+}

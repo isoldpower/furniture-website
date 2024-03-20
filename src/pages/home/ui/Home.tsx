@@ -27,7 +27,7 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                         descriptor: 'CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.'
                     }}/>
                 </section>
-                <section className={`${classes.homePage__featuredSection} cc-grid cc-gap-13 cc-laptop-gap-17`}>
+                <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
                     {getCatalogSections().map((section, key) => (
                         <CatalogDisplay data={{...section, href: sectionByPostfix(section.hrefPostfix)}} id={key.toString()} key={key}/>
                     ))}

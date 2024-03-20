@@ -1,0 +1,15 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.itemOverview__heading {
+    font-size: 40px;
+
+    @include mq(tablet) {
+        font-size: 54px;
+    }
+}
+
+.materialOverview__imageWrapper {
+    width: 64px;
+    height: 64px;
+}

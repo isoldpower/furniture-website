@@ -1,16 +1,16 @@
 import {BaseHTMLAttributes, FC, useState} from "react";
 import '@/app/scss/main.scss';
-import classes from './ImagesSlider.module.scss';
-import {ImagesSliderData} from "@/features/images-slider/model";
+import classes from './ImagesHover.module.scss';
 import {ProgressiveImage} from "@/shared/ui";
-import {ImageBar} from "@/features/images-slider/ui/bar/ImageBar";
-import {ImageAreas} from "@/features/images-slider/ui/areas/ImageAreas";
+import {ImageBar} from "@/features/images-hover/ui/bar/ImageBar";
+import {ImageAreas} from "@/features/images-hover/ui/areas/ImageAreas";
+import {ImagesHoverData} from "@/features/images-hover/model";
 
-interface ImagesSliderProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: ImagesSliderData;
+interface ImagesHoverProps extends BaseHTMLAttributes<HTMLDivElement> {
+    data: ImagesHoverData;
 }
 
-export const ImagesSlider: FC<ImagesSliderProps> = ({className, data, ...props}: ImagesSliderProps) => {
+export const ImagesHover: FC<ImagesHoverProps> = ({className, data, ...props}: ImagesHoverProps) => {
     const [active, setActive] = useState<number>(0);
 
     return (

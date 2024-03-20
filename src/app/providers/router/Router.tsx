@@ -3,9 +3,9 @@ import {Suspense} from "react";
 import {App} from "@/app/App";
 import {Home} from "@/pages/home";
 import {websiteRoutes} from "@/shared/lib";
-import {Catalog} from "@/pages/catalog/ui/Catalog";
-import {CatalogSectionPage} from "@/pages/catalog-section/ui/CatalogSectionPage";
+import {CatalogSectionPage} from "@/pages/section-page/ui/CatalogSectionPage";
 import {ItemPage} from "@/pages/item-page/ui/ItemPage";
+import {Catalog} from "@/pages/catalog-page/ui/Catalog";
 
 const routes = [
     {

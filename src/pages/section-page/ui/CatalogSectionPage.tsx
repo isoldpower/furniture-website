@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom";
 import {CallbackSection, DetailedProductCard, PageTitle} from "@/widgets";
 import {products} from "@/shared/api";
 import {SectionData} from "@/entities";
-import {CustomProject} from "@/pages/catalog-section/ui/mixins/custom-project/CustomProject";
+import {CustomProject} from "@/pages/section-page/ui/mixins/custom-project/CustomProject";
 
 interface CatalogSectionPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

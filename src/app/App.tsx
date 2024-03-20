@@ -1,12 +1,17 @@
 import classes from '@/app/App.module.scss';
-import {Outlet} from 'react-router-dom';
+import {Outlet, useLocation} from 'react-router-dom';
 import {WebsiteHeader} from "@/widgets/website-header/ui/WebsiteHeader";
 import {layers} from "@/shared/lib/constants/layers";
 import {ProvideSideHeader} from "@/app/providers/modal/side-header/ProvideSideHeader";
 import {SideHeader} from "@/widgets/side-header/ui/SideHeader";
 import {WebsiteFooter} from "@/widgets/website-footer/ui/WebsiteFooter";
+import {useEffect} from "react";
 
 export const App = () => {
+    const location = useLocation();
+    useEffect(() => {
+        scrollTo(0, 0);
+    }, [location]);
 
     return (
         <>
