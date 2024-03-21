@@ -22,8 +22,8 @@ export const ItemPage: FC<ItemPageProps> = ({className, ...props}: ItemPageProps
                         <PagePath />
                     </div>
                 </div>
-                <div className={`${classes.itemPage__itemWrapper} cc-pt-9 cc-laptop-pt-13`}>
-                    <div className={`${classes.itemPage__item}`}>
+                <div className={`${classes.itemPage__itemWrapper} cc-main-gutter cc-pt-9 cc-laptop-pt-13`}>
+                    <div className={`${classes.itemPage__item} cc-main-gutter-content`}>
                         <ItemOverview data={product} />
                     </div>
                 </div>

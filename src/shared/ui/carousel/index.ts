@@ -1,1 +1,1 @@
-export {HorizontalCarousel} from '@/shared/ui/carousel/ui/horizontal-carousel/HorizontalCarousel';
+export {Carousel} from '@/shared/ui/carousel/ui/Carousel';

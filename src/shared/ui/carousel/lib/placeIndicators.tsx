@@ -1,5 +1,5 @@
 import {Range} from '../model';
-import classes from '@/shared/ui/carousel/ui/horizontal-carousel/HorizontalCarousel.module.scss';
+import classes from '../ui/Carousel.module.scss';
 import {ReactNode} from "react";
 
 export const placeIndicators = (activeRange: Range, length: number) => {

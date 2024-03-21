@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './CatalogDisplay.module.scss';
 import {breakpoints, useDocumentSize} from "@/shared/lib";
 import {CatalogSpoiler, ProductData} from "@/entities";
-import {HorizontalCarousel, MoreLink} from "@/shared/ui";
+import {Carousel, MoreLink} from "@/shared/ui";
 import {DetailedProductCard} from "@/widgets";
 
 interface CatalogDisplayData {
@@ -34,14 +34,14 @@ export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ..
     return (
         <div className={`${classes.catalogDisplay__wrapper} ${className}`} {...props}>
             <div className={`${classes.catalogDisplay__content}`}>
-                <HorizontalCarousel data={{
+                <Carousel data={{
                     ...data,
                     title: <h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>,
                     button: <div className={`${classes.catalogDisplay__button} cc-grid cc-pt-7`}>
                         <MoreLink to={data.href}>Посмотреть все товары</MoreLink>
                     </div>,
                     indicators: true,
-                }} id={id} itemClass={`${classes.catalogDisplay__item}`}>{items}</HorizontalCarousel>
+                }} id={id} itemClass={`${classes.catalogDisplay__item}`}>{items}</Carousel>
             </div>
         </div>
     );

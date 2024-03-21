@@ -4,7 +4,7 @@ import classes from './MaterialsDisplay.module.scss';
 import {breakpoints, useDocumentSize} from "@/shared/lib";
 import {materials} from "@/widgets/materials-display/api";
 import {Material} from "@/entities/material/ui/Material";
-import {HorizontalCarousel, MoreLink} from "@/shared/ui";
+import {Carousel, MoreLink} from "@/shared/ui";
 
 interface MaterialsDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -38,11 +38,11 @@ export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props
                              {button}
                         </div>
                     </div>
-                    : <HorizontalCarousel className={`${classes.materialsDisplay__carousel}`} data={{
+                    : <Carousel className={`${classes.materialsDisplay__carousel}`} data={{
                         title: heading,
                         button: button,
                         indicators: true
-                    }} id="materials1" itemClass={`${classes.materialsDisplay__carouselItem}`}>{items}</HorizontalCarousel>
+                    }} id="materials1" itemClass={`${classes.materialsDisplay__carouselItem}`}>{items}</Carousel>
                 }
             </div>
         </div>

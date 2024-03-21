@@ -1,25 +1,30 @@
 import {BaseHTMLAttributes, FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
-import classes from './HorizontalCarousel.module.scss';
+import classes from './Carousel.module.scss';
 import {ArrowLeft, ArrowRight} from "@/shared/icons";
-import {CarouselData, useCarousel} from "../../model";
+import {CarouselData, useCarousel} from "../model";
 import {placeIndicators} from "@/shared/ui/carousel/lib";
 
-interface HorizontalCarouselProps extends BaseHTMLAttributes<HTMLDivElement> {
+interface CarouselProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: CarouselData;
     children: ReactNode[];
     id: string;
     itemClass?: string;
 }
 
-export const HorizontalCarousel: FC<HorizontalCarouselProps> = ({className, children, data, itemClass, ...props}: HorizontalCarouselProps) => {
+export const Carousel: FC<CarouselProps> = ({className, children, data, itemClass, ...props}: CarouselProps) => {
     const GROUP_ID = `carousel-${props.id}`;
-    const carousel = useCarousel(children.length, GROUP_ID);
-    const inActiveRange = (number: number): boolean =>
-        number >= carousel.currentRange.firstIncluded && number <= carousel.currentRange.lastIncluded;
+    const itemType = data.vertical ? 'vertical' : 'horizontal';
+    const carousel = useCarousel(children.length, GROUP_ID, data.vertical);
+
+    const inActiveRange = (number: number): boolean => {
+        const overFloor = number >= carousel.currentRange.firstIncluded;
+        const belowCeiling = number <= carousel.currentRange.lastIncluded;
+        return overFloor && belowCeiling;
+    }
 
     return (
-        <div className={`${classes.horizontalCarousel__wrapper} ${className} cc-main-gutter cc-py-1`} {...props}>
+        <div className={`${classes.horizontalCarousel__wrapper} ${className} cc-main-gutter cc-py-1`} {...props} itemType={itemType}>
             <div className={`${classes.horizontalCarousel__content} cc-main-gutter-content`}>
                 <div className={`${classes.horizontalCarousel__headWrapper} cc-flex cc-justify-content-space cc-align-items-center`}>
                     <div className={`${classes.horizontalCarousel__title}`}>
@@ -36,7 +41,7 @@ export const HorizontalCarousel: FC<HorizontalCarouselProps> = ({className, chil
                         </button>
                     </div>
                 </div>
-                <div className={`${classes.horizontalCarousel__itemsGroup}`} id={GROUP_ID}>
+                <div aria-expanded={carousel.currentRange.firstIncluded !== 1} className={`${classes.horizontalCarousel__itemsGroup}`} id={GROUP_ID} itemType={itemType}>
                     {children.map((child, key) => (
                         <div aria-current={inActiveRange(key + 1)} className={`${classes.horizontalCarousel__itemWrapper} ${itemClass}`} key={key}>
                             {child}
