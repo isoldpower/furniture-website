@@ -2,10 +2,9 @@ import '@/app/scss/main.scss';
 import classes from './Home.module.scss';
 import {BaseHTMLAttributes, FC} from "react";
 import {websiteRoutes, sectionByPostfix} from "@/shared/lib";
-import {Button} from "@/shared/ui";
+import {Button, Cite} from "@/shared/ui";
 import {AdvantagesGrid, CallbackSection, CatalogDisplay, ProcessGrid, MaterialsDisplay} from "@/widgets";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
-import {Cite} from "@/entities";
 import {getCatalogSections} from "@/pages/home/api";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {

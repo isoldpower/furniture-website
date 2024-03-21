@@ -1,4 +1,4 @@
 import stepsJson from './steps.json';
-import {ProcessData} from "@/entities/process-step/model";
+import {ProcessData} from "@/shared/ui";
 
 export const steps: ProcessData[] = stepsJson.steps;
