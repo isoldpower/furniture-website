@@ -12,18 +12,19 @@ interface ImagesHoverProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 export const ImagesHover: FC<ImagesHoverProps> = ({className, data, ...props}: ImagesHoverProps) => {
     const [active, setActive] = useState<number>(0);
+    const actualImages = data.images.slice(0, 4);
 
     return (
         <div className={`${classes.imagesSlider__wrapper} ${className} cc-flex`} {...props}
              onMouseLeave={() => setActive(0)}>
             <div className={`${classes.imagesSlider__content} cc-flex`}>
-                <ImageAreas data={{setActive: setActive, amount: data.images.length}}/>
-                <ProgressiveImage className={`${classes.imagesSlider__image}`} image={data.images[active] ?? {
+                <ImageAreas data={{setActive: setActive, amount: actualImages.length}}/>
+                <ProgressiveImage className={`${classes.imagesSlider__image}`} image={actualImages[active] ?? {
                     high: '',
                     low: '',
                     alt: 'undefined'
                 }}/>
-                {data.images.length >= 2 ? <ImageBar data={{amount: data.images.length, active: active}}/> : null}
+                {actualImages.length >= 2 ? <ImageBar data={{amount: actualImages.length, active: active}}/> : null}
             </div>
         </div>
     );

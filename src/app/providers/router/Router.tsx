@@ -4,8 +4,9 @@ import {App} from "@/app/App";
 import {Home} from "@/pages/home";
 import {websiteRoutes} from "@/shared/lib";
 import {CatalogSectionPage} from "@/pages/section-page/ui/CatalogSectionPage";
-import {ItemPage} from "@/pages/item-page/ui/ItemPage";
+import {ProductPage} from "@/pages/product-page/ui/ProductPage";
 import {Catalog} from "@/pages/catalog-page/ui/Catalog";
+import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
 
 const routes = [
     {
@@ -40,8 +41,12 @@ const routes = [
                 path: websiteRoutes.catalog + '/:section/:item',
                 element:
                     <Suspense fallback="Loading...">
-                        <ItemPage />
+                        <ProductPage />
                     </Suspense>
+            },
+            {
+                path: '*',
+                element: <ErrorPage />
             }
         ]
     }
