@@ -1,4 +1,4 @@
 import stepsJson from './steps.json';
-import {ProcessData} from "@/shared/ui";
+import {Process} from "@/entities/process";
 
-export const steps: ProcessData[] = stepsJson.steps;
+export const steps: Process[] = stepsJson.steps;

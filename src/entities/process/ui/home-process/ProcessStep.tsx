@@ -2,6 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProcessStep.module.scss';
 import {ProcessDisplayData} from "../../model";
+import {ProgressiveImage} from "@/shared/ui";
 
 interface ProcessStepProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: ProcessDisplayData;
@@ -15,7 +16,7 @@ export const ProcessStep: FC<ProcessStepProps> = ({className, data, ...props}: P
                 <div className={`${classes.processStep__order} cc-clr-accent-500`}>{data.order}</div>
                 <p className={`${classes.processStep__paragraph}`}>{data.paragraph}</p>
                 <div className={`${classes.processStep__imageWrapper}`}>
-                    <img alt={data.alt} className={`${classes.processStep__image}`} src={data.imgSrc}/>
+                    <ProgressiveImage className={`${classes.processStep__image}`} image={data.image}/>
                 </div>
             </div>
         </div>

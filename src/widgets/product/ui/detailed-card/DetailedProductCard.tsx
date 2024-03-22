@@ -6,7 +6,8 @@ import {websiteRoutes} from "@/shared/lib";
 import {Product, ProductCard} from "@/entities/product";
 import {sections} from "@/widgets/catalog-section";
 import {getAllImages} from "@/shared/api";
-import {getImageIdsByProductId} from "@/widgets/product";
+import {getImageIdsByProductId, getMaterialIdsByProductId} from "@/widgets/product";
+import {getAllMaterials} from "@/widgets/material/api";
 
 interface DetailedProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Product;
@@ -18,7 +19,7 @@ export const DetailedProductCard: FC<DetailedProductCardProps> = ({className, da
     return (
         <ProductCard className={`${classes.detailedCard__wrapper} ${className}`} {...props} data={{
             title: data.title,
-            materials: data.materials,
+            materials: getAllMaterials(getMaterialIdsByProductId(data.id)),
             href: href,
             displayImages: <ImagesHover data={{
                 ...data,

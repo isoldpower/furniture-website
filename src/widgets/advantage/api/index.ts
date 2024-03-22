@@ -1,4 +1,4 @@
 import advantagesJson from './advantages.json';
-import {AdvantageData} from "@/shared/ui";
+import {Advantage} from "@/entities/advantage";
 
-export const advantages: AdvantageData[] = advantagesJson.advantages;
+export const advantages: Advantage[] = advantagesJson.advantages;

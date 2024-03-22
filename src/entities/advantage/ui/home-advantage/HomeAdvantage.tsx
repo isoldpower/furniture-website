@@ -1,14 +1,14 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Advantage.module.scss';
-import {AdvantageDisplayData} from "../../model";
 import {Icon} from "@/shared/icons";
+import {HomeAdvantageData} from "@/entities/advantage/model";
 
 interface AdvantageProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: AdvantageDisplayData;
+    data: HomeAdvantageData;
 }
 
-export const Advantage: FC<AdvantageProps> = ({className, data, ...props}: AdvantageProps) => {
+export const HomeAdvantage: FC<AdvantageProps> = ({className, data, ...props}: AdvantageProps) => {
     return (
         <div className={`${classes.advantage__wrapper} ${className}`} {...props}>
             <div className={`${classes.advantage__content} cc-p-7 cc-grid cc-gap-9`}>

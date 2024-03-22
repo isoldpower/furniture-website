@@ -1,4 +1,4 @@
-export interface MaterialData {
+export interface Material {
     id: number;
     title: string;
     paragraph: string;

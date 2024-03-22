@@ -17,7 +17,14 @@ export const ProductCard: FC<ProductCardProps> = ({className, data, ...props}: P
                 </div>
                 <div className={`${classes.productCard__body} cc-grid cc-gap-2`}>
                     <h3 className={`${classes.productCard__heading} cc-fs-300`}>{data.title}</h3>
-                    <p className={`${classes.productCard__materials}`}>{data.materials}</p>
+                    <p className={`${classes.productCard__materialsWrapper} cc-flex`}>
+                        {data.materials.map((material, key) => (
+                            <div className={`${classes.productCard__material}`} key={key}>
+                                {material.title}
+                                {key < data.materials.length - 1 ? <>,&nbsp;</> : null}
+                            </div>
+                        ))}
+                    </p>
                 </div>
                 <div className={`${classes.productCard__buttonWrapper}`}>
                     <MoreLink className={`${classes.productCard__button}`} to={data.href}>Подробнее</MoreLink>

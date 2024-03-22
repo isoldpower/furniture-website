@@ -3,6 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './ProcessGrid.module.scss';
 import {steps} from "@/widgets/process/api";
 import {ProcessStep} from "@/entities/process";
+import {getImage} from "@/shared/api";
 
 interface ProcessGridProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -14,6 +15,7 @@ export const ProcessGrid: FC<ProcessGridProps> = ({className, ...props}: Process
                 {steps.map((step, key) => (
                     <ProcessStep className={`${classes.processGrid__item} cc-grid`} data={{
                         ...step,
+                        image: getImage(step.imageId),
                         order: ('0' + step.id).slice(-2),
                         variant: key % 2 == 0 ? 'default' : 'primary'
                     }} key={key} />

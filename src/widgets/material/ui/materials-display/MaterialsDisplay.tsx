@@ -5,6 +5,7 @@ import {breakpoints, useDocumentSize} from "@/shared/lib";
 import {materials} from "@/widgets/material/api";
 import {HomeMaterial} from "@/entities/material/ui/home-material/HomeMaterial";
 import {Carousel, MoreLink} from "@/shared/ui";
+import {getImage} from "@/shared/api";
 
 interface MaterialsDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -14,6 +15,7 @@ export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props
     const items = materials.map((material, key) => (
         <HomeMaterial className="cc-min-height-1of1" data={{
             ...material,
+            image: getImage(material.imageId),
             button: <MoreLink to={`/materials${material.hrefPostfix}`}>Подробнее</MoreLink>
         }} key={key}/>
     ));

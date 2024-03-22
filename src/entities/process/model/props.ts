@@ -5,6 +5,6 @@ type ProcessVariant = 'default' | 'primary';
 export interface ProcessDisplayData {
     order: string;
     paragraph: string;
-    img: ProgressiveImageData;
+    image: ProgressiveImageData;
     variant?: ProcessVariant;
 }

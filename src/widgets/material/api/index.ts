@@ -1,4 +1,6 @@
 import materialsJson from './materials.json';
-import {MaterialData} from "@/entities/material/model";
+import {Material} from "@/entities/material";
 
-export const materials: MaterialData[] = materialsJson.materials;
+export const materials: Material[] = materialsJson.materials;
+export const getMaterial = (id: number) => materials.find(material => material.id === id);
+export const getAllMaterials = (ids: number[]) => ids.map(id => getMaterial(id));
