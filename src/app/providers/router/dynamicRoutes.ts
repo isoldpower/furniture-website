@@ -1,13 +1,13 @@
-import {products} from "@/shared/api";
+import {products} from "@/widgets/product";
+import {sections} from "@/widgets/catalog-section";
 
 export const sectionRoutes: {[route: string]: string} = {};
-for (let i = 0; i < products.length; i++) {
-    sectionRoutes[products[i].hrefPostfix] = products[i].title;
+for (let i = 0; i < sections.length; i++) {
+    sectionRoutes[sections[i].hrefPostfix] = sections[i].title;
 }
 
 export const itemRoutes: {[name: string]: string} = {};
 for (let i = 0; i < products.length; i++) {
-    for (let j = 0; j < products.length; j++) {
-        itemRoutes[products[i].hrefPostfix + products[i].products[j].postfix] = products[i].products[j].title;
-    }
+    const section = sections.find(section => products[i].sectionId === section.id);
+    itemRoutes[section.hrefPostfix + products[i].hrefPostfix] = products[i].title;
 }

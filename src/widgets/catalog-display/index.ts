@@ -1,1 +1,0 @@
-export {CatalogDisplay} from './ui/CatalogDisplay';

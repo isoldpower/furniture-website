@@ -5,5 +5,3 @@ export * from './more-link';
 export * from './progressive-image';
 export * from './carousel';
 export * from './cite';
-export * from './process-step';
-export * from './advantage';

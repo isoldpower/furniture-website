@@ -1,4 +1,4 @@
-import classes from "../ui/footer/base/Footer.module.scss";
+import classes from "../ui/footer/Footer.module.scss";
 import {LinksSection} from "../model";
 import {AdaptiveLink, LinkData} from "@/shared/ui";
 

@@ -1,1 +1,0 @@
-export {WebsiteFooter} from './ui/WebsiteFooter';

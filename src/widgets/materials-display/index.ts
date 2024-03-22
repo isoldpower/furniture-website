@@ -1,1 +1,0 @@
-export {MaterialsDisplay} from './ui/MaterialsDisplay';

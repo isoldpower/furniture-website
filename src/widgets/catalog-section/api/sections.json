@@ -1,0 +1,34 @@
+{
+  "sections": [
+    {
+      "id": 0,
+      "title": "Кухни",
+      "hrefPostfix": "/kitchen",
+      "previewImageId": 31
+    },
+    {
+      "id": 1,
+      "title": "Гостиные",
+      "hrefPostfix": "/livingroom",
+      "previewImageId": 33
+    },
+    {
+      "id": 2,
+      "title": "Спальни",
+      "hrefPostfix": "/bedroom",
+      "previewImageId": 32
+    },
+    {
+      "id": 3,
+      "title": "Прихожие",
+      "hrefPostfix": "/hallway",
+      "previewImageId": 35
+    },
+    {
+      "id": 4,
+      "title": "Мягкая мебель",
+      "hrefPostfix": "/soft",
+      "previewImageId": 34
+    }
+  ]
+}

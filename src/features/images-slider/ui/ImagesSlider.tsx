@@ -13,7 +13,7 @@ interface ImagesSliderProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const ImagesSlider: FC<ImagesSliderProps> = ({className, data, ...props}: ImagesSliderProps) => {
     const [current, setCurrent] = useState<number>(0);
     const width = useDocumentSize().x;
-    const items = data.images.concat(data.images).concat(data.images).map((image, key) => (
+    const items = data.images?.map((image, key) => (
         <button className={`${classes.imagesSlider__previewWrapper} cc-width-1of1`} key={key} onClick={() => setCurrent(key)} type='button'>
             <ProgressiveImage aria-selected={key === current} className={`${classes.imagesSlider__preview}`} image={image} />
         </button>
@@ -32,7 +32,11 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({className, data, ...props}:
                     }} id="images-2" itemClass={`${classes.imagesSlider__carouselItem} ${classes.imagesSlider__itemSpacing}`}>{items}</Carousel>
                 </div>
                 <div className={`${classes.imageSlider__imageWrapper}`}>
-                    <ProgressiveImage className={`${classes.imagesSlider__currentImage}`} image={data.images[current]}/>
+                    <ProgressiveImage className={`${classes.imagesSlider__currentImage}`} image={data.images[current] ?? {
+                        low: '',
+                        high: '',
+                        alt: 'undefined'
+                    }}/>
                 </div>
             </div>
         </div>

@@ -12,14 +12,14 @@ export const ProgressiveImage: FC<ProgressiveImageProps> = ({image, ...props}: P
 
     const createEmptyImage = useCallback(() => {
         const fullImage = new Image();
-        fullImage.src = image.original;
+        fullImage.src = image.high;
         return fullImage;
-    }, [image.original]);
+    }, [image.high]);
 
     const loadFullImage = useCallback(() => {
-        setImgSrc(image.original);
+        setImgSrc(image.high);
         setColor('black');
-    }, [image.original]);
+    }, [image.high]);
 
     useEffect(() => {
         const image = createEmptyImage();

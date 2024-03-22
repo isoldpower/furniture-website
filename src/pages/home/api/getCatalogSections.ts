@@ -1,6 +1,6 @@
-import {products} from "@/shared/api";
-import {SectionData} from "@/entities";
+import {Section} from "@/entities/catalog-section";
+import {sections} from "@/widgets/catalog-section";
 
-export const getCatalogSections = (): SectionData[] => {
-    return products.slice(0, 3);
+export const getCatalogSections = (): Section[] => {
+    return sections.slice(0, 3);
 }

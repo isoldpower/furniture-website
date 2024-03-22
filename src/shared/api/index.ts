@@ -1,4 +1,6 @@
-import productsJson from './products.json';
-import {SectionData} from "@/entities";
+import imagesJson from './images.json';
+import {ProgressiveImageType} from "@/shared/ui";
 
-export const products: SectionData[] = productsJson.sections;
+export const images: ProgressiveImageType[] = imagesJson.images;
+export const getImage = (id: number) => images.find(image => image.id === id);
+export const getAllImages = (ids: number[]) => ids.map(id => getImage(id));

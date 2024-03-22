@@ -1,15 +1,13 @@
-import {ReactNode} from "react";
-
 export interface MaterialData {
-    src: string;
+    id: number;
     title: string;
     paragraph: string;
+    ending: string;
     hrefPostfix: string;
+    imageId: number;
 }
 
-export interface MaterialDisplayData {
-    title: string;
-    paragraph: string;
-    src: string;
-    button: ReactNode;
+export interface MaterialAdvantage {
+    materialId: number;
+    advantageId: number;
 }

@@ -1,5 +1,12 @@
 export interface ProgressiveImageData {
-    original: string;
+    high: string;
     low: string;
-    alt: string;
+    alt?: string;
+}
+
+export interface ProgressiveImage {
+    id: number;
+    high: string;
+    low: string;
+    alt?: string;
 }

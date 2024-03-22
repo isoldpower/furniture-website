@@ -1,16 +1,19 @@
-import {ReactNode} from "react";
-import {ProgressiveImageData} from "@/shared/ui";
-
-export interface ProductCardData {
+export interface Product {
+    id: number;
     title: string;
-    materials: string;
-    href: string;
-    displayImages: ReactNode;
+    description: string;
+    duration: string;
+    cost: string;
+    hrefPostfix: string;
+    sectionId: number;
 }
 
-export interface ProductData {
-    title: string;
-    materials: string;
-    images: ProgressiveImageData[];
-    postfix: string;
+export interface ProductImage {
+    productId: number;
+    imageId: number;
+}
+
+export interface ProductMaterial {
+    productId: number;
+    materialId: number;
 }

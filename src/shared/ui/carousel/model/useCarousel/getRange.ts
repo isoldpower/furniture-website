@@ -27,7 +27,6 @@ const iterateForward = (group: HTMLElement, elements: HTMLElement[], startingSum
         const elementSize = vertical ? elements[i].offsetHeight : elements[i].offsetWidth;
         const groupSize = vertical ? group.offsetHeight : group.offsetWidth;
         startingSum += elementSize;
-        console.log(elementSize, '/', groupSize);
 
         if (startingSum - error > groupSize) {
             return {end: i, sum: startingSum - elementSize};

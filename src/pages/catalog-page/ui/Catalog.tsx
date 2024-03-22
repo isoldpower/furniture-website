@@ -1,19 +1,23 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Catalog.module.scss';
-import {CallbackSection, PageTitle} from "@/widgets";
 import {Link} from "react-router-dom";
-import {products} from "@/shared/api";
-import {CatalogSectionCard} from "@/entities";
+import {CallbackSection, PageTitle} from "@/widgets/layout";
+import {CatalogSectionCard} from "@/entities/catalog-section";
+import {sections} from "@/widgets/catalog-section";
+import {getImage} from "@/shared/api";
 
 interface CatalogProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 export const Catalog: FC<CatalogProps> = ({className, ...props}: CatalogProps) => {
-    const sections = products.map((section, key) => (
+    const sectionElements = sections.map((section, key) => (
         <li key={key}>
             <Link to={`/catalog${section.hrefPostfix}`}>
-                <CatalogSectionCard data={section} tabIndex={0}/>
+                <CatalogSectionCard data={{
+                    ...section,
+                    image: getImage(section.previewImageId)
+                }} tabIndex={0}/>
             </Link>
         </li>
     ));
@@ -28,7 +32,7 @@ export const Catalog: FC<CatalogProps> = ({className, ...props}: CatalogProps) =
                 </div>
                 <section className={`${classes.catalog__sections} cc-pt-9 cc-laptop-pt-11 cc-main-gutter`}>
                     <ul className={`${classes.catalog__sectionsGrid} cc-grid cc-gap-5 cc-main-gutter-content`}>
-                        {sections}
+                        {sectionElements}
                     </ul>
                 </section>
                 <CallbackSection className={`${classes.catalog__callbackSection} cc-py-16 cc-laptop-py-18`} />
