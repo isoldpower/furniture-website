@@ -1,15 +1,33 @@
+import {selectActive, setActive, switchActive, useAppDispatch, useTypedSelector} from "@/app/redux";
+import {useLocation} from "react-router-dom";
+import {useCallback, useEffect} from "react";
+import {breakpoints, useDocumentSize} from "@/shared/lib";
+
 export const useHamburger = () => {
-    const open = () => {
-        console.log('open');
-    }
+    const dispatch = useAppDispatch();
+    const width = useDocumentSize().x;
+    const isActive = useTypedSelector(selectActive);
+    const location = useLocation();
 
-    const close = () => {
-        console.log('close');
-    }
+    const open = useCallback(() => {
+        dispatch(setActive(true));
+    }, [dispatch]);
 
-    const switchActive = () => {
-        console.log('switch');
-    }
+    const close = useCallback(() => {
+        dispatch(setActive(false));
+    }, [dispatch]);
 
-    return {open, close, switchActive};
+    const toggle = useCallback(() => {
+        dispatch(switchActive());
+    }, [dispatch]);
+
+    useEffect(() => {
+        close();
+    }, [close, location]);
+
+    useEffect(() => {
+        if (width >= breakpoints.laptop) close();
+    }, [close, width]);
+
+    return {open, close, toggle, isActive};
 }

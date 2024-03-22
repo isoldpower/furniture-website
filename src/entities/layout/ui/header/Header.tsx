@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 interface HeaderData {
     navigationElements: ReactNode[];
     hamburger: ReactNode;
+    isActive: boolean;
 }
 
 interface HeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
@@ -15,8 +16,9 @@ interface HeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 export const Header: FC<HeaderProps> = ({className, data, ...props}: HeaderProps) => {
     return (
-        <header className={`${classes.header__wrapper} ${className} cc-px-4 cc-pt-3`} {...props}>
+        <header className={`${classes.header__wrapper} ${className} cc-px-4 cc-pt-2`} {...props}>
             <div className={`${classes.header__content} cc-px-4 cc-width-1of1 cc-border-radius-1`}>
+                <div aria-selected={data.isActive} className={`${classes.header__back} cc-border-radius-1`} />
                 <div className={`${classes.header__logoWrapper} cc-flex cc-align-items-center`}>
                     <Link className={`${classes.header__logo} cc-flex cc-align-items-center cc-gap-2`} to="/">
                         <Icon className={`${classes.header__logoIcon}`} />

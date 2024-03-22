@@ -19,7 +19,7 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
     return (
         <div className={`${classes.homePage__wrapper} ${className}`} {...props}>
             <div className={`${classes.homePage__content} cc-flex cc-flex-col cc-gap-15 cc-laptop-gap-18`}>
-                <section className={`${classes.homePage__heroSection} cc-main-gutter`}>
+                <section className={`${classes.homePage__heroSection} cc-main-gutter cc-pt-9`}>
                     <HeroDecorationsProvider
                         className={`${classes.homePage__heroWrapper} cc-width-1of1 cc-main-gutter-content`}>
                         <HeroSection className={`${classes.homePage__heroContent}`}/>

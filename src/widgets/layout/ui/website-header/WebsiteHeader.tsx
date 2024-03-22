@@ -14,8 +14,9 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderP
     const hamburger = useHamburger();
 
     return (
-        <Header data={{
-            hamburger: <button className={`${classes.header__hamburgerButton}`} onClick={hamburger.switchActive} type='button'>
+        <Header className={`${classes.websiteHeader__wrapper}`} data={{
+            isActive: hamburger.isActive,
+            hamburger: <button className={`${classes.websiteHeader__hamburgerButton}`} onClick={hamburger.toggle} type='button'>
                 <Menu height={44} width={44} />
             </button>,
             navigationElements: [

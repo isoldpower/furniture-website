@@ -15,15 +15,14 @@ export const App = () => {
 
     return (
         <>
-            <WebsiteHeader />
-            <main id='body' style={{zIndex: 98, minHeight: '90dvh'}}>
+            <WebsiteHeader id='header' style={{zIndex: 99}}/>
+            <main className={`${classes.pageLayout__body}`} id='body' style={{zIndex: 98, minHeight: '90dvh'}}>
                 <div className="absolute-stretch" id={layers.inactiveModals} style={{position: 'fixed', zIndex: 99, visibility: 'hidden'}}>
                     <ProvideSideHeader id="side-header">
                         <SideHeader />
                     </ProvideSideHeader>
                 </div>
-                <div className={`${classes.pageLayout__activeModals} absolute-stretch`} id={layers.activeModals}
-                     style={{position: "fixed", zIndex: 100}} />
+                <div className={`${classes.pageLayout__activeModals} absolute-stretch`} id={layers.activeModals} style={{position: "fixed", zIndex: 100}} />
                 <div style={{zIndex: 97}}>
                     <Outlet/>
                 </div>

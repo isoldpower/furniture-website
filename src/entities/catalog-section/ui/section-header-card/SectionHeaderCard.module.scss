@@ -1,0 +1,50 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.sectionHeaderCard__hint {
+    z-index: 5;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    @include mq(laptop) {
+        display: none;
+    }
+}
+
+.sectionHeaderCard__circleBack {
+    width: 24px;
+    height: 24px;
+
+    @include mq(tablet) {
+        width: 32px;
+        height: 32px;
+
+        & > * {
+            width: 12px;
+            height: 12px;
+        }
+    }
+}
+
+.sectionHeaderCard__image {
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    max-height: 120px;
+    width: 100%;
+
+    @include mq(tablet) {
+        max-height: 160px;
+    }
+}
+
+.sectionHeaderCard__headingWrapper {
+    position: absolute;
+    z-index: 3;
+    top: 12px;
+    left: 12px
+}
+
+.sectionHeaderCard__heading {
+    font-size: 22px;
+}
