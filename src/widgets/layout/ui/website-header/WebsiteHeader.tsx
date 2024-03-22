@@ -17,7 +17,7 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderP
         <Header className={`${classes.websiteHeader__wrapper}`} data={{
             isActive: hamburger.isActive,
             hamburger: <button className={`${classes.websiteHeader__hamburgerButton}`} onClick={hamburger.toggle} type='button'>
-                <Menu height={44} width={44} />
+                <Menu height={44} width={44} className={`${classes.websiteHeader__hamburgerIcon}`} aria-selected={hamburger.isActive}/>
             </button>,
             navigationElements: [
                 <OpenCatalog key={0}>Каталог</OpenCatalog>,
