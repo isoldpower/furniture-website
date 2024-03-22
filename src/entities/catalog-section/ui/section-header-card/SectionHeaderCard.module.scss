@@ -27,6 +27,15 @@
     }
 }
 
+.sectionHeaderCard__overlapLink {
+    @extend .absolute-stretch;
+    z-index: 10;
+
+    @include mq(laptop) {
+        display: none;
+    }
+}
+
 .sectionHeaderCard__image {
     object-fit: cover;
     aspect-ratio: 16/9;
@@ -36,15 +45,50 @@
     @include mq(tablet) {
         max-height: 160px;
     }
+
+    @include mq(laptop) {
+        max-height: unset;
+        height: 386px;
+    }
 }
 
 .sectionHeaderCard__headingWrapper {
     position: absolute;
     z-index: 3;
     top: 12px;
-    left: 12px
+    left: 12px;
+
+    @include mq(laptop) {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
 }
 
 .sectionHeaderCard__heading {
     font-size: 22px;
+
+    @include mq(laptop) {
+        font-size: 40px;
+        color: black;
+    }
+}
+
+.sectionHeaderCard__paragraph,
+.sectionHeaderCard__buttonWrapper {
+    display: none;
+
+    @include mq(laptop) {
+        display: inline-block;
+    }
+}
+
+.sectionHeaderCard__paragraph {
+    color: $color-soft-text-1;
+}
+
+.sectionHeaderCard__button {
+    @include mq(laptop) {
+        pointer-events: all;
+    }
 }

@@ -31,7 +31,7 @@ export const SideHeader: FC<SideHeaderProps> = ({className, ...props}: SideHeade
                     <hr className={`${classes.header__separator}`}/>
                     <div className={`${classes.header__catalogPreview} cc-grid cc-gap-7`}>
                         {sections.slice(0, 4).map((section, key) => (
-                            <SectionHeaderCard data={section} key={key} to={websiteRoutes.catalog + section.hrefPostfix} />
+                            <SectionHeaderCard data={section} key={key} />
                         ))}
                     </div>
                 </div>

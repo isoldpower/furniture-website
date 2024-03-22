@@ -1,4 +1,22 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
-// Basic selectors here
+.openCatalog__wrapper[aria-selected='true'] {
+    background-color: transparent;
+    outline: 1px solid $color-neutral-050;
+    color: $color-accent-500;
+
+    & > * > svg > g {
+        & > * {
+            transform-origin: center;
+        }
+
+        & > *:first-child {
+            transform: rotate(45deg) translateY(2.5px);
+        }
+
+        & > *:last-child {
+            transform: rotate(-45deg) translateY(-2.5px);
+        }
+    }
+}
