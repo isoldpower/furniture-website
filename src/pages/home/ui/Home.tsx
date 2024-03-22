@@ -5,7 +5,7 @@ import {websiteRoutes, sectionByPostfix} from "@/shared/lib";
 import {Button, Cite} from "@/shared/ui";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
 import {getCatalogSections} from "@/pages/home/api";
-import {CatalogDisplay} from "@/widgets/catalog-section";
+import {SectionDisplay} from "@/widgets/catalog-section";
 import {AdvantagesGrid} from "@/widgets/advantage";
 import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
@@ -33,7 +33,7 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
                     {getCatalogSections().map((section, key) => (
-                        <CatalogDisplay data={{
+                        <SectionDisplay data={{
                             ...section,
                             sectionLink: true,
                             products: products.filter(product => product.sectionId === section.id),

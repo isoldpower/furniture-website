@@ -3,18 +3,15 @@ import '@/app/scss/main.scss';
 import classes from './ProductOverview.module.scss';
 import {ImagesSlider} from "@/features/images-slider/ui/ImagesSlider";
 import {Product} from "@/entities/product";
-import {getAllImages} from "@/shared/api";
-import {getImageIdsByProductId, getMaterialIdsByProductId} from "@/widgets/product";
-import {getAllMaterials} from "@/widgets/material/api";
 import {MaterialPreview} from "@/entities/material";
 import {Button} from "@/shared/ui";
+import {getImages, getMaterials} from "@/widgets/product/lib";
 
 interface ItemOverviewProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Product;
 }
 
 export const ProductOverview: FC<ItemOverviewProps> = ({className, data, ...props}: ItemOverviewProps) => {
-    const materials = getAllMaterials(getMaterialIdsByProductId(data.id));
     const heading = <h1 className={`${classes.itemOverview__heading}`}>{data.title}</h1>;
 
     return (
@@ -24,7 +21,7 @@ export const ProductOverview: FC<ItemOverviewProps> = ({className, data, ...prop
                     {heading}
                 </div>
                 <ImagesSlider className={`${classes.itemOverview__slider}`} data={{
-                    images: getAllImages(getImageIdsByProductId(data.id))
+                    images: getImages(data.id)
                 }}/>
                 <div className={`${classes.itemOverview__bodyWrapper} cc-flex cc-flex-col cc-gap-10`}>
                 <div className={`${classes.itemOverview__largeHeading}`}>{heading}</div>
@@ -36,7 +33,7 @@ export const ProductOverview: FC<ItemOverviewProps> = ({className, data, ...prop
                         <div className={`${classes.itemOverview__materials} cc-grid cc-gap-4 cc-desktop-gap-7`}>
                             <h4 className={`${classes.itemOverview__materialsHeading} cc-fs-300`}>Материалы</h4>
                             <div className={`${classes.itemOverview__materialsWrapper} cc-flex cc-gap-5`}>
-                                {materials.map((material, key) => (
+                                {getMaterials(data.id).map((material, key) => (
                                     <MaterialPreview className={`${classes.itemOverview__material}`} data={material} key={key}/>
                                 ))}
                             </div>

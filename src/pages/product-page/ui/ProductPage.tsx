@@ -6,7 +6,7 @@ import {PagePath} from "@/features";
 import {ProductOverview} from "@/widgets/product/ui/overview/ProductOverview";
 import {products} from "@/widgets/product";
 import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
-import {CatalogDisplay, sections} from "@/widgets/catalog-section";
+import {SectionDisplay, sections} from "@/widgets/catalog-section";
 import {websiteRoutes} from "@/shared/lib";
 import {CallbackSection} from "@/widgets/layout";
 
@@ -35,7 +35,7 @@ export const ProductPage: FC<ProductPageProps> = ({className, ...props}: Product
                     </section>
                     <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
                         <div className={`${classes.productPage__sectionPreview}`}>
-                            <CatalogDisplay data={{
+                            <SectionDisplay data={{
                                 title: 'Похожее',
                                 sectionLink: false,
                                 href: websiteRoutes.catalog + section.hrefPostfix,

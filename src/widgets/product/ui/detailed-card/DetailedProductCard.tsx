@@ -5,9 +5,7 @@ import {ImagesHover} from "@/features";
 import {websiteRoutes} from "@/shared/lib";
 import {Product, ProductCard} from "@/entities/product";
 import {sections} from "@/widgets/catalog-section";
-import {getAllImages} from "@/shared/api";
-import {getImageIdsByProductId, getMaterialIdsByProductId} from "@/widgets/product";
-import {getAllMaterials} from "@/widgets/material/api";
+import {getImages, getMaterials} from "@/widgets/product/lib";
 
 interface DetailedProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Product;
@@ -19,11 +17,11 @@ export const DetailedProductCard: FC<DetailedProductCardProps> = ({className, da
     return (
         <ProductCard className={`${classes.detailedCard__wrapper} ${className} cc-flex`} {...props} data={{
             title: data.title,
-            materials: getAllMaterials(getMaterialIdsByProductId(data.id)),
+            materials: getMaterials(data.id),
             href: href,
             displayImages: <ImagesHover data={{
                 ...data,
-                images: getAllImages(getImageIdsByProductId(data.id)) ?? []
+                images: getImages(data.id)
             }} />
         }} />
     );

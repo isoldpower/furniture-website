@@ -1,25 +1,18 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import classes from './CatalogDisplay.module.scss';
+import classes from './SectionDisplay.module.scss';
 import {breakpoints, useDocumentSize} from "@/shared/lib";
 import {Carousel, MoreLink} from "@/shared/ui";
 import {DetailedProductCard} from "@/widgets/product";
-import {Product} from "@/entities/product";
 import {SectionSpoiler} from "@/entities/catalog-section";
+import {SectionDisplayData} from "@/widgets/catalog-section/model";
 
-interface CatalogDisplayData {
-    title: string;
-    href: string;
-    products: Product[];
-    sectionLink?: boolean;
-}
-
-interface CatalogDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: CatalogDisplayData;
+interface SectionDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
+    data: SectionDisplayData;
     id: string;
 }
 
-export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ...props}: CatalogDisplayProps) => {
+export const SectionDisplay: FC<SectionDisplayProps> = ({className, data, id, ...props}: SectionDisplayProps) => {
     const width = useDocumentSize().x;
     const items = data.products.map((product, key) => (
         <DetailedProductCard data={product} key={key} />

@@ -16,7 +16,7 @@ export const ProcessGrid: FC<ProcessGridProps> = ({className, ...props}: Process
                     <ProcessStep className={`${classes.processGrid__item} cc-grid`} data={{
                         ...step,
                         image: getImage(step.imageId),
-                        order: ('0' + step.id).slice(-2),
+                        order: ('0' + (key + 1)).slice(-2),
                         variant: key % 2 == 0 ? 'default' : 'primary'
                     }} key={key} />
                 ))}
