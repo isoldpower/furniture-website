@@ -10,13 +10,13 @@ import {SectionSpoiler} from "@/entities/catalog-section";
 interface CatalogDisplayData {
     title: string;
     href: string;
-    hrefPostfix: string;
     products: Product[];
+    sectionLink?: boolean;
 }
 
 interface CatalogDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
-    id: string;
     data: CatalogDisplayData;
+    id: string;
 }
 
 export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ...props}: CatalogDisplayProps) => {
@@ -27,7 +27,7 @@ export const CatalogDisplay: FC<CatalogDisplayProps> = ({className, data, id, ..
 
     return width >= breakpoints.laptop
         ? (
-            <SectionSpoiler data={{
+            <SectionSpoiler className={`${classes.catalogDisplay__spoiler}`} data={{
                 ...data,
                 button: <MoreLink to={data.href}>Смотреть все товары</MoreLink>
             }}>{items}</SectionSpoiler>

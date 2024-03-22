@@ -1,0 +1,19 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.materialPreview__content {
+    max-width: 64px;
+    text-align: center;
+}
+
+.materialPreview__imageWrapper {
+    width: 64px;
+    height: 64px;
+}
+
+.materialPreview__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $color-soft-text-2;
+}

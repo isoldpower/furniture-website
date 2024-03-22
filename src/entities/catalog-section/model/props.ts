@@ -10,4 +10,5 @@ export interface SectionPreviewData {
 export interface SectionSpoilerData {
     title: string;
     button: ReactNode;
+    sectionLink?: boolean;
 }

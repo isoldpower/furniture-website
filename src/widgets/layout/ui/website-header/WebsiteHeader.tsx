@@ -5,6 +5,7 @@ import {NavLink} from "react-router-dom";
 import {OpenCatalog, useHamburger} from "@/features";
 import {Menu} from "@/shared/icons";
 import {Header} from "@/entities/layout";
+import {websiteRoutes} from "@/shared/lib";
 
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -19,7 +20,7 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderP
             </button>,
             navigationElements: [
                 <OpenCatalog key={0}>Каталог</OpenCatalog>,
-                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={1} to='/materials'>
+                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={1} to={websiteRoutes.materials}>
                     <div tabIndex={0}>
                         Материалы
                     </div>

@@ -35,6 +35,7 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                     {getCatalogSections().map((section, key) => (
                         <CatalogDisplay data={{
                             ...section,
+                            sectionLink: true,
                             products: products.filter(product => product.sectionId === section.id),
                             href: sectionByPostfix(section.hrefPostfix)
                         }} id={key.toString()} key={key}/>
