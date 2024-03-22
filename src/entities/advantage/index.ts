@@ -1,2 +1,2 @@
-export {Advantage} from './ui/Advantage';
-export type {AdvantageData} from './model';
+export * from './model/types';
+export {HomeAdvantage} from './ui/home-advantage/HomeAdvantage';

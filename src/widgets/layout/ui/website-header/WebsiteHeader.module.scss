@@ -1,0 +1,8 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.websiteHeader__navigationItem {
+    &:hover {
+        color: $color-neutral-400;
+    }
+}

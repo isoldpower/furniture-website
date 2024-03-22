@@ -1,28 +1,36 @@
-import {ReactNode, useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {Range} from "../types";
 import {getRange} from "./getRange";
 import {getScroll} from './getScroll';
-import {useDocumentSize} from "@/shared/lib";
 
-export const useCarousel = (children: ReactNode[], groupId: string) => {
+export const useCarousel = (length: number, groupId: string, vertical?: boolean) => {
     const [firstElement, setFirstElement] = useState<number>(1);
     const [currentRange, setCurrentRange] = useState<Range>({firstIncluded: 1, lastIncluded: 1});
-    const windowSize = useDocumentSize();
 
-    useEffect(() => {
+    const updateRange = useCallback(() => {
         const group = document.querySelector<HTMLElement>(`#${groupId}`);
-        const range = getRange(group, firstElement);
+        const range = getRange(group, firstElement, vertical);
         setCurrentRange(range);
-    }, [firstElement, groupId, windowSize]);
+    }, [vertical, firstElement, groupId]);
+
+    const changeTransform = useCallback(() => {
+        const group = document.querySelector<HTMLElement>(`#${groupId}`);
+        const scroll = getScroll(group, currentRange.firstIncluded, vertical);
+
+        if(vertical) group.style.transform = `translateY(-${scroll}px)`;
+        else group.style.transform = `translateX(-${scroll}px)`;
+    }, [vertical, groupId, currentRange]);
 
     useEffect(() => {
-        const group = document.querySelector<HTMLElement>(`#${groupId}`);
-        const scrollX = getScroll(group, currentRange.firstIncluded).toString();
-        group.style.transform = `translateX(-${scrollX}px)`;
-    }, [groupId, currentRange]);
+        setTimeout(() => updateRange(), 10);
+    }, [updateRange]);
+
+    useEffect(() => {
+        changeTransform();
+    }, [changeTransform]);
 
     const setNextPage = () => {
-        setFirstElement(Math.min(children.length, currentRange.lastIncluded + 1));
+        setFirstElement(Math.min(length, currentRange.lastIncluded + 1));
     }
 
     const setPreviousPage = () => {

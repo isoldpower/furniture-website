@@ -1,0 +1,41 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.catalogSection__content {
+    height: 190px;
+
+    @include mq(laptop) {
+        height: 386px;
+    }
+}
+
+.catalogSection__hint {
+    z-index: 5;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+
+    @include mq(laptop) {
+        display: none;
+    }
+}
+
+.catalogSection__imageWrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.catalogSection__image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.catalogSection__headingWrapper {
+    position: absolute;
+    z-index: 3;
+    top: 32px;
+    bottom: 32px;
+    right: 32px;
+    left: 32px;
+}

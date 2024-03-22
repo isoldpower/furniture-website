@@ -1,0 +1,34 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.processStep__content {
+    min-height: 190px;
+
+    @include mq(tablet) {
+        min-height: 280px;
+    }
+
+    &[itemType='default'] {
+        border: 1px solid $color-neutral-050;
+    }
+
+    &[itemType='primary'] {
+        border-radius: $border-radius-1;
+        background-color: $color-back-1;
+    }
+}
+
+.processStep__order {
+    font-size: 24px;
+}
+
+.processStep__imageWrapper {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+
+.processStep__image {
+    width: 90px;
+    height: 90px;
+}

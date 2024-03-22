@@ -1,4 +1,4 @@
-@use "../abstracts/index" as *;
+@use "../abstracts" as *;
 
 @each $screen-size, $size-map in $font-sizes {
     @each $size-name, $size-value in $size-map {

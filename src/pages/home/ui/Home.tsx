@@ -1,12 +1,16 @@
 import '@/app/scss/main.scss';
 import classes from './Home.module.scss';
 import {BaseHTMLAttributes, FC} from "react";
-import {products} from "../api";
-import {websiteRoutes} from "@/shared/lib";
-import {Button} from "@/shared/ui";
-import {AdvantagesGrid, CallbackSection, CatalogDisplay, ProcessGrid, MaterialsDisplay} from "@/widgets";
+import {websiteRoutes, sectionByPostfix} from "@/shared/lib";
+import {Button, Cite} from "@/shared/ui";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
-import {Cite} from "@/entities";
+import {getCatalogSections} from "@/pages/home/api";
+import {SectionDisplay} from "@/widgets/catalog-section";
+import {AdvantagesGrid} from "@/widgets/advantage";
+import {ProcessGrid} from "@/widgets/process";
+import {MaterialsDisplay} from "@/widgets/material";
+import {CallbackSection} from "@/widgets/layout";
+import {products} from "@/widgets/product";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -27,12 +31,15 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                         descriptor: 'CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.'
                     }}/>
                 </section>
-                <section className={`${classes.homePage__featuredSection} cc-grid cc-gap-13 cc-laptop-gap-17`}>
-                    <CatalogDisplay data={{title: 'Кухни', href: '/catalog/kitchen', products: products}} id="1"/>
-                    <CatalogDisplay data={{title: 'Гостиные', href: '/catalog/livingroom', products: products}}
-                                    id="2"/>
-                    <CatalogDisplay data={{title: 'Спальни', href: '/catalog/bathroom', products: products}}
-                                    id="3"/>
+                <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
+                    {getCatalogSections().map((section, key) => (
+                        <SectionDisplay data={{
+                            ...section,
+                            sectionLink: true,
+                            products: products.filter(product => product.sectionId === section.id),
+                            href: sectionByPostfix(section.hrefPostfix)
+                        }} id={key.toString()} key={key}/>
+                    ))}
                     <div className="cc-main-gutter">
                         <div className={`${classes.featuredSection__buttonWrapper} cc-main-gutter-content`}>
                             <Button className="cc-main-gutter-content" data={{variant: 'accent'}} semantic="link"

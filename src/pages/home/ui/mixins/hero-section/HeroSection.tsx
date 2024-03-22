@@ -2,6 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './HeroSection.module.scss';
 import {Button} from "@/shared/ui";
+import {websiteRoutes} from "@/shared/lib";
 
 interface HeroSectionProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -19,7 +20,7 @@ export const HeroSection: FC<HeroSectionProps> = ({className, ...props}: HeroSec
                 </div>
                 <div className={`${classes.heroSection__buttons}`}>
                     <Button className={`${classes.heroSection__accentButton}`} data={{variant: 'accent'}}
-                            semantic="link" to="/catalog">Перейти в каталог</Button>
+                            semantic="link" to={websiteRoutes.catalog}>Перейти в каталог</Button>
                     <Button className={`${classes.heroSection__aboutButton}`} semantic="link" to="/about">Подробнее
                         о компании</Button>
                 </div>

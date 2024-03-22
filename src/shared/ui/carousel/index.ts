@@ -1,1 +1,1 @@
-export {Carousel} from './ui/Carousel';
+export {Carousel} from '@/shared/ui/carousel/ui/Carousel';

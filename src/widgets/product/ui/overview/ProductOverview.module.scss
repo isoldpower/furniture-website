@@ -1,0 +1,42 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.itemOverview__content {
+    display: grid;
+    column-gap: $column-spacing;
+
+    @include mq(desktop) {
+        grid-template-columns: 7fr 5fr;
+    }
+}
+
+.itemOverview__heading {
+    font-size: 40px;
+
+    @include mq(tablet) {
+        font-size: 54px;
+    }
+}
+
+.itemOverview__smallHeading {
+    @include mq(desktop) {
+        display: none;
+    }
+}
+
+.itemOverview__largeHeading {
+    display: none;
+    @include mq(desktop) {
+        display: inline;
+    }
+}
+
+.materialOverview__imageWrapper {
+    width: 64px;
+    height: 64px;
+}
+
+.itemOverview__descriptionParagraph,
+.itemOverview__materialsWrapper {
+    color: $color-soft-text-1;
+}

@@ -1,1 +1,0 @@
-export {DetailedProductCard} from './ui/DetailedProductCard';

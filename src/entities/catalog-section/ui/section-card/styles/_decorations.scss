@@ -1,0 +1,13 @@
+@use '@/app/scss/useMain' as *;
+
+.catalogSection__imageWrapper::before {
+    content: "";
+    z-index: 2;
+    @extend .absolute-stretch;
+    background-color: black;
+    opacity: 0.5;
+
+    @include mq(laptop) {
+        opacity: 0.2;
+    }
+}

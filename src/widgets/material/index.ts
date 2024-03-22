@@ -1,0 +1,1 @@
+export {MaterialsDisplay} from './ui/materials-display/MaterialsDisplay';

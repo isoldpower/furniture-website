@@ -7,9 +7,10 @@
 }
 
 .productCard__buttonWrapper {
+    flex-grow: 1;
     white-space: normal;
 }
 
-.productCard__materials {
+.productCard__materialsWrapper {
     color: $color-soft-text-2;
 }

@@ -1,2 +1,3 @@
-export type {MaterialData} from './model';
-export {Material} from './ui/Material';
+export * from './model/types';
+export {HomeMaterial} from './ui/home-material/HomeMaterial';
+export {MaterialPreview} from './ui/material-preview/MaterialPreview';
