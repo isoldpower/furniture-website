@@ -9,7 +9,7 @@ const PortfolioPage: FC<PortfolioPageProps> = ({className, ...props}: PortfolioP
     return (
         <div className={`${classes.portfolioPage__wrapper} ${className}`} {...props}>
             <div className={`${classes.portfolioPage__content}`}>
-                <h1 className={'cc-heading-1'}>PORTFOLIO</h1>
+                <h1 className="cc-heading-1">PORTFOLIO</h1>
             </div>
         </div>
     );

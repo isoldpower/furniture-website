@@ -9,7 +9,7 @@ const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) =>
     return (
         <div className={`${classes.aboutPage__wrapper} ${className}`} {...props}>
             <div className={`${classes.aboutPage__content}`}>
-                <h1 className={'cc-heading-1'}>ABOUT</h1>
+                <h1 className="cc-heading-1">ABOUT</h1>
             </div>
         </div>
     );

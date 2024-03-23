@@ -9,7 +9,7 @@ const MaterialsPage: FC<MaterialsPageProps> = ({className, ...props}: MaterialsP
     return (
         <div className={`${classes.materialsPage__wrapper} ${className}`} {...props}>
             <div className={`${classes.materialsPage__content}`}>
-                <h1 className={'cc-heading-1'}>MATERIALS</h1>
+                <h1 className="cc-heading-1">MATERIALS</h1>
             </div>
         </div>
     );

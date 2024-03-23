@@ -3,13 +3,13 @@ import '@/app/scss/main.scss';
 import classes from './Button.module.scss';
 import {ButtonData} from "@/shared/ui/button/model";
 import {AdaptiveLink} from "@/shared/ui";
-import {HashLinkProps} from "react-router-hash-link";
+import {LinkProps} from "react-router-dom";
 
 type ButtonProps = {
     data?: ButtonData;
 } & (AnchorButton | FunctionButton)
 
-type AnchorButton = {semantic: 'link', to: string} & HashLinkProps;
+type AnchorButton = {semantic: 'link', to: string} & LinkProps;
 type FunctionButton = {semantic: 'button'} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<ButtonProps> = ({className, data, ...props}: ButtonProps) => {

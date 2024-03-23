@@ -1,10 +1,5 @@
 @use '@/app/scss/useMain' as *;
 
-.websiteHeader__navigationItem {
-    color: $color-neutral-400;
-    text-decoration: underline;
-    outline: none;
-}
 
 .websiteHeader__navigationItem > *:hover {
     color: $color-neutral-400;

@@ -12,7 +12,7 @@ interface CatalogProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 const CatalogPage: FC<CatalogProps> = ({className, ...props}: CatalogProps) => {
     const sectionElements = sections.map((section, key) => (
-        <li key={key} className={`cc-grid`}>
+        <li className="cc-grid" key={key}>
             <AdaptiveLink to={`/catalog${section.hrefPostfix}`}>
                 <CatalogSectionCard data={{
                     ...section,

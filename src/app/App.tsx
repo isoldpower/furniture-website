@@ -8,6 +8,7 @@ import {SideHeader} from "@/widgets/layout/ui/side-header/SideHeader";
 import {WebsiteFooter} from "@/widgets/layout/ui/website-footer/WebsiteFooter";
 import {CatalogModal} from "@/widgets/catalog-section/ui/CatalogModal/CatalogModal";
 import {closeAll, useAppDispatch} from "@/app/redux";
+import {AnchorScroll} from "@/app/providers/scroll/AnchorScroll";
 
 const App = () => {
     const location = useLocation();
@@ -31,7 +32,8 @@ const App = () => {
                 </div>
                 <div className={`${classes.pageLayout__activeModals} absolute-stretch`} id={layers.activeModals} style={{position: "fixed", zIndex: 100}} />
                 <div style={{zIndex: 97}}>
-                    <Outlet/>
+                    <AnchorScroll yOffset={-100} />
+                    <Outlet />
                 </div>
             </main>
             <WebsiteFooter />

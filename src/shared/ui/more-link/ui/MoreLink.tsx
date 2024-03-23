@@ -3,9 +3,9 @@ import '@/app/scss/main.scss';
 import classes from './MoreLink.module.scss';
 import {Reference} from "@/shared/icons";
 import {AdaptiveLink} from "@/shared/ui";
-import {HashLinkProps} from "react-router-hash-link";
+import {LinkProps} from "react-router-dom";
 
-interface MoreLinkProps extends HashLinkProps {
+interface MoreLinkProps extends LinkProps {
     to: string;
 }
 

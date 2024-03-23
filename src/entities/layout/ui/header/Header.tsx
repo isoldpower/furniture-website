@@ -2,7 +2,6 @@ import {BaseHTMLAttributes, FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './Header.module.scss';
 import {Icon, Logo} from "@/shared/icons";
-import {Link} from "react-router-dom";
 import {websiteRoutes} from "@/shared/lib";
 import {AdaptiveLink} from "@/shared/ui";
 

@@ -5,7 +5,7 @@ import {OpenCatalog, useHamburger} from "@/features";
 import {Menu} from "@/shared/icons";
 import {Header} from "@/entities/layout";
 import {websiteRoutes} from "@/shared/lib";
-import {HashLink} from "react-router-hash-link";
+import {AdaptiveLink} from "@/shared/ui";
 
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -21,21 +21,15 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderP
             </button>,
             navigationElements: [
                 <OpenCatalog key={0}>Каталог</OpenCatalog>,
-                <HashLink className={`${classes.websiteHeader__navigationItem}`} key={1} to={websiteRoutes.materials}>
-                    <div tabIndex={0}>
+                <AdaptiveLink className={`${classes.websiteHeader__navigationItem}`} key={1} to={websiteRoutes.materials}>
                         Материалы
-                    </div>
-                </HashLink>,
-                <HashLink className={`${classes.websiteHeader__navigationItem}`} key={2} to={websiteRoutes.portfolio}>
-                    <div tabIndex={0}>
+                </AdaptiveLink>,
+                <AdaptiveLink className={`${classes.websiteHeader__navigationItem}`} key={2} to={websiteRoutes.portfolio}>
                         Портфолио
-                    </div>
-                </HashLink>,
-                <HashLink className={`${classes.websiteHeader__navigationItem}`} key={3} to={websiteRoutes.about}>
-                    <div tabIndex={0}>
+                </AdaptiveLink>,
+                <AdaptiveLink className={`${classes.websiteHeader__navigationItem}`} key={3} to={websiteRoutes.about}>
                         О компании
-                    </div>
-                </HashLink>
+                </AdaptiveLink>
             ]
         }} {...props} />
     );
