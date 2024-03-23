@@ -2,8 +2,6 @@
 @use './styles';
 
 .adaptiveLink__content {
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    border: none !important;
+    gap: inherit;
+    display: inherit;
 }

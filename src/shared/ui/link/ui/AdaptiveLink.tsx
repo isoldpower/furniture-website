@@ -13,7 +13,7 @@ export const AdaptiveLink: FC<AdaptiveLinkProps> = ({className, children, ...pro
 
     return (
         <Link className={`${classes.adaptiveLink__wrapper} ${className}`} {...props}>
-            <div className={`${classes.adaptiveLink__content} ${className}`} tabIndex={0}>
+            <div className={`${classes.adaptiveLink__content}`} tabIndex={0}>
                 {children}
             </div>
         </Link>

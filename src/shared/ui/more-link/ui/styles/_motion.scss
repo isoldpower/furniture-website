@@ -5,7 +5,7 @@
     outline: 1px solid $color-neutral-080;
     background-color: transparent;
 
-    & > * > span {
+    & > * > * > span {
         transform: rotate(-90deg);
     }
 }
