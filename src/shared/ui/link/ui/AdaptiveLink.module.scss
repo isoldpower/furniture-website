@@ -1,6 +1,7 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
-.adaptiveLink__wrapper {
-    display: inline-block;
+.adaptiveLink__content {
+    gap: inherit;
+    display: inherit;
 }

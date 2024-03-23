@@ -3,6 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './FooterBasement.module.scss';
 import {AdaptiveLink} from "@/shared/ui";
 import {FooterData} from "@/entities/layout/model";
+import {websiteRoutes} from "@/shared/lib";
 
 interface FooterBasementProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: FooterData;
@@ -20,12 +21,12 @@ export const FooterBasement: FC<FooterBasementProps> = ({className, ...props}: F
             </address>
             <ul className={`${classes.footer__agreements} cc-fs-100 cc-gap-4 cc-desktop-gap-0 cc-pt-9 cc-tablet-pt-0 cc-desktop-pb-6`}>
                 <li className={`${classes.footer__agreementItem}`}>
-                    <AdaptiveLink className={`${classes.footer__contract}`} to='/agreement'>
+                    <AdaptiveLink className={`${classes.footer__contract}`} to={websiteRoutes.agreement}>
                         Договор оферты
                     </AdaptiveLink>
                 </li>
                 <li className={`${classes.footer__agreementItem}`}>
-                    <AdaptiveLink className={`${classes.footer__policy}`} to='/policy'>
+                    <AdaptiveLink className={`${classes.footer__policy}`} to={websiteRoutes.policy}>
                         Политика конфиденциальности
                     </AdaptiveLink>
                 </li>

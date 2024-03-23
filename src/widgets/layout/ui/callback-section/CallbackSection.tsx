@@ -5,11 +5,7 @@ import {useForm} from "@/features";
 import {AdaptiveLink, Button, InputField} from "@/shared/ui";
 import {CallbackForm} from "@/entities/layout";
 
-interface CallbackSectionData {
-}
-
 interface CallbackSectionProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data?: CallbackSectionData;
 }
 
 export const CallbackSection: FC<CallbackSectionProps> = ({className, ...props}: CallbackSectionProps) => {

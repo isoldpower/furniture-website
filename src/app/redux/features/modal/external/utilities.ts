@@ -1,7 +1,7 @@
-import {WindowParams} from "../types";
+import {ModalIdentifier, WindowParams} from "../types";
 
-export const getAffectedWindow = (collection: WindowParams[], element: WindowParams): WindowParams => {
-    return collection.find(iterator => isEqual(iterator, element));
+export const getAffectedWindow = (collection: WindowParams[], element: ModalIdentifier): WindowParams => {
+    return collection.find(iterator => iterator.identifier === element);
 }
 
 export const isEqual = (first: WindowParams, second: WindowParams): boolean => {

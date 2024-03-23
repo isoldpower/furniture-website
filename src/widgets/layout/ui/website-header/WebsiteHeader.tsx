@@ -1,11 +1,11 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './WebsiteHeader.module.scss';
-import {NavLink} from "react-router-dom";
 import {OpenCatalog, useHamburger} from "@/features";
 import {Menu} from "@/shared/icons";
 import {Header} from "@/entities/layout";
 import {websiteRoutes} from "@/shared/lib";
+import {AdaptiveLink} from "@/shared/ui";
 
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -14,27 +14,22 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderP
     const hamburger = useHamburger();
 
     return (
-        <Header data={{
-            hamburger: <button className={`${classes.header__hamburgerButton}`} onClick={hamburger.switchActive} type='button'>
-                <Menu height={44} width={44} />
+        <Header className={`${classes.websiteHeader__wrapper}`} data={{
+            isActive: hamburger.isActive,
+            hamburger: <button className={`${classes.websiteHeader__hamburgerButton}`} onClick={hamburger.toggle} type='button'>
+                <Menu aria-selected={hamburger.isActive} className={`${classes.websiteHeader__hamburgerIcon}`} height={44} width={44}/>
             </button>,
             navigationElements: [
                 <OpenCatalog key={0}>Каталог</OpenCatalog>,
-                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={1} to={websiteRoutes.materials}>
-                    <div tabIndex={0}>
+                <AdaptiveLink className={`${classes.websiteHeader__navigationItem}`} key={1} to={websiteRoutes.materials}>
                         Материалы
-                    </div>
-                </NavLink>,
-                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={2} to='/portfolio'>
-                    <div tabIndex={0}>
+                </AdaptiveLink>,
+                <AdaptiveLink className={`${classes.websiteHeader__navigationItem}`} key={2} to={websiteRoutes.portfolio}>
                         Портфолио
-                    </div>
-                </NavLink>,
-                <NavLink className={`${classes.websiteHeader__navigationItem}`} key={3} to='/about'>
-                    <div tabIndex={0}>
+                </AdaptiveLink>,
+                <AdaptiveLink className={`${classes.websiteHeader__navigationItem}`} key={3} to={websiteRoutes.about}>
                         О компании
-                    </div>
-                </NavLink>
+                </AdaptiveLink>
             ]
         }} {...props} />
     );

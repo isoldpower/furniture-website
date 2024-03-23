@@ -1,11 +1,11 @@
 @use '@/app/scss/useMain' as *;
 
-.moreLink__wrapper:is(:hover, :focus-visible) {
+.moreLink__wrapper:is(:hover) {
     color: $color-accent-500;
     outline: 1px solid $color-neutral-080;
     background-color: transparent;
 
-    & > * > span {
+    & > * > * > span {
         transform: rotate(-90deg);
     }
 }
