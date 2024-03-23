@@ -2,7 +2,7 @@ import classes from './HeroDecorationsProvider.module.scss';
 import '@/app/scss/main.scss';
 import {BaseHTMLAttributes, FC} from "react";
 import {ProgressiveImage} from "@/shared/ui";
-import {heroImages} from "@/pages/home/api";
+import {heroImages} from "@/pages/home-page/api";
 
 interface HeroDecorationsProviderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

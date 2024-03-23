@@ -1,47 +1,75 @@
 import {createHashRouter} from "react-router-dom";
 import {Suspense} from "react";
-import {App} from "@/app/App";
-import {Home} from "@/pages/home";
 import {websiteRoutes} from "@/shared/lib";
-import {CatalogSectionPage} from "@/pages/section-page/ui/CatalogSectionPage";
-import {ProductPage} from "@/pages/product-page/ui/ProductPage";
-import {Catalog} from "@/pages/catalog-page/ui/Catalog";
-import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
+
+import {AppLazy} from "@/app";
+import {HomeLazy} from "@/pages/home-page";
+import {CatalogLazy} from "@/pages/catalog-page";
+import {SectionLazy} from "@/pages/section-page";
+import {ProductLazy} from "@/pages/product-page";
+import {MaterialsLazy} from "@/pages/materials-page";
+import {PortfolioLazy} from "@/pages/portfolio-page";
+import {AboutLazy} from "@/pages/about-page";
+import {ErrorPage} from "@/pages/error-page";
+import {LoadingPage} from "@/pages/loading-page";
+
+const defaultFallback = <LoadingPage />;
 
 const routes = [
     {
         path: '/',
         element:
-            <Suspense fallback="Loading...">
-                <App/>
+            <Suspense fallback={defaultFallback}>
+                <AppLazy />
             </Suspense>,
         children: [
             {
                 path: websiteRoutes.home,
                 element:
-                    <Suspense fallback="Loading...">
-                        <Home />
+                    <Suspense fallback={defaultFallback}>
+                        <HomeLazy />
                     </Suspense>
             },
             {
                 path: websiteRoutes.catalog,
                 element:
-                    <Suspense fallback="Loading...">
-                        <Catalog />
+                    <Suspense fallback={defaultFallback}>
+                        <CatalogLazy />
                     </Suspense>
             },
             {
                 path: websiteRoutes.catalog + '/:section',
                 element:
-                    <Suspense fallback="Loading...">
-                        <CatalogSectionPage />
+                    <Suspense fallback={defaultFallback}>
+                        <SectionLazy />
                     </Suspense>
             },
             {
                 path: websiteRoutes.catalog + '/:section/:item',
                 element:
-                    <Suspense fallback="Loading...">
-                        <ProductPage />
+                    <Suspense fallback={defaultFallback}>
+                        <ProductLazy />
+                    </Suspense>
+            },
+            {
+                path: websiteRoutes.materials,
+                element:
+                    <Suspense fallback={defaultFallback}>
+                        <MaterialsLazy />
+                    </Suspense>
+            },
+            {
+                path: websiteRoutes.portfolio,
+                element:
+                    <Suspense fallback={defaultFallback}>
+                        <PortfolioLazy />
+                    </Suspense>
+            },
+            {
+                path: websiteRoutes.about,
+                element:
+                    <Suspense fallback={defaultFallback}>
+                        <AboutLazy />
                     </Suspense>
             },
             {

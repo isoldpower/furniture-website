@@ -12,7 +12,7 @@ import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
 interface CatalogSectionPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const CatalogSectionPage: FC<CatalogSectionPageProps> = ({className, ...props}: CatalogSectionPageProps) => {
+const CatalogSectionPage: FC<CatalogSectionPageProps> = ({className, ...props}: CatalogSectionPageProps) => {
     const params = useParams();
     const section: Section = sections.find(section => section.hrefPostfix === '/' + params.section);
 
@@ -45,3 +45,5 @@ export const CatalogSectionPage: FC<CatalogSectionPageProps> = ({className, ...p
             </div>
     );
 }
+
+export default CatalogSectionPage;

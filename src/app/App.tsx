@@ -9,12 +9,11 @@ import {WebsiteFooter} from "@/widgets/layout/ui/website-footer/WebsiteFooter";
 import {CatalogModal} from "@/widgets/catalog-section/ui/CatalogModal/CatalogModal";
 import {closeAll, useAppDispatch} from "@/app/redux";
 
-export const App = () => {
+const App = () => {
     const location = useLocation();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        scrollTo(0, 0);
         dispatch(closeAll());
     }, [dispatch, location]);
 
@@ -39,3 +38,5 @@ export const App = () => {
         </>
     );
 };
+
+export default App;

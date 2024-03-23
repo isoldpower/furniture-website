@@ -1,6 +1,6 @@
 @use '@/app/scss/useMain' as *;
 
-.websiteHeader__navigationItem > *:focus-visible:not(:hover) {
+.websiteHeader__navigationItem {
     color: $color-neutral-400;
     text-decoration: underline;
     outline: none;

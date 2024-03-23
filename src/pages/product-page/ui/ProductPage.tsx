@@ -13,7 +13,7 @@ import {CallbackSection} from "@/widgets/layout";
 interface ProductPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPageProps) => {
+const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPageProps) => {
     const params = useParams();
     const product = products.find(product => product.hrefPostfix === '/' + params.item);
     const section = sections.find(section => section.hrefPostfix === '/' + params.section);
@@ -51,3 +51,5 @@ export const ProductPage: FC<ProductPageProps> = ({className, ...props}: Product
             </div>
     );
 };
+
+export default ProductPage;

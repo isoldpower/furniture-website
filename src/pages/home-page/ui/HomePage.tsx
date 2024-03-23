@@ -1,10 +1,10 @@
 import '@/app/scss/main.scss';
-import classes from './Home.module.scss';
+import classes from './HomePage.module.scss';
 import {BaseHTMLAttributes, FC} from "react";
 import {websiteRoutes, sectionByPostfix} from "@/shared/lib";
 import {Button, Cite} from "@/shared/ui";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
-import {getCatalogSections} from "@/pages/home/api";
+import {getCatalogSections} from "@/pages/home-page/api";
 import {SectionDisplay} from "@/widgets/catalog-section";
 import {AdvantagesGrid} from "@/widgets/advantage";
 import {ProcessGrid} from "@/widgets/process";
@@ -15,7 +15,7 @@ import {products} from "@/widgets/product";
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
+const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
     return (
         <div className={`${classes.homePage__wrapper} ${className}`} {...props}>
             <div className={`${classes.homePage__content} cc-flex cc-flex-col cc-gap-15 cc-laptop-gap-18`}>
@@ -47,12 +47,12 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                         </div>
                     </div>
                 </section>
-                <section className={`${classes.homePage__advantagesSection} cc-main-gutter`}>
+                <section className={`${classes.homePage__advantagesSection} cc-main-gutter`} id='advantages'>
                     <div className={`${classes.advantagesSection__wrapper} cc-main-gutter-content`}>
                         <AdvantagesGrid />
                     </div>
                 </section>
-                <section className={`${classes.homePage__processSection} cc-main-gutter`}>
+                <section className={`${classes.homePage__processSection} cc-main-gutter`} id='process'>
                     <div className={`${classes.processSection__wrapper} cc-main-gutter-content`}>
                         <h2 className={`${classes.processSection__heading} cc-pb-7 cc-laptop-pb-11`}>Этапы работы</h2>
                         <ProcessGrid />
@@ -68,3 +68,5 @@ export const Home: FC<HomeProps> = ({className, ...props}: HomeProps) => {
         </div>
     );
 };
+
+export default HomePage;

@@ -21,7 +21,7 @@ export const HeroSection: FC<HeroSectionProps> = ({className, ...props}: HeroSec
                 <div className={`${classes.heroSection__buttons}`}>
                     <Button className={`${classes.heroSection__accentButton}`} data={{variant: 'accent'}}
                             semantic="link" to={websiteRoutes.catalog}>Перейти в каталог</Button>
-                    <Button className={`${classes.heroSection__aboutButton}`} semantic="link" to="/about">Подробнее
+                    <Button className={`${classes.heroSection__aboutButton}`} semantic="link" to={websiteRoutes.about}>Подробнее
                         о компании</Button>
                 </div>
             </div>

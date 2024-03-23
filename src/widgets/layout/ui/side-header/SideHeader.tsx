@@ -12,9 +12,10 @@ interface SideHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const SideHeader: FC<SideHeaderProps> = ({className, ...props}: SideHeaderProps) => {
     const navigationElements: LinkData[] = [
         {href: websiteRoutes.materials, text: 'Материалы'},
-        {href: '/portfolio', text: 'Портфолио'},
-        {href: '/about', text: 'О компании'}
-    ]
+        {href: websiteRoutes.portfolio, text: 'Портфолио'},
+        {href: websiteRoutes.about, text: 'О компании'}
+    ];
+
     return (
         <div className={`${classes.sideHeader__wrapper} ${className}`} {...props}>
             <div className={`${classes.sideHeader__back}`} />

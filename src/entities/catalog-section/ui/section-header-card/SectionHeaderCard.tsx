@@ -2,11 +2,10 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionHeaderCard.module.scss';
 import {Section} from "@/entities/catalog-section";
-import {MoreLink, ProgressiveImage} from "@/shared/ui";
+import {AdaptiveLink, MoreLink, ProgressiveImage} from "@/shared/ui";
 import {getImage} from "@/shared/api";
 import {Reference} from "@/shared/icons";
 import {websiteRoutes} from "@/shared/lib";
-import {Link} from "react-router-dom";
 
 interface SectionHeaderCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Section;
@@ -18,7 +17,7 @@ export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, 
     return (
         <div className={`${classes.sectionHeaderCard__wrapper} ${className}`} {...props}>
             <div className={`${classes.sectionHeaderCard__content} cc-grid cc-gap-4 cc-laptop-gap-8`}>
-                <Link className={`${classes.sectionHeaderCard__overlapLink}`} to={href} />
+                <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} to={href} />
                 <div className={`${classes.sectionHeaderCard__imageWrapper}`}>
                     <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={getImage(data.previewImageId)}/>
                 </div>

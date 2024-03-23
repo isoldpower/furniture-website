@@ -1,6 +1,9 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
-.adaptiveLink__wrapper {
-    display: inline-block;
+.adaptiveLink__content {
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
 }

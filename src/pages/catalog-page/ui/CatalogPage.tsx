@@ -1,24 +1,24 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import classes from './Catalog.module.scss';
-import {Link} from "react-router-dom";
+import classes from './CatalogPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {CatalogSectionCard} from "@/entities/catalog-section";
 import {sections} from "@/widgets/catalog-section";
 import {getImage} from "@/shared/api";
+import {AdaptiveLink} from "@/shared/ui";
 
 interface CatalogProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const Catalog: FC<CatalogProps> = ({className, ...props}: CatalogProps) => {
+const CatalogPage: FC<CatalogProps> = ({className, ...props}: CatalogProps) => {
     const sectionElements = sections.map((section, key) => (
-        <li key={key}>
-            <Link to={`/catalog${section.hrefPostfix}`}>
+        <li key={key} className={`cc-grid`}>
+            <AdaptiveLink to={`/catalog${section.hrefPostfix}`}>
                 <CatalogSectionCard data={{
                     ...section,
                     image: getImage(section.previewImageId)
-                }} tabIndex={0}/>
-            </Link>
+                }}/>
+            </AdaptiveLink>
         </li>
     ));
 
@@ -40,3 +40,5 @@ export const Catalog: FC<CatalogProps> = ({className, ...props}: CatalogProps) =
         </div>
     );
 };
+
+export default CatalogPage;
