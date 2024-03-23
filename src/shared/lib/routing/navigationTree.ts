@@ -6,7 +6,8 @@ import {itemRoutes, sectionRoutes} from "@/app/providers/router/dynamicRoutes";
 export const getPageByRoute = (route: string) => {
     const staticRoutes: {[route: string]: string} = {
         [websiteRoutes.home]: 'Главная',
-        [websiteRoutes.catalog]: 'Каталог'
+        [websiteRoutes.catalog]: 'Каталог',
+        [websiteRoutes.materials]: 'Материалы'
     }
 
     if (route in staticRoutes) return staticRoutes[route];

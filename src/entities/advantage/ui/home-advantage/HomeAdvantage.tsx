@@ -11,7 +11,7 @@ interface AdvantageProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const HomeAdvantage: FC<AdvantageProps> = ({className, data, ...props}: AdvantageProps) => {
     return (
         <div className={`${classes.advantage__wrapper} ${className}`} {...props}>
-            <div className={`${classes.advantage__content} cc-p-7 cc-grid cc-gap-9`}>
+            <div className={`${classes.advantage__content} cc-p-7 cc-flex cc-flex-col cc-gap-9`}>
                 <div className={`${classes.advantage__head} cc-flex cc-justify-content-space cc-align-items-center cc-clr-accent-500`}>
                     <Icon className={`${classes.advantage__icon}`} height={32} width={32}/>
                     <div className={`${classes.advantage__order}`}>{data.order}</div>

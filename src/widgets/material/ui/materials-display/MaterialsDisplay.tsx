@@ -16,7 +16,7 @@ export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props
         <HomeMaterial className="cc-min-height-1of1" data={{
             ...material,
             image: getImage(material.imageId),
-            button: <MoreLink to={`/materials${material.hrefPostfix}`}>Подробнее</MoreLink>
+            button: <MoreLink to={`/materials#${material.hrefPostfix.replaceAll('/', '')}`}>Подробнее</MoreLink>
         }} key={key}/>
     ));
 

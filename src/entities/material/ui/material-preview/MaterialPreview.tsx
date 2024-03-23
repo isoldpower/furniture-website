@@ -13,7 +13,7 @@ interface MaterialPreviewProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const MaterialPreview: FC<MaterialPreviewProps> = ({className, data, ...props}: MaterialPreviewProps) => {
     return (
         <div className={`${classes.materialPreview__wrapper} ${className}`} {...props}>
-            <AdaptiveLink className={`${classes.materialPreview__content} cc-grid cc-gap-3`} to={websiteRoutes.materials + data.hrefPostfix}>
+            <AdaptiveLink className={`${classes.materialPreview__content} cc-grid cc-gap-3`} to={websiteRoutes.materials + '#' + data.hrefPostfix.replaceAll('/', '')}>
                 <div className={`${classes.materialPreview__imageWrapper}`}>
                     <ProgressiveImage className={`${classes.materialPreview__image} cc-round`} image={getImage(data.imageId)} />
                 </div>

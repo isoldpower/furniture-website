@@ -1,0 +1,32 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.materialOverview__imageWrapper {
+    width: 80px;
+    height: 80px;
+
+    @include mq(laptop) {
+        width: 128px;
+        height: 128px;
+    }
+}
+
+.materialOverview__paragraph {
+    max-width: 820px;
+}
+
+.materialOverview__advantagesWrapper {
+    display: grid;
+
+    @include mq(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq(laptop) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.materialOverview__advantage > * > h3 {
+    font-size: $font-size-300;
+}
