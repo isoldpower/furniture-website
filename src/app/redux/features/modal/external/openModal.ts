@@ -1,7 +1,7 @@
 import {ModalIdentifier, ModalState, WindowParams} from "../types";
 import {excludeItem, getAffectedWindow} from "./utilities";
 import {closeAllModals} from "./closeAllModals";
-import {switchClass, switchLayer} from "./switchLayer";
+import {switchClass, switchLayer, switchScroll} from "./switchLayer";
 import {closeModal} from "./closeModal";
 
 export const openModal = (state: ModalState, payload: ModalIdentifier) => {
@@ -22,6 +22,7 @@ const tryEnableModal = (state: ModalState, payload: ModalIdentifier) => {
     if(!switchLayer(true, window)) return;
     if(window.hiddenClass) switchClass(window, false);
     enableModal(state, window);
+    switchScroll(false);
 }
 
 const enableModal = (state: ModalState, payload: WindowParams) => {
