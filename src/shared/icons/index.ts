@@ -13,5 +13,6 @@ import Vk from './vk.svg';
 import Whatsapp from './whatsapp.svg';
 import Slash from './slash.svg';
 import Load from './load.svg';
+import Inspect from './inspect.svg';
 
-export {Slash, ArrowLeft, Telegram, ArrowRight, Vk, Icon, Menu, MenuSmall, Whatsapp, Reference, Cross, QuoteOpen, QuoteClose, Logo, Load}
+export {Slash, ArrowLeft, Telegram, ArrowRight, Vk, Icon, Menu, MenuSmall, Whatsapp, Reference, Cross, QuoteOpen, QuoteClose, Logo, Load, Inspect}

@@ -9,6 +9,7 @@ import {WebsiteFooter} from "@/widgets/layout/ui/website-footer/WebsiteFooter";
 import {CatalogModal} from "@/widgets/catalog-section/ui/CatalogModal/CatalogModal";
 import {closeAll, useAppDispatch} from "@/app/redux";
 import {AnchorScroll} from "@/app/providers/scroll/AnchorScroll";
+import {PortfolioImageInspect} from "@/widgets/portfolio/ui/portfolio-image-inspect/PortfolioImageInspect";
 
 const App = () => {
     const location = useLocation();
@@ -20,7 +21,7 @@ const App = () => {
 
     return (
         <>
-            <WebsiteHeader id='header' style={{zIndex: 99}}/>
+            <WebsiteHeader id='header' style={{zIndex: 99}} />
             <main className={`${classes.pageLayout__body}`} id='body' style={{zIndex: 98, minHeight: '90dvh'}}>
                 <div className="absolute-stretch" id={layers.inactiveModals} style={{position: 'fixed', zIndex: 99, visibility: 'hidden'}}>
                     <ModalProvider id="side-header" identifier="header">
@@ -28,6 +29,9 @@ const App = () => {
                     </ModalProvider>
                     <ModalProvider id="modal-catalog" identifier="catalog">
                         <CatalogModal />
+                    </ModalProvider>
+                    <ModalProvider id="portfolio-overview" identifier="portfolio">
+                        <PortfolioImageInspect />
                     </ModalProvider>
                 </div>
                 <div className={`${classes.pageLayout__activeModals} absolute-stretch`} id={layers.activeModals} style={{position: "fixed", zIndex: 100}} />

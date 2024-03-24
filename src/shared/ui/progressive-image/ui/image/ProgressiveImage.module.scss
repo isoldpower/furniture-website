@@ -1,4 +1,7 @@
 @use '@/app/scss/useMain' as *;
 @use 'styles';
 
-// Basic selectors here
+.progressiveImage__image {
+    object-fit: cover;
+    width: 100%;
+}

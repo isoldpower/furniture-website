@@ -6,8 +6,8 @@ interface ProgressiveImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     image: ProgressiveImageData;
 }
 
-export const ProgressiveImage: FC<ProgressiveImageProps> = ({image, ...props}: ProgressiveImageProps) => {
-    const [imgSrc, setImgSrc] = useState<string>(image.low);
+export const ProgressiveImage: FC<ProgressiveImageProps> = ({image, className, ...props}: ProgressiveImageProps) => {
+    const [imgSrc, setImgSrc] = useState<string>();
     const [color, setColor] = useState<string>('transparent');
 
     const createEmptyImage = useCallback(() => {
@@ -16,17 +16,18 @@ export const ProgressiveImage: FC<ProgressiveImageProps> = ({image, ...props}: P
         return fullImage;
     }, [image.high]);
 
-    const loadFullImage = useCallback(() => {
+    const swapImageFace = useCallback(() => {
         setImgSrc(image.high);
         setColor('black');
     }, [image.high]);
 
     useEffect(() => {
-        const image = createEmptyImage();
-        image.onload = loadFullImage;
-    }, [image.low, createEmptyImage, loadFullImage]);
+        const backLoader = createEmptyImage();
+        backLoader.addEventListener('load', swapImageFace);
+        return () => backLoader.removeEventListener('load', swapImageFace);
+    }, [createEmptyImage, swapImageFace, image]);
 
     return (
-        <img alt={image.alt} src={imgSrc} style={{color: color, ...props.style}} {...props} />
+        <img alt={image.alt} className={className} src={imgSrc} style={{color: color, ...props.style}} {...props} />
     );
 };

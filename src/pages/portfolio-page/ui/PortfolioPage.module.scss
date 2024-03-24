@@ -1,4 +1,7 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
-// Basic selectors here
+.portfolioPage__worksGrid {
+    grid-template-columns: repeat(2, 1fr);
+
+}

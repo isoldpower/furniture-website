@@ -23,10 +23,10 @@ export const MaterialOverview: FC<MaterialOverviewProps> = ({className, data, ..
                 <p className={`${classes.materialOverview__paragraph}`}>{data.paragraph}</p>
                 <div className={`${classes.materialOverview__advantagesWrapper} gap-column-spacing`}>
                     {getAllMaterialAdvantages(getAdvantagesIds(data.id)).map((advantage, key) => (
-                        <HomeAdvantage data={{
+                        <HomeAdvantage className={`${classes.materialOverview__advantage} cc-flex`} data={{
                             ...advantage,
                             order: ('0' + (key + 1)).slice(-2)
-                        }} key={key} className={`${classes.materialOverview__advantage} cc-flex`}/>
+                        }} key={key}/>
                     ))}
                 </div>
                 <p className={`${classes.materialOverview__endingParagraph}`}>{data.ending}</p>

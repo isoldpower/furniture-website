@@ -11,4 +11,4 @@ export interface ModalState {
     inactiveWindows: WindowParams[];
 }
 
-export type ModalIdentifier = 'header' | 'catalog';
+export type ModalIdentifier = 'header' | 'catalog' | 'portfolio';

@@ -1,0 +1,9 @@
+@use '@/app/scss/useMain' as *;
+
+.portfolioItem__content:hover {
+    cursor: crosshair;
+
+    & > .portfolioItem__hover {
+        display: flex;
+    }
+}

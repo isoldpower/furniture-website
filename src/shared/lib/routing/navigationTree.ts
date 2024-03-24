@@ -7,12 +7,15 @@ export const getPageByRoute = (route: string) => {
     const staticRoutes: {[route: string]: string} = {
         [websiteRoutes.home]: 'Главная',
         [websiteRoutes.catalog]: 'Каталог',
-        [websiteRoutes.materials]: 'Материалы'
+        [websiteRoutes.materials]: 'Материалы',
+        [websiteRoutes.portfolio]: 'Портфолио'
     }
 
     if (route in staticRoutes) return staticRoutes[route];
     else if (isSection(route)) return getSection(route);
     else if (isItem(route)) return getItem(route);
+
+    console.error('Requested path is not navigationTree dictionary');
 }
 
 const isSection = (route: string) => {
