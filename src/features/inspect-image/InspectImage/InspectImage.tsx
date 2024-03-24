@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './InspectImage.module.scss';
 import {ProgressiveImageData} from "@/shared/ui";
 import {openWindow, useAppDispatch} from "@/app/redux";
-import {setImage} from "@/app/redux/features/gallery/gallerySlice";
+import {changeData} from "@/app/redux/features/modal/modalSlice";
 
 interface InspectImageProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     data: ProgressiveImageData;
@@ -13,7 +13,7 @@ interface InspectImageProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const InspectImage: FC<InspectImageProps> = ({className, data, ...props}: InspectImageProps) => {
     const dispatch = useAppDispatch();
     const openImage = () => {
-        dispatch(setImage(data));
+        dispatch(changeData(['portfolio', data]));
         setTimeout(() => {
             dispatch(openWindow('portfolio'));
         }, 100);

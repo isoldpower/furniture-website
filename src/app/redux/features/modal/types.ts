@@ -4,6 +4,7 @@ export interface WindowParams {
     attributeValue: string;
     hiddenClass?: string;
     isOverlapping?: boolean;
+    data?: object;
 }
 
 export interface ModalState {

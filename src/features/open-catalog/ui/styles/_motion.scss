@@ -1,3 +1,15 @@
 @use '@/app/scss/useMain' as *;
 
-// Interactions code
+.openCatalog__wrapper[aria-selected='true'] > * > svg > g {
+    & > * {
+        transform-origin: center;
+    }
+
+    & > *:first-child {
+        transform: rotate(45deg) translateY(2.5px);
+    }
+
+    & > *:last-child {
+        transform: rotate(-45deg) translateY(-2.5px);
+    }
+}

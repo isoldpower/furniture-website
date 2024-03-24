@@ -1,8 +1,6 @@
 import {websiteRoutes} from "@/shared/lib";
 import {itemRoutes, sectionRoutes} from "@/app/providers/router/dynamicRoutes";
 
-//TODO: Maybe use tree to solve dynamic path
-
 export const getPageByRoute = (route: string) => {
     const staticRoutes: {[route: string]: string} = {
         [websiteRoutes.home]: 'Главная',
@@ -15,7 +13,7 @@ export const getPageByRoute = (route: string) => {
     else if (isSection(route)) return getSection(route);
     else if (isItem(route)) return getItem(route);
 
-    console.error('Requested path is not navigationTree dictionary');
+    console.error('Requested path is not in navigationTree dictionary');
 }
 
 const isSection = (route: string) => {
