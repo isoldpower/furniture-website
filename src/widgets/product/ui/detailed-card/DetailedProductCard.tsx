@@ -15,7 +15,7 @@ export const DetailedProductCard: FC<DetailedProductCardProps> = ({className, da
     const href = websiteRoutes.catalog + sections.find(section => section.id === data.sectionId).hrefPostfix + data.hrefPostfix;
 
     return (
-        <ProductCard className={`${classes.detailedCard__wrapper} ${className} cc-flex`} {...props} data={{
+        <ProductCard className={`${classes.detailedCard__wrapper} ${className} cc-flex cc-width-1of1`} {...props} data={{
             title: data.title,
             materials: getMaterials(data.id),
             href: href,

@@ -10,9 +10,9 @@ interface ProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 export const ProductCard: FC<ProductCardProps> = ({className, data, ...props}: ProductCardProps) => {
     return (
-        <div className={`${classes.productCard__wrapper} ${className}`} {...props}>
-            <div className={`${classes.productCard__content} cc-flex cc-flex-col cc-gap-7`}>
-                <div className={`${classes.productCard__imageWrapper} cc-flex`}>
+        <div className={`${classes.productCard__wrapper} ${className} cc-grid`} {...props}>
+            <div className={`${classes.productCard__content} cc-flex cc-grid cc-gap-7`}>
+                <div className={`${classes.productCard__imageWrapper} cc-flex cc-width-1of1`}>
                     {data.displayImages}
                 </div>
                 <div className={`${classes.productCard__body} cc-flex cc-flex-col cc-gap-2`}>

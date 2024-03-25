@@ -13,7 +13,7 @@ import {AboutLazy} from "@/pages/about-page";
 import {ErrorPage} from "@/pages/error-page";
 import {LoadingPage} from "@/pages/loading-page";
 import {DocumentLazy} from "@/pages/document-page";
-import {documentLinks} from "@/pages/document-page/config";
+import {documents} from "@/pages/document-page/config";
 
 const defaultFallback = <LoadingPage />;
 
@@ -78,14 +78,14 @@ const routes = [
                 path: websiteRoutes.policy,
                 element:
                     <Suspense fallback={defaultFallback}>
-                        <DocumentLazy documentSrc={documentLinks.policy} />
+                        <DocumentLazy document={documents['policy']} />
                     </Suspense>
             },
             {
                 path: websiteRoutes.agreement,
                 element: 
                     <Suspense fallback={defaultFallback}>
-                        <DocumentLazy documentSrc={documentLinks.agreement} />
+                        <DocumentLazy document={documents['agreement']} />
                     </Suspense>
             },
             {
