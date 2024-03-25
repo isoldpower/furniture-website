@@ -12,24 +12,24 @@ interface PortfolioPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 const PortfolioPage: FC<PortfolioPageProps> = ({className, ...props}: PortfolioPageProps) => {
     return (
-        <div className={`${classes.portfolioPage__wrapper} ${className}`} {...props}>
-            <div className={`${classes.portfolioPage__content}`}>
-                <div className={`${classes.portfolioPage__pathWrapper} cc-main-gutter cc-pt-9`}>
-                    <PageTitle className={`${classes.portfolioPage__path} cc-main-gutter-content`} />
+        <div className={`${classes.portfolioPage__wrapper} ${className} cc-main-gutter`} {...props}>
+            <div className={`${classes.portfolioPage__content} cc-main-gutter-content`}>
+                <div className={`${classes.portfolioPage__pathWrapper} cc-pt-9`}>
+                    <PageTitle className={`${classes.portfolioPage__path}`} />
                 </div>
+                <section className={`${classes.portfolioPage__gridWrapper} cc-pt-9 cc-laptop-pt-13`}>
+                    <PortfolioGrid className={`${classes.portfolioPage__grid}`}>
+                        {portfolioItems.map((item, key) => (
+                            <InspectImage className="cc-flex cc-width-1of1" data={getImage(item.imageId)} key={key}>
+                                <PortfolioItem className="cc-flex cc-width-1of1" data={getImage(item.imageId)} />
+                            </InspectImage>
+                        ))}
+                    </PortfolioGrid>
+                </section>
+                <section className={`${classes.portfolioPage__callback} cc-py-15 cc-laptop-py-17`}>
+                    <CallbackSection />
+                </section>
             </div>
-            <div className={`${classes.portfolioPage__gridWrapper} cc-main-gutter cc-pt-9 cc-laptop-pt-13`}>
-                <PortfolioGrid className={`${classes.portfolioPage__grid} cc-main-gutter-content`}>
-                    {portfolioItems.map((item, key) => (
-                        <InspectImage className="cc-flex cc-width-1of1" data={getImage(item.imageId)} key={key}>
-                            <PortfolioItem className="cc-flex cc-width-1of1" data={getImage(item.imageId)} />
-                        </InspectImage>
-                    ))}
-                </PortfolioGrid>
-            </div>
-            <section className={`${classes.portfolioPage__callback} cc-py-15 cc-laptop-py-17`}>
-                <CallbackSection />
-            </section>
         </div>
     );
 };

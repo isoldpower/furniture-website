@@ -11,13 +11,13 @@ interface AboutPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) => {
     return (
-        <div className={`${classes.aboutPage__wrapper} ${className}`} {...props}>
-            <div className={`${classes.aboutPage__content}`}>
-                <div className={`${classes.aboutPage__pathWrapper} cc-main-gutter cc-pt-9`}>
-                    <PageTitle className={`${classes.aboutPage__path} cc-main-gutter-content`} />
+        <div className={`${classes.aboutPage__wrapper} ${className} cc-main-gutter`} {...props}>
+            <div className={`${classes.aboutPage__content} cc-main-gutter-content`}>
+                <div className={`${classes.aboutPage__pathWrapper} cc-pt-9`}>
+                    <PageTitle className={`${classes.aboutPage__path}`} />
                 </div>
-                <section className={`${classes.aboutPage__overviewWrapper} cc-pt-9 cc-laptop-pt-13 cc-main-gutter`}>
-                    <div className={`${classes.aboutPage__overview} cc-main-gutter-content`}>
+                <section className={`${classes.aboutPage__overviewWrapper} cc-pt-9 cc-laptop-pt-13`}>
+                    <div className={`${classes.aboutPage__overview}`}>
                         <ProgressiveImage className={`${classes.aboutPage__image}`} image={getImage(7)}/>
                         <div className={`${classes.aboutPage__body} cc-flex cc-flex-col cc-gap-9 cc-laptop-gap-13`}>
                             <h1 className={`${classes.aboutPage__overviewHeading}`}>CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.</h1>
