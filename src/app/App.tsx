@@ -6,7 +6,7 @@ import {useEffect} from "react";
 import {WebsiteHeader} from "@/widgets/layout/ui/website-header/WebsiteHeader";
 import {SideHeader} from "@/widgets/layout/ui/side-header/SideHeader";
 import {WebsiteFooter} from "@/widgets/layout/ui/website-footer/WebsiteFooter";
-import {CatalogModal} from "@/widgets/catalog-section/ui/CatalogModal/CatalogModal";
+import {CatalogModal} from "@/widgets/catalog-section/ui/catalog-modal/CatalogModal";
 import {closeAll, useAppDispatch} from "@/app/redux";
 import {AnchorScroll} from "@/app/providers/scroll/AnchorScroll";
 import {PortfolioImageInspect} from "@/widgets/portfolio/ui/portfolio-image-inspect/PortfolioImageInspect";

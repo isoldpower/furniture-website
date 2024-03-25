@@ -17,6 +17,7 @@
 
 .header__back {
     @extend .absolute-stretch;
+    transition: 0.3s;
     backdrop-filter: blur(32px);
     background: rgba(255, 255, 255, 0.6);
 

@@ -5,7 +5,7 @@ import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {getImage} from "@/shared/api";
 import {PortfolioGrid, portfolioItems} from "@/widgets/portfolio";
 import {PortfolioItem} from "@/entities/portfolio";
-import {InspectImage} from "@/features/inspect-image/InspectImage/InspectImage";
+import {InspectImage} from "@/features/inspect-image/ui/InspectImage";
 
 interface PortfolioPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

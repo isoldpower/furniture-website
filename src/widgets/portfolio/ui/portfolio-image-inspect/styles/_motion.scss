@@ -1,3 +1,15 @@
 @use '@/app/scss/useMain' as *;
 
-// Interactions code
+.portfolioImageInspect__container {
+    animation: image-appear 0.2s linear;
+}
+
+@keyframes image-appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

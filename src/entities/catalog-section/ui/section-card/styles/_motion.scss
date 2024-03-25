@@ -1,3 +1,15 @@
 @use '@/app/scss/useMain' as *;
 
-// Interactions code
+.catalogSection__imageWrapper {
+    overflow: hidden;
+}
+
+.catalogSection__image {
+    transition: 0.3s ease-out;
+}
+
+.catalogSection__content:hover > .catalogSection__imageWrapper {
+    & > * {
+        transform: scale(1.2);
+    }
+}

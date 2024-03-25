@@ -13,7 +13,7 @@ export const CatalogModal: FC<CatalogModalProps> = ({className, ...props}: Catal
     const itemsAmount = width >= breakpoints.desktop ? 4 : 3;
 
     return (
-        <div className={`${classes.catalogModal__wrapper} ${className}`} {...props}>
+        <div className={`${classes.catalogModal__wrapper} ${className} catalogModal__hidden`} {...props}>
             <div className={`${classes.catalogModal__content}`}>
                 <div className={`${classes.catalogModal__back}`} />
                 <div className={`${classes.catalogModal__container} cc-main-gutter`}>
