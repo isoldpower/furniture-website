@@ -46,11 +46,11 @@
 }
 
 .aboutPage__achievementNumber {
+    line-height: 100%;
     font-size: 48px;
 
     @include mq(tablet) {
         font-size: 64px;
-        line-height: 100%;
     }
 }
 

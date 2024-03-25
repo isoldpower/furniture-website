@@ -7,7 +7,9 @@ export const getPageByRoute = (route: string) => {
         [websiteRoutes.catalog]: 'Каталог',
         [websiteRoutes.materials]: 'Материалы',
         [websiteRoutes.portfolio]: 'Портфолио',
-        [websiteRoutes.about]: 'О компании'
+        [websiteRoutes.about]: 'О компании',
+        [websiteRoutes.policy]: 'Политика конфиденциальности',
+        [websiteRoutes.agreement]: 'Договор оферты'
     }
 
     if (route in staticRoutes) return staticRoutes[route];
