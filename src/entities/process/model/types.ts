@@ -3,8 +3,3 @@ export interface Process {
     paragraph: string;
     imageId: number;
 }
-
-export interface ProcessImage {
-    processId: number;
-    imageId: number;
-}
