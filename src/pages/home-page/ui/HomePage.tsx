@@ -63,7 +63,9 @@ const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                         <MaterialsDisplay />
                     </div>
                 </section>
-                <CallbackSection className={`${classes.homePage__callbackSection} cc-pb-15 cc-tablet-pb-17`}/>
+                <section className={`${classes.homePage__callbackSection} cc-main-gutter cc-pb-15 cc-tablet-pb-17`}>
+                    <CallbackSection className={`${classes.homePage__callback} cc-main-gutter-content`} />
+                </section>
             </div>
         </div>
     );

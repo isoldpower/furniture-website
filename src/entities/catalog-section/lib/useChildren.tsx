@@ -13,7 +13,7 @@ export const useChildren = (children: ReactNode[], sectionLink?: boolean) => {
 
     return children.map((child, key) => {
         return key + 1 <= amount
-            ? <div className={`${classes.catalogSpoiler__itemWrapper} cc-flex`} key={key}>{child}</div>
+            ? <div className={`${classes.catalogSpoiler__itemWrapper} cc-flex cc-width-1of1`} key={key}>{child}</div>
             : <Fragment key={key} />
     })
 };

@@ -23,15 +23,11 @@ const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPagePro
         : (
             <div className={`${classes.productPage__wrapper} ${className}`} {...props}>
                 <div className={`${classes.productPage__content}`}>
-                    <nav className={`${classes.productPage__pathWrapper} cc-main-gutter`}>
-                        <div className={`${classes.productPage__path} cc-main-gutter-content`}>
-                            <PagePath />
-                        </div>
-                    </nav>
+                    <div className={`${classes.productPage__pathWrapper} cc-main-gutter`}>
+                        <PagePath className={`${classes.productPage__path} cc-main-gutter-content`}/>
+                    </div>
                     <section className={`${classes.productPage__productWrapper} cc-main-gutter cc-pt-9 cc-laptop-pt-13`}>
-                        <div className={`${classes.productPage__product} cc-main-gutter-content`}>
-                            <ProductOverview data={product} />
-                        </div>
+                        <ProductOverview className={`${classes.productPage__product} cc-main-gutter-content`} data={product} />
                     </section>
                     <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
                         <div className={`${classes.productPage__sectionPreview}`}>
@@ -44,8 +40,8 @@ const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPagePro
                             }} id="familiar" />
                         </div>
                     </section>
-                    <section className={`${classes.productPage__callbackWrapper} cc-py-15 cc-laptop-py-17`}>
-                        <CallbackSection />
+                    <section className={`${classes.productPage__callbackWrapper} cc-main-gutter cc-py-15 cc-laptop-py-17`}>
+                        <CallbackSection className={`${classes.productPage__callbackWrapper} cc-main-gutter-content`}/>
                     </section>
                 </div>
             </div>

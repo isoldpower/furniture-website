@@ -12,8 +12,8 @@ export const CallbackSection: FC<CallbackSectionProps> = ({className, ...props}:
     const form = useForm();
 
     return (
-        <section className={`${classes.callbackSection__wrapper} ${className} cc-main-gutter`} {...props}>
-            <div className={`${classes.callbackSection__content} cc-main-gutter-content`}>
+        <div className={`${classes.callbackSection__wrapper} ${className} `} {...props}>
+            <div className={`${classes.callbackSection__content}`}>
                 <div className={`${classes.callbackSection__headingWrapper}`}>
                     <h1 className={`${classes.callbackSection__heading} cc-heading-1`}>
                         Можем перезвонить
@@ -40,6 +40,6 @@ export const CallbackSection: FC<CallbackSectionProps> = ({className, ...props}:
                     )}} />
                 </div>
             </div>
-        </section>
+        </div>
     );
 };

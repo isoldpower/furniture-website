@@ -1,3 +1,9 @@
 @use '@/app/scss/useMain' as *;
 
-// Pseudo-elements, backgrounds and decorative elements
+.progressiveImage__image::before {
+    content: "";
+    @extend .absolute-stretch;
+    z-index: -1;
+
+    border: 1px solid $color-back-3;
+}
