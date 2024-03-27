@@ -28,7 +28,7 @@ const DocumentPage: FC<PolicyPageProps> = ({className, document, ...props}: Poli
                         <Button className={`${classes.policyPage__button} cc-width-1of1`} data={{variant: 'accent'}} semantic="link" target="_blank" to={document.download}>Скачать файл</Button>
                     </div>
                     <div className={`${classes.policyPage__viewContainer}`}>
-                        <iframe className={`${classes.policyPage__view} cc-main-gutter-content`} title="cozycraft-document" src={document.document} tabIndex={0} data-auto-height="true" data-aspect-ratio="0.7080062794348508" scrolling="no" frameBorder="0" />
+                        <iframe className={`${classes.policyPage__view} cc-main-gutter-content`} data-aspect-ratio="0.7080062794348508" data-auto-height="true" frameBorder="0" scrolling="no" src={document.document} tabIndex={0} title="cozycraft-document" />
                     </div>
                 </div>
                 <section className={`${classes.policyPage__callback} cc-py-15 cc-laptop-py-17`}>

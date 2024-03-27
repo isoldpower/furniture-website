@@ -27,7 +27,7 @@ const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPagePro
                         <PagePath className={`${classes.productPage__path} cc-main-gutter-content`}/>
                     </div>
                     <section className={`${classes.productPage__productWrapper} cc-main-gutter cc-pt-9 cc-laptop-pt-13`}>
-                        <ProductOverview data={product} className={`${classes.productPage__product} cc-main-gutter-content`} />
+                        <ProductOverview className={`${classes.productPage__product} cc-main-gutter-content`} data={product} />
                     </section>
                     <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
                         <div className={`${classes.productPage__sectionPreview}`}>

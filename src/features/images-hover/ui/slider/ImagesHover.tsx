@@ -20,11 +20,11 @@ export const ImagesHover: FC<ImagesHoverProps> = ({className, data, ...props}: I
             <div className={`${classes.imagesSlider__content} cc-flex`}>
                 <ImageAreas className={`${classes.imagesSlider__areas}`} data={{setActive: setActive, amount: actualImages.length}}/>
                 {actualImages.map((image, key) => (
-                    <div className={`${classes.imagesSlider__imageWrapper}`} aria-selected={key === active}>
+                    <div aria-selected={key === active} className={`${classes.imagesSlider__imageWrapper}`} key={key}>
                         <ProgressiveImage className={`${classes.imagesSlider__image}`} image={image}/>
                     </div>
                 ))}
-                {actualImages.length >= 2 ? <ImageBar data={{amount: actualImages.length, active: active}} className={`${classes.imagesSlider__bar}`}/> : null}
+                {actualImages.length >= 2 ? <ImageBar className={`${classes.imagesSlider__bar}`} data={{amount: actualImages.length, active: active}}/> : null}
             </div>
         </div>
     );
