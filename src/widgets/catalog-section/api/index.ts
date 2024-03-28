@@ -1,4 +1,6 @@
 import sectionsJson from './sections.json';
-import {Section} from "@/entities/catalog-section";
+import {SectionMockApiHandler} from "@/entities/catalog-section/api/SectionMockApiHandler";
+import {SectionApiWrapper} from "@/entities/catalog-section/api/SectionApiWrapper";
 
-export const sections: Section[] = sectionsJson.sections;
+const sectionApiHandler = new SectionMockApiHandler(sectionsJson.sections);
+export const sectionApi: SectionApiWrapper = new SectionApiWrapper(sectionApiHandler);

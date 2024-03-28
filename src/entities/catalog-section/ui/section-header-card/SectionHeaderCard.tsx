@@ -3,9 +3,9 @@ import '@/app/scss/main.scss';
 import classes from './SectionHeaderCard.module.scss';
 import {Section} from "@/entities/catalog-section";
 import {AdaptiveLink, MoreLink, ProgressiveImage} from "@/shared/ui";
-import {getImage} from "@/shared/api";
 import {Reference} from "@/shared/icons";
 import {websiteRoutes} from "@/shared/lib";
+import {imageApiHandler} from "@/shared/api";
 
 interface SectionHeaderCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Section;
@@ -19,7 +19,7 @@ export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, 
             <div className={`${classes.sectionHeaderCard__content} cc-grid cc-gap-4 cc-laptop-gap-8`}>
                 <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} to={href} />
                 <div className={`${classes.sectionHeaderCard__imageWrapper}`}>
-                    <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={getImage(data.previewImageId)}/>
+                    <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={imageApiHandler.getImage(data.previewImageId)}/>
                 </div>
                 <div className={`${classes.sectionHeaderCard__headingWrapper} cc-grid cc-gap-8`}>
                     <h2 className={`${classes.sectionHeaderCard__heading} cc-clr-neutral-000`}>{data.title}</h2>

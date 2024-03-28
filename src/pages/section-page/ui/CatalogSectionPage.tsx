@@ -4,10 +4,10 @@ import classes from './CatalogSection.module.scss';
 import {useParams} from "react-router-dom";
 import {CustomProject} from "@/pages/section-page/ui/mixins/custom-project/CustomProject";
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {DetailedProductCard, products} from "@/widgets/product";
+import {DetailedProductCard, productsApi} from "@/widgets/product";
 import {Section} from "@/entities/catalog-section";
-import {sections} from "@/widgets/catalog-section";
 import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
+import {sectionApi} from "@/widgets/catalog-section";
 
 interface CatalogSectionPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -22,7 +22,7 @@ const CatalogSectionPage: FC<CatalogSectionPageProps> = ({className, ...props}: 
         }, 0);
     }, [params]);
 
-    const section: Section = sections.find(section => section.hrefPostfix === '/' + params.section);
+    const section: Section = sectionApi.getByPostfix('/' + params.section);
 
     if (section === undefined) return <ErrorPage />;
     if (loaded === false) return undefined;
@@ -36,7 +36,7 @@ const CatalogSectionPage: FC<CatalogSectionPageProps> = ({className, ...props}: 
                 </div>
                 <div className={`${classes.catalogSection__catalogWrapper} cc-pt-9 cc-laptop-pt-13`}>
                     <div className={`${classes.catalogSection__catalog} cc-grid cc-cgap-5 cc-rgap-9`}>
-                        {products.filter(product => product.sectionId === section.id).map((product, key) => (
+                        {productsApi.getSectionProducts(section.id).map((product, key) => (
                             <Fragment key={key}>
                                 {key === 2 ? <CustomProject data={{
                                     title: 'Не нашли то что искали?',

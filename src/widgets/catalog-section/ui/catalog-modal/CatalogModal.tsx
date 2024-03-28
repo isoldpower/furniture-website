@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogModal.module.scss';
-import {sections} from "@/widgets/catalog-section";
+import {sectionApi} from "@/widgets/catalog-section";
 import {SectionHeaderCard} from "@/entities/catalog-section/ui/section-header-card/SectionHeaderCard";
 import {breakpoints, useDocumentSize} from "@/shared/lib";
 
@@ -20,7 +20,7 @@ export const CatalogModal: FC<CatalogModalProps> = ({className, ...props}: Catal
                     <div className={`${classes.catalogModal__containerBack} cc-bg-neutral-000 cc-border-radius-1`}/>
                     <div className={`${classes.catalogModal__catalogWrapper} cc-main-gutter-content`}>
                         <div className={`${classes.catalogModal__catalog} cc-grid cc-gap-5 cc-py-10`}>
-                            {sections.slice(0, itemsAmount).map((section, key) => (
+                            {sectionApi.getChunk(itemsAmount).map((section, key) => (
                                 <SectionHeaderCard data={section} key={key} />
                             ))}
                         </div>

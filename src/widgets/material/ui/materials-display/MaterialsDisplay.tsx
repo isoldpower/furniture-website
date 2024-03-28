@@ -2,20 +2,20 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialsDisplay.module.scss';
 import {breakpoints, useDocumentSize} from "@/shared/lib";
-import {materials} from "@/widgets/material/api";
+import {materialsApi} from "@/widgets/material/api";
 import {HomeMaterial} from "@/entities/material/ui/home-material/HomeMaterial";
 import {Carousel, MoreLink} from "@/shared/ui";
-import {getImage} from "@/shared/api";
+import {imageApiHandler} from "@/shared/api";
 
 interface MaterialsDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props}: MaterialsDisplayProps) => {
     const width = useDocumentSize().x;
-    const items = materials.map((material, key) => (
+    const items = materialsApi.getAll().map((material, key) => (
         <HomeMaterial className="cc-min-height-1of1" data={{
             ...material,
-            image: getImage(material.imageId),
+            image: imageApiHandler.getImage(material.imageId),
             button: <MoreLink to={`/materials#${material.hrefPostfix.replaceAll('/', '')}`}>Подробнее</MoreLink>
         }} key={key}/>
     ));

@@ -3,20 +3,20 @@ import '@/app/scss/main.scss';
 import classes from './CatalogPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {CatalogSectionCard} from "@/entities/catalog-section";
-import {sections} from "@/widgets/catalog-section";
-import {getImage} from "@/shared/api";
 import {AdaptiveLink} from "@/shared/ui";
+import {imageApiHandler} from "@/shared/api";
+import {sectionApi} from "@/widgets/catalog-section";
 
 interface CatalogProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 const CatalogPage: FC<CatalogProps> = ({className, ...props}: CatalogProps) => {
-    const sectionElements = sections.map((section, key) => (
+    const sectionElements = sectionApi.getAll().map((section, key) => (
         <li className="cc-grid" key={key}>
             <AdaptiveLink to={`/catalog${section.hrefPostfix}`}>
                 <CatalogSectionCard data={{
                     ...section,
-                    image: getImage(section.previewImageId)
+                    image: imageApiHandler.getImage(section.previewImageId)
                 }}/>
             </AdaptiveLink>
         </li>

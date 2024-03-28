@@ -2,10 +2,10 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {getImage} from "@/shared/api";
-import {PortfolioGrid, portfolioItems} from "@/widgets/portfolio";
+import {portfolioApi, PortfolioGrid} from "@/widgets/portfolio";
 import {PortfolioItem} from "@/entities/portfolio";
 import {InspectImage} from "@/features/inspect-image/ui/InspectImage";
+import {imageApiHandler} from "@/shared/api";
 
 interface PortfolioPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -19,9 +19,9 @@ const PortfolioPage: FC<PortfolioPageProps> = ({className, ...props}: PortfolioP
                 </div>
                 <section className={`${classes.portfolioPage__gridWrapper} cc-pt-9 cc-laptop-pt-13`}>
                     <PortfolioGrid className={`${classes.portfolioPage__grid}`}>
-                        {portfolioItems.map((item, key) => (
-                            <InspectImage className="cc-flex cc-width-1of1" data={getImage(item.imageId)} key={key}>
-                                <PortfolioItem className="cc-flex cc-width-1of1" data={getImage(item.imageId)} />
+                        {portfolioApi.getAll().map((item, key) => (
+                            <InspectImage className="cc-flex cc-width-1of1" data={imageApiHandler.getImage(item.imageId)} key={key}>
+                                <PortfolioItem className="cc-flex cc-width-1of1" data={imageApiHandler.getImage(item.imageId)} />
                             </InspectImage>
                         ))}
                     </PortfolioGrid>
