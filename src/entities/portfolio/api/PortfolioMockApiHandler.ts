@@ -1,24 +1,6 @@
-import {PortfolioApiHandler} from "@/entities/portfolio/api/PortfolioApiHandler";
 import {PortfolioItemData} from "@/entities/portfolio";
+import {ListMockApiHandler} from "@/shared/api/global/ListMockApiHandler";
+import {PortfolioApiHandler} from "@/entities/portfolio/api/PortfolioApiHandler";
 
-export class PortfolioMockApiHandler implements PortfolioApiHandler {
-    constructor(items: PortfolioItemData[]) {
-        this.items = items;
-    }
-
-    private readonly items: PortfolioItemData[]
-
-    getAll(): PortfolioItemData[] {
-        return this.items;
-    }
-
-    getItem(id: number): PortfolioItemData {
-        return this.items.find(item => item.id === id);
-    }
-
-    getItems(ids: number[]): PortfolioItemData[] {
-        return ids.map(id => {
-            return this.items.find(item => item.id === id);
-        })
-    }
+export class PortfolioMockApiHandler extends ListMockApiHandler<PortfolioItemData> implements PortfolioApiHandler{
 }

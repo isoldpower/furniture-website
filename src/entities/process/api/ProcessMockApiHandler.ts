@@ -1,24 +1,6 @@
-import {ProcessApiHandler} from "@/entities/process/api/ProcessApiHandler";
 import {Process} from "@/entities/process";
+import {ListMockApiHandler} from "@/shared/api/global/ListMockApiHandler";
+import {ProcessApiHandler} from "@/entities/process/api/ProcessApiHandler";
 
-export class ProcessMockApiHandler implements ProcessApiHandler {
-    constructor(steps: Process[]) {
-        this.steps = steps;
-    }
-
-    private readonly steps: Process[]
-
-    getAll(): Process[] {
-        return this.steps;
-    }
-
-    getItem(id: number): Process {
-        return this.steps.find(step => step.id === id);
-    }
-
-    getItems(ids: number[]): Process[] {
-        return ids.map(id => {
-            return this.steps.find(step => step.id === id);
-        })
-    }
+export class ProcessMockApiHandler extends ListMockApiHandler<Process> implements ProcessApiHandler{
 }

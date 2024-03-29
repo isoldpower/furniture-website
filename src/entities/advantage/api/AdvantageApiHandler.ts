@@ -1,7 +1,5 @@
 import {Advantage} from "@/entities/advantage";
+import {ApiHandler} from "@/shared/api/global/ApiHandler";
 
-export interface AdvantageApiHandler {
-    getAdvantage: (id: number) => Advantage;
-    getAdvantages: (ids: number[]) => Advantage[];
-    getAllAdvantages: () => Advantage[];
+export interface AdvantageApiHandler extends ApiHandler<Advantage> {
 }

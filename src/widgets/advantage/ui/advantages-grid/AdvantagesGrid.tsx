@@ -11,7 +11,7 @@ export const AdvantagesGrid: FC<AdvantagesGridProps> = ({className, ...props}: A
     return (
         <div className={`${classes.advantagesGrid__wrapper} ${className}`} {...props}>
             <div className={`${classes.advantagesGrid__content} cc-grid cc-gap-5`}>
-                {firmAdvantagesApiHandler.getAllAdvantages().map((advantage, key) => (
+                {firmAdvantagesApiHandler.getAll().map((advantage, key) => (
                     <HomeAdvantage className={`${classes.advantagesGrid__item}`} data={{
                         ...advantage,
                         order: ('0' + (key + 1)).slice(-2)

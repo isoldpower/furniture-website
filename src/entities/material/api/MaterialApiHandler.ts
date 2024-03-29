@@ -1,7 +1,5 @@
 import {Material} from "@/entities/material";
+import {ApiHandler} from "@/shared/api/global/ApiHandler";
 
-export interface MaterialApiHandler {
-    getMaterial: (id: number) => Material;
-    getMaterials: (ids: number[]) => Material[];
-    getAll: () => Material[];
+export interface MaterialApiHandler extends ApiHandler<Material>{
 }

@@ -1,7 +1,5 @@
 import {Process} from "@/entities/process";
+import {ApiHandler} from "@/shared/api/global/ApiHandler";
 
-export interface ProcessApiHandler {
-    getAll(): Process[];
-    getItem(id: number): Process
-    getItems(ids: number[]): Process[];
+export interface ProcessApiHandler extends ApiHandler<Process>{
 }

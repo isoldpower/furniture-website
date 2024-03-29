@@ -1,14 +1,5 @@
-import {SectionApiHandler} from "@/entities/catalog-section/api/SectionApiHandler";
-import {Section} from "@/entities/catalog-section";
+import {Section, SectionApiHandler} from "@/entities/catalog-section";
+import {ListMockApiHandler} from "@/shared/api/global/ListMockApiHandler";
 
-export class SectionMockApiHandler implements SectionApiHandler {
-    constructor(sections: Section[]) {
-        this.sections = sections;
-    }
-
-    sections: Section[];
-
-    getAll(): Section[] {
-        return this.sections;
-    }
+export class SectionMockApiHandler extends ListMockApiHandler<Section> implements SectionApiHandler{
 }

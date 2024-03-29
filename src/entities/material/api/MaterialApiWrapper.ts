@@ -11,11 +11,11 @@ export class MaterialApiWrapper {
     private readonly advantageDictionary: MaterialAdvantage[];
 
     getMaterial(id: number): Material {
-        return this.apiHandler.getMaterial(id);
+        return this.apiHandler.getItem(id);
     }
 
     getMaterials(ids: number[]): Material[] {
-        return this.apiHandler.getMaterials(ids);
+        return this.apiHandler.getItems(ids);
     }
 
     getAll(): Material[] {

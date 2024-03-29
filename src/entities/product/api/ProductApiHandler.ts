@@ -1,7 +1,5 @@
 import {Product} from "@/entities/product";
+import {ApiHandler} from "@/shared/api/global/ApiHandler";
 
-export interface ProductApiHandler {
-    getAll(): Product[];
-    getItem(id: number): Product
-    getItems(ids: number[]): Product[];
+export interface ProductApiHandler extends ApiHandler<Product>{
 }

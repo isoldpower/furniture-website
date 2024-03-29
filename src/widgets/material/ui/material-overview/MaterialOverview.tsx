@@ -14,7 +14,7 @@ interface MaterialOverviewProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 export const MaterialOverview: FC<MaterialOverviewProps> = ({className, data, ...props}: MaterialOverviewProps) => {
     const advantageIds = materialsApi.getAdvantageIds(data.id);
-    const advantages = materialsAdvantagesApiHandler.getAdvantages(advantageIds);
+    const advantages = materialsAdvantagesApiHandler.getItems(advantageIds);
 
     return (
         <div className={`${classes.materialOverview__wrapper} ${className}`} {...props} id={data.hrefPostfix.replaceAll('/', '')}>

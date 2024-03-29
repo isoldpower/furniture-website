@@ -1,4 +1,4 @@
-import portfolioJson from './portfolio.json';
+import portfolioJson from './mock/portfolio.json';
 import {PortfolioApiHandler} from "@/entities/portfolio/api/PortfolioApiHandler";
 import {PortfolioMockApiHandler} from "@/entities/portfolio/api/PortfolioMockApiHandler";
 

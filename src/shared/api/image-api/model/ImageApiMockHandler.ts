@@ -1,4 +1,4 @@
-import {ImageApiHandler} from "@/shared/api/model/ImageApiHandler";
+import {ImageApiHandler} from "@/shared/api/image-api/model/ImageApiHandler";
 import {ProgressiveImageType} from "@/shared/ui";
 import imagesJson from '../images.json';
 
