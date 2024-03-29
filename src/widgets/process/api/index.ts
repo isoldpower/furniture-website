@@ -1,4 +1,5 @@
-import stepsJson from './steps.json';
-import {Process} from "@/entities/process";
+import stepsJson from './mock/steps.json';
+import {ProcessApiHandler} from "@/entities/process/api/ProcessApiHandler";
+import {ProcessMockApiHandler} from "@/entities/process/api/ProcessMockApiHandler";
 
-export const steps: Process[] = stepsJson.steps;
+export const processApi: ProcessApiHandler = new ProcessMockApiHandler(stepsJson.steps);

@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './SideHeader.module.scss';
 import {AdaptiveLink, LinkData} from "@/shared/ui";
 import {websiteRoutes} from "@/shared/lib";
-import {sections} from "@/widgets/catalog-section";
+import {sectionApi} from "@/widgets/catalog-section";
 import {SectionHeaderCard} from "@/entities/catalog-section/ui/section-header-card/SectionHeaderCard";
 
 interface SideHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
@@ -31,7 +31,7 @@ export const SideHeader: FC<SideHeaderProps> = ({className, ...props}: SideHeade
                     </ul>
                     <hr className={`${classes.header__separator}`}/>
                     <div className={`${classes.header__catalogPreview} cc-grid cc-gap-7`}>
-                        {sections.slice(0, 4).map((section, key) => (
+                        {sectionApi.getChunk(4).map((section, key) => (
                             <SectionHeaderCard data={section} key={key} />
                         ))}
                     </div>

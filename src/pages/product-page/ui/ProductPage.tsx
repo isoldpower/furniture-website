@@ -4,9 +4,9 @@ import classes from './ProductPage.module.scss';
 import {useParams} from "react-router-dom";
 import {PagePath} from "@/features";
 import {ProductOverview} from "@/widgets/product/ui/overview/ProductOverview";
-import {products} from "@/widgets/product";
+import {productsApi} from "@/widgets/product";
 import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
-import {SectionDisplay, sections} from "@/widgets/catalog-section";
+import {sectionApi, SectionDisplay} from "@/widgets/catalog-section";
 import {websiteRoutes} from "@/shared/lib";
 import {CallbackSection} from "@/widgets/layout";
 
@@ -15,8 +15,8 @@ interface ProductPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPageProps) => {
     const params = useParams();
-    const product = products.find(product => product.hrefPostfix === '/' + params.item);
-    const section = sections.find(section => section.hrefPostfix === '/' + params.section);
+    const product = productsApi.getByPostfix('/' + params.item);
+    const section = sectionApi.getByPostfix('/' + params.section);
 
     return product === undefined
         ? <ErrorPage />
@@ -35,8 +35,7 @@ const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPagePro
                                 title: 'Похожее',
                                 sectionLink: false,
                                 href: websiteRoutes.catalog + section.hrefPostfix,
-                                products: products.filter(iterator =>
-                                    iterator.sectionId === product.sectionId && iterator.id !== product.id)
+                                products: productsApi.getSectionProducts(section.id, [product.id])
                             }} id="familiar" />
                         </div>
                     </section>

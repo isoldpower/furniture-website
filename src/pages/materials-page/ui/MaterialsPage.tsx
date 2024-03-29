@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialsPage.module.scss';
-import {materials} from "@/widgets/material/api";
+import {materialsApi} from "@/widgets/material/api";
 import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {MaterialOverview} from "@/widgets/material/ui/material-overview/MaterialOverview";
 
@@ -17,7 +17,7 @@ const MaterialsPage: FC<MaterialsPageProps> = ({className, ...props}: MaterialsP
                 </div>
                 <section className={`${classes.materialsPage__gridWrapper}`}>
                     <div className={`${classes.materialsPage__grid} cc-grid cc-gap-16 cc-laptop-gap-18`}>
-                        {materials.map((material, key) => (
+                        {materialsApi.getAll().map((material, key) => (
                             <MaterialOverview data={material} key={key} />
                         ))}
                     </div>

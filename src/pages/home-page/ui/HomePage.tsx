@@ -4,13 +4,12 @@ import {BaseHTMLAttributes, FC} from "react";
 import {websiteRoutes, sectionByPostfix} from "@/shared/lib";
 import {Button, Cite} from "@/shared/ui";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
-import {getCatalogSections} from "@/pages/home-page/api";
-import {SectionDisplay} from "@/widgets/catalog-section";
+import {sectionApi, SectionDisplay} from "@/widgets/catalog-section";
 import {AdvantagesGrid} from "@/widgets/advantage";
 import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
 import {CallbackSection} from "@/widgets/layout";
-import {products} from "@/widgets/product";
+import {productsApi} from "@/widgets/product";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -32,11 +31,11 @@ const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                     }}/>
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
-                    {getCatalogSections().map((section, key) => (
+                    {sectionApi.getChunk(3).map((section, key) => (
                         <SectionDisplay data={{
                             ...section,
                             sectionLink: true,
-                            products: products.filter(product => product.sectionId === section.id),
+                            products: productsApi.getSectionProducts(section.id),
                             href: sectionByPostfix(section.hrefPostfix)
                         }} id={key.toString()} key={key}/>
                     ))}
