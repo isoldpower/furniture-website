@@ -16,7 +16,7 @@ const CatalogPage: FC<CatalogProps> = ({className, ...props}: CatalogProps) => {
             <AdaptiveLink to={`/catalog${section.hrefPostfix}`}>
                 <CatalogSectionCard data={{
                     ...section,
-                    image: imageApiHandler.getImage(section.previewImageId)
+                    image: imageApiHandler.getItem(section.previewImageId)
                 }}/>
             </AdaptiveLink>
         </li>

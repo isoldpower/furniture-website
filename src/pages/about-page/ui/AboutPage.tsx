@@ -18,7 +18,7 @@ const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) =>
                 </div>
                 <section className={`${classes.aboutPage__overviewWrapper} cc-pt-9 cc-laptop-pt-13`}>
                     <div className={`${classes.aboutPage__overview}`}>
-                        <ProgressiveImage className={`${classes.aboutPage__image}`} image={imageApiHandler.getImage(7)}/>
+                        <ProgressiveImage className={`${classes.aboutPage__image}`} image={imageApiHandler.getItem(7)}/>
                         <div className={`${classes.aboutPage__body} cc-flex cc-flex-col cc-gap-9 cc-laptop-gap-13`}>
                             <h1 className={`${classes.aboutPage__overviewHeading}`}>CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.</h1>
                             <p className={`${classes.aboutPage__overviewParagraph}`}>Ламинированная древесно-стружечная плита, сокращенно ЛДСП – это плитный материал, который получают путем прессования ковра из смеси древесной стружки со смолами с последующим нанесением ламинирующего защитно-декоративного покрытия.</p>

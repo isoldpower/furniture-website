@@ -20,8 +20,8 @@ const PortfolioPage: FC<PortfolioPageProps> = ({className, ...props}: PortfolioP
                 <section className={`${classes.portfolioPage__gridWrapper} cc-pt-9 cc-laptop-pt-13`}>
                     <PortfolioGrid className={`${classes.portfolioPage__grid}`}>
                         {portfolioApi.getAll().map((item, key) => (
-                            <InspectImage className="cc-flex cc-width-1of1" data={imageApiHandler.getImage(item.imageId)} key={key}>
-                                <PortfolioItem className="cc-flex cc-width-1of1" data={imageApiHandler.getImage(item.imageId)} />
+                            <InspectImage className="cc-flex cc-width-1of1" data={imageApiHandler.getItem(item.imageId)} key={key}>
+                                <PortfolioItem className="cc-flex cc-width-1of1" data={imageApiHandler.getItem(item.imageId)} />
                             </InspectImage>
                         ))}
                     </PortfolioGrid>

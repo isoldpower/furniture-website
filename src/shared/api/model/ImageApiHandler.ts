@@ -1,6 +1,5 @@
 import {ProgressiveImageType} from "@/shared/ui";
+import {ApiHandler} from "@/shared/lib/api/ApiHandler";
 
-export interface ImageApiHandler {
-    getImage: (id: number) => ProgressiveImageType;
-    getAllImages: (ids: number[]) => ProgressiveImageType[];
+export interface ImageApiHandler extends ApiHandler<ProgressiveImageType> {
 }

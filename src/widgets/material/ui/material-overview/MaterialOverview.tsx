@@ -21,7 +21,7 @@ export const MaterialOverview: FC<MaterialOverviewProps> = ({className, data, ..
             <div className={`${classes.materialOverview__content} cc-grid cc-gap-9`}>
                 <h2 className={`${classes.materialOverview__heading} cc-heading-3`}>{data.title}</h2>
                 <div className={`${classes.materialOverview__imageWrapper}`}>
-                    <ProgressiveImage className={`${classes.materialOverview__image} cc-round`} image={imageApiHandler.getImage(data.imageId)}/>
+                    <ProgressiveImage className={`${classes.materialOverview__image} cc-round`} image={imageApiHandler.getItem(data.imageId)}/>
                 </div>
                 <p className={`${classes.materialOverview__paragraph}`}>{data.paragraph}</p>
                 <div className={`${classes.materialOverview__advantagesWrapper} gap-column-spacing`}>

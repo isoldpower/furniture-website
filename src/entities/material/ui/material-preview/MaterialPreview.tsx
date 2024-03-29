@@ -15,7 +15,7 @@ export const MaterialPreview: FC<MaterialPreviewProps> = ({className, data, ...p
         <div className={`${classes.materialPreview__wrapper} ${className}`} {...props}>
             <AdaptiveLink className={`${classes.materialPreview__content} cc-grid cc-gap-3`} to={websiteRoutes.materials + '#' + data.hrefPostfix.replaceAll('/', '')}>
                 <div className={`${classes.materialPreview__imageWrapper}`}>
-                    <ProgressiveImage className={`${classes.materialPreview__image} cc-round`} image={imageApiHandler.getImage(data.imageId)} />
+                    <ProgressiveImage className={`${classes.materialPreview__image} cc-round`} image={imageApiHandler.getItem(data.imageId)} />
                 </div>
                 <div className={`${classes.materialPreview__title}`}>{data.title}</div>
             </AdaptiveLink>

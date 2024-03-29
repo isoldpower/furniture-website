@@ -15,7 +15,7 @@ export const ProcessGrid: FC<ProcessGridProps> = ({className, ...props}: Process
                 {processApi.getAll().map((step, key) => (
                     <ProcessStep className={`${classes.processGrid__item} cc-grid`} data={{
                         ...step,
-                        image: imageApiHandler.getImage(step.imageId),
+                        image: imageApiHandler.getItem(step.imageId),
                         order: ('0' + (key + 1)).slice(-2),
                         variant: key % 2 == 0 ? 'default' : 'primary'
                     }} key={key} />

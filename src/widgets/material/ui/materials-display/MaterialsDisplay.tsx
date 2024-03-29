@@ -15,7 +15,7 @@ export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props
     const items = materialsApi.getAll().map((material, key) => (
         <HomeMaterial className="cc-min-height-1of1" data={{
             ...material,
-            image: imageApiHandler.getImage(material.imageId),
+            image: imageApiHandler.getItem(material.imageId),
             button: <MoreLink to={`/materials#${material.hrefPostfix.replaceAll('/', '')}`}>Подробнее</MoreLink>
         }} key={key}/>
     ));
