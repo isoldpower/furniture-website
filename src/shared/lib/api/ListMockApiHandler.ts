@@ -1,4 +1,4 @@
-import {ApiHandler, DBItem} from "@/shared/api/global/ApiHandler";
+import {ApiHandler, DBItem} from "@/shared/lib/api/ApiHandler";
 
 export class ListMockApiHandler<T extends DBItem> implements ApiHandler<T> {
     constructor(items: T[]) {
