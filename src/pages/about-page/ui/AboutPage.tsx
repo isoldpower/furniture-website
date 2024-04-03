@@ -1,17 +1,21 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {BaseHTMLAttributes, FC, useRef} from "react";
 import '@/app/scss/main.scss';
 import classes from './AboutPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {achievements} from "@/pages/about-page/config/achievements";
-import {ProgressiveImage} from "@/shared/ui";
+import {ProgressiveImage, ProgressiveImageType} from "@/shared/ui";
 import {useGetImageQuery} from "@/app/redux";
-import {imageDefault} from "@/shared/lib/api/loadingDefaults";
+import {imageDefault, imageFailed} from "@/shared/lib/api/loadingDefaults";
 
 interface AboutPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) => {
-    const image = useGetImageQuery(7);
+    const {currentData: queryImage, isSuccess, isError} = useGetImageQuery(7);
+    const image = useRef<ProgressiveImageType>(imageDefault);
+
+    if (isError) image.current = imageFailed;
+    else if (isSuccess) image.current = queryImage;
 
     return (
         <div className={`${classes.aboutPage__wrapper} ${className} cc-main-gutter`} {...props}>
@@ -21,11 +25,7 @@ const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) =>
                 </div>
                 <section className={`${classes.aboutPage__overviewWrapper} cc-pt-9 cc-laptop-pt-13`}>
                     <div className={`${classes.aboutPage__overview}`}>
-                        <ProgressiveImage className={`${classes.aboutPage__image}`} image={
-                            image.isLoading
-                                ? imageDefault
-                                : image.currentData
-                        }/>
+                        <ProgressiveImage className={`${classes.aboutPage__image}`} image={image.current}/>
                         <div className={`${classes.aboutPage__body} cc-flex cc-flex-col cc-gap-9 cc-laptop-gap-13`}>
                             <h1 className={`${classes.aboutPage__overviewHeading}`}>CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.</h1>
                             <p className={`${classes.aboutPage__overviewParagraph}`}>Ламинированная древесно-стружечная плита, сокращенно ЛДСП – это плитный материал, который получают путем прессования ковра из смеси древесной стружки со смолами с последующим нанесением ламинирующего защитно-декоративного покрытия.</p>

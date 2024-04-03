@@ -3,11 +3,13 @@ import {productsApi} from "@/widgets/product";
 
 
 export const sectionRoutes: {[route: string]: string} = {};
-sectionApi.getAll().then(sections => {
-    for (const section of sections) {
-        sectionRoutes[section.href_postfix] = section.title;
-    }
-});
+sectionApi.getAll()
+    .then(sections => {
+        for (const section of sections) {
+            sectionRoutes[section.href_postfix] = section.title;
+        }
+    })
+    .catch(error => console.log('section error:', error));
 
 export const itemRoutes: {[name: string]: string} = {};
 productsApi.getAll().then(products => {
@@ -15,4 +17,5 @@ productsApi.getAll().then(products => {
         const section = product.section;
         itemRoutes[section.href_postfix + product.href_postfix] = product.title;
     }
-});
+})
+.catch(error => console.log('product error:', error));
