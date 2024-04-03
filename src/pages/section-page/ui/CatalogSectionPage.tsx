@@ -24,7 +24,7 @@ const CatalogSectionPage: FC<CatalogSectionPageProps> = ({className, ...props}: 
         <div className={`${classes.catalogSection__wrapper} ${className} cc-main-gutter`} {...props}>
             <div className={`${classes.catalogSection__content} cc-main-gutter-content`}>
                 <div className={`${classes.catalogSection__titleWrapper}`}>
-                    <div className={`${classes.catalogSection__title}`}>
+                    <div className={`${classes.catalogSection__title} cc-pt-9`}>
                         <PageTitle />
                     </div>
                 </div>

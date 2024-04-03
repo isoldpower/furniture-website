@@ -15,7 +15,7 @@ export const SideHeaderSections: FC<SideHeaderSectionsProps> = () => {
 
     return (
         <div className={`${classes.header__catalogPreview} cc-grid cc-gap-7`}>
-            {sections.map((section, key) => (
+            {sections.slice(0, 4).map((section, key) => (
                 <SectionHeaderCard data={section} key={key}/>
             ))}
         </div>
