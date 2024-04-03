@@ -1,4 +1,4 @@
-import {createBrowserRouter, createHashRouter} from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import {Suspense} from "react";
 import {websiteRoutes} from "@/shared/lib";
 
