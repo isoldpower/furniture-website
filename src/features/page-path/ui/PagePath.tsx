@@ -13,7 +13,8 @@ interface PagePathProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 export const PagePath: FC<PagePathProps> = ({className, ...props}: PagePathProps) => {
-    const path = useLocation().pathname;
+    const pathName = useLocation().pathname;
+    const path = pathName.endsWith('/') ? pathName.slice(0, pathName.length - 1) : pathName;
     const chunks = getPathChunks(path);
 
     return (

@@ -13,7 +13,8 @@ interface PageTitleProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 export const PageTitle: FC<PageTitleProps> = ({className, ...props}: PageTitleProps) => {
-    const path = useLocation().pathname;
+    const pathName = useLocation().pathname;
+    const path = pathName.endsWith('/') ? pathName.slice(0, pathName.length - 1) : pathName;
     const pageName = getPageByRoute(path);
 
     return (
