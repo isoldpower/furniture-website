@@ -1,4 +1,6 @@
+import {ProgressiveImageType} from "@/shared/ui";
+
 export interface PortfolioItemData {
     id: number;
-    imageId: number;
+    image: ProgressiveImageType;
 }

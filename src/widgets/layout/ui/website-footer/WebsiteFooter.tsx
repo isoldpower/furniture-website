@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import {Telegram, Vk, Whatsapp} from "@/shared/icons";
-import {placeSections} from "@/entities/layout/lib";
+import {useLinkSections} from "@/entities/layout/lib";
 import {sections} from "@/widgets/layout/config";
 import {Footer} from "@/entities/layout";
 
@@ -11,7 +11,7 @@ interface WebsiteFooterProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const WebsiteFooter: FC<WebsiteFooterProps> = ({...props}: WebsiteFooterProps) => {
     return (
         <Footer data={{
-            sections: placeSections(sections),
+            sections: useLinkSections(sections),
             socials: [
                 {
                     href: 'https://vk.com/undefined',

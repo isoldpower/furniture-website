@@ -4,12 +4,15 @@ import classes from './AboutPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {achievements} from "@/pages/about-page/config/achievements";
 import {ProgressiveImage} from "@/shared/ui";
-import {imageApiHandler} from "@/shared/api";
+import {useGetImageQuery} from "@/app/redux";
+import {imageDefault} from "@/shared/lib/api/loadingDefaults";
 
 interface AboutPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) => {
+    const image = useGetImageQuery(7);
+
     return (
         <div className={`${classes.aboutPage__wrapper} ${className} cc-main-gutter`} {...props}>
             <div className={`${classes.aboutPage__content} cc-main-gutter-content`}>
@@ -18,7 +21,11 @@ const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) =>
                 </div>
                 <section className={`${classes.aboutPage__overviewWrapper} cc-pt-9 cc-laptop-pt-13`}>
                     <div className={`${classes.aboutPage__overview}`}>
-                        <ProgressiveImage className={`${classes.aboutPage__image}`} image={imageApiHandler.getItem(7)}/>
+                        <ProgressiveImage className={`${classes.aboutPage__image}`} image={
+                            image.isLoading
+                                ? imageDefault
+                                : image.currentData
+                        }/>
                         <div className={`${classes.aboutPage__body} cc-flex cc-flex-col cc-gap-9 cc-laptop-gap-13`}>
                             <h1 className={`${classes.aboutPage__overviewHeading}`}>CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.</h1>
                             <p className={`${classes.aboutPage__overviewParagraph}`}>Ламинированная древесно-стружечная плита, сокращенно ЛДСП – это плитный материал, который получают путем прессования ковра из смеси древесной стружки со смолами с последующим нанесением ламинирующего защитно-декоративного покрытия.</p>

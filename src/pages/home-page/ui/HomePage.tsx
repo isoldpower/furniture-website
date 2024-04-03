@@ -1,15 +1,14 @@
 import '@/app/scss/main.scss';
 import classes from './HomePage.module.scss';
 import {BaseHTMLAttributes, FC} from "react";
-import {websiteRoutes, sectionByPostfix} from "@/shared/lib";
+import {websiteRoutes} from "@/shared/lib";
 import {Button, Cite} from "@/shared/ui";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
-import {sectionApi, SectionDisplay} from "@/widgets/catalog-section";
 import {AdvantagesGrid} from "@/widgets/advantage";
 import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
 import {CallbackSection} from "@/widgets/layout";
-import {productsApi} from "@/widgets/product";
+import {CatalogLoader} from "@/pages/home-page/ui/mixins/catalog-loader/CatalogLoader";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -31,14 +30,7 @@ const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                     }}/>
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
-                    {sectionApi.getChunk(3).map((section, key) => (
-                        <SectionDisplay data={{
-                            ...section,
-                            sectionLink: true,
-                            products: productsApi.getSectionProducts(section.id),
-                            href: sectionByPostfix(section.hrefPostfix)
-                        }} id={key.toString()} key={key}/>
-                    ))}
+                    <CatalogLoader />
                     <div className="cc-main-gutter">
                         <div className={`${classes.featuredSection__buttonWrapper} cc-main-gutter-content`}>
                             <Button className="cc-main-gutter-content" data={{variant: 'accent'}} semantic="link"

@@ -2,10 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {portfolioApi, PortfolioGrid} from "@/widgets/portfolio";
-import {PortfolioItem} from "@/entities/portfolio";
-import {InspectImage} from "@/features/inspect-image/ui/InspectImage";
-import {imageApiHandler} from "@/shared/api";
+import {PortfolioLoader} from "@/pages/portfolio-page/ui/mixins/portfolio-loader/PortfolioLoader";
 
 interface PortfolioPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -18,13 +15,7 @@ const PortfolioPage: FC<PortfolioPageProps> = ({className, ...props}: PortfolioP
                     <PageTitle className={`${classes.portfolioPage__path}`} />
                 </div>
                 <section className={`${classes.portfolioPage__gridWrapper} cc-pt-9 cc-laptop-pt-13`}>
-                    <PortfolioGrid className={`${classes.portfolioPage__grid}`}>
-                        {portfolioApi.getAll().map((item, key) => (
-                            <InspectImage className="cc-flex cc-width-1of1" data={imageApiHandler.getItem(item.imageId)} key={key}>
-                                <PortfolioItem className="cc-flex cc-width-1of1" data={imageApiHandler.getItem(item.imageId)} />
-                            </InspectImage>
-                        ))}
-                    </PortfolioGrid>
+                    <PortfolioLoader />
                 </section>
                 <section className={`${classes.portfolioPage__callback} cc-py-15 cc-laptop-py-17`}>
                     <CallbackSection />

@@ -5,21 +5,20 @@ import {Section} from "@/entities/catalog-section";
 import {AdaptiveLink, MoreLink, ProgressiveImage} from "@/shared/ui";
 import {Reference} from "@/shared/icons";
 import {websiteRoutes} from "@/shared/lib";
-import {imageApiHandler} from "@/shared/api";
 
 interface SectionHeaderCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Section;
 }
 
 export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, ...props}: SectionHeaderCardProps) => {
-    const href = websiteRoutes.catalog + data.hrefPostfix;
+    const href = websiteRoutes.catalog + data.href_postfix;
 
     return (
         <div className={`${classes.sectionHeaderCard__wrapper} ${className}`} {...props}>
             <div className={`${classes.sectionHeaderCard__content} cc-grid cc-gap-4 cc-laptop-gap-8`}>
                 <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} to={href} />
                 <div className={`${classes.sectionHeaderCard__imageWrapper}`}>
-                    <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={imageApiHandler.getItem(data.previewImageId)}/>
+                    <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={data.preview_image}/>
                 </div>
                 <div className={`${classes.sectionHeaderCard__headingWrapper} cc-grid cc-gap-8`}>
                     <h2 className={`${classes.sectionHeaderCard__heading} cc-clr-neutral-000`}>{data.title}</h2>

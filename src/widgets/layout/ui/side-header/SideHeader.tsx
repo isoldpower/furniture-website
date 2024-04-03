@@ -3,8 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './SideHeader.module.scss';
 import {AdaptiveLink, LinkData} from "@/shared/ui";
 import {websiteRoutes} from "@/shared/lib";
-import {sectionApi} from "@/widgets/catalog-section";
-import {SectionHeaderCard} from "@/entities/catalog-section/ui/section-header-card/SectionHeaderCard";
+import {SideHeaderSections} from "@/widgets/layout/ui/side-header/mixins/side-header-sections/SideHeaderSections";
 
 interface SideHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -18,7 +17,7 @@ export const SideHeader: FC<SideHeaderProps> = ({className, ...props}: SideHeade
 
     return (
         <div className={`${classes.sideHeader__wrapper} ${className}`} {...props}>
-            <div className={`${classes.sideHeader__back}`} />
+            <div className={`${classes.sideHeader__back}`}/>
             <div className={`${classes.sideHeader__content} cc-pt-1 cc-px-4`}>
                 <div className={`${classes.sideHeader__container} cc-border-radius-1 cc-bg-neutral-000 cc-p-9 cc-grid cc-gap-9`}>
                     <div className={`${classes.sideHeader__descriptor}`}>Навигация по сайту</div>
@@ -30,11 +29,7 @@ export const SideHeader: FC<SideHeaderProps> = ({className, ...props}: SideHeade
                         ))}
                     </ul>
                     <hr className={`${classes.header__separator}`}/>
-                    <div className={`${classes.header__catalogPreview} cc-grid cc-gap-7`}>
-                        {sectionApi.getChunk(4).map((section, key) => (
-                            <SectionHeaderCard data={section} key={key} />
-                        ))}
-                    </div>
+                    <SideHeaderSections />
                 </div>
             </div>
         </div>

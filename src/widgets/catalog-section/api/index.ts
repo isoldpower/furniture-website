@@ -1,7 +1,5 @@
-import sectionsJson from './mock/sections.json';
-import {SectionMockApiHandler} from "@/entities/catalog-section/api/SectionMockApiHandler";
-import {SectionApiWrapper} from "@/entities/catalog-section/api/SectionApiWrapper";
 import {SectionApiHandler} from "@/entities/catalog-section";
+import {getCatalogRequest} from "@/shared/lib/api/getApiRequest";
+import {SectionAxiosApiHandler} from "@/entities/catalog-section/api/SectionAxiosApiHandler";
 
-const sectionApiHandler: SectionApiHandler = new SectionMockApiHandler(sectionsJson.sections);
-export const sectionApi: SectionApiWrapper = new SectionApiWrapper(sectionApiHandler);
+export const sectionApi: SectionApiHandler = new SectionAxiosApiHandler(getCatalogRequest('/sections/'));

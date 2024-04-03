@@ -1,19 +1,18 @@
+import {Section} from "@/entities/catalog-section";
+import {ProgressiveImageType} from "@/shared/ui";
+import {Material} from "@/entities/material";
+
 export interface Product {
     id: number;
     title: string;
     description: string;
     duration: string;
     cost: string;
-    hrefPostfix: string;
-    sectionId: number;
+    href_postfix: string;
+    section: Section;
 }
 
-export interface ProductImage {
-    productId: number;
-    imageId: number;
-}
-
-export interface ProductMaterial {
-    productId: number;
-    materialId: number;
+export interface ProductDetail extends Product {
+    images: ProgressiveImageType[];
+    materials: Material[];
 }

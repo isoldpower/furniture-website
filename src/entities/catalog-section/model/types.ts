@@ -1,7 +1,9 @@
+import {ProgressiveImageType} from "@/shared/ui";
+
 export interface Section {
     id: number;
     title: string;
     paragraph: string;
-    hrefPostfix: string;
-    previewImageId: number;
+    href_postfix: string;
+    preview_image: ProgressiveImageType;
 }

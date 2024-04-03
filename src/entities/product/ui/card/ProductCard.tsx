@@ -3,6 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './ProductCard.module.scss';
 import {MoreLink} from "@/shared/ui";
 import {ProductCardData} from "../../model";
+import {ProductMaterialsPreview} from "./mixins/product-materials-preview/ProductMaterialsPreview";
 
 interface ProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: ProductCardData;
@@ -18,12 +19,7 @@ export const ProductCard: FC<ProductCardProps> = ({className, data, ...props}: P
                 <div className={`${classes.productCard__body} cc-flex cc-flex-col cc-gap-2`}>
                     <h3 className={`${classes.productCard__heading} cc-fs-300`}>{data.title}</h3>
                     <p className={`${classes.productCard__materialsWrapper}`}>
-                        {data.materials.map((material, key) => (
-                            <span className={`${classes.productCard__material}`} key={key}>
-                                {material.title}
-                                {key < data.materials.length - 1 ? <>,&nbsp;</> : null}
-                            </span>
-                        ))}
+                        <ProductMaterialsPreview id={data.id} />
                     </p>
                 </div>
                 <div className={`${classes.productCard__buttonWrapper} cc-flex cc-align-items-end`}>

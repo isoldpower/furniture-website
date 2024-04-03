@@ -83,7 +83,7 @@ const routes = [
             },
             {
                 path: websiteRoutes.agreement,
-                element: 
+                element:
                     <Suspense fallback={defaultFallback}>
                         <DocumentLazy document={documents['agreement']} />
                     </Suspense>

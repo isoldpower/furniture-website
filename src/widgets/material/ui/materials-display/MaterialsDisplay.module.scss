@@ -1,6 +1,19 @@
 @use '@/app/scss/useMain' as *;
 @use 'styles/index';
 
+.materialsDisplay__gridWrapper {
+    display: none;
+    @include mq(laptop) {
+        display: grid;
+    }
+}
+
+.materialsDisplay__carousel {
+    @include mq(laptop) {
+        display: none;
+    }
+}
+
 .materialsDisplay__grid {
     grid-template-columns: repeat(2, 1fr);
 }

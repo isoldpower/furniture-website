@@ -2,8 +2,10 @@ import {useCallback, useEffect, useState} from "react";
 import {Range} from "../types";
 import {getRange} from "./getRange";
 import {getScroll} from './getScroll';
+import {useDocumentSize} from "@/shared/lib";
 
 export const useCarousel = (length: number, groupId: string, vertical?: boolean) => {
+    const windowSize = useDocumentSize().x;
     const [firstElement, setFirstElement] = useState<number>(1);
     const [currentRange, setCurrentRange] = useState<Range>({firstIncluded: 1, lastIncluded: 1});
 
@@ -23,7 +25,7 @@ export const useCarousel = (length: number, groupId: string, vertical?: boolean)
 
     useEffect(() => {
         setTimeout(() => updateRange(), 10);
-    }, [updateRange]);
+    }, [updateRange, windowSize]);
 
     useEffect(() => {
         changeTransform();

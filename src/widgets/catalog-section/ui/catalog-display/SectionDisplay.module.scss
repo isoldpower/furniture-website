@@ -24,3 +24,16 @@
         flex-basis: calc(25% - $size-5);
     }
 }
+
+.catalogDisplay__spoiler {
+    display: none;
+    @include mq(laptop) {
+        display: inline;
+    }
+}
+
+.catalogDisplay__wrapper {
+    @include mq(laptop) {
+        display: none;
+    }
+}
