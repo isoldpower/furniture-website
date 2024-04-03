@@ -1,0 +1,24 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.homePage__more {
+    display: inline-block;
+    background-color: $color-back-1;
+}
+
+.featuredSection__buttonWrapper {
+    width: 100%;
+
+    @include mq(laptop) {
+        width: auto;
+        display: inline-block;
+    }
+}
+
+.processSection__heading {
+    font-size: 42px;
+
+    @include mq(tablet) {
+        font-size: 64px;
+    }
+}

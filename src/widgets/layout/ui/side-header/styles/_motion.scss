@@ -1,0 +1,17 @@
+@use '@/app/scss/useMain' as *;
+
+.sideHeader__container {
+    animation: appear 0.3s ease-out;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateX(30dvw);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

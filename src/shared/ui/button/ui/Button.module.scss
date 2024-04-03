@@ -1,0 +1,37 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.button {
+    --_background-color: var(--background-color, transparent);
+    --_hover-background: var(--hover-background, transparent);
+    --_color: var(--color, var(--neutral-1000));
+    --_hover-color: var(--hover-color, var(--neutral-1000));
+
+    display: inline-block;
+    text-align: center;
+    align-self: center;
+    transition: 0.1s ease-in-out;
+    color: var(--color);
+    background-color: var(--_background-color);
+    line-height: $button-line-height;
+    border-radius: $button-border-radius;
+    padding: $size-4 $size-7;
+
+    &[itemType='default'] {
+        --background-color: transparent;
+        --color: var(--neutral-1000);
+        --hover-color: var(--neutral-400);
+    }
+
+    &[itemType='primary'] {
+        --background-color: var(--neutral-040);
+        --hover-background: var(--neutral-060);
+    }
+
+    &[itemType='accent'] {
+        --color: var(--neutral-000);
+        --hover-color: var(--neutral-000);
+        --background-color: var(--accent-500);
+        --hover-background: var(--accent-400);
+    }
+}

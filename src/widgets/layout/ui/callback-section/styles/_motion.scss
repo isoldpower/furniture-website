@@ -1,0 +1,6 @@
+@use '@/app/scss/useMain' as *;
+
+.callbackSection__hintAnchor:is(:hover, :focus) {
+    color: $color-accent-400;
+    text-decoration: underline;
+}

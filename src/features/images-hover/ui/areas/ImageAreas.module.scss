@@ -1,0 +1,8 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.imageAreas__wrapper,
+.imageAreas__content {
+    z-index: 2;
+    @extend .absolute-stretch;
+}

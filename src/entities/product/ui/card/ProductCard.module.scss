@@ -1,0 +1,16 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.productCard__imageWrapper {
+    height: 386px;
+    width: 100%;
+}
+
+.productCard__buttonWrapper {
+    flex-grow: 1;
+    white-space: normal;
+}
+
+.productCard__materialsWrapper {
+    color: $color-soft-text-2;
+}

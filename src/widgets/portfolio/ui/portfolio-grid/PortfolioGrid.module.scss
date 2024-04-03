@@ -1,0 +1,16 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.portfolioGrid__content {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mq(laptop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.portfolioGrid__column:nth-of-type(even) {
+    @include mq(laptop) {
+        padding-top: 50px;
+    }
+}

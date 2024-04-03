@@ -1,0 +1,30 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.websiteHeader__navigationItem {
+    &:hover {
+        color: $color-neutral-400;
+    }
+}
+
+.websiteHeader__hamburgerIcon {
+    & > * {
+        transform-origin: center;
+    }
+
+    &[aria-selected='true'] {
+        color: $color-accent-500;
+
+        & > *:first-child {
+            transform: rotate(45deg) translateY(9px);
+        }
+
+        & > *:last-child {
+            transform: rotate(-45deg) translateY(-9px);
+        }
+
+        & > *:not(:first-child, :last-child) {
+            display: none;
+        }
+    }
+}

@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export function buildSassLoader(options: BuildOptions) {
     const isDevelopment = options.mode === 'development';
-    const cssLoader = buildStylesLoader(options);
+    const cssLoader = buildStylesLoader();
 
     return {
         test: /\.s[ac]ss$/i,

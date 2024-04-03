@@ -1,0 +1,14 @@
+.loadingPage__loader {
+    margin-top: 20px;
+    animation: loader-rotation 1.2s ease-in-out infinite;
+}
+
+@keyframes loader-rotation {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

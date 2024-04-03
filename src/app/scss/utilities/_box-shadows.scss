@@ -1,0 +1,7 @@
+@use "../abstracts" as *;
+
+.#{$prefix} {
+    &box-shadow-1 {
+        box-shadow: $box-shadow-1;
+    }
+}

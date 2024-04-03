@@ -1,0 +1,5 @@
+@use '@/app/scss/useMain' as *;
+
+.imagesSlider__wrapper:hover {
+    cursor: crosshair;
+}

@@ -1,0 +1,9 @@
+@use '@/app/scss/useMain' as *;
+
+.provideSideHeader__wrapper {
+    display: contents;
+}
+
+.hidden > * {
+    display: none;
+}

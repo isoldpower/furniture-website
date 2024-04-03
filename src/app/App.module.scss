@@ -1,5 +1,16 @@
-.content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@use '@/app/scss/useMain' as *;
+
+.pageLayout__activeModals {
+    &:empty {
+        pointer-events: none;
+        visibility: hidden;
+    }
+}
+
+.pageLayout__body {
+    margin-top: calc($header-height + $size-2);
+}
+
+.catalog__hidden {
+
 }
