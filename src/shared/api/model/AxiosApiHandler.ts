@@ -4,7 +4,7 @@ import axios, {AxiosInstance} from "axios";
 export class AxiosApiHandler<T extends DBItem> implements ApiHandler<T> {
     constructor(baseApiRequest: string) {
         this.baseApiRequest = baseApiRequest;
-        this.axios = axios.create({baseURL: 'http://127.0.0.1:8000'});
+        this.axios = axios.create();
     }
 
     baseApiRequest: string;

@@ -10,7 +10,7 @@ import {createApi} from "@reduxjs/toolkit/query/react";
 
 export const globalApi = createApi({
     reducerPath: 'testApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://127.0.0.1:8000/api/v1/'}),
+    baseQuery: fetchBaseQuery({baseUrl: '/api/v1/'}),
     endpoints: (builder) => ({
         getAllProducts: builder.query<Product[], void>({
             query: () => `catalog/products/`,
