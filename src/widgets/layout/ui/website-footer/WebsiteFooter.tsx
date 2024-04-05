@@ -4,7 +4,7 @@ import {Telegram, Vk, Whatsapp} from "@/shared/icons";
 import {useLinkSections} from "@/entities/layout/lib";
 import {sections} from "@/widgets/layout/config";
 import {Footer} from "@/entities/layout";
-import {TELEGRAM_LINK, VK_LINK, WHATSAPP_LINK} from "@/app/static/linksStatic";
+import {TELEGRAM_LINK, VK_LINK, WHATSAPP_LINK} from "@/app/static";
 
 interface WebsiteFooterProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

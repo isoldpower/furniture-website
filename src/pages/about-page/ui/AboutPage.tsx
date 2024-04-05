@@ -2,16 +2,22 @@ import {BaseHTMLAttributes, FC, useRef} from "react";
 import '@/app/scss/main.scss';
 import classes from './AboutPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {achievements} from "@/pages/about-page/config/achievements";
 import {ProgressiveImage, ProgressiveImageType} from "@/shared/ui";
 import {useGetImageQuery} from "@/app/redux";
 import {imageDefault, imageFailed} from "@/shared/lib/api/loadingDefaults";
+import {AboutAdvantage} from "@/entities/advantage";
+import {
+    ABOUT_IMAGE, ABOUT_PARAGRAPH,
+    ABOUT_STATISTIC1_NUMBER, ABOUT_STATISTIC1_TITLE,
+    ABOUT_STATISTIC2_NUMBER, ABOUT_STATISTIC2_TITLE,
+    ABOUT_STATISTIC3_NUMBER, ABOUT_STATISTIC3_TITLE, ABOUT_TITLE
+} from "@/app/static";
 
 interface AboutPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) => {
-    const {currentData: queryImage, isSuccess, isError} = useGetImageQuery(7);
+    const {currentData: queryImage, isSuccess, isError} = useGetImageQuery(ABOUT_IMAGE);
     const image = useRef<ProgressiveImageType>(imageDefault);
 
     if (isError) image.current = imageFailed;
@@ -27,15 +33,12 @@ const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) =>
                     <div className={`${classes.aboutPage__overview}`}>
                         <ProgressiveImage className={`${classes.aboutPage__image}`} image={image.current}/>
                         <div className={`${classes.aboutPage__body} cc-flex cc-flex-col cc-gap-9 cc-laptop-gap-13`}>
-                            <h1 className={`${classes.aboutPage__overviewHeading}`}>CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.</h1>
-                            <p className={`${classes.aboutPage__overviewParagraph}`}>Ламинированная древесно-стружечная плита, сокращенно ЛДСП – это плитный материал, который получают путем прессования ковра из смеси древесной стружки со смолами с последующим нанесением ламинирующего защитно-декоративного покрытия.</p>
+                            <h1 className={`${classes.aboutPage__overviewHeading}`}>{ABOUT_TITLE}</h1>
+                            <p className={`${classes.aboutPage__overviewParagraph}`}>{ABOUT_PARAGRAPH}</p>
                             <div className={`${classes.aboutPage__achievements} cc-flex cc-gap-5`}>
-                                {achievements.map((achievement, key) => (
-                                    <div className={`${classes.aboutPage__achievement} cc-grid cc-gap-7`} key={key}>
-                                        <h4 className={`${classes.aboutPage__achievementDescriptor}`}>{achievement.title}</h4>
-                                        <div className={`${classes.aboutPage__achievementNumber} cc-clr-accent-500`}>{achievement.data}</div>
-                                    </div>
-                                ))}
+                                <AboutAdvantage data={{title: ABOUT_STATISTIC1_TITLE, number: ABOUT_STATISTIC1_NUMBER}} />
+                                <AboutAdvantage data={{title: ABOUT_STATISTIC2_TITLE, number: ABOUT_STATISTIC2_NUMBER}} />
+                                <AboutAdvantage data={{title: ABOUT_STATISTIC3_TITLE, number: ABOUT_STATISTIC3_NUMBER}} />
                             </div>
                         </div>
                     </div>

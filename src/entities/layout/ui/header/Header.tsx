@@ -4,6 +4,7 @@ import classes from './Header.module.scss';
 import {Icon, Logo} from "@/shared/icons";
 import {websiteRoutes} from "@/shared/lib";
 import {AdaptiveLink} from "@/shared/ui";
+import {FIRM_NUMBER} from "@/app/static";
 
 interface HeaderData {
     navigationElements: ReactNode[];
@@ -37,7 +38,7 @@ export const Header: FC<HeaderProps> = ({className, data, ...props}: HeaderProps
                         ))}
                     </ul>
                 </nav>
-                <address className={`${classes.header__phoneNumber} cc-clr-accent-500`}>+7 999 123-34-54</address>
+                <address className={`${classes.header__phoneNumber} cc-clr-accent-500`}>{FIRM_NUMBER}</address>
                 <div className={`${classes.header__hamburgerButton}`}>{data.hamburger}</div>
             </div>
         </header>
