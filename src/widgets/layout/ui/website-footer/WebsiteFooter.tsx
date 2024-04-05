@@ -4,6 +4,7 @@ import {Telegram, Vk, Whatsapp} from "@/shared/icons";
 import {useLinkSections} from "@/entities/layout/lib";
 import {sections} from "@/widgets/layout/config";
 import {Footer} from "@/entities/layout";
+import {TELEGRAM_LINK, VK_LINK, WHATSAPP_LINK} from "@/app/static/linksStatic";
 
 interface WebsiteFooterProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -14,15 +15,15 @@ export const WebsiteFooter: FC<WebsiteFooterProps> = ({...props}: WebsiteFooterP
             sections: useLinkSections(sections),
             socials: [
                 {
-                    href: 'https://vk.com/undefined',
+                    href: VK_LINK,
                     icon: <Vk color='#0077FF' height={24} width={24}/>
                 },
                 {
-                    href: 'https://whatsapp.com/undefined',
+                    href: WHATSAPP_LINK,
                     icon: <Whatsapp color='#25D366' height={24} width={24}/>
                 },
                 {
-                    href: 'https://telegram.com/undefined',
+                    href: TELEGRAM_LINK,
                     icon: <Telegram color='#229ED9' height={24} width={24}/>
                 }
             ]

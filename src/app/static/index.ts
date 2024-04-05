@@ -1,1 +1,1 @@
-export * from './api-static';
+export * from './apiStatic';
