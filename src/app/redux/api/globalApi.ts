@@ -7,10 +7,11 @@ import {PortfolioItemData} from "@/entities/portfolio";
 import {Process} from "@/entities/process";
 import {fetchBaseQuery} from "@reduxjs/toolkit/query"
 import {createApi} from "@reduxjs/toolkit/query/react";
+import {apiPrefix} from "@/app/static";
 
 export const globalApi = createApi({
     reducerPath: 'testApi',
-    baseQuery: fetchBaseQuery({baseUrl: '/api/v1/'}),
+    baseQuery: fetchBaseQuery({baseUrl: apiPrefix}),
     endpoints: (builder) => ({
         getAllProducts: builder.query<Product[], void>({
             query: () => `catalog/products/`,
