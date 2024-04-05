@@ -1,9 +1,8 @@
 import {FC, Fragment} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionProductsList.module.scss';
-import {useGetAllProductsQuery} from "@/app/redux";
 import {CustomProject} from "@/pages/section-page/ui/mixins/custom-project/CustomProject";
-import {DetailedProductCard} from "@/widgets/product";
+import {DetailedProductCard, useGetAllProductsQuery} from "@/widgets/product";
 
 interface SectionProductsListProps {
     sectionId: number;

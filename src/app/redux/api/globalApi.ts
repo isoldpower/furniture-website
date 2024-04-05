@@ -10,60 +10,9 @@ import {createApi} from "@reduxjs/toolkit/query/react";
 import {apiPrefix} from "@/app/static";
 
 export const globalApi = createApi({
-    reducerPath: 'testApi',
+    reducerPath: 'globalApi',
     baseQuery: fetchBaseQuery({baseUrl: apiPrefix}),
     endpoints: (builder) => ({
-        getAllProducts: builder.query<Product[], void>({
-            query: () => `catalog/products/`,
-        }),
-        getProduct: builder.query<Product, number>({
-           query: (id) =>  `catalog/products/${id}/`
-        }),
-        getProductImages: builder.query<ProgressiveImageType[], number>({
-            query: (id) => `catalog/products/${id}/images/`,
-        }),
-        getProductMaterials: builder.query<Material[], number>({
-            query: (id) => `catalog/products/${id}/materials/`
-        }),
-
-        getAllSections: builder.query<Section[], void>({
-            query: () => 'catalog/sections/'
-        }),
-        getSection: builder.query<Section, number>({
-            query: (id) => `catalog/sections/${id}/`,
-        }),
-
-        getAllAdvantages: builder.query<Advantage[], void>({
-            query: () => 'landing/advantages/',
-        }),
-        getAdvantage: builder.query<Advantage, number>({
-            query: (id) => `landing/advantages/${id}/`
-        }),
-        getAdvantagesOfFirm: builder.query<Advantage[], void>({
-            query: () => `landing/advantages/?purpose=firm`
-        }),
-        getAdvantagesOfMaterial: builder.query<Advantage[], void>({
-           query: () => `landing/advantages/?purpose=material`
-        }),
-
-        getMaterial: builder.query<Material, number>({
-            query: (id: number) => `landing/materials/${id}/`
-        }),
-        getAllMaterials: builder.query<Material[], void>({
-            query: () => 'landing/materials/'
-        }),
-        getMaterialAdvantages: builder.query<Advantage[], number>({
-            query: (id) => `landing/materials/${id}/advantages/`
-        }),
-
-        getPortfolio: builder.query<PortfolioItemData[], void>({
-            query: () => 'landing/portfolio/'
-        }),
-
-        getProcess: builder.query<Process[], void>({
-            query: () => 'landing/process/'
-        }),
-
         getImage: builder.query<ProgressiveImageType, number>({
             query: (id) => `shared/images/${id}/`
         }),
@@ -74,10 +23,4 @@ export const globalApi = createApi({
 })
 
 export default globalApi;
-export const {useGetProductQuery, useGetProductImagesQuery, useGetProductMaterialsQuery, useGetAllProductsQuery} = globalApi;
-export const {useGetAllSectionsQuery, useGetSectionQuery} = globalApi;
-export const {useGetAdvantageQuery, useGetAllAdvantagesQuery, useGetAdvantagesOfFirmQuery, useGetAdvantagesOfMaterialQuery} = globalApi
-export const {useGetAllMaterialsQuery, useGetMaterialAdvantagesQuery, useGetMaterialQuery} = globalApi
-export const {useGetPortfolioQuery} = globalApi
-export const {useGetProcessQuery} = globalApi
 export const {useGetImageQuery, useGetAllImagesQuery} = globalApi

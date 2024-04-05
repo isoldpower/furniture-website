@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import {sectionByPostfix} from "@/shared/lib";
 import {SectionDisplay} from "@/widgets/catalog-section";
 import {Section} from "@/entities/catalog-section";
-import {useGetAllProductsQuery} from "@/app/redux";
+import {useGetAllProductsQuery} from "@/widgets/product";
 
 
 interface CatalogSectionLoaderProps {

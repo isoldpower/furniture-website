@@ -2,7 +2,7 @@ import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialsLoader.module.scss';
 import {MaterialOverview} from "@/widgets/material/ui/material-overview/MaterialOverview";
-import {useGetAllMaterialsQuery} from "@/app/redux";
+import {useGetAllMaterialsQuery} from "@/widgets/material";
 
 interface MaterialsLoaderProps {
 }

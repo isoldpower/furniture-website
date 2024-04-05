@@ -5,8 +5,8 @@ import {useParams} from "react-router-dom";
 import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
 import {LoadingPage} from "@/pages/loading-page";
-import {useGetAllSectionsQuery} from "@/app/redux";
 import {SectionProductsList} from "@/pages/section-page/ui/mixins/section-products-list/SectionProductsList";
+import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogSectionPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

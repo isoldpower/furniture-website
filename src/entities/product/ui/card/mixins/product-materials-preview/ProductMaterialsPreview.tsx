@@ -1,7 +1,7 @@
 import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductMaterialsPreview.module.scss';
-import {useGetProductMaterialsQuery} from "@/app/redux";
+import {useGetProductMaterialsQuery} from "@/widgets/product";
 
 interface ProductMaterialsPreviewProps {
     id: number;

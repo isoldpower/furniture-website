@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './CatalogModalSections.module.scss';
 import {SectionHeaderCard} from "@/entities/catalog-section/ui/section-header-card/SectionHeaderCard";
 import {breakpoints, useDocumentSize} from "@/shared/lib";
-import {useGetAllSectionsQuery} from "@/app/redux";
+import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogModalSectionsProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

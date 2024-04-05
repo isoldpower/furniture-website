@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './MaterialsDisplay.module.scss';
 import {HomeMaterial} from "@/entities/material/ui/home-material/HomeMaterial";
 import {Carousel, MoreLink} from "@/shared/ui";
-import {useGetAllMaterialsQuery} from "@/app/redux";
+import {useGetAllMaterialsQuery} from "@/widgets/material";
 
 interface MaterialsDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

@@ -3,8 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './PortfolioLoader.module.scss';
 import {InspectImage} from "@/features/inspect-image/ui/InspectImage";
 import {PortfolioItem} from "@/entities/portfolio";
-import {PortfolioGrid} from "@/widgets/portfolio";
-import {useGetPortfolioQuery} from "@/app/redux";
+import {PortfolioGrid, useGetPortfolioQuery} from "@/widgets/portfolio";
 
 interface PortfolioLoaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

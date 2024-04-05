@@ -1,8 +1,8 @@
 import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialOverviewAdvantages.module.scss';
-import {useGetMaterialAdvantagesQuery} from "@/app/redux";
 import {HomeAdvantage} from "@/entities/advantage";
+import {useGetMaterialAdvantagesQuery} from "@/widgets/material";
 
 interface MaterialOverviewAdvantagesProps {
     materialId: number;

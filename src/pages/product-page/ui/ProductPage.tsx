@@ -7,9 +7,9 @@ import {ProductOverview} from "@/widgets/product/ui/overview/ProductOverview";
 import {SectionDisplay} from "@/widgets/catalog-section";
 import {websiteRoutes} from "@/shared/lib";
 import {CallbackSection} from "@/widgets/layout";
-import {useGetAllProductsQuery} from "@/app/redux";
 import {LoadingPage} from "@/pages/loading-page";
 import {ErrorPage} from "@/pages/error-page";
+import {useGetAllProductsQuery} from "@/widgets/product";
 
 interface ProductPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

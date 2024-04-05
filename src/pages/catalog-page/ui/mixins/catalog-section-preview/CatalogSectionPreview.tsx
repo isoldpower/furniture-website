@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './CatalogSectionPreview.module.scss';
 import {AdaptiveLink} from "@/shared/ui";
 import {CatalogSectionCard} from "@/entities/catalog-section";
-import {useGetAllSectionsQuery} from "@/app/redux";
+import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogSectionPreviewProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

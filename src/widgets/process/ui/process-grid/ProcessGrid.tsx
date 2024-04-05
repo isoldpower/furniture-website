@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProcessGrid.module.scss';
 import {ProcessStep} from "@/entities/process";
-import {useGetProcessQuery} from "@/app/redux";
+import {useGetProcessQuery} from "@/widgets/process";
 
 interface ProcessGridProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
