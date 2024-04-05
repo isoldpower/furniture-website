@@ -5,8 +5,8 @@ import {useLocation} from "react-router-dom";
 import {Slash} from "@/shared/icons";
 import {PagePathData} from "../model";
 import {getPathChunks} from "../lib";
-import {getPageByRoute} from "@/shared/lib";
 import {AdaptiveLink} from "@/shared/ui";
+import {useNavigationTree} from "@/shared/lib";
 
 interface PagePathProps extends BaseHTMLAttributes<HTMLDivElement> {
     data?: PagePathData;
@@ -23,7 +23,7 @@ export const PagePath: FC<PagePathProps> = ({className, ...props}: PagePathProps
                 return key < chunks.length - 1
                     ? <div className={`${classes.pagePath__chunkWrapper} cc-flex cc-align-items-center cc-gap-1`} key={key}>
                         <AdaptiveLink className={`${classes.pagePath__chunkLink}`} to={path}>
-                            {getPageByRoute(path)}
+                            {useNavigationTree(path).pageName}
                         </AdaptiveLink>
                         <Slash className={`${classes.pagePath__chunkSeparator}`} height={16} width={16} />
                     </div>
