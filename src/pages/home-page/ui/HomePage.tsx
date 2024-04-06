@@ -32,7 +32,7 @@ const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
                     <CatalogLoader />
-                    <div className="cc-main-gutter">
+                    <div className={`cc-main-gutter`}>
                         <div className={`${classes.featuredSection__buttonWrapper} cc-main-gutter-content`}>
                             <Button className="cc-main-gutter-content" data={{variant: 'accent'}} semantic="link"
                                     to={websiteRoutes.catalog}>Перейти в каталог</Button>

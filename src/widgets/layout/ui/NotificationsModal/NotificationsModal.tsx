@@ -11,16 +11,13 @@ interface NotificationsModalProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const NotificationsModal: FC<NotificationsModalProps> = ({className, ...props}: NotificationsModalProps) => {
     const notification = useTypedSelector(selectNotification);
     const timeout = useRef<NodeJS.Timeout>();
-    const animationClass = useRef<string>();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (!notification) return;
 
         clearTimeout(timeout.current);
-        animationClass.current = classes.change;
         timeout.current = setTimeout(() => {
-            animationClass.current = classes.disappear;
             dispatch(removeNotification())
         }, notification.duration)
     }, [notification]);
@@ -30,7 +27,7 @@ export const NotificationsModal: FC<NotificationsModalProps> = ({className, ...p
             <div className={`${classes.notificationsModal__content}`}>
                 {notification
                     ? (
-                        <div className={`${classes.notificationsModal__item} ${animationClass.current}`} datatype={notification.duration.toString()}>
+                        <div className={`${classes.notificationsModal__item}`}>
                             <Notification data={{type: notification.type, content: notification.element}}/>
                         </div>
                     )

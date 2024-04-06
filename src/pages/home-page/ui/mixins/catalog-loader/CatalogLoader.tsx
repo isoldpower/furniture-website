@@ -8,7 +8,7 @@ import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 interface CatalogLoaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const CatalogLoader: FC<CatalogLoaderProps> = () => {
+export const CatalogLoader: FC<CatalogLoaderProps> = ({...props} : CatalogLoaderProps) => {
     const {currentData: sections, isLoading, isError } = useGetAllSectionsQuery();
 
     if (isLoading) return <LoadingPage />
@@ -18,7 +18,7 @@ export const CatalogLoader: FC<CatalogLoaderProps> = () => {
 
     return <>
         {sectionsChunk.map((section, key) => (
-            <CatalogSectionLoader key={key} section={section} />
+            <CatalogSectionLoader key={key} section={section} {...props}/>
         ))}
     </>
 };
