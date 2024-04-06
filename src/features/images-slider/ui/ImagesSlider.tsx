@@ -4,6 +4,7 @@ import classes from './ImagesSlider.module.scss';
 import {Carousel, ProgressiveImage, ProgressiveImageType} from "@/shared/ui";
 import {ArrowLeft, ArrowRight} from "@/shared/icons";
 import {breakpoints, useDocumentSize} from "@/shared/lib";
+import {InspectImage} from "@/features/inspect-image/ui/InspectImage";
 
 interface ImagesSliderProps extends BaseHTMLAttributes<HTMLDivElement> {
     images: ProgressiveImageType[];
@@ -32,11 +33,13 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({className, images, ...props
                     }} id="images-2" itemClass={`${classes.imagesSlider__carouselItem} ${classes.imagesSlider__itemSpacing}`}>{items}</Carousel>
                 </div>
                 <div className={`${classes.imageSlider__imageWrapper}`}>
-                    <ProgressiveImage className={`${classes.imagesSlider__currentImage}`} image={images[current] ?? {
-                        low: '',
-                        high: '',
-                        alt: 'undefined'
-                    }}/>
+                    <InspectImage data={images[current]} className={`${classes.imagesSlider__currentImage}`}>
+                        <ProgressiveImage className={`${classes.imagesSlider__currentImage}`} image={images[current] ?? {
+                            low: '',
+                            high: '',
+                            alt: 'undefined'
+                        }}/>
+                    </InspectImage>
                 </div>
             </div>
         </div>
