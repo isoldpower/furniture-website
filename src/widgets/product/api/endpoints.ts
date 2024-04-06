@@ -17,7 +17,10 @@ export const productApi = globalApi.injectEndpoints({
         getProductMaterials: builder.query<Material[], number>({
             query: (id) => `catalog/products/${id}/materials/`
         }),
+        getImportantProducts: builder.query<Product[], boolean>({
+            query: (isImportant) => `catalog/products/?important=${isImportant}`
+        })
     })
 });
 
-export const {useGetProductQuery, useGetProductImagesQuery, useGetProductMaterialsQuery, useGetAllProductsQuery} = productApi;
+export const {useGetProductQuery, useGetImportantProductsQuery, useGetProductImagesQuery, useGetProductMaterialsQuery, useGetAllProductsQuery} = productApi;
