@@ -25,7 +25,6 @@ export const OrderProjectModal: FC<OrderProjectModalProps> = ({className, ...pro
 
     const completeOrder = () => {
         form.requestCall(data as Product);
-        console.log(data as Product);
     }
 
     useEffect(() => {

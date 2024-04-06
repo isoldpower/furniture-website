@@ -13,8 +13,6 @@ interface SectionDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 export const SectionDisplay: FC<SectionDisplayProps> = ({className, data, id, ...props}: SectionDisplayProps) => {
-    console.log(data.products);
-
     return <>
         <SectionSpoiler className={`${classes.catalogDisplay__spoiler} ${className}`} data={{
             ...data,

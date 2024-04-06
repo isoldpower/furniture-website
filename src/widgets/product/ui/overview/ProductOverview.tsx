@@ -19,9 +19,7 @@ export const ProductOverview: FC<ItemOverviewProps> = ({className, data, ...prop
     const dispatch = useAppDispatch();
     const openOrder = () => {
         dispatch(changeData(['order', data]));
-        console.log('hello')
         setTimeout(() => {
-            console.log('hello2')
             dispatch(openWindow('order'))
         }, 100);
     };

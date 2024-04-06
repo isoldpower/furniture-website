@@ -14,7 +14,7 @@ export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props
     if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>
     else if (isError) return <div className="cc-fs-500">Ошибка :(</div>
 
-    const items = materials.map((material, key) => (
+    const items = materials.filter(material => material.important).map((material, key) => (
         <HomeMaterial className="cc-min-height-1of1" data={{
             ...material,
             button: <MoreLink to={`/materials#${material.href_postfix.replaceAll('/', '')}`}>Подробнее</MoreLink>
