@@ -3,6 +3,7 @@ import {FormData} from "@/features";
 import {useAppDispatch, usePostRequestMutation} from "@/app/redux";
 import {useEffect, useRef} from "react";
 import {addNotification} from "@/app/redux/features/notification/notificationSlice";
+import {Product} from "@/entities/product";
 
 export const useForm = () => {
     const [postRequest, {isSuccess, isLoading, isError}] = usePostRequestMutation();
@@ -37,7 +38,7 @@ export const useForm = () => {
         phone: useFormField(/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{5}$/i)
     }
 
-    const requestCall = () => {
+    const requestCall = (product: Product) => {
         if (isLoading) return;
 
         isRequested.current = true;
@@ -47,8 +48,8 @@ export const useForm = () => {
                 type: 'error',
                 duration: NOTIFICATION_DURATION
             }))
-        else postRequest(data);
+        else postRequest({form: data, product: product?.id});
     }
 
-    return {requestCall, data};
+    return {requestCall, data, isSuccess};
 }

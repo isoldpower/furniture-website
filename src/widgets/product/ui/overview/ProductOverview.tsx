@@ -7,6 +7,8 @@ import {
     ProductOverviewMaterials
 } from "@/pages/product-page/ui/mixins/product-overview-materials/ProductOverviewMaterials";
 import {ProductOverviewImages} from "@/pages/product-page/ui/mixins/product-overview-images/ProductOverviewImages";
+import {openWindow, useAppDispatch} from "@/app/redux";
+import {changeData} from "@/app/redux/features/modal/modalSlice";
 
 interface ItemOverviewProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Product;
@@ -14,6 +16,15 @@ interface ItemOverviewProps extends BaseHTMLAttributes<HTMLDivElement> {
 
 export const ProductOverview: FC<ItemOverviewProps> = ({className, data, ...props}: ItemOverviewProps) => {
     const heading = <h1 className={`${classes.itemOverview__heading}`}>{data.title}</h1>;
+    const dispatch = useAppDispatch();
+    const openOrder = () => {
+        dispatch(changeData(['order', data]));
+        console.log('hello')
+        setTimeout(() => {
+            console.log('hello2')
+            dispatch(openWindow('order'))
+        }, 100);
+    };
 
     return (
         <div className={`${classes.itemOverview__wrapper} ${className}`} {...props}>
@@ -39,7 +50,7 @@ export const ProductOverview: FC<ItemOverviewProps> = ({className, data, ...prop
                             <p className={`${classes.itemOverview__materialsParagraph}`}>{data.duration}, {data.cost}</p>
                         </div>
                         <div className={`${classes.itemOverview__buttonWrapper}`}>
-                            <Button data={{variant: 'accent'}} onClick={() => console.log('congrats!')}
+                            <Button data={{variant: 'accent'}} onClick={() => openOrder()}
                                     semantic="button">Заказать проект</Button>
                         </div>
                     </div>

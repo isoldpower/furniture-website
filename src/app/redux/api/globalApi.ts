@@ -3,6 +3,7 @@ import {fetchBaseQuery} from "@reduxjs/toolkit/query"
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {apiPrefix} from "@/app/static";
 import {FormData} from "@/features";
+import {Product} from "@/entities/product";
 
 export const globalApi = createApi({
     reducerPath: 'globalApi',
@@ -15,14 +16,15 @@ export const globalApi = createApi({
             query: () => `shared/images/`
         }),
 
-        postRequest: builder.mutation<FormData, FormData>({
-            query: (data: FormData) => ({
+        postRequest: builder.mutation<{form: FormData, product: Product}, {form: FormData, product: number}>({
+            query: (data: {form: FormData, product: number}) => ({
                 url: 'moderate/callbacks/',
                 method: 'POST',
                 body: {
-                    name: data.name.value,
-                    email: data.mail.value,
-                    phone: data.phone.value
+                    name: data.form.name.value,
+                    email: data.form.mail.value,
+                    phone: data.form.phone.value,
+                    product: data.product
                 }
             })
         })
