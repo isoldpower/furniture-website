@@ -26,26 +26,27 @@ const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPagePro
         iterationProduct.section.id == product.section.id && iterationProduct.id !== product.id)
 
     return (
-        <div className={`${classes.productPage__wrapper} ${className} cc-main-gutter`} {...props}>
-            <div className={`${classes.productPage__content} cc-main-gutter-content`}>
-                <div className={`${classes.productPage__pathWrapper}`}>
-                    <PagePath className={`${classes.productPage__path}`}/>
+        <div className={`${classes.productPage__wrapper} ${className}`} {...props}>
+            <div className={`${classes.productPage__content}`}>
+                <div className={`${classes.productPage__pathWrapper} cc-main-gutter`}>
+                    <PagePath className={`${classes.productPage__path} cc-main-gutter-content`}/>
                 </div>
-                <section className={`${classes.productPage__productWrapper} cc-pt-9 cc-laptop-pt-13`}>
-                    <ProductOverview className={`${classes.productPage__product}`} data={product} />
+                <section className={`${classes.productPage__productWrapper} cc-pt-9 cc-laptop-pt-13 cc-main-gutter`}>
+                    <ProductOverview className={`${classes.productPage__product} cc-main-gutter-content`} data={product} />
                 </section>
                 <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
                     <div className={`${classes.productPage__sectionPreview}`}>
                         <SectionDisplay data={{
-                            products: relatedProducts.slice(0, 4),
+                            carouselProducts: relatedProducts,
+                            spoilerProducts: relatedProducts,
                             title: 'Похожее',
                             sectionLink: false,
                             href: websiteRoutes.catalog + product.section.href_postfix
                         }} id="familiar" />
                     </div>
                 </section>
-                <section className={`${classes.productPage__callbackWrapper} cc-py-15 cc-laptop-py-17`}>
-                    <CallbackSection className={`${classes.productPage__callbackWrapper}`}/>
+                <section className={`${classes.productPage__callbackWrapper} cc-main-gutter cc-py-15 cc-laptop-py-17`}>
+                    <CallbackSection className={`${classes.productPage__callbackWrapper} cc-main-gutter-content`}/>
                 </section>
             </div>
         </div>

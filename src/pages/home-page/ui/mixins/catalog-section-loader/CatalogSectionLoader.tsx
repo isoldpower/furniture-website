@@ -21,7 +21,8 @@ export const CatalogSectionLoader: FC<CatalogSectionLoaderProps> = ({section, ..
     return (
         <SectionDisplay data={{
             ...section,
-            products: filteredProducts,
+            carouselProducts: filteredProducts,
+            spoilerProducts: filteredProducts.filter(product => product.important),
             sectionLink: true,
             href: sectionByPostfix(section.href_postfix)}
         } {...props} id={section.id.toString()} />

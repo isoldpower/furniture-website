@@ -15,10 +15,9 @@ interface SectionDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const SectionDisplay: FC<SectionDisplayProps> = ({className, data, id, ...props}: SectionDisplayProps) => {
     return <>
         <SectionSpoiler className={`${classes.catalogDisplay__spoiler} ${className}`} data={{
-            ...data,
-            button: <MoreLink to={data.href}>Смотреть все товары</MoreLink>
-        }} {...props}>
-            {data.products.filter(product => product.important).map((product, key) => (
+        ...data,
+        button: <MoreLink to={data.href}>Смотреть все товары</MoreLink>}} {...props}>
+            {data.spoilerProducts.map((product: Product, key) => (
                 <DetailedProductCard data={product} key={key} />
             ))}
         </SectionSpoiler>
@@ -26,16 +25,16 @@ export const SectionDisplay: FC<SectionDisplayProps> = ({className, data, id, ..
         <div className={`${classes.catalogDisplay__wrapper} ${className}`} {...props}>
             <div className={`${classes.catalogDisplay__content}`}>
                 <Carousel data={{
-                    ...data,
-                    title: <h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>,
-                    button: <div className={`${classes.catalogDisplay__button} cc-grid cc-pt-7`}>
-                        <MoreLink to={data.href}>Посмотреть все товары</MoreLink>
-                    </div>,
-                    indicators: true,
-                }} id={id} itemClass={`${classes.catalogDisplay__item}`}>{
-                    data.products.map((product: Product, key) => (
+                ...data,
+                title: <h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>,
+                button: <div className={`${classes.catalogDisplay__button} cc-grid cc-pt-7`}>
+                    <MoreLink to={data.href}>Посмотреть все товары</MoreLink>
+                </div>,
+                indicators: true}} id={id} itemClass={`${classes.catalogDisplay__item}`}>
+                    {data.carouselProducts.map((product: Product, key) => (
                         <DetailedProductCard data={product} key={key} />
-                    ))}</Carousel>
+                    ))}
+                </Carousel>
             </div>
         </div>
     </>
