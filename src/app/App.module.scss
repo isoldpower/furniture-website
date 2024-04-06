@@ -1,5 +1,13 @@
 @use '@/app/scss/useMain' as *;
 
+.pageLayout__drawer {
+    pointer-events: none;
+
+    & > * {
+        pointer-events: auto;
+    }
+}
+
 .pageLayout__activeModals {
     &:empty {
         pointer-events: none;

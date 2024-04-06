@@ -1,9 +1,35 @@
 import {useFormField} from "./useFormField";
 import {FormData} from "@/features";
-import {usePostRequestMutation} from "@/app/redux";
+import {useAppDispatch, usePostRequestMutation} from "@/app/redux";
+import {useEffect, useRef} from "react";
+import {addNotification} from "@/app/redux/features/notification/notificationSlice";
 
 export const useForm = () => {
-    const [sendPost] = usePostRequestMutation();
+    const [postRequest, {isSuccess, isLoading, isError}] = usePostRequestMutation();
+    const isRequested = useRef<boolean>(false);
+    const dispatch = useAppDispatch();
+    const NOTIFICATION_DURATION = 3000;
+
+
+    useEffect(() => {
+        if (!isRequested.current || isError == false) return;
+
+        dispatch(addNotification({
+            element: 'Что-то пошло не так. Вероятнее всего, ваше обращение уже у нас',
+            type: 'error',
+            duration: NOTIFICATION_DURATION
+        }))
+    }, [isError]);
+
+    useEffect(() => {
+        if (!isRequested.current) return;
+
+        if (isSuccess) dispatch(addNotification({
+            element: 'Спасибо за обращение. Мы свяжемся с вами при первой возможности',
+            type: 'success',
+            duration: NOTIFICATION_DURATION
+        }));
+    }, [isSuccess]);
 
     const data: FormData = {
         name: useFormField(/^.{3,255}$/i),
@@ -12,9 +38,16 @@ export const useForm = () => {
     }
 
     const requestCall = () => {
+        if (isLoading) return;
+
+        isRequested.current = true;
         if (data.name.state != 'correct' || data.mail.state != 'correct' || data.phone.state != 'correct')
-            alert('Одно из полей, введенных вами, неверно. Пожалуйста, перепроверьте информацию')
-        else sendPost(data);
+            dispatch(addNotification({
+                element: 'Некоторые введенные данные не верны. Пожалуйста, перепроверьте информацию',
+                type: 'error',
+                duration: NOTIFICATION_DURATION
+            }))
+        else postRequest(data);
     }
 
     return {requestCall, data};

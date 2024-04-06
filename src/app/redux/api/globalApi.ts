@@ -17,9 +17,13 @@ export const globalApi = createApi({
 
         postRequest: builder.mutation<FormData, FormData>({
             query: (data: FormData) => ({
-                url: 'moderate/callbacks',
+                url: 'moderate/callbacks/',
                 method: 'POST',
-                body: data
+                body: {
+                    name: data.name.value,
+                    email: data.mail.value,
+                    phone: data.phone.value
+                }
             })
         })
     })
