@@ -1,13 +1,8 @@
-import {Product} from "@/entities/product";
 import {ProgressiveImageType} from "@/shared/ui";
-import {Material} from "@/entities/material";
-import {Section} from "@/entities/catalog-section";
-import {Advantage} from "@/entities/advantage";
-import {PortfolioItemData} from "@/entities/portfolio";
-import {Process} from "@/entities/process";
 import {fetchBaseQuery} from "@reduxjs/toolkit/query"
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {apiPrefix} from "@/app/static";
+import {FormData} from "@/features";
 
 export const globalApi = createApi({
     reducerPath: 'globalApi',
@@ -18,9 +13,17 @@ export const globalApi = createApi({
         }),
         getAllImages: builder.query<ProgressiveImageType[], void>({
             query: () => `shared/images/`
+        }),
+
+        postRequest: builder.mutation<FormData, FormData>({
+            query: (data: FormData) => ({
+                url: 'moderate/callbacks',
+                method: 'POST',
+                body: data
+            })
         })
     })
 })
 
 export default globalApi;
-export const {useGetImageQuery, useGetAllImagesQuery} = globalApi
+export const {useGetImageQuery, useGetAllImagesQuery, usePostRequestMutation} = globalApi

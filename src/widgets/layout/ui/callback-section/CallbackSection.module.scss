@@ -47,3 +47,18 @@
         grid-column: auto;
     }
 }
+
+.callbackSection__field {
+
+    &[itemType='wrong'] {
+        outline: 2px solid red;
+        opacity: 0.5;
+        outline-offset: -2px;
+    }
+
+    &[itemType='correct'] {
+        outline: 2px solid green;
+        opacity: 0.5;
+        outline-offset: -2px;
+    }
+}

@@ -1,16 +1,21 @@
 import {useFormField} from "./useFormField";
+import {FormData} from "@/features";
+import {usePostRequestMutation} from "@/app/redux";
 
 export const useForm = () => {
-    const nameField = useFormField(/^.{0,255}$/i);
-    const mailField = useFormField(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
-    const phoneField = useFormField(/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/i);
+    const [sendPost] = usePostRequestMutation();
 
-
-    const requestCall = () => {
-        console.log('name:', nameField.value, '|', nameField.state);
-        console.log('phone:', phoneField.value, '|', phoneField.state);
-        console.log('mail:', mailField.value, '|', mailField.state);
+    const data: FormData = {
+        name: useFormField(/^.{3,255}$/i),
+        mail: useFormField(/^[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}$/i),
+        phone: useFormField(/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{5}$/i)
     }
 
-    return {requestCall, nameField, mailField, phoneField};
+    const requestCall = () => {
+        if (data.name.state != 'correct' || data.mail.state != 'correct' || data.phone.state != 'correct')
+            alert('Одно из полей, введенных вами, неверно. Пожалуйста, перепроверьте информацию')
+        else sendPost(data);
+    }
+
+    return {requestCall, data};
 }
