@@ -16,15 +16,17 @@ export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, 
     return (
         <div className={`${classes.sectionHeaderCard__wrapper} ${className}`} {...props}>
             <div className={`${classes.sectionHeaderCard__content} cc-grid cc-gap-4 cc-laptop-gap-8`}>
-                <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} to={href} />
-                <div className={`${classes.sectionHeaderCard__imageWrapper}`}>
+                <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} to={href} title={'Перейти в ' + data.title}/>
+                <a className={`${classes.sectionHeaderCard__imageWrapper}`} href={href} title={'Перейти в ' + data.title}>
                     <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={data.preview_image}/>
-                </div>
+                </a>
                 <div className={`${classes.sectionHeaderCard__headingWrapper} cc-grid cc-gap-8`}>
-                    <h2 className={`${classes.sectionHeaderCard__heading} cc-clr-neutral-000`}>{data.title}</h2>
+                    <a href={href} title={'Перейти в ' + data.title}>
+                        <h2 className={`${classes.sectionHeaderCard__heading} cc-clr-neutral-000`}>{data.title}</h2>
+                    </a>
                     <p className={`${classes.sectionHeaderCard__paragraph}`}>{data.paragraph}</p>
                     <div className={`${classes.sectionHeaderCard__buttonWrapper}`}>
-                        <MoreLink className={`${classes.sectionHeaderCard__button}`} to={href}>Перейти</MoreLink>
+                        <MoreLink className={`${classes.sectionHeaderCard__button}`} to={href} title={'Перейти в ' + data.title}>Перейти</MoreLink>
                     </div>
                 </div>
                 <div className={`${classes.sectionHeaderCard__hint}`}>

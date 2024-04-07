@@ -44,7 +44,7 @@ export const useNavigationTree = () => {
         if (route in staticRoutes.current) return staticRoutes.current[route];
         else if (isSection(route)) return getSection(route);
         else if (isItem(route)) return getItem(route);
-        return '';
+        return 'loading';
     }, [getItem, getSection, isItem, isSection, staticRoutes]);
 
     return {getPageName}
