@@ -1,4 +1,4 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {BaseHTMLAttributes, FC, useCallback, useEffect, useRef, useState} from "react";
 import '@/app/scss/main.scss';
 import classes from './WebsiteHeader.module.scss';
 import {OpenCatalog, useHamburger} from "@/features";
@@ -10,8 +10,26 @@ import {AdaptiveLink} from "@/shared/ui";
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderProps) => {
+export const WebsiteHeader: FC<WebsiteHeaderProps> = ({style, ...props}: WebsiteHeaderProps) => {
     const hamburger = useHamburger();
+    const [translateY, setTranslateY] = useState(0);
+    const oldScrollY = useRef(0);
+
+    const handleScroll = useCallback(() => {
+        const deltaScroll = oldScrollY.current - window.scrollY;
+        setTranslateY(current => {
+            if (current + deltaScroll > 0) return 0;
+            else if (current + deltaScroll < -100) return -100;
+            return current + deltaScroll;
+        });
+
+        oldScrollY.current = window.scrollY;
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [handleScroll]);
 
     return (
         <Header className={`${classes.websiteHeader__wrapper}`} data={{
@@ -31,6 +49,6 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({...props}: WebsiteHeaderP
                         О компании
                 </AdaptiveLink>
             ]
-        }} {...props} />
+        }} style={{transform: `translateY(${translateY}px)`, ...style}} {...props} />
     );
 };

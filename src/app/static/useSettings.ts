@@ -2,7 +2,7 @@ import {useGetSettingsQuery} from "@/app/redux";
 import {useEffect, useState} from "react";
 
 export const useSettings = () => {
-    const {currentData: settings, isLoading, isError, isSuccess} = useGetSettingsQuery();
+    const {currentData: settings, isLoading, isSuccess} = useGetSettingsQuery();
     const [currentData, setCurrentData] = useState<{key: string, value: string}[]>();
 
     useEffect(() => {
@@ -10,9 +10,7 @@ export const useSettings = () => {
 
         if(isSuccess) setCurrentData(settings);
         else setCurrentData([]);
-
-        console.log(settings);
-    }, [isLoading]);
+    }, [isLoading, isSuccess, settings]);
 
     const safeData = (key: string) => {
         if (!currentData) return 'загрузка...'

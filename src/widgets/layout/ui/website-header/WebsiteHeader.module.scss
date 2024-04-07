@@ -1,6 +1,16 @@
 @use '@/app/scss/useMain' as *;
 @use 'styles/index';
 
+.websiteHeader__wrapper {
+    transition: 0.1s;
+    &.visible {
+        transform: translateY(0);
+    }
+    &.hidden {
+        transform: translateY(-100%);
+    }
+}
+
 .websiteHeader__navigationItem {
     &:hover {
         color: $color-neutral-400;

@@ -18,7 +18,7 @@ export const useSectionRoutes = () => {
     useEffect(() => {
         sectionApi.getAll()
             .then(sections => setSections(sections))
-            .catch(error => console.log('section error:', error));
+            .catch(error => console.warn('section error:', error));
     }, [setSections]);
 
     return sectionRoutes;
@@ -39,7 +39,7 @@ export const useItemRoutes = () => {
     useEffect(() => {
         productsApi.getAll()
             .then(products => setItems(products))
-            .catch(error => console.log('product error:', error));
+            .catch(error => console.warn('product error:', error));
     }, [])
 
     return itemRoutes;
