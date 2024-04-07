@@ -16,7 +16,7 @@ export const Notification: FC<NotificationProps> = ({className, data, ...props}:
     return (
         <div className={`${classes.notification__wrapper} ${className} cc-main-gutter`} {...props}>
             <div className={`${classes.notification__back}`} itemType={data.type ?? 'overall'}/>
-            <div className={`${classes.notification__content} cc-main-gutter-content cc-border-radius-1 cc-p-6`} itemType={data.type ?? 'overall'}>
+            <div className={`${classes.notification__content} cc-main-gutter-content cc-border-radius-1 cc-p-4`} itemType={data.type ?? 'overall'}>
                 {data.content}
             </div>
         </div>

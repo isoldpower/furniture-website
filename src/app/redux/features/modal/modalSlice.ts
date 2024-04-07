@@ -26,6 +26,7 @@ export const modalSlice = createSlice({
     },
     selectors: {
         selectAllWindows: sliceState => sliceState.activeWindows.concat(sliceState.inactiveWindows),
+        selectActive: sliceState => sliceState.activeWindows,
         selectIsActive: (sliceState, identifiers: ModalIdentifier[]) => {
             return identifiers.map(identifier => {
                 const window = sliceState.activeWindows
@@ -42,6 +43,6 @@ export const modalSlice = createSlice({
 });
 
 
-export const {selectData, selectIsActive, selectAllWindows} = modalSlice.selectors;
+export const {selectData, selectActive, selectIsActive, selectAllWindows} = modalSlice.selectors;
 export const {changeData, closeWindow, closeAll, openWindow, switchWindow, removeFromTrack, addToTrack} = modalSlice.actions;
 export default modalSlice.reducer;

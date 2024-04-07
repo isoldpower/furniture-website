@@ -1,9 +1,0 @@
-export const ABOUT_TITLE = 'CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.';
-export const ABOUT_PARAGRAPH = 'Ламинированная древесно-стружечная плита, сокращенно ЛДСП – это плитный материал, который получают путем прессования ковра из смеси древесной стружки со смолами с последующим нанесением ламинирующего защитно-декоративного покрытия.';
-export const ABOUT_STATISTIC1_TITLE = 'Сотрудников в компании';
-export const ABOUT_STATISTIC1_NUMBER = '12';
-export const ABOUT_STATISTIC2_TITLE = 'Завершено проектов';
-export const ABOUT_STATISTIC2_NUMBER = '50+';
-export const ABOUT_STATISTIC3_TITLE = 'Завершено проектов';
-export const ABOUT_STATISTIC3_NUMBER = '50+';
-export const ABOUT_IMAGE = 31;

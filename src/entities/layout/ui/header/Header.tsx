@@ -4,7 +4,7 @@ import classes from './Header.module.scss';
 import {Icon, Logo} from "@/shared/icons";
 import {websiteRoutes} from "@/shared/lib";
 import {AdaptiveLink} from "@/shared/ui";
-import {FIRM_NUMBER} from "@/app/static";
+import {useSettings} from "@/app/static";
 
 interface HeaderData {
     navigationElements: ReactNode[];
@@ -17,6 +17,8 @@ interface HeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 export const Header: FC<HeaderProps> = ({className, data, ...props}: HeaderProps) => {
+    const settings = useSettings();
+
     return (
         <header className={`${classes.header__wrapper} ${className} cc-px-4 cc-pt-2`} {...props}>
             <div className={`${classes.header__content} cc-px-4 cc-width-1of1 cc-border-radius-1`}>
@@ -38,7 +40,7 @@ export const Header: FC<HeaderProps> = ({className, data, ...props}: HeaderProps
                         ))}
                     </ul>
                 </nav>
-                <address className={`${classes.header__phoneNumber} cc-clr-accent-500`}>{FIRM_NUMBER}</address>
+                <address className={`${classes.header__phoneNumber} cc-clr-accent-500`}>{settings.safeData('FIRM_NUMBER')}</address>
                 <div className={`${classes.header__hamburgerButton}`}>{data.hamburger}</div>
             </div>
         </header>

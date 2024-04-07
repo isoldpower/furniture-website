@@ -3,3 +3,4 @@ export {buildAssetLoader} from "./buildAssetLoader";
 export {buildSvgLoader} from "./buildSvgLoader";
 export {buildModulesLoader} from "./buildModulesLoader";
 export {buildStylesLoader} from "./buildStylesLoader";
+export {buildFileLoader} from './buildFileLoader';

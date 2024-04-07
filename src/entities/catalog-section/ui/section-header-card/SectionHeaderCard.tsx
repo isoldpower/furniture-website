@@ -16,7 +16,7 @@ export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, 
     return (
         <div className={`${classes.sectionHeaderCard__wrapper} ${className}`} {...props}>
             <div className={`${classes.sectionHeaderCard__content} cc-grid cc-gap-4 cc-laptop-gap-8`}>
-                <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} to={href} title={'Перейти в ' + data.title}/>
+                <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} title={'Перейти в ' + data.title} to={href}/>
                 <a className={`${classes.sectionHeaderCard__imageWrapper}`} href={href} title={'Перейти в ' + data.title}>
                     <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={data.preview_image}/>
                 </a>
@@ -26,7 +26,7 @@ export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, 
                     </a>
                     <p className={`${classes.sectionHeaderCard__paragraph}`}>{data.paragraph}</p>
                     <div className={`${classes.sectionHeaderCard__buttonWrapper}`}>
-                        <MoreLink className={`${classes.sectionHeaderCard__button}`} to={href} title={'Перейти в ' + data.title}>Перейти</MoreLink>
+                        <MoreLink className={`${classes.sectionHeaderCard__button}`} title={'Перейти в ' + data.title} to={href}>Перейти</MoreLink>
                     </div>
                 </div>
                 <div className={`${classes.sectionHeaderCard__hint}`}>

@@ -29,7 +29,7 @@
 
 .portfolioImageInspect__imageWrapper {
     height: 100%;
-    display: grid;
+    width: 100%;
     justify-items: center;
 
     &[aria-hidden='true'] {
@@ -38,8 +38,9 @@
 }
 
 .portfolioImageInspect__image {
-    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     width: auto;
     pointer-events: all;
-    object-fit: contain;
+    object-fit: cover;
 }

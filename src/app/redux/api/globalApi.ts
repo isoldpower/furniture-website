@@ -15,6 +15,9 @@ export const globalApi = createApi({
         getAllImages: builder.query<ProgressiveImageType[], void>({
             query: () => `shared/images/`
         }),
+        getSettings: builder.query<{key: string, value: string}[], void>({
+            query: () => `moderate/static/`
+        }),
 
         postRequest: builder.mutation<{form: FormData, product: Product}, {form: FormData, product: number}>({
             query: (data: {form: FormData, product: number}) => ({
@@ -32,4 +35,4 @@ export const globalApi = createApi({
 })
 
 export default globalApi;
-export const {useGetImageQuery, useGetAllImagesQuery, usePostRequestMutation} = globalApi
+export const {useGetImageQuery, useGetSettingsQuery, useGetAllImagesQuery, usePostRequestMutation} = globalApi
