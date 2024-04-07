@@ -20,7 +20,7 @@ export const useForm = () => {
             type: 'error',
             duration: NOTIFICATION_DURATION
         }))
-    }, [isError]);
+    }, [isError, dispatch]);
 
     useEffect(() => {
         if (!isRequested.current) return;
@@ -30,7 +30,7 @@ export const useForm = () => {
             type: 'success',
             duration: NOTIFICATION_DURATION
         }));
-    }, [isSuccess]);
+    }, [isSuccess, dispatch]);
 
     const data: FormData = {
         name: useFormField(/^.{3,255}$/i),

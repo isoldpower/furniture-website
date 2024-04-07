@@ -1,11 +1,8 @@
-import {BaseHTMLAttributes, FC, useEffect} from "react";
+import {BaseHTMLAttributes, FC, useCallback, useEffect} from "react";
 import '@/app/scss/main.scss';
 import classes from './OrderProjectModal.module.scss';
-import {CallbackForm} from "@/entities/layout";
 import {closeWindow, useAppDispatch, useTypedSelector} from "@/app/redux";
 import {selectData} from "@/app/redux/features/modal/modalSlice";
-import {AdaptiveLink, Button, InputField} from "@/shared/ui";
-import {websiteRoutes} from "@/shared/lib";
 import {useForm} from "@/features";
 import {Product} from "@/entities/product";
 import {ProductCallbackForm} from "@/widgets/layout/ui/product-callback-form/ProductCallbackForm";
@@ -19,9 +16,9 @@ export const OrderProjectModal: FC<OrderProjectModalProps> = ({className, ...pro
     const data = useTypedSelector((state) => selectData(state, 'order'));
     const dispatch = useAppDispatch();
 
-    const close = () => {
+    const close = useCallback(() => {
         dispatch(closeWindow('order'));
-    }
+    }, [dispatch])
 
     const completeOrder = () => {
         form.requestCall(data as Product);
@@ -29,7 +26,7 @@ export const OrderProjectModal: FC<OrderProjectModalProps> = ({className, ...pro
 
     useEffect(() => {
         if (form.isSuccess) close();
-    }, [form.isSuccess]);
+    }, [form.isSuccess, close]);
 
     return (
         <div className={`${classes.orderProjectModal__wrapper} ${className}`} {...props}>

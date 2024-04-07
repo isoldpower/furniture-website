@@ -10,7 +10,7 @@ interface HeroSectionProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 export const HeroSection: FC<HeroSectionProps> = ({className, ...props}: HeroSectionProps) => {
-    const title = parse(HERO_TITLE.replace(new RegExp('\r?\n','g'), '<br />'));
+    const title = parse(HERO_TITLE.replace('\n', '<br />'));
 
     return (
         <div className={`${classes.heroSection__wrapper} ${className}`} {...props}>

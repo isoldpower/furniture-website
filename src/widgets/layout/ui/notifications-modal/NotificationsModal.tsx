@@ -1,4 +1,4 @@
-import {BaseHTMLAttributes, FC, ReactNode, useEffect, useRef, useState} from "react";
+import {BaseHTMLAttributes, FC, useEffect, useRef} from "react";
 import '@/app/scss/main.scss';
 import classes from './NotificationsModal.module.scss';
 import {useAppDispatch, useTypedSelector} from "@/app/redux";
@@ -20,7 +20,7 @@ export const NotificationsModal: FC<NotificationsModalProps> = ({className, ...p
         timeout.current = setTimeout(() => {
             dispatch(removeNotification())
         }, notification.duration)
-    }, [notification]);
+    }, [notification, dispatch]);
 
     return (
         <div className={`${classes.notificationsModal__wrapper} ${className}`} {...props}>
@@ -31,7 +31,7 @@ export const NotificationsModal: FC<NotificationsModalProps> = ({className, ...p
                             <Notification data={{type: notification.type, content: notification.element}}/>
                         </div>
                     )
-                    : <></>
+                    : undefined
                 }
             </div>
         </div>

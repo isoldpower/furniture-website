@@ -26,26 +26,3 @@
         width: 40%;
     }
 }
-
-.aboutPage__body {
-    @include mq(laptop) {
-        width: 50%;
-    }
-
-    @include mq(desktop) {
-        width: 60%;
-    }
-}
-
-.aboutPage__overviewHeading {
-    line-height: 150%;
-    font-size: 24px;
-
-    @include mq(tablet) {
-        font-size: 32px;
-    }
-}
-
-.aboutPage__overviewParagraph {
-    color: $color-soft-text-1;
-}

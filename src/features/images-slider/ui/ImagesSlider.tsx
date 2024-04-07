@@ -33,7 +33,7 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({className, images, ...props
                     }} id="images-2" itemClass={`${classes.imagesSlider__carouselItem} ${classes.imagesSlider__itemSpacing}`}>{items}</Carousel>
                 </div>
                 <div className={`${classes.imageSlider__imageWrapper}`}>
-                    <InspectImage data={images[current]} className={`${classes.imagesSlider__currentImage}`}>
+                    <InspectImage className={`${classes.imagesSlider__currentImage}`} data={images[current]}>
                         <ProgressiveImage className={`${classes.imagesSlider__currentImage}`} image={images[current] ?? {
                             low: '',
                             high: '',

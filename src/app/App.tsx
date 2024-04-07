@@ -35,12 +35,11 @@ const App = () => {
                     <ModalProvider id="portfolio-overview" identifier="portfolio">
                         <PortfolioImageInspect />
                     </ModalProvider>
-                    <ModalProvider id={"order-project"} identifier={"order"}>
+                    <ModalProvider id="order-project" identifier="order">
                         <OrderProjectModal />
                     </ModalProvider>
                 </div>
-                <div className={`${classes.pageLayout__activeModals} absolute-stretch`} id={layers.activeModals} style={{position: "fixed", zIndex: 100}}>
-                </div>
+                <div className={`${classes.pageLayout__activeModals} absolute-stretch`} id={layers.activeModals} style={{position: "fixed", zIndex: 100}} />
                 <div style={{zIndex: 97}}>
                     <AnchorScroll yOffset={-100} />
                     <Outlet />

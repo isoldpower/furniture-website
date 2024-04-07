@@ -16,15 +16,15 @@ export const ProductCallbackForm: FC<ProductCallbackFormProps> = ({className, fo
     return (
         <CallbackForm className={`cc-main-gutter-content ${className}`} {...props} data={{
             fields: [
-                <InputField className={`${classes.callbackSection__field}`} itemType={form.data.name.state}
-                            data={{title: 'Ваше имя *'}} key={0} onInput={form.data.name.onInput}
+                <InputField className={`${classes.callbackSection__field}`} data={{title: 'Ваше имя *'}}
+                            itemType={form.data.name.state} key={0} onInput={form.data.name.onInput}
                             placeholder="Александр"/>,
-                <InputField className={`${classes.callbackSection__field}`} itemType={form.data.phone.state}
-                            data={{title: 'Ваш номер *'}}
+                <InputField className={`${classes.callbackSection__field}`} data={{title: 'Ваш номер *'}}
+                            itemType={form.data.phone.state}
                             key={1} onInput={form.data.phone.onInput} placeholder="89995543332"/>,
                 <InputField
                     className={`${classes.callbackSection__mailInput} ${classes.callbackSection__field}`}
-                    itemType={form.data.mail.state} data={{title: 'Ваша почта *'}} key={2}
+                    data={{title: 'Ваша почта *'}} itemType={form.data.mail.state} key={2}
                     onInput={form.data.mail.onInput} placeholder="cozycraft@yandex.ru" type="email"/>
             ],
             softText: (

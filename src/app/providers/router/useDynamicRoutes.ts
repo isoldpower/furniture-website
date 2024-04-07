@@ -19,7 +19,7 @@ export const useSectionRoutes = () => {
         sectionApi.getAll()
             .then(sections => setSections(sections))
             .catch(error => console.log('section error:', error));
-    }, []);
+    }, [setSections]);
 
     return sectionRoutes;
 }
