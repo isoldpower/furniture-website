@@ -28,7 +28,7 @@
 .catalogDisplay__spoiler {
     display: none;
     @include mq(laptop) {
-        display: inline;
+        display: flex;
     }
 }
 

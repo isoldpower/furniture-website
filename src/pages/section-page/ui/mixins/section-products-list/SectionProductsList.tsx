@@ -1,9 +1,9 @@
 import {FC, Fragment} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionProductsList.module.scss';
-import {useGetAllProductsQuery} from "@/app/redux";
 import {CustomProject} from "@/pages/section-page/ui/mixins/custom-project/CustomProject";
-import {DetailedProductCard} from "@/widgets/product";
+import {DetailedProductCard, useGetAllProductsQuery} from "@/widgets/product";
+import {FIRST_MORE_INDEX, MORE_FREQUENCY} from "@/app/static";
 
 interface SectionProductsListProps {
     sectionId: number;
@@ -21,7 +21,7 @@ export const SectionProductsList: FC<SectionProductsListProps> = ({sectionId}: S
         <div className={`${classes.catalogSection__catalog} cc-grid cc-cgap-5 cc-rgap-9`}>
             {filteredProducts.map((product, key) => (
                 <Fragment key={key}>
-                    {key === 2 ? <CustomProject data={{
+                    {key >= FIRST_MORE_INDEX && (key - FIRST_MORE_INDEX) % (MORE_FREQUENCY) == 0 ? <CustomProject data={{
                         title: 'Не нашли то что искали?',
                         paragraph: 'Свяжитесь с нами — мы найдем решение',
                         address: '+7 (999) 123-34-54'

@@ -2,7 +2,7 @@ import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductOverviewMaterials.module.scss';
 import {MaterialPreview} from "@/entities/material";
-import {useGetProductMaterialsQuery} from "@/app/redux";
+import {useGetProductMaterialsQuery} from "@/widgets/product";
 
 
 interface ProductOverviewMaterialsProps {

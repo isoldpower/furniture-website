@@ -1,14 +1,14 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import {useGetAllSectionsQuery} from "@/app/redux";
 import {LoadingPage} from "@/pages/loading-page";
 import {ErrorPage} from "@/pages/error-page";
 import {CatalogSectionLoader} from "@/pages/home-page/ui/mixins/catalog-section-loader/CatalogSectionLoader";
+import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogLoaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const CatalogLoader: FC<CatalogLoaderProps> = () => {
+export const CatalogLoader: FC<CatalogLoaderProps> = ({...props} : CatalogLoaderProps) => {
     const {currentData: sections, isLoading, isError } = useGetAllSectionsQuery();
 
     if (isLoading) return <LoadingPage />
@@ -18,7 +18,7 @@ export const CatalogLoader: FC<CatalogLoaderProps> = () => {
 
     return <>
         {sectionsChunk.map((section, key) => (
-            <CatalogSectionLoader key={key} section={section} />
+            <CatalogSectionLoader key={key} section={section} {...props}/>
         ))}
     </>
 };

@@ -1,16 +1,16 @@
-import {FC} from "react";
+import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import {sectionByPostfix} from "@/shared/lib";
 import {SectionDisplay} from "@/widgets/catalog-section";
 import {Section} from "@/entities/catalog-section";
-import {useGetAllProductsQuery} from "@/app/redux";
+import {useGetAllProductsQuery} from "@/widgets/product";
 
 
-interface CatalogSectionLoaderProps {
+interface CatalogSectionLoaderProps extends BaseHTMLAttributes<HTMLDivElement>{
     section: Section;
 }
 
-export const CatalogSectionLoader: FC<CatalogSectionLoaderProps> = ({section}: CatalogSectionLoaderProps) => {
+export const CatalogSectionLoader: FC<CatalogSectionLoaderProps> = ({section, ...props}: CatalogSectionLoaderProps) => {
     const {currentData : products, isLoading, isError} = useGetAllProductsQuery();
 
     if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>
@@ -21,9 +21,10 @@ export const CatalogSectionLoader: FC<CatalogSectionLoaderProps> = ({section}: C
     return (
         <SectionDisplay data={{
             ...section,
-            products: filteredProducts,
+            carouselProducts: filteredProducts,
+            spoilerProducts: filteredProducts.filter(product => product.important),
             sectionLink: true,
             href: sectionByPostfix(section.href_postfix)}
-        } id={section.id.toString()} />
+        } {...props} id={section.id.toString()} />
     );
 };

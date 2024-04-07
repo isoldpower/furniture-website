@@ -1,0 +1,19 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.notification__back {
+    @extend .absolute-stretch;
+
+    &[itemType='overall'] {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid $color-neutral-050;
+    }
+
+    &[itemType='error'] {
+        background-color: indianred;
+    }
+
+    &[itemType='success'] {
+        background-color: darkseagreen;
+    }
+}

@@ -1,12 +1,14 @@
 import classes from "../ui/footer/Footer.module.scss";
 import {LinksSection} from "../model";
 import {AdaptiveLink, LinkData} from "@/shared/ui";
-import {sectionRoutes} from "@/app/providers/router/dynamicRoutes";
 import {websiteRoutes} from "@/shared/lib";
 import {useEffect, useState} from "react";
+import {useSectionRoutes} from "@/app/providers/router/useDynamicRoutes";
 
 export const useLinkSections = (sections: LinksSection[]) => {
     const [sectionsState, setSectionsState] = useState<LinksSection[]>(sections);
+    const sectionRoutes = useSectionRoutes();
+
     useEffect(() => {
         setSectionsState(() => sections.concat({
             title: 'Каталог',
@@ -15,7 +17,7 @@ export const useLinkSections = (sections: LinksSection[]) => {
                 href: websiteRoutes.catalog + key
             }))
         }))
-    }, [sections]);
+    }, [sections, sectionRoutes]);
 
     return sectionsState.map((section, key) => (
         <div className={`${classes.footer__navigationSection}`} key={key}>

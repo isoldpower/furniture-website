@@ -9,9 +9,9 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const InputField: FC<InputFieldProps> = ({className, data, ...props}: InputFieldProps) => {
     return (
-        <div className={`${classes.inputField__wrapper} ${className} cc-grid cc-gap-3`}>
+        <div className={`${classes.inputField__wrapper} cc-grid cc-gap-3`}>
             <div className={`${classes.inputField__heading}`}>{data.title}</div>
-            <input {...props} className={`${classes.inputField__field} cc-border-radius-1 cc-bg-neutral-000 cc-width-1of1`}/>
+            <input {...props} className={`${classes.inputField__field} ${className} cc-border-radius-1 cc-bg-neutral-000 cc-width-1of1`}/>
         </div>
     );
 };

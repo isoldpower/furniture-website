@@ -2,8 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CallbackSection.module.scss';
 import {useForm} from "@/features";
-import {AdaptiveLink, Button, InputField} from "@/shared/ui";
-import {CallbackForm} from "@/entities/layout";
+import {ProductCallbackForm} from "@/widgets/layout/ui/product-callback-form/ProductCallbackForm";
 
 interface CallbackSectionProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -18,26 +17,11 @@ export const CallbackSection: FC<CallbackSectionProps> = ({className, ...props}:
                     <h1 className={`${classes.callbackSection__heading} cc-heading-1`}>
                         Можем перезвонить
                     </h1>
-                    <p className={`${classes.callbackSection__paragraph} cc-pt-9`}>Свяжемся с вами — когда вам будет удобно</p>
+                    <p className={`${classes.callbackSection__paragraph} cc-pt-9`}>Свяжемся с вами — когда вам будет
+                        удобно</p>
                 </div>
                 <div className={`${classes.callbackSection__formWrapper} cc-width-1of1`}>
-                    <CallbackForm data={{
-                        fields: [
-                            <InputField data={{title: 'Ваше имя *'}} key={0} onInput={form.nameField.onInput} placeholder="Александр"/>,
-                            <InputField data={{title: 'Ваш номер *'}} key={1} onInput={form.phoneField.onInput} placeholder="89995543332"/>,
-                            <InputField className={`${classes.callbackSection__mailInput}`} data={{title: 'Ваша почта *'}} key={2} onInput={form.mailField.onInput} placeholder="cozycraft@yandex.ru" type="email"/>
-                        ],
-                        softText: (
-                            <div className={`${classes.callbackSection__hint}`}>Нажимая кнопку “Отправить” вы соглашаетесь с&nbsp;
-                                <AdaptiveLink className={`${classes.callbackSection__hintAnchor} cc-clr-accent-500`} to="/hello">Политикой конфиденциальности</AdaptiveLink>
-                                &nbsp;веб-ресурса
-                            </div>
-                        ),
-                        sendButton: (
-                            <Button data={{variant: 'accent'}} onClick={form.requestCall} semantic="button">
-                                Отправить
-                            </Button>
-                    )}} />
+                    <ProductCallbackForm form={form} onClick={() => form.requestCall(undefined)} />
                 </div>
             </div>
         </div>

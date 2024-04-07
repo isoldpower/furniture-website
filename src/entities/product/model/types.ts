@@ -9,6 +9,7 @@ export interface Product {
     duration: string;
     cost: string;
     href_postfix: string;
+    important: boolean;
     section: Section;
 }
 

@@ -23,7 +23,9 @@
 
 .catalogModal__container {
     z-index: 6;
+    $header-margin: calc($header-height + $size-2);
 
-    margin-top: calc($header-height + $size-2);
+    margin-top: $header-margin;
     padding-top: $size-2;
+    height: calc(100dvh - $header-margin - $size-4);
 }

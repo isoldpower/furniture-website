@@ -9,6 +9,7 @@ import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
 import {CallbackSection} from "@/widgets/layout";
 import {CatalogLoader} from "@/pages/home-page/ui/mixins/catalog-loader/CatalogLoader";
+import {QUOTE_PARAGRAPH, QUOTE_TITLE} from "@/app/static";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -25,8 +26,8 @@ const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                 </section>
                 <section className={`${classes.homePage__citeWrapper} cc-main-gutter`}>
                     <Cite className={`${classes.homePage__cite} cc-main-gutter-content`} data={{
-                        paragraph: 'CozyCraft - производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.',
-                        descriptor: 'CozyCraft – производство, занимающееся изготовлением мебели для кухонь, гостинных, спален и прихожих.'
+                        paragraph: QUOTE_TITLE,
+                        descriptor: QUOTE_PARAGRAPH
                     }}/>
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>

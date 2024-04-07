@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './AdvantagesGrid.module.scss';
 import {HomeAdvantage} from "@/entities/advantage";
-import {useGetAdvantagesOfFirmQuery} from "@/app/redux";
+import {useGetAdvantagesOfFirmQuery} from "@/widgets/advantage";
 
 interface AdvantagesGridProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

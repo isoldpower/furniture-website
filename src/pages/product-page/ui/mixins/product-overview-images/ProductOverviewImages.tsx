@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import {useGetProductImagesQuery} from "@/app/redux";
 import {ImagesSlider} from "@/features/images-slider/ui/ImagesSlider";
+import {useGetProductImagesQuery} from "@/widgets/product";
 
 
 interface ProductOverviewImagesProps extends BaseHTMLAttributes<HTMLDivElement> {

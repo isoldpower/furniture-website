@@ -1,0 +1,32 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.callbackSection__mailInput {
+    @include mq(laptop) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    @include mq(desktop) {
+        grid-column: auto;
+    }
+}
+
+.callbackSection__field {
+
+    &[itemType='wrong'] {
+        outline: 2px solid red;
+        opacity: 0.5;
+        outline-offset: -2px;
+    }
+
+    &[itemType='correct'] {
+        outline: 2px solid green;
+        opacity: 0.5;
+        outline-offset: -2px;
+    }
+}
+
+.callbackSection__hintAnchor {
+    display: inline-block;
+}

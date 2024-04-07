@@ -10,6 +10,8 @@ import {CatalogModal} from "@/widgets/catalog-section/ui/catalog-modal/CatalogMo
 import {closeAll, useAppDispatch} from "@/app/redux";
 import {AnchorScroll} from "@/app/providers/scroll/AnchorScroll";
 import {PortfolioImageInspect} from "@/widgets/portfolio/ui/portfolio-image-inspect/PortfolioImageInspect";
+import {NotificationsModal} from "@/widgets/layout/ui/notifications-modal/NotificationsModal";
+import {OrderProjectModal} from "@/widgets/layout/ui/order-project-modal/OrderProjectModal";
 
 const App = () => {
     const location = useLocation();
@@ -33,11 +35,17 @@ const App = () => {
                     <ModalProvider id="portfolio-overview" identifier="portfolio">
                         <PortfolioImageInspect />
                     </ModalProvider>
+                    <ModalProvider id="order-project" identifier="order">
+                        <OrderProjectModal />
+                    </ModalProvider>
                 </div>
                 <div className={`${classes.pageLayout__activeModals} absolute-stretch`} id={layers.activeModals} style={{position: "fixed", zIndex: 100}} />
                 <div style={{zIndex: 97}}>
                     <AnchorScroll yOffset={-100} />
                     <Outlet />
+                </div>
+                <div className={`${classes.pageLayout__drawer} absolute-stretch`} style={{position: "fixed", zIndex: 101}}>
+                    <NotificationsModal />
                 </div>
             </main>
             <WebsiteFooter />
