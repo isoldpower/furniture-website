@@ -5,14 +5,15 @@ import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {ProgressiveImage, ProgressiveImageType} from "@/shared/ui";
 import {useGetImageQuery} from "@/app/redux";
 import {imageDefault, imageFailed} from "@/shared/lib/api/loadingDefaults";
-import {ABOUT_IMAGE} from "@/app/static";
 import {AchievementsGrid} from "@/pages/about-page/ui/mixins/achievements-grid/AchievementsGrid";
+import {useSettings} from "@/app/static/useSettings";
 
 interface AboutPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) => {
-    const {currentData: queryImage, isSuccess, isError} = useGetImageQuery(ABOUT_IMAGE);
+    const settings = useSettings();
+    const {currentData: queryImage, isSuccess, isError} = useGetImageQuery(Number(settings.safeData('ABOUT_IMAGE')));
     const image = useRef<ProgressiveImageType>(imageDefault);
 
     if (isError) image.current = imageFailed;

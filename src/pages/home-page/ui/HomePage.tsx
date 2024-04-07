@@ -9,12 +9,16 @@ import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
 import {CallbackSection} from "@/widgets/layout";
 import {CatalogLoader} from "@/pages/home-page/ui/mixins/catalog-loader/CatalogLoader";
-import {QUOTE_PARAGRAPH, QUOTE_TITLE} from "@/app/static";
+import {useSettings} from "@/app/static/useSettings";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
 const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
+    const settings = useSettings();
+    const title = settings.safeData('QUOTE_TITLE');
+    const paragraph = settings.safeData('QUOTE_PARAGRAPH');
+
     return (
         <div className={`${classes.homePage__wrapper} ${className}`} {...props}>
             <div className={`${classes.homePage__content} cc-flex cc-flex-col cc-gap-15 cc-laptop-gap-18`}>
@@ -26,8 +30,8 @@ const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                 </section>
                 <section className={`${classes.homePage__citeWrapper} cc-main-gutter`}>
                     <Cite className={`${classes.homePage__cite} cc-main-gutter-content`} data={{
-                        paragraph: QUOTE_TITLE,
-                        descriptor: QUOTE_PARAGRAPH
+                        paragraph: title,
+                        descriptor: paragraph
                     }}/>
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
