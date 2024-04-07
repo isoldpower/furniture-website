@@ -1,11 +1,8 @@
 import {BuildOptions} from "./types";
 import webpack from "webpack";
 import {
-    buildAssetLoader,
-    buildModulesLoader,
-    buildStylesLoader,
-    buildSvgLoader,
-    buildTypescriptLoader
+    buildAssetLoader, buildFileLoader, buildModulesLoader,
+    buildStylesLoader, buildSvgLoader, buildTypescriptLoader
 } from "./loaders";
 
 export function buildLoaders(options: BuildOptions): webpack.ModuleOptions['rules'] {
@@ -14,12 +11,14 @@ export function buildLoaders(options: BuildOptions): webpack.ModuleOptions['rule
     const stylesLoader = buildStylesLoader();
     const assetLoader = buildAssetLoader();
     const svgLoader = buildSvgLoader();
+    const fileLoader = buildFileLoader();
 
     return [
         tsLoader,
         assetLoader,
         modulesLoader,
         stylesLoader,
-        svgLoader
+        svgLoader,
+        fileLoader
     ]
 }
