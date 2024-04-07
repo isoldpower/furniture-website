@@ -6,6 +6,8 @@ import {Menu} from "@/shared/icons";
 import {Header} from "@/entities/layout";
 import {websiteRoutes} from "@/shared/lib";
 import {AdaptiveLink} from "@/shared/ui";
+import {useTypedSelector} from "@/app/redux";
+import {selectActive} from "@/app/redux/features/modal/modalSlice";
 
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -14,6 +16,7 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({style, ...props}: Website
     const hamburger = useHamburger();
     const [translateY, setTranslateY] = useState(0);
     const oldScrollY = useRef(0);
+    const modals = useTypedSelector(selectActive);
 
     const handleScroll = useCallback(() => {
         const deltaScroll = oldScrollY.current - window.scrollY;
@@ -25,6 +28,10 @@ export const WebsiteHeader: FC<WebsiteHeaderProps> = ({style, ...props}: Website
 
         oldScrollY.current = window.scrollY;
     }, [])
+
+    useEffect(() => {
+        if (modals.length > 0) setTranslateY(0);
+    }, [modals]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
