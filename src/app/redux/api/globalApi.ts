@@ -16,12 +16,12 @@ export const globalApi = createApi({
             query: () => `shared/images/`
         }),
         getSettings: builder.query<{key: string, value: string}[], void>({
-            query: () => `moderate/static/`
+            query: () => `settings/static/`
         }),
 
         postRequest: builder.mutation<{form: FormData, product: Product}, {form: FormData, product: number}>({
             query: (data: {form: FormData, product: number}) => ({
-                url: 'moderate/callbacks/',
+                url: 'feedback/callbacks/',
                 method: 'POST',
                 body: {
                     name: data.form.name.value,

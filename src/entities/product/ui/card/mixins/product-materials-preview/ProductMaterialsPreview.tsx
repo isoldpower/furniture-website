@@ -14,7 +14,9 @@ export const ProductMaterialsPreview: FC<ProductMaterialsPreviewProps> = ({id}: 
     else if (isError) return <div>Ошибка :(</div>
 
     return <>
-        {materials.map((material, key) => (
+        {materials.length == 0
+            ? <span>Материалы не найдены</span>
+            : materials.map((material, key) => (
             <span className={`${classes.productCard__material}`} key={key}>
                 {material.title}
                 {key < materials.length - 1 ? <>,&nbsp;</> : null}
