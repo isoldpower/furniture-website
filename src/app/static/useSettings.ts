@@ -14,7 +14,7 @@ export const useSettings = () => {
 
     const safeData = (key: string) => {
         if (!currentData) return 'загрузка...'
-        return currentData?.find(element => element.key == key) ?? 'ошибка';
+        return currentData?.find(element => element.key == key)?.value ?? 'ошибка';
     }
 
     return {safeData};
