@@ -15,7 +15,7 @@ export const CatalogModal: FC<CatalogModalProps> = ({className, ...props}: Catal
                 <div className={`${classes.catalogModal__back}`} />
                 <div className={`${classes.catalogModal__container} cc-main-gutter`}>
                     <div className={`${classes.catalogModal__containerBack} cc-bg-neutral-000 cc-border-radius-1`}/>
-                    <div className={`${classes.catalogModal__catalogWrapper} cc-main-gutter-content`}>
+                    <div className={`${classes.catalogModal__catalogWrapper} cc-flex cc-main-gutter-content`}>
                         <CatalogModalSections />
                     </div>
                 </div>

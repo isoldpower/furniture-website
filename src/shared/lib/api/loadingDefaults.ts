@@ -9,7 +9,7 @@ export const imageDefault: ProgressiveImageType = {
 
 export const imageFailed: ProgressiveImageType = {
     id: -2,
-    high: 'fail',
-    low: 'fail',
+    high: 'https://i.ibb.co/bLjwzgJ/not-found.png',
+    low: 'https://i.ibb.co/txRQBQy/not-found-low.png',
     alt: 'failed to load'
 }
