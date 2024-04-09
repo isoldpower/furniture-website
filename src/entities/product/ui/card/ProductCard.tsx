@@ -1,4 +1,4 @@
-import {BaseHTMLAttributes, FC, useRef} from "react";
+import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductCard.module.scss';
 import {MoreLink} from "@/shared/ui";

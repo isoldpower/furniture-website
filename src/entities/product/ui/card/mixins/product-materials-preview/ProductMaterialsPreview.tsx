@@ -13,7 +13,7 @@ export const ProductMaterialsPreview: FC<ProductMaterialsPreviewProps> = ({id}: 
     if (isLoading) return <div>Идет загрузка...</div>
     else if (isError) return <div>Ошибка :(</div>
 
-    return <>
+    return <div>
         {materials.length == 0
             ? <span>Материалы не найдены</span>
             : materials.map((material, key) => (
@@ -22,5 +22,5 @@ export const ProductMaterialsPreview: FC<ProductMaterialsPreviewProps> = ({id}: 
                 {key < materials.length - 1 ? <>,&nbsp;</> : null}
             </span>
         ))}
-    </>
+    </div>
 };
