@@ -19,7 +19,7 @@ export const CatalogModalSections: FC<CatalogModalSectionsProps> = () => {
     const sectionsChunk = sections.slice(0, sectionsAmount);
 
     return (
-        <div className={`${classes.catalogModal__catalog} cc-grid cc-gap-5 cc-py-10`}>
+        <div className={`${classes.catalogModal__catalog} cc-flex cc-gap-5 cc-py-10`}>
             {sectionsChunk.map((section, key) => (
                 <SectionHeaderCard data={section} key={key} />
             ))}

@@ -27,5 +27,5 @@
 
     margin-top: $header-margin;
     padding-top: $size-2;
-    height: calc(100dvh - $header-margin - $size-4);
+    max-height: calc(100dvh - $header-margin - $size-4);
 }

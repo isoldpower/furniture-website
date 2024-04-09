@@ -36,6 +36,12 @@
     }
 }
 
+.sectionHeaderCard__imageWrapper {
+    flex-shrink: 1;
+    flex-basis: 386px;
+    flex-grow: 0;
+}
+
 .sectionHeaderCard__image {
     object-fit: cover;
     aspect-ratio: 16/9;
@@ -47,8 +53,8 @@
     }
 
     @include mq(laptop) {
-        max-height: unset;
-        height: 386px;
+        max-height: 386px;
+        height: 100%;
     }
 }
 
