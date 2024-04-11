@@ -1,0 +1,13 @@
+@use '@/app/scss/useMain' as *;
+
+.policyPage__viewContainer::before {
+    @extend .absolute-stretch;
+    border: 1px solid $color-back-3;
+    z-index: -1;
+    content: "Loading...";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

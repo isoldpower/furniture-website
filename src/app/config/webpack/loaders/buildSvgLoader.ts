@@ -1,6 +1,4 @@
-import {BuildOptions} from "../types/types";
-
-export function buildSvgLoader(options: BuildOptions) {
+export function buildSvgLoader() {
     return {
         test: /\.svg$/,
         use: [

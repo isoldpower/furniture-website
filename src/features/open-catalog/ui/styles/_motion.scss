@@ -1,0 +1,18 @@
+@use '@/app/scss/useMain' as *;
+
+.openCatalog__wrapper > * > svg > g {
+    & > * {
+        transition: 0.1s ease-in-out;
+        transform-origin: center;
+    }
+}
+
+.openCatalog__wrapper[aria-selected='true'] > * > svg > g {
+    & > *:first-child {
+        transform: rotate(45deg) translateY(2.5px);
+    }
+
+    & > *:last-child {
+        transform: rotate(-45deg) translateY(-2.5px);
+    }
+}

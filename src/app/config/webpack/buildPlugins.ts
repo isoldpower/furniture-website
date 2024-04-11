@@ -9,7 +9,7 @@ export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
     let plugins = buildGlobalPlugins(options);
 
     if (isDevelopment) plugins = plugins.concat(buildDevPlugins(options));
-    if (isProduction) plugins = plugins.concat(buildProdPlugins(options));
+    if (isProduction) plugins = plugins.concat(buildProdPlugins());
 
     return plugins;
 }

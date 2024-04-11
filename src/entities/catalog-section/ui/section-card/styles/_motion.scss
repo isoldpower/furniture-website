@@ -1,0 +1,15 @@
+@use '@/app/scss/useMain' as *;
+
+.catalogSection__imageWrapper {
+    overflow: hidden;
+}
+
+.catalogSection__image {
+    transition: 0.3s ease-out;
+}
+
+.catalogSection__content:hover > .catalogSection__imageWrapper {
+    & > * {
+        transform: scale(1.2);
+    }
+}

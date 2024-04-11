@@ -1,0 +1,18 @@
+@use '@/app/scss/useMain' as *;
+
+.portfolioItem__content > .portfolioItem__hover {
+    opacity: 0;
+    transition: 0.2s;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.portfolioItem__content:hover {
+    cursor: crosshair;
+
+    & > .portfolioItem__hover {
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+    }
+}

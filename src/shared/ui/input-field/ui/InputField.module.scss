@@ -1,0 +1,16 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.inputField__heading {
+    color: $color-soft-text-2;
+}
+
+.inputField__field {
+    border: none;
+    padding: $size-5 $size-7;
+    line-height: 100%;
+
+    &::placeholder {
+        color: hsl(0, 0%, 0%, 35%);
+    }
+}

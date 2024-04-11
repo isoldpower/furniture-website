@@ -1,0 +1,46 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+
+.portfolioImageInspect__wrapper,
+.portfolioImageInspect__content {
+    position: static;
+    height: 100%;
+    width: 100%;
+}
+
+.portfolioImageInspect__content {
+    padding-top: calc($header-height + $size-2);
+}
+
+.portfolioImageInspect__back {
+    @extend .absolute-stretch;
+    background-color: black;
+    opacity: 0.7;
+}
+
+
+.portfolioImageInspect__container {
+    pointer-events: none;
+    padding: $size-10 $size-13;
+    height: 100%;
+    width: 100%;
+}
+
+.portfolioImageInspect__imageWrapper {
+    height: 100%;
+    width: 100%;
+    justify-items: center;
+
+    &[aria-hidden='true'] {
+        visibility: hidden;
+    }
+}
+
+.portfolioImageInspect__image {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    pointer-events: all;
+    object-fit: cover;
+}

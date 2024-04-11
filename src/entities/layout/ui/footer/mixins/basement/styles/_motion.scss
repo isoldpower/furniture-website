@@ -1,0 +1,8 @@
+@use '@/app/scss/useMain' as *;
+
+.footer__agreementItem > a > * {
+    &:hover {
+        color: $color-soft-text-1;
+    }
+
+}

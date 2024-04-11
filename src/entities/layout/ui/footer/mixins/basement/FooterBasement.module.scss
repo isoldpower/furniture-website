@@ -1,0 +1,51 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.footer__bottom {
+    @include mq(tablet) {
+        padding-top: $size-13;
+        gap: $column-spacing;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    @include mq(desktop) {
+        padding-top: 0;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+    }
+
+    & > * {
+        @include mq(tablet) {
+            width: 100%;
+        }
+
+        @include mq(desktop) {
+            width: auto;
+        }
+    }
+}
+
+.footer__legalInfo {
+    color: $color-soft-text-1;
+
+    @include mq(desktop) {
+        text-align: right;
+    }
+}
+
+.footer__agreements {
+    display: grid;
+
+    @include mq(desktop) {
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 0;
+        text-align: right;
+    }
+}
+
+.footer__agreementItem > * {
+    color: $color-soft-text-2;
+}

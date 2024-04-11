@@ -1,0 +1,39 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.sideHeader__wrapper {
+    position: static;
+    max-height: 100dvh;
+    overflow: hidden;
+}
+
+.sideHeader__back {
+    @extend .absolute-stretch;
+    z-index: 2;
+    background-color: black;
+    opacity: 0.25;
+}
+
+.sideHeader__content {
+    z-index: 3;
+    padding-top: $size-1;
+}
+
+.sideHeader__container {
+    $header-margin: calc($header-height + $size-2);
+    margin-top: $header-margin;
+    height: calc(100dvh - $header-margin - $size-4);
+}
+
+.sideHeader__descriptor {
+    color: $color-soft-text-2;
+}
+
+.header__navigationList {
+    font-size: 24px;
+}
+
+.header__separator {
+    border: none;
+    outline: 0.5px solid $color-neutral-050;
+}

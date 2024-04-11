@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+.#{$prefix} {
+    &ff-body {
+        font-family: $manrope-font;
+    }
+
+    &ff-heading {
+        font-family: $heading-font-family;
+    }
+}

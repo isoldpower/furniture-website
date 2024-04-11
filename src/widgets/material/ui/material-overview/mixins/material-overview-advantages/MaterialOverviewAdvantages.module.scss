@@ -1,0 +1,18 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.materialOverview__advantagesWrapper {
+    display: grid;
+
+    @include mq(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq(laptop) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.materialOverview__advantage > * > h3 {
+    font-size: $font-size-300;
+}
