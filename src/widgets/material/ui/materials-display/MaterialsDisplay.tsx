@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialsDisplay.module.scss';
-import {HomeMaterial} from "@/entities/material/ui/home-material/HomeMaterial";
+import {HomeMaterial} from "@/entities/material";
 import {Carousel, MoreLink} from "@/shared/ui";
 import {useGetAllMaterialsQuery} from "@/widgets/material";
 

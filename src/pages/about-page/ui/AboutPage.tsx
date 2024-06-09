@@ -4,8 +4,8 @@ import classes from './AboutPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
 import {ProgressiveImage, ProgressiveImageType} from "@/shared/ui";
 import {useGetImageQuery} from "@/app/redux";
-import {imageDefault, imageFailed} from "@/shared/lib/api/loadingDefaults";
-import {AchievementsGrid} from "@/pages/about-page/ui/mixins/achievements-grid/AchievementsGrid";
+import {imageDefault, imageFailed} from "@/shared/lib";
+import {AchievementsGrid} from "@/pages/about-page";
 import {useSettings} from "@/app/static/useSettings";
 
 interface AboutPageProps extends BaseHTMLAttributes<HTMLDivElement> {

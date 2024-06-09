@@ -1,6 +1,6 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import {ImagesSlider} from "@/features/images-slider/ui/ImagesSlider";
+import {ImagesSlider} from "@/features/product";
 import {useGetProductImagesQuery} from "@/widgets/product";
 
 

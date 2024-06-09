@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialsPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {MaterialsLoader} from "@/pages/materials-page/ui/mixins/materials-loader/MaterialsLoader";
+import {MaterialsLoader} from "@/pages/materials-page";
 
 interface MaterialsPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

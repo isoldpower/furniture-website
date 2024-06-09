@@ -8,7 +8,7 @@ import {AdvantagesGrid} from "@/widgets/advantage";
 import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
 import {CallbackSection} from "@/widgets/layout";
-import {CatalogLoader} from "@/pages/home-page/ui/mixins/catalog-loader/CatalogLoader";
+import {CatalogLoader} from "@/pages/home-page";
 import {useSettings} from "@/app/static/useSettings";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {

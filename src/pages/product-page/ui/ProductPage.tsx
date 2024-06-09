@@ -2,14 +2,13 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductPage.module.scss';
 import {useParams} from "react-router-dom";
-import {PagePath} from "@/features";
-import {ProductOverview} from "@/widgets/product/ui/overview/ProductOverview";
 import {SectionDisplay} from "@/widgets/catalog-section";
 import {websiteRoutes} from "@/shared/lib";
 import {CallbackSection} from "@/widgets/layout";
 import {LoadingPage} from "@/pages/loading-page";
 import {ErrorPage} from "@/pages/error-page";
-import {useGetAllProductsQuery} from "@/widgets/product";
+import {useGetAllProductsQuery, ProductOverview} from "@/widgets/product";
+import {PagePath} from "@/features/layout";
 
 interface ProductPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

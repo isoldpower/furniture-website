@@ -3,9 +3,9 @@ import '@/app/scss/main.scss';
 import classes from './OrderProjectModal.module.scss';
 import {closeWindow, useAppDispatch, useTypedSelector} from "@/app/redux";
 import {selectData} from "@/app/redux/features/modal/modalSlice";
-import {useForm} from "@/features";
 import {Product} from "@/entities/product";
-import {ProductCallbackForm} from "@/widgets/layout/ui/product-callback-form/ProductCallbackForm";
+import {ProductCallbackForm} from "@/widgets/layout";
+import {useForm} from "@/shared/lib";
 
 
 interface OrderProjectModalProps extends BaseHTMLAttributes<HTMLDivElement> {

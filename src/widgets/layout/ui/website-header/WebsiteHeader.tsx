@@ -1,13 +1,14 @@
 import {BaseHTMLAttributes, FC, useCallback, useEffect, useRef, useState} from "react";
 import '@/app/scss/main.scss';
 import classes from './WebsiteHeader.module.scss';
-import {OpenCatalog, useHamburger} from "@/features";
 import {Menu} from "@/shared/icons";
 import {Header} from "@/entities/layout";
 import {websiteRoutes} from "@/shared/lib";
 import {AdaptiveLink} from "@/shared/ui";
 import {useTypedSelector} from "@/app/redux";
 import {selectActive} from "@/app/redux/features/modal/modalSlice";
+import {useHamburger} from "@/features/layout";
+import {OpenCatalog} from "@/features/catalog-section";
 
 interface WebsiteHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

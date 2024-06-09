@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import {LoadingPage} from "@/pages/loading-page";
 import {ErrorPage} from "@/pages/error-page";
-import {CatalogSectionLoader} from "@/pages/home-page/ui/mixins/catalog-section-loader/CatalogSectionLoader";
+import {CatalogSectionLoader} from "@/pages/home-page";
 import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogLoaderProps extends BaseHTMLAttributes<HTMLDivElement> {

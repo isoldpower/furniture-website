@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {CatalogSectionPreview} from "@/pages/catalog-page/ui/mixins/catalog-section-preview/CatalogSectionPreview";
+import {CatalogSectionPreview} from "@/pages/catalog-page";
 
 interface CatalogProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

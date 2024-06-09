@@ -3,15 +3,17 @@ import {Outlet, useLocation} from 'react-router-dom';
 import {layers} from "@/shared/lib/constants/layers";
 import {ModalProvider} from "@/app/providers/modal/ModalProvider";
 import {useEffect} from "react";
-import {WebsiteHeader} from "@/widgets/layout/ui/website-header/WebsiteHeader";
-import {SideHeader} from "@/widgets/layout/ui/side-header/SideHeader";
-import {WebsiteFooter} from "@/widgets/layout/ui/website-footer/WebsiteFooter";
-import {CatalogModal} from "@/widgets/catalog-section/ui/catalog-modal/CatalogModal";
+import {
+    WebsiteHeader,
+    WebsiteFooter,
+    SideHeader,
+    NotificationsModal,
+    OrderProjectModal
+} from "@/widgets/layout";
 import {closeAll, useAppDispatch} from "@/app/redux";
 import {AnchorScroll} from "@/app/providers/scroll/AnchorScroll";
-import {PortfolioImageInspect} from "@/widgets/portfolio/ui/portfolio-image-inspect/PortfolioImageInspect";
-import {NotificationsModal} from "@/widgets/layout/ui/notifications-modal/NotificationsModal";
-import {OrderProjectModal} from "@/widgets/layout/ui/order-project-modal/OrderProjectModal";
+import {PortfolioImageInspect} from "@/widgets/portfolio";
+import {CatalogModal} from "@/widgets/catalog-section";
 
 const App = () => {
     const location = useLocation();

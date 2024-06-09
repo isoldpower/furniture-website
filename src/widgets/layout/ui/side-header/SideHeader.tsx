@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './SideHeader.module.scss';
 import {AdaptiveLink, LinkData} from "@/shared/ui";
 import {websiteRoutes} from "@/shared/lib";
-import {SideHeaderSections} from "@/widgets/layout/ui/side-header/mixins/side-header-sections/SideHeaderSections";
+import {SideHeaderSections} from "@/widgets/layout";
 
 interface SideHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

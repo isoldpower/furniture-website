@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './SideHeaderSections.module.scss';
-import {SectionHeaderCard} from "@/entities/catalog-section/ui/section-header-card/SectionHeaderCard";
+import {SectionHeaderCard} from "@/entities/catalog-section";
 import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface SideHeaderSectionsProps extends BaseHTMLAttributes<HTMLDivElement> {

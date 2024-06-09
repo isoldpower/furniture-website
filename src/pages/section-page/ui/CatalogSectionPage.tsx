@@ -3,9 +3,9 @@ import '@/app/scss/main.scss';
 import classes from './CatalogSection.module.scss';
 import {useParams} from "react-router-dom";
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {ErrorPage} from "@/pages/error-page/ui/ErrorPage";
+import {ErrorPage} from "@/pages/error-page";
 import {LoadingPage} from "@/pages/loading-page";
-import {SectionProductsList} from "@/pages/section-page/ui/mixins/section-products-list/SectionProductsList";
+import {SectionProductsList} from "@/pages/section-page";
 import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogSectionPageProps extends BaseHTMLAttributes<HTMLDivElement> {

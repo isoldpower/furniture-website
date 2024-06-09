@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioPage.module.scss';
 import {CallbackSection, PageTitle} from "@/widgets/layout";
-import {PortfolioLoader} from "@/pages/portfolio-page/ui/mixins/portfolio-loader/PortfolioLoader";
+import {PortfolioLoader} from "@/pages/portfolio-page";
 
 interface PortfolioPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

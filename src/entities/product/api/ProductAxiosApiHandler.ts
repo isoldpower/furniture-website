@@ -1,5 +1,5 @@
 import {Product, ProductDetail} from "@/entities/product";
-import {ProductApiHandler} from "@/entities/product/api/ProductApiHandler";
+import {ProductApiHandler} from "@/entities/product";
 import {AxiosApiHandler} from "@/shared/api/model/AxiosApiHandler";
 
 export class ProductAxiosApiHandler extends AxiosApiHandler<Product> implements ProductApiHandler {

@@ -1,1 +1,0 @@
-export {ImagesHover} from './ui/slider/ImagesHover';

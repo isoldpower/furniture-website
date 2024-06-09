@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import {Telegram, Vk, Whatsapp} from "@/shared/icons";
-import {useLinkSections} from "@/entities/layout/lib";
+import {useLinkSections} from "@/entities/layout";
 import {sections} from "@/widgets/layout/config";
 import {Footer} from "@/entities/layout";
 import {useSettings} from "@/app/static/useSettings";

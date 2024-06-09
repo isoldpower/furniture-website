@@ -1,8 +1,8 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CallbackSection.module.scss';
-import {useForm} from "@/features";
-import {ProductCallbackForm} from "@/widgets/layout/ui/product-callback-form/ProductCallbackForm";
+import {ProductCallbackForm} from "@/widgets/layout";
+import {useForm} from "@/shared/lib";
 
 interface CallbackSectionProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

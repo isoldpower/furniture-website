@@ -2,9 +2,8 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductCallbackForm.module.scss';
 import {AdaptiveLink, Button, InputField} from "@/shared/ui";
-import {websiteRoutes} from "@/shared/lib";
+import {UseFormReturn, websiteRoutes} from "@/shared/lib";
 import {CallbackForm} from "@/entities/layout";
-import {UseFormReturn} from "@/features";
 
 
 interface ProductCallbackFormProps extends BaseHTMLAttributes<HTMLDivElement> {

@@ -3,9 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './MaterialOverview.module.scss';
 import {Material} from "@/entities/material";
 import {ProgressiveImage} from "@/shared/ui";
-import {
-    MaterialOverviewAdvantages
-} from "@/widgets/material/ui/material-overview/mixins/material-overview-advantages/MaterialOverviewAdvantages";
+import {MaterialOverviewAdvantages} from "./mixins/material-overview-advantages/MaterialOverviewAdvantages";
 
 interface MaterialOverviewProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Material;

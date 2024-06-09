@@ -1,9 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogModal.module.scss';
-import {
-    CatalogModalSections
-} from "@/widgets/catalog-section/ui/catalog-modal/mixins/catalog-modal-sections/CatalogModalSections";
+import {CatalogModalSections} from "@/widgets/catalog-section";
 
 interface CatalogModalProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

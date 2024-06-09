@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogModalSections.module.scss';
-import {SectionHeaderCard} from "@/entities/catalog-section/ui/section-header-card/SectionHeaderCard";
+import {SectionHeaderCard} from "@/entities/catalog-section";
 import {breakpoints, useDocumentSize} from "@/shared/lib";
 import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 

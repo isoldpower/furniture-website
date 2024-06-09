@@ -1,6 +1,6 @@
 import {Product, ProductDetail} from "@/entities/product";
 import {MockApiHandler} from "@/shared/api/model/MockApiHandler";
-import {ProductApiHandler} from "@/entities/product/api/ProductApiHandler";
+import {ProductApiHandler} from "@/entities/product";
 
 export class ProductMockApiHandler extends MockApiHandler<Product> implements ProductApiHandler {
     getProductDetail = (id: number): Promise<ProductDetail> => {

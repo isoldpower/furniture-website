@@ -1,6 +1,6 @@
 import globalApi from "../../../app/redux/api/globalApi";
 import {Material} from "@/entities/material";
-import {Advantage} from "@/entities/advantage";
+import {Advantage} from "@/entities/advantage/model";
 
 export const materialApi = globalApi.injectEndpoints({
     endpoints: (builder) => ({

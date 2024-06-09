@@ -1,7 +1,7 @@
 import {FC, Fragment} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionProductsList.module.scss';
-import {CustomProject} from "@/pages/section-page/ui/mixins/custom-project/CustomProject";
+import {CustomProject} from "@/pages/section-page";
 import {DetailedProductCard, useGetAllProductsQuery} from "@/widgets/product";
 import {useSettings} from "@/app/static/useSettings";
 

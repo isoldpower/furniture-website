@@ -1,5 +1,5 @@
-import {ProductApiHandler} from "@/entities/product/api/ProductApiHandler";
-import {ProductAxiosApiHandler} from "@/entities/product/api/ProductAxiosApiHandler";
+import {ProductApiHandler} from "@/entities/product";
+import {ProductAxiosApiHandler} from "@/entities/product";
 
 export const productsApi: ProductApiHandler = new ProductAxiosApiHandler('/catalog/products/');
 export * from './endpoints';

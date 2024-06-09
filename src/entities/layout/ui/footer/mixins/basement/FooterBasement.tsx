@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './FooterBasement.module.scss';
 import {AdaptiveLink} from "@/shared/ui";
-import {FooterData} from "@/entities/layout/model";
+import {FooterData} from "@/entities/layout";
 import {websiteRoutes} from "@/shared/lib";
 import {useSettings} from "@/app/static/useSettings";
 

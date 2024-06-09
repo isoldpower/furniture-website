@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioLoader.module.scss';
-import {InspectImage} from "@/features/inspect-image/ui/InspectImage";
+import {InspectImage} from "@/features/product";
 import {PortfolioItem} from "@/entities/portfolio";
 import {PortfolioGrid, useGetPortfolioQuery} from "@/widgets/portfolio";
 

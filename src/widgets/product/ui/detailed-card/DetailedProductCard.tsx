@@ -1,10 +1,10 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './DetailedProductCard.module.scss';
-import {ImagesHover} from "@/features";
 import {websiteRoutes} from "@/shared/lib";
 import {Product, ProductCard} from "@/entities/product";
 import {useGetProductImagesQuery, useGetProductMaterialsQuery} from "@/widgets/product";
+import {ImagesHover} from "@/features/catalog-section";
 
 interface DetailedProductCardProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Product;
