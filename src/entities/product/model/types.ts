@@ -1,5 +1,5 @@
 import {Section} from "@/entities/catalog-section";
-import {ProgressiveImageType} from "@/shared/ui";
+import {ProgressiveImageType} from "@/shared/ui-toolkit";
 import {Material} from "@/entities/material";
 
 export interface Product {

@@ -1,8 +1,8 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProcessStep.module.scss';
-import {ProcessDisplayData} from "../../model";
-import {ProgressiveImage} from "@/shared/ui";
+import {ProcessDisplayData} from "../../model/props";
+import {ProgressiveImage} from "@/shared/ui-toolkit";
 
 interface ProcessStepProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: ProcessDisplayData;

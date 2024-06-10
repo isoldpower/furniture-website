@@ -1,11 +1,11 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionDisplay.module.scss';
-import {Carousel, MoreLink} from "@/shared/ui";
+import {Carousel, MoreLink} from "@/shared/ui-toolkit";
 import {DetailedProductCard} from "@/widgets/product";
 import {SectionSpoiler} from "@/entities/catalog-section";
-import {SectionDisplayData} from "@/widgets/catalog-section/model";
 import {Product} from "@/entities/product";
+import {SectionDisplayData} from "../../model/props";
 
 interface SectionDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: SectionDisplayData;

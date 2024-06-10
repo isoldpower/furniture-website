@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialPreview.module.scss';
 import {Material} from "@/entities/material";
-import {AdaptiveLink, ProgressiveImage} from "@/shared/ui";
+import {AdaptiveLink, ProgressiveImage} from "@/shared/ui-toolkit";
 import {websiteRoutes} from "@/shared/lib";
 
 interface MaterialPreviewProps extends BaseHTMLAttributes<HTMLDivElement> {

@@ -2,8 +2,8 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialOverview.module.scss';
 import {Material} from "@/entities/material";
-import {ProgressiveImage} from "@/shared/ui";
-import {MaterialOverviewAdvantages} from "./mixins/material-overview-advantages/MaterialOverviewAdvantages";
+import {ProgressiveImage} from "@/shared/ui-toolkit";
+import {MaterialAdvantagesFx} from "@/features/material";
 
 interface MaterialOverviewProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: Material;
@@ -18,7 +18,7 @@ export const MaterialOverview: FC<MaterialOverviewProps> = ({className, data, ..
                     <ProgressiveImage className={`${classes.materialOverview__image} cc-round`} image={data.image}/>
                 </div>
                 <p className={`${classes.materialOverview__paragraph}`}>{data.paragraph}</p>
-                <MaterialOverviewAdvantages materialId={data.id} />
+                <MaterialAdvantagesFx materialId={data.id} />
                 <p className={`${classes.materialOverview__endingParagraph}`}>{data.ending}</p>
             </div>
         </div>

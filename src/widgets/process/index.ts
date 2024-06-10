@@ -1,2 +1,2 @@
-export {ProcessGrid} from './ui/process-grid/ProcessGrid';
+export * from './ui';
 export * from './api';

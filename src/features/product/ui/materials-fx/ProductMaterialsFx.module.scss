@@ -1,0 +1,6 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.itemOverview__materialsWrapper {
+    color: $color-soft-text-1;
+}

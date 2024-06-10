@@ -1,2 +1,2 @@
-export * from './model/types';
-export {ProcessStep} from './ui/home-process/ProcessStep';
+export * from './model';
+export * from './ui';

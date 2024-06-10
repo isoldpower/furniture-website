@@ -1,6 +1,6 @@
 import globalApi from "../../../app/redux/api/globalApi";
 import {Product} from "@/entities/product";
-import {ProgressiveImageType} from "@/shared/ui";
+import {ProgressiveImageType} from "@/shared/ui-toolkit";
 import {Material} from "@/entities/material";
 
 export const productApi = globalApi.injectEndpoints({

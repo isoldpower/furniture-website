@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioItem.module.scss';
 import {Inspect} from "@/shared/icons";
-import {ProgressiveImage, ProgressiveImageData} from "@/shared/ui";
+import {ProgressiveImage, ProgressiveImageData} from "@/shared/ui-toolkit";
 
 interface PortfolioItemProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: ProgressiveImageData;

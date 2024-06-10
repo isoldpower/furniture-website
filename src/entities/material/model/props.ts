@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import {ProgressiveImageData} from "@/shared/ui";
+import {ProgressiveImageData} from "@/shared/ui-toolkit";
 
 export interface HomeMaterialData {
     title: string;

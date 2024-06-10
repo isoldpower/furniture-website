@@ -12,8 +12,7 @@ import {PortfolioLazy} from "@/pages/portfolio-page";
 import {AboutLazy} from "@/pages/about-page";
 import {ErrorPage} from "@/pages/error-page";
 import {LoadingPage} from "@/pages/loading-page";
-import {DocumentLazy} from "@/pages/document-page";
-import {documents} from "@/pages/document-page/documents/documents";
+import {DocumentLazy, documents} from "@/pages/document-page";
 
 const defaultFallback = <LoadingPage />;
 

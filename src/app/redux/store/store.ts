@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit/react";
 import titleReducer from '../features/title/titleSlice';
 import modalReducer from '../features/modal/modalSlice';
-import notificationReducer from "@/app/redux/features/notification/notificationSlice";
-import globalApi from "@/app/redux/api/globalApi";
+import notificationReducer from "../features/notification/notificationSlice";
+import globalApi from "../api/globalApi";
 
 export const store = configureStore({
     reducer: {

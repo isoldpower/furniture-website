@@ -1,0 +1,1 @@
+export {Carousel} from '@/shared/ui-toolkit/carousel/ui/Carousel';

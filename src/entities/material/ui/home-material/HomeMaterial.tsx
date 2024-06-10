@@ -1,8 +1,8 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './HomeMaterial.module.scss';
-import {HomeMaterialData} from "@/entities/material/model";
-import {ProgressiveImage} from "@/shared/ui";
+import {HomeMaterialData} from "../../model/props";
+import {ProgressiveImage} from "@/shared/ui-toolkit";
 
 interface HomeMaterialProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: HomeMaterialData;

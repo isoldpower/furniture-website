@@ -1,2 +1,2 @@
-export * from './model/types';
-export {PortfolioItem} from './ui/portfolio-item/PortfolioItem';
+export * from './model';
+export * from './ui';

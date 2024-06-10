@@ -1,0 +1,14 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles/index';
+
+.customProjects__cta {
+    border: 1px solid $color-neutral-050;
+
+    @include mq(tablet) {
+        height: 386px;
+    }
+}
+
+.customProjects__ctaParagraph {
+    color: $color-soft-text-1;
+}

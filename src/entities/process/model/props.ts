@@ -1,4 +1,4 @@
-import {ProgressiveImageData} from "@/shared/ui";
+import {ProgressiveImageData} from "@/shared/ui-toolkit";
 
 type ProcessVariant = 'default' | 'primary';
 

@@ -1,2 +1,2 @@
-export * from './images-slider';
-export * from './inspect-image';
+export * from './ui';
+export * from './model';

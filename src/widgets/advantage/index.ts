@@ -1,2 +1,2 @@
-export {AdvantagesGrid} from './ui/advantages-grid/AdvantagesGrid';
 export * from './api';
+export * from './ui';

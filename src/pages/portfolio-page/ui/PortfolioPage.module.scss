@@ -1,6 +1,0 @@
-@use '@/app/scss/useMain' as *;
-@use './styles';
-
-.portfolioPage__worksGrid {
-    grid-template-columns: repeat(2, 1fr);
-}

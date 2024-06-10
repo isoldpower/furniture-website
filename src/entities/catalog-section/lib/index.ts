@@ -1,1 +1,1 @@
-export * from './useChildren';
+export * from './useSectionsList';

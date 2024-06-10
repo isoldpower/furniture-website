@@ -1,19 +1,14 @@
 import classes from '@/app/App.module.scss';
 import {Outlet, useLocation} from 'react-router-dom';
-import {layers} from "@/shared/lib/constants/layers";
-import {ModalProvider} from "@/app/providers/modal/ModalProvider";
+import {layers} from "@/shared/lib";
+import {ModalProvider} from "@/app/providers";
 import {useEffect} from "react";
-import {
-    WebsiteHeader,
-    WebsiteFooter,
-    SideHeader,
-    NotificationsModal,
-    OrderProjectModal
-} from "@/widgets/layout";
+import {WebsiteHeader, WebsiteFooter, SideHeader} from "@/widgets/navigation";
 import {closeAll, useAppDispatch} from "@/app/redux";
-import {AnchorScroll} from "@/app/providers/scroll/AnchorScroll";
+import {AnchorScroll} from "@/app/providers";
 import {PortfolioImageInspect} from "@/widgets/portfolio";
 import {CatalogModal} from "@/widgets/catalog-section";
+import {NotificationsModal, OrderProjectModal} from "@/widgets/feedback";
 
 const App = () => {
     const location = useLocation();

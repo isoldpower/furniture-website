@@ -1,7 +1,7 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioImageInspect.module.scss';
-import {ProgressiveImage, ProgressiveImageData} from "@/shared/ui";
+import {ProgressiveImage, ProgressiveImageData} from "@/shared/ui-toolkit";
 import {closeWindow, useAppDispatch, useTypedSelector} from "@/app/redux";
 import {selectData} from "@/app/redux/features/modal/modalSlice";
 

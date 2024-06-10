@@ -1,9 +1,9 @@
-import {ProgressiveImageType} from "@/shared/ui";
+import {ProgressiveImageType} from "@/shared/ui-toolkit";
 import {fetchBaseQuery} from "@reduxjs/toolkit/query"
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {apiPrefix} from "@/app/static";
-import {FormData} from "@/shared/lib";
 import {Product} from "@/entities/product";
+import {FormData} from "@/features/feedback";
 
 export const globalApi = createApi({
     reducerPath: 'globalApi',

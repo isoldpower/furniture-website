@@ -1,2 +1,3 @@
-export * from './images-hover';
-export * from './open-catalog';
+export * from './ui';
+export * from './lib';
+export * from './model';

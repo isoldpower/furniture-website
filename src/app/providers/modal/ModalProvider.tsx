@@ -1,9 +1,8 @@
 import {BaseHTMLAttributes, FC, ReactNode, useEffect, useMemo} from "react";
 import '@/app/scss/main.scss';
 import classes from './ModalProvider.module.scss';
-import {useAppDispatch, WindowParams} from "@/app/redux";
-import {addToTrack, removeFromTrack} from "@/app/redux/features/modal/modalSlice";
-import {ModalIdentifier} from "@/app/redux/features/modal/types";
+import {addToTrack, removeFromTrack, useAppDispatch, WindowParams} from "@/app/redux";
+import {ModalIdentifier} from "@/app/redux";
 
 interface ProvideSideHeaderProps extends BaseHTMLAttributes<HTMLDivElement> {
     id: string;

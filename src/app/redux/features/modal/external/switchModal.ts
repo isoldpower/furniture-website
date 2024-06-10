@@ -1,8 +1,8 @@
 import {closeSpecificModal} from "./closeSpecificModal";
 import {openModal} from "./openModal";
 import {ModalIdentifier, ModalState} from "../types";
-import {getActiveModalsLayer, getInactiveModalsLayer} from "@/shared/lib/constants/layers";
-import {getAffectedWindow} from "@/app/redux/features/modal/external/utilities";
+import {getActiveModalsLayer, getInactiveModalsLayer} from "@/shared/lib";
+import {getAffectedWindow} from "@/app/redux";
 
 export const switchModal = (state: ModalState, payload: ModalIdentifier) => {
     const allWindows = state.activeWindows.concat(state.inactiveWindows);

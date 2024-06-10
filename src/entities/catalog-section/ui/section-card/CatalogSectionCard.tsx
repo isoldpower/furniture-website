@@ -1,8 +1,8 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogSectionCard.module.scss';
-import {ProgressiveImage} from "@/shared/ui";
-import {SectionPreviewData} from "../../model";
+import {ProgressiveImage} from "@/shared/ui-toolkit";
+import {SectionPreviewData} from "../../model/props";
 import {Reference} from "@/shared/icons";
 
 interface CatalogSectionCardProps extends BaseHTMLAttributes<HTMLDivElement> {

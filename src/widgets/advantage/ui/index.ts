@@ -1,0 +1,1 @@
+export {AdvantagesGrid} from './advantages-grid/AdvantagesGrid';

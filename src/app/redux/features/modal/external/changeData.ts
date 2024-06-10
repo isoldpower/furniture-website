@@ -1,6 +1,5 @@
 import {ModalState} from "@/app/redux";
-import {ModalIdentifier} from "@/app/redux/features/modal/types";
-import {getAffectedWindow} from "@/app/redux/features/modal/external/utilities";
+import {getAffectedWindow, ModalIdentifier} from "@/app/redux";
 
 export const changeModalData = (state: ModalState, payload: [ModalIdentifier, object]) => {
     const allWindows = state.activeWindows.concat(state.inactiveWindows);

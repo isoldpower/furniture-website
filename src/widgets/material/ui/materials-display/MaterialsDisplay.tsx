@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialsDisplay.module.scss';
 import {HomeMaterial} from "@/entities/material";
-import {Carousel, MoreLink} from "@/shared/ui";
+import {Carousel, MoreLink} from "@/shared/ui-toolkit";
 import {useGetAllMaterialsQuery} from "@/widgets/material";
 
 interface MaterialsDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {

@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionHeaderCard.module.scss';
 import {Section} from "@/entities/catalog-section";
-import {AdaptiveLink, MoreLink, ProgressiveImage} from "@/shared/ui";
+import {AdaptiveLink, MoreLink, ProgressiveImage} from "@/shared/ui-toolkit";
 import {Reference} from "@/shared/icons";
 import {websiteRoutes} from "@/shared/lib";
 

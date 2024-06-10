@@ -1,4 +1,4 @@
-import {ProgressiveImageType} from "@/shared/ui";
+import {ProgressiveImageType} from "@/shared/ui-toolkit";
 
 export interface Process {
     id: number;

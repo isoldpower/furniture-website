@@ -10,8 +10,9 @@
 }
 
 .catalogSpoiler__moreLink > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
     height: 386px;
 }
