@@ -1,24 +1,28 @@
-import {BaseHTMLAttributes, FC, ReactNode} from "react";
+import {Children, FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionSpoiler.module.scss';
 import {useSectionsList} from "../../lib";
-import {SectionSpoilerData} from "../../model/props";
+import {Section} from "@/entities/catalog-section";
 
-interface CatalogSpoilerProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: SectionSpoilerData;
-    children: ReactNode[];
+type CatalogSpoilerProps = {
+    data: Section;
+    children: ReactNode;
+    sectionLink?: boolean;
+    button?: ReactNode;
 }
 
-export const SectionSpoiler: FC<CatalogSpoilerProps> = ({className, data, children, ...props}: CatalogSpoilerProps) => {
+export const SectionSpoiler: FC<CatalogSpoilerProps> = ({data, children, sectionLink, button}: CatalogSpoilerProps) => {
     return (
-        <div className={`${classes.catalogSpoiler__wrapper} ${className} cc-main-gutter`} {...props}>
+        <div className={`${classes.catalogSpoiler__wrapper} cc-main-gutter`}>
             <div className={`${classes.catalogSpoiler__content} cc-main-gutter-content cc-grid`}>
                 <h2 className={`${classes.catalogSpoiler__heading} cc-heading-2 cc-pb-7`}>{data.title}</h2>
                 <div className={`${classes.catalogSpoiler__largeWrapper} cc-flex gap-column-spacing`}>
-                    {useSectionsList(children, data.sectionLink)}
-                    {data.sectionLink ? <div className={`${classes.catalogSpoiler__moreLink}`}>
-                        {data.button}
-                    </div> : null}
+                    {useSectionsList(Children.toArray(children), sectionLink)}
+                    {sectionLink ? (
+                        <div className={`${classes.catalogSpoiler__moreLink}`}>
+                            {button}
+                        </div>
+                    ): undefined}
                 </div>
             </div>
         </div>

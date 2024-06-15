@@ -1,8 +1,8 @@
-import {sectionApi} from "@/widgets/catalog-section";
 import {productsApi} from "@/widgets/product";
 import {useCallback, useEffect, useState} from "react";
 import {Section} from "@/entities/catalog-section";
 import {Product} from "@/entities/product";
+import {sectionApi} from "@/features/catalog-section";
 
 export const useSectionRoutes = () => {
     const [sectionRoutes, setSectionRoutes] = useState<{[route: string]: string}>({});

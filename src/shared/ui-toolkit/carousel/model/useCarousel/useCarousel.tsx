@@ -11,14 +11,17 @@ export const useCarousel = (length: number, groupId: string, vertical?: boolean)
 
     const updateRange = useCallback(() => {
         const group = document.querySelector<HTMLElement>(`#${groupId}`);
+        if (!group) return;
+
         const range = getRange(group, firstElement, vertical);
         setCurrentRange(range);
     }, [vertical, firstElement, groupId]);
 
     const changeTransform = useCallback(() => {
         const group = document.querySelector<HTMLElement>(`#${groupId}`);
-        const scroll = getScroll(group, currentRange.firstIncluded, vertical);
+        if (!group) return;
 
+        const scroll = getScroll(group, currentRange.firstIncluded, vertical);
         if(vertical) group.style.transform = `translateY(-${scroll}px)`;
         else group.style.transform = `translateX(-${scroll}px)`;
     }, [vertical, groupId, currentRange]);

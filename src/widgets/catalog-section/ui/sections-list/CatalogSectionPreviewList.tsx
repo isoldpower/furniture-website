@@ -1,14 +1,14 @@
 import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
-import classes from './CatalogSectionPreview.module.scss';
+import classes from './CatalogSectionPreviewList.module.scss';
 import {AdaptiveLink} from "@/shared/ui-toolkit";
 import {CatalogSectionCard} from "@/entities/catalog-section";
-import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
+import {useGetAllSectionsQuery} from "@/features/catalog-section";
 
 interface CatalogSectionPreviewProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
 
-export const CatalogSectionPreview: FC<CatalogSectionPreviewProps> = () => {
+export const CatalogSectionPreviewList: FC<CatalogSectionPreviewProps> = () => {
     const {currentData : sections, isLoading, isError} = useGetAllSectionsQuery();
 
     if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>

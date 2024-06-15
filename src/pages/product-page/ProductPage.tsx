@@ -2,7 +2,6 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductPage.module.scss';
 import {useParams} from "react-router-dom";
-import {SectionDisplay} from "@/widgets/catalog-section";
 import {websiteRoutes} from "@/shared/lib";
 import {LoadingPage} from "@/pages/loading-page";
 import {ErrorPage} from "@/pages/error-page";
@@ -12,6 +11,8 @@ import {CallbackSection} from "@/widgets/feedback";
 
 interface ProductPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
+
+//TODO: Return carousel
 
 const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPageProps) => {
     const params = useParams();
@@ -35,13 +36,13 @@ const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPagePro
                 </section>
                 <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
                     <div className={`${classes.productPage__sectionPreview}`}>
-                        <SectionDisplay data={{
-                            carouselProducts: relatedProducts,
-                            spoilerProducts: relatedProducts,
-                            title: 'Похожее',
-                            sectionLink: false,
-                            href: websiteRoutes.catalog + product.section.href_postfix
-                        }} id="familiar" />
+                        {/*<SectionDisplay data={{*/}
+                        {/*    carouselProducts: relatedProducts,*/}
+                        {/*    spoilerProducts: relatedProducts,*/}
+                        {/*    title: 'Похожее',*/}
+                        {/*    sectionLink: false,*/}
+                        {/*    href: websiteRoutes.catalog + product.section.href_postfix*/}
+                        {/*}} id="familiar" />*/}
                     </div>
                 </section>
                 <section className={`${classes.productPage__callbackWrapper} cc-main-gutter cc-py-15 cc-laptop-py-17`}>

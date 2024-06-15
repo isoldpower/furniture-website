@@ -38,21 +38,24 @@ export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props
                         </div>
                     </div>
                 </div>
-                <Carousel className={`${classes.materialsDisplay__carousel}`} data={{
-                    title: (
-                        <div className={`${classes.materialsDisplay__head} cc-grid cc-gap-2 cc-laptop-pb-7 cc-laptop-flex`}>
-                            <h2 className={`${classes.materialsDisplay__heading}`}>Материалы</h2>
-                            <div className={`${classes.materialsDisplay__descriptor}`}>Соблюдаем баланс цена-качество</div>
-                        </div>
-                    ),
-                    button: (
-                        <div className={`${classes.materialsDisplay__buttonWrapper} cc-pt-7 cc-laptop-pt-10`}>
-                            <MoreLink className={`${classes.materialsDisplay__button}`} to="/materials">Подробнее обо всех
-                                материалах</MoreLink>
-                        </div>
-                    ),
-                    indicators: true
-                }} id="materials1" itemClass={`${classes.materialsDisplay__carouselItem}`}>{items}</Carousel>
+                <div className={classes.materialsDisplay__carousel}>
+                    <Carousel
+                        button={(
+                            <div className={`${classes.materialsDisplay__buttonWrapper} cc-pt-7 cc-laptop-pt-10`}>
+                                <MoreLink className={`${classes.materialsDisplay__button}`} to="/materials">Подробнее обо всех
+                                    материалах</MoreLink>
+                            </div>
+                        )}
+                        id="materials1"
+                        indicators
+                        itemClass={`${classes.materialsDisplay__carouselItem}`}
+                        title={(
+                            <div className={`${classes.materialsDisplay__head} cc-grid cc-gap-2 cc-laptop-pb-7 cc-laptop-flex`}>
+                                <h2 className={`${classes.materialsDisplay__heading}`}>Материалы</h2>
+                                <div className={`${classes.materialsDisplay__descriptor}`}>Соблюдаем баланс цена-качество</div>
+                            </div>
+                        )}>{items}</Carousel>
+                </div>
             </div>
         </div>
     );

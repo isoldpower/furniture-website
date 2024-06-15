@@ -8,7 +8,7 @@ export const useSectionsList = (children: ReactNode[], sectionLink?: boolean) =>
 
     useEffect(() => {
         let amountBuffer = width >= breakpoints.desktop ? 4 : 3;
-        amountBuffer -= sectionLink && 1;
+        amountBuffer -= (sectionLink ? 1 : 0);
         setAmount(amountBuffer);
     }, [width, sectionLink]);
 

@@ -8,8 +8,8 @@ import {AdvantagesGrid} from "@/widgets/advantage";
 import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
 import {useSettings} from "@/app/static";
-import {CatalogFx} from "@/features/catalog-section";
 import {CallbackSection} from "@/widgets/feedback";
+import {CatalogFeaturedPreview, FeaturedSection} from "@/widgets/catalog-section";
 
 interface HomeProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -35,7 +35,9 @@ const HomePage: FC<HomeProps> = ({className, ...props}: HomeProps) => {
                     }}/>
                 </section>
                 <section className={`${classes.homePage__featuredSection} cc-flex cc-flex-col cc-gap-13 cc-laptop-gap-17`}>
-                    <CatalogFx />
+                    <CatalogFeaturedPreview>
+                        <FeaturedSection />
+                    </CatalogFeaturedPreview>
                     <div className="cc-main-gutter">
                         <div className={`${classes.featuredSection__buttonWrapper} cc-main-gutter-content`}>
                             <Button className="cc-main-gutter-content" data={{variant: 'accent'}} semantic="link"

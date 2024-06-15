@@ -1,7 +1,7 @@
 @use '@/app/scss/useMain' as *;
 @use 'styles/index';
 
-.catalogDisplay__item {
+.carouselList__item {
     padding-right: $size-1;
     padding-left: $size-1;
     flex-basis: calc(100% - 18px);
@@ -22,18 +22,5 @@
         padding-left: calc($size-5 / 2);
         padding-right: calc($size-5 / 2);
         flex-basis: calc(25% - $size-5);
-    }
-}
-
-.catalogDisplay__spoiler {
-    display: none;
-    @include mq(laptop) {
-        display: flex;
-    }
-}
-
-.catalogDisplay__wrapper {
-    @include mq(laptop) {
-        display: none;
     }
 }

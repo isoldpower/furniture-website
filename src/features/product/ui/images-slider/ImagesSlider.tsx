@@ -25,13 +25,12 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({className, data, ...props}:
         <div className={`${classes.imagesSlider__wrapper} ${className}`} {...props}>
             <div className={`${classes.imagesSlider__content} cc-grid`}>
                 <div className={`${classes.imagesSlider__previewsWrapper} cc-flex`}>
-                    <Carousel className={`${classes.imagesSlider__carousel} cc-width-1of1`} data={{
-                        button: undefined,
-                        title: '',
-                        leftArrow: <div className={`${classes.imageSlider__leftArrow}`}><ArrowLeft/></div>,
-                        rightArrow: <div className={`${classes.imageSlider__rightArrow}`}><ArrowRight/></div>,
-                        vertical: width >= breakpoints.laptop
-                    }} id="images-2" itemClass={`${classes.imagesSlider__carouselItem} ${classes.imagesSlider__itemSpacing}`}>
+                    <Carousel
+                        id="images-2"
+                        itemClass={`${classes.imagesSlider__carouselItem} ${classes.imagesSlider__itemSpacing}`}
+                        leftArrow={<div className={`${classes.imageSlider__leftArrow}`}><ArrowLeft/></div>}
+                        rightArrow={<div className={`${classes.imageSlider__rightArrow}`}><ArrowRight/></div>}
+                        vertical={width >= breakpoints.laptop}>
                         {items}
                     </Carousel>
                 </div>

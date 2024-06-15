@@ -5,4 +5,5 @@ export * from './more-link';
 export * from './progressive-image';
 export * from './carousel';
 export * from './cite';
-export * from './notification/Notification';
+export * from './notification';
+export * from './fullscreen-modal';

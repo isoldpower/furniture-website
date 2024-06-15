@@ -2,7 +2,7 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogPage.module.scss';
 import {PageTitle} from "@/widgets/navigation";
-import {CatalogSectionPreview} from "@/widgets/catalog-section";
+import {FeaturedSection} from "@/widgets/catalog-section";
 import {CallbackSection} from "@/widgets/feedback";
 
 interface CatalogProps extends BaseHTMLAttributes<HTMLDivElement> {
@@ -16,7 +16,7 @@ const CatalogPage: FC<CatalogProps> = ({className, ...props}: CatalogProps) => {
                     <PageTitle className={`${classes.catalog__pageTitle} cc-pt-9`} />
                 </div>
                 <section className={`${classes.catalog__sections} cc-pt-9 cc-laptop-pt-11r`}>
-                    <CatalogSectionPreview />
+                    <FeaturedSection />
                 </section>
                 <CallbackSection className={`${classes.catalog__callbackSection} cc-py-16 cc-laptop-py-18`} />
             </div>

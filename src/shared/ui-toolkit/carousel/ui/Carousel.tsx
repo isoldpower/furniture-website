@@ -1,19 +1,24 @@
-import {BaseHTMLAttributes, FC, ReactNode} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './Carousel.module.scss';
 import {ArrowLeft, ArrowRight} from "@/shared/icons";
-import {CarouselData, useCarousel} from "../model";
+import {useCarousel} from "../model";
 import {placeIndicators} from "@/shared/ui-toolkit/carousel/lib";
 
-interface CarouselProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: CarouselData;
+interface CarouselProps {
+    indicators?: boolean;
+    vertical?: boolean;
+    title?: ReactNode;
+    button?: ReactNode;
+    leftArrow?: ReactNode;
+    rightArrow?: ReactNode;
     children: ReactNode[];
     id: string;
     itemClass?: string;
 }
 
-export const Carousel: FC<CarouselProps> = ({className, children, data, itemClass, ...props}: CarouselProps) => {
-    const GROUP_ID = `carousel-${props.id}`;
+export const Carousel: FC<CarouselProps> = ({children, itemClass, id, ...data}: CarouselProps) => {
+    const GROUP_ID = `carousel-${id}`;
     const itemType = data.vertical ? 'vertical' : 'horizontal';
     const carousel = useCarousel(children.length, GROUP_ID, data.vertical);
 
@@ -24,11 +29,11 @@ export const Carousel: FC<CarouselProps> = ({className, children, data, itemClas
     }
 
     return (
-        <div className={`${classes.horizontalCarousel__wrapper} ${className} cc-main-gutter cc-py-1`} {...props} itemType={itemType}>
+        <div className={`${classes.horizontalCarousel__wrapper} cc-main-gutter cc-py-1`} itemType={itemType}>
             <div className={`${classes.horizontalCarousel__content} cc-main-gutter-content`}>
                 <div className={`${classes.horizontalCarousel__headWrapper} cc-flex cc-justify-content-space cc-align-items-center`}>
                     <div className={`${classes.horizontalCarousel__title}`}>
-                        {data.title}
+                        {data.title ? data.title : undefined}
                     </div>
                     <div className={`${classes.horizontalCarousel__controls} cc-flex cc-gap-2`}>
                         <button aria-disabled={carousel.currentRange.firstIncluded === 1} className={`${classes.horizontalCarousel__arrow}`} onClick={carousel.setPreviousPage}
@@ -50,8 +55,8 @@ export const Carousel: FC<CarouselProps> = ({className, children, data, itemClas
                 </div>
                 {data.indicators ? <div className={`${classes.horizontalCarousel__indicatorsWrapper} cc-flex cc-gap-2 cc-pt-7 cc-width-1of1 cc-justify-content-center`}>
                     {placeIndicators(carousel.currentRange, children.length)}
-                </div> : null}
-                {data.button}
+                </div> : undefined}
+                {data.button ? data.button : undefined}
             </div>
         </div>
     );
