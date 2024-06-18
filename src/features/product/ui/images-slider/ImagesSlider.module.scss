@@ -40,6 +40,10 @@
     @include mq(desktop) {
         height: 640px;
     }
+
+    & > * {
+        width: 100%;
+    }
 }
 
 .imageSlider__imageWrapper {

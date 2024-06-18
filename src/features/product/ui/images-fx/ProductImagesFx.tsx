@@ -1,19 +1,17 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
-import {ImagesSlider} from "@/features/product";
-import {useGetProductImagesQuery} from "@/widgets/product";
+import {ProductImagesFetching} from "./ProductImagesFetching";
+import {ProductImagesError} from "./ProductImagesError";
 
-interface ProductOverviewImagesProps extends BaseHTMLAttributes<HTMLDivElement> {
-    productId: number;
+interface ProductOverviewImagesProps {
+    isLoading?: boolean;
+    isError?: boolean;
+    children?: ReactNode;
 }
 
-export const ProductImagesFx: FC<ProductOverviewImagesProps> = ({productId}: ProductOverviewImagesProps) => {
-    const {currentData : images, isLoading, isError} = useGetProductImagesQuery(productId);
+export const ProductImagesFx: FC<ProductOverviewImagesProps> = ({isLoading, isError, children}: ProductOverviewImagesProps) => {
+    if (isLoading) return <ProductImagesFetching />
+    else if (isError) return <ProductImagesError />
 
-    if (isLoading) return <div className="cc-fs-200">Идет загрузка...</div>
-    else if (isError) return <div className="cc-fs-200">Ошибка :(</div>
-
-    return (
-        <ImagesSlider data={{images}} />
-    );
+    return children;
 };

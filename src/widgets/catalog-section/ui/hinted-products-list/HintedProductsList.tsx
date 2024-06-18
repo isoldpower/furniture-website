@@ -8,7 +8,7 @@ import classes from './HintedProductsList.module.scss';
 interface HintedProductsListProps {
 }
 
-export const HintedProductsList: FC<HintedProductsListProps> = ({}: HintedProductsListProps) => {
+export const HintedProductsList: FC<HintedProductsListProps> = () => {
     const params = useParams();
     const {...query} = useGetAllProductsQuery();
     const products = query.currentData?.filter(product => {

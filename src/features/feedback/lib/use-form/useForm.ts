@@ -52,7 +52,7 @@ export const useForm = () => {
         isRequested.current = true;
         if (!Object.values(data).every((value) => {
             return value.state == 'correct'
-        })) console.log('false');
+        })) console.error('false');
 
         if (data.name.state != 'correct' ||
             data.mail.state != 'correct' ||

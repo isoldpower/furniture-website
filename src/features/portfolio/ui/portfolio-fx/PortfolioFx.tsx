@@ -1,26 +1,17 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
-import classes from './PortfolioFx.module.scss';
-import {InspectImage} from "@/features/product";
-import {PortfolioItem} from "@/entities/portfolio";
-import {PortfolioGrid, useGetPortfolioQuery} from "@/widgets/portfolio";
+import {PortfolioFetching} from "./PortfolioFetching";
+import {PortfolioError} from "./PortfolioError";
 
-interface PortfolioLoaderProps extends BaseHTMLAttributes<HTMLDivElement> {
+interface PortfolioLoaderProps {
+    isLoading?: boolean;
+    isError?: boolean;
+    children: ReactNode;
 }
 
-export const PortfolioFx: FC<PortfolioLoaderProps> = () => {
-    const {currentData : portfolio, isLoading, isError} = useGetPortfolioQuery();
+export const PortfolioFx: FC<PortfolioLoaderProps> = ({isLoading, isError, children}: PortfolioLoaderProps) => {
+    if(isLoading) return <PortfolioFetching />;
+    else if (isError) return <PortfolioError />;
 
-    if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>
-    else if (isError) return <div className="cc-fs-500">Ошибка :(</div>
-
-    return (
-        <PortfolioGrid className={`${classes.portfolioPage__grid}`}>
-             {portfolio.map((item, key) => (
-                 <InspectImage className="cc-flex cc-width-1of1" data={item.image} key={key}>
-                     <PortfolioItem className="cc-flex cc-width-1of1" data={item.image} />
-                 </InspectImage>
-             ))}
-        </PortfolioGrid>
-    );
+    return children;
 };

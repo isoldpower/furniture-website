@@ -1,24 +1,17 @@
-import {FC} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
-import classes from './ProductMaterialsFx.module.scss';
-import {MaterialPreview} from "@/entities/material";
-import {useGetProductMaterialsQuery} from "@/widgets/product";
+import {ProductMaterialsFetching} from "./ProductMaterialsFetching";
+import {ProductMaterialsError} from "./ProductMaterialsError";
 
 interface ProductOverviewMaterialsProps {
-    productId: number;
+    isLoading?: boolean;
+    isError?: boolean;
+    children: ReactNode;
 }
 
-export const ProductMaterialsFx: FC<ProductOverviewMaterialsProps> = ({productId}: ProductOverviewMaterialsProps) => {
-    const {currentData : materials, isLoading, isError} = useGetProductMaterialsQuery(productId);
+export const ProductMaterialsFx: FC<ProductOverviewMaterialsProps> = ({isLoading, isError, children}: ProductOverviewMaterialsProps) => {
+    if(isLoading) return <ProductMaterialsFetching />
+    else if (isError) return <ProductMaterialsError />
 
-    if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>
-    else if (isError) return <div className="cc-fs-500">Ошибка :(</div>
-
-    return (
-        <div className={`${classes.itemOverview__materialsWrapper} cc-flex cc-gap-5`}>
-            {materials.map((material, key) => (
-                <MaterialPreview className={`${classes.itemOverview__material}`} data={material} key={key}/>
-            ))}
-        </div>
-    );
+    return children;
 };

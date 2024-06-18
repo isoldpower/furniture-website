@@ -43,7 +43,7 @@ export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data}: CatalogS
                     indicators
                     itemClass={`${classes.carouselList__item}`}
                     title={<h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>}>
-                    {filteredProducts.map((product: Product, key) => (
+                    {filteredProducts?.map((product: Product, key) => (
                         <DetailedProductCard data={product} key={key}/>
                     ))}
                 </Carousel>

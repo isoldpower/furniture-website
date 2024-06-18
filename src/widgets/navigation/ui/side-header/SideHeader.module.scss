@@ -3,8 +3,6 @@
 
 .sideHeader__wrapper {
     position: static;
-    max-height: 100dvh;
-    overflow: hidden;
 }
 
 .sideHeader__back {
@@ -20,9 +18,12 @@
 }
 
 .sideHeader__container {
-    $header-margin: calc($header-height + $size-2);
-    margin-top: $header-margin;
-    height: calc(100dvh - $header-margin - $size-4);
+    width: 100%;
+    @include mq(laptop) {
+        $header-margin: calc($header-height + $size-2);
+        margin-top: $header-margin;
+        height: calc(100dvh - $header-margin - $size-4);
+    }
 }
 
 .sideHeader__descriptor {

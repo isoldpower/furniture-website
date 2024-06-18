@@ -2,8 +2,8 @@ import {BaseHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioPage.module.scss';
 import {PageTitle} from "@/widgets/navigation";
-import {PortfolioFx} from "@/features/portfolio";
 import {CallbackSection} from "@/widgets/feedback";
+import {PortfolioImagesFlow} from "@/widgets/portfolio";
 
 interface PortfolioPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -16,7 +16,7 @@ const PortfolioPage: FC<PortfolioPageProps> = ({className, ...props}: PortfolioP
                     <PageTitle className={`${classes.portfolioPage__path}`} />
                 </div>
                 <section className={`${classes.portfolioPage__gridWrapper} cc-pt-9 cc-laptop-pt-13`}>
-                    <PortfolioFx />
+                    <PortfolioImagesFlow />
                 </section>
                 <section className={`${classes.portfolioPage__callback} cc-py-15 cc-laptop-py-17`}>
                     <CallbackSection />

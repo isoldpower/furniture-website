@@ -1,0 +1,19 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles';
+
+.materialAdvantages__wrapper {
+    display: grid;
+    gap: $column-spacing;
+
+    @include mq(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq(laptop) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.materialAdvantages__wrapper h3 {
+    font-size: $font-size-300;
+}

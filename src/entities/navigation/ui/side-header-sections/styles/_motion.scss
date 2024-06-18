@@ -1,0 +1,7 @@
+@use '@/app/scss/useMain' as *;
+
+.footer__socialLink {
+    &:hover {
+        opacity: 0.5;
+    }
+}

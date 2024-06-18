@@ -1,0 +1,6 @@
+@use '@/app/scss/useMain' as *;
+@use 'styles';
+
+.header__catalogPreview {
+    grid-template-columns: repeat(2, 1fr);
+}

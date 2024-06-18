@@ -16,7 +16,7 @@ export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, 
 
     return (
         <div className={`${classes.sectionHeaderCard__wrapper} ${className} cc-flex`} {...props}>
-            <div className={`${classes.sectionHeaderCard__content} cc-flex cc-flex-col cc-gap-4 cc-laptop-gap-8`}>
+            <div className={`${classes.sectionHeaderCard__content} cc-flex cc-width-1of1 cc-flex-col cc-gap-4 cc-laptop-gap-8`}>
                 <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} title={linkTitle} to={href}/>
                 <a className={`${classes.sectionHeaderCard__imageWrapper}`} href={href} title={linkTitle}>
                     <ProgressiveImage className={`${classes.sectionHeaderCard__image}`} image={data?.preview_image}/>

@@ -1,23 +1,17 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
-import classes from './SideHeaderSectionsFx.module.scss';
-import {SectionHeaderCard} from "@/entities/catalog-section";
-import {useGetAllSectionsQuery} from "@/features/catalog-section";
+import {SideHeaderSectionsError} from "./SideHeaderSectionsError";
+import {SideHeaderSectionsFetching} from "./SideHeaderSectionsFetching";
 
-interface SideHeaderSectionsProps extends BaseHTMLAttributes<HTMLDivElement> {
+interface SideHeaderSectionsProps {
+    isLoading?: boolean;
+    isError?: boolean;
+    children: ReactNode;
 }
 
-export const SideHeaderSectionsFx: FC<SideHeaderSectionsProps> = () => {
-    const {currentData : sections, isLoading, isError} = useGetAllSectionsQuery();
+export const SideHeaderSectionsFx: FC<SideHeaderSectionsProps> = ({isError, isLoading, children}) => {
+    if(isLoading) return <SideHeaderSectionsFetching />
+    else if (isError) return <SideHeaderSectionsError />;
 
-    if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>
-    else if (isError) return <div className="cc-fs-500">Ошибка :(</div>
-
-    return (
-        <div className={`${classes.header__catalogPreview} cc-grid cc-gap-7`}>
-            {sections.slice(0, 4).map((section, key) => (
-                <SectionHeaderCard data={section} key={key}/>
-            ))}
-        </div>
-    )
+    return children;
 };

@@ -1,54 +1,42 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductPage.module.scss';
 import {useParams} from "react-router-dom";
-import {websiteRoutes} from "@/shared/lib";
-import {LoadingPage} from "@/pages/loading-page";
-import {ErrorPage} from "@/pages/error-page";
 import {useGetAllProductsQuery, ProductOverview} from "@/widgets/product";
 import {PagePath} from "@/features/navigation";
 import {CallbackSection} from "@/widgets/feedback";
+import {ProductPageFx} from "@/features/product";
+import {SimilarProducts} from "@/widgets/product";
 
-interface ProductPageProps extends BaseHTMLAttributes<HTMLDivElement> {
+interface ProductPageProps {
 }
 
-//TODO: Return carousel
-
-const ProductPage: FC<ProductPageProps> = ({className, ...props}: ProductPageProps) => {
+const ProductPage: FC<ProductPageProps> = () => {
     const params = useParams();
-    const {currentData : products, isLoading, isError} = useGetAllProductsQuery();
-
-    if (isLoading) return <LoadingPage />
-    else if (isError) return <ErrorPage />
-
-    const product = products.find(product => product.href_postfix === '/' + params.item);
-    const relatedProducts = products.filter(iterationProduct =>
-        iterationProduct.section.id == product.section.id && iterationProduct.id !== product.id)
+    const {...productQuery} = useGetAllProductsQuery();
+    const product = productQuery.currentData?.find(product => {
+        const postfix = product.href_postfix.replace('/', '');
+        return postfix === params.item;
+    });
 
     return (
-        <div className={`${classes.productPage__wrapper} ${className}`} {...props}>
-            <div className={`${classes.productPage__content}`}>
-                <div className={`${classes.productPage__pathWrapper} cc-main-gutter`}>
-                    <PagePath className={`${classes.productPage__path} cc-main-gutter-content`}/>
-                </div>
+        <div className={`${classes.productPage__content}`}>
+            <div className={`${classes.productPage__pathWrapper} cc-main-gutter`}>
+                <PagePath className={`${classes.productPage__path} cc-main-gutter-content`}/>
+            </div>
+            <ProductPageFx {...productQuery}>
                 <section className={`${classes.productPage__productWrapper} cc-pt-9 cc-laptop-pt-13 cc-main-gutter`}>
-                    <ProductOverview className={`${classes.productPage__product} cc-main-gutter-content`} data={product} />
-                </section>
-                <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
-                    <div className={`${classes.productPage__sectionPreview}`}>
-                        {/*<SectionDisplay data={{*/}
-                        {/*    carouselProducts: relatedProducts,*/}
-                        {/*    spoilerProducts: relatedProducts,*/}
-                        {/*    title: 'Похожее',*/}
-                        {/*    sectionLink: false,*/}
-                        {/*    href: websiteRoutes.catalog + product.section.href_postfix*/}
-                        {/*}} id="familiar" />*/}
+                    <div className={`${classes.productPage__product} cc-main-gutter-content`} >
+                        <ProductOverview data={product} />
                     </div>
                 </section>
-                <section className={`${classes.productPage__callbackWrapper} cc-main-gutter cc-py-15 cc-laptop-py-17`}>
-                    <CallbackSection className={`${classes.productPage__callbackWrapper} cc-main-gutter-content`}/>
+                <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
+                    <SimilarProducts current={product} products={productQuery.currentData} />
                 </section>
-            </div>
+            </ProductPageFx>
+            <section className={`${classes.productPage__callbackWrapper} cc-main-gutter cc-py-15 cc-laptop-py-17`}>
+                <CallbackSection className={`${classes.productPage__callbackWrapper} cc-main-gutter-content`}/>
+            </section>
         </div>
     );
 };

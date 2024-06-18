@@ -4,10 +4,10 @@ import {BaseHTMLAttributes, FC} from "react";
 import {websiteRoutes} from "@/shared/lib";
 import {Button, Cite} from "@/shared/ui-toolkit";
 import {HeroDecorationsProvider, HeroSection} from "./mixins";
+import {useSettings} from "@/app/static";
 import {AdvantagesGrid} from "@/widgets/advantage";
 import {ProcessGrid} from "@/widgets/process";
 import {MaterialsDisplay} from "@/widgets/material";
-import {useSettings} from "@/app/static";
 import {CallbackSection} from "@/widgets/feedback";
 import {CatalogFeaturedPreview, FeaturedSection} from "@/widgets/catalog-section";
 

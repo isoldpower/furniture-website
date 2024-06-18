@@ -1,26 +1,17 @@
-import {FC} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
-import classes from './ProductPreviewMaterialsFx.module.scss';
-import {useGetProductMaterialsQuery} from "@/widgets/product";
+import {ProductPreviewMaterialsFetching} from "./ProductPreviewMaterialsFetching";
+import {ProductPreviewMaterialsError} from "./ProductPreviewMaterialsError";
 
 interface ProductMaterialsPreviewProps {
-    productId: number;
+    isLoading?: boolean;
+    isError?: boolean;
+    children: ReactNode;
 }
 
-export const ProductPreviewMaterialsFx: FC<ProductMaterialsPreviewProps> = ({productId}: ProductMaterialsPreviewProps) => {
-    const {currentData: materials, isLoading, isError} = useGetProductMaterialsQuery(productId);
+export const ProductPreviewMaterialsFx: FC<ProductMaterialsPreviewProps> = ({isLoading, isError, children}: ProductMaterialsPreviewProps) => {
+    if (isLoading) return <ProductPreviewMaterialsFetching />
+    else if (isError) return <ProductPreviewMaterialsError />
 
-    if (isLoading) return <div>Идет загрузка...</div>
-    else if (isError) return <div>Ошибка :(</div>
-
-    return <div>
-        {materials.length == 0
-            ? <span>Материалы не найдены</span>
-            : materials.map((material, key) => (
-            <span className={`${classes.productCard__material}`} key={key}>
-                {material.title}
-                {key < materials.length - 1 ? <>,&nbsp;</> : null}
-            </span>
-        ))}
-    </div>
+    return children;
 };

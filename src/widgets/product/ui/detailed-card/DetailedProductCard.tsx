@@ -2,9 +2,9 @@ import {FC} from "react";
 import '@/app/scss/main.scss';
 import {websiteRoutes} from "@/shared/lib";
 import {Product, ProductCard} from "@/entities/product";
-import {useGetProductImagesQuery} from "@/widgets/product";
+import {useGetProductImagesQuery, useGetProductMaterialsQuery} from "@/widgets/product";
 import {ImagesHover} from "@/features/catalog-section";
-import {ProductPreviewMaterialsFx} from "@/features/product";
+import {ListPreviewMaterials, ProductPreviewMaterialsFx} from "@/features/product";
 
 interface DetailedProductCardProps {
     data?: Product;
@@ -12,6 +12,8 @@ interface DetailedProductCardProps {
 
 export const DetailedProductCard: FC<DetailedProductCardProps> = ({data}: DetailedProductCardProps) => {
     const href = websiteRoutes.catalog + data?.section.href_postfix + data?.href_postfix;
+    const {...materialsQuery} = useGetProductMaterialsQuery(data?.id);
+
     const {
         currentData: images,
         isLoading: isImageLoading,
@@ -27,7 +29,9 @@ export const DetailedProductCard: FC<DetailedProductCardProps> = ({data}: Detail
              data={data}
              displayImages={<ImagesHover data={{...data, images: images}}/>}
              href={href}
-             materials={<ProductPreviewMaterialsFx productId={data.id}/>}
+             materials={<ProductPreviewMaterialsFx {...materialsQuery}>
+                 <ListPreviewMaterials materials={materialsQuery.currentData} />
+             </ProductPreviewMaterialsFx>}
         />
     )
 };
