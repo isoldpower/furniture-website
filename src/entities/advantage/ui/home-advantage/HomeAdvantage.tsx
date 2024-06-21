@@ -2,9 +2,14 @@ import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Advantage.module.scss';
 import {Icon} from "@/shared/icons";
-import {HomeAdvantageData} from "@/entities/advantage/model";
 
-interface AdvantageProps {
+type HomeAdvantageData = {
+    order: string;
+    title: string;
+    paragraph: string;
+}
+
+type AdvantageProps = {
     data?: HomeAdvantageData;
 }
 

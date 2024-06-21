@@ -3,6 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './AchievementsGrid.module.scss';
 import {AboutAdvantage} from "@/entities/advantage";
 import {useSettings} from "@/app/static";
+import {useAdvantages} from "@/widgets/portfolio/config/useAdvantages";
 
 interface AchievementsGridProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -15,9 +16,9 @@ export const AchievementsGrid: FC<AchievementsGridProps> = ({className, ...props
             <h1 className={`${classes.aboutPage__overviewHeading}`}>{settings.safeData('ABOUT_TITLE')}</h1>
             <p className={`${classes.aboutPage__overviewParagraph}`}>{settings.safeData('ABOUT_PARAGRAPH')}</p>
             <div className={`${classes.aboutPage__achievements} cc-flex cc-gap-5`}>
-                <AboutAdvantage data={{title: settings.safeData('ABOUT_STATISTIC1_TITLE'), number: settings.safeData('ABOUT_STATISTIC1_NUMBER')}}/>
-                <AboutAdvantage data={{title: settings.safeData('ABOUT_STATISTIC2_TITLE'), number: settings.safeData('ABOUT_STATISTIC2_NUMBER')}}/>
-                <AboutAdvantage data={{title: settings.safeData('ABOUT_STATISTIC3_TITLE'), number: settings.safeData('ABOUT_STATISTIC3_NUMBER')}}/>
+                {useAdvantages().map((advantage, key) => (
+                    <AboutAdvantage data={advantage} key={key} />
+                ))}
             </div>
         </div>
     );

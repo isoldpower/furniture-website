@@ -7,3 +7,4 @@ export * from './carousel';
 export * from './cite';
 export * from './notification';
 export * from './fullscreen-modal';
+export * from './list';

@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import {ProductPreviewMaterialsFetching} from "./ProductPreviewMaterialsFetching";
 import {ProductPreviewMaterialsError} from "./ProductPreviewMaterialsError";
 
-interface ProductMaterialsPreviewProps {
+type ProductMaterialsPreviewProps = {
     isLoading?: boolean;
     isError?: boolean;
     children: ReactNode;

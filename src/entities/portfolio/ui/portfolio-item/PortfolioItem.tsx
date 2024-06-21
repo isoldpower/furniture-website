@@ -1,16 +1,16 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioItem.module.scss';
 import {Inspect} from "@/shared/icons";
 import {ProgressiveImage, ProgressiveImageData} from "@/shared/ui-toolkit";
 
-interface PortfolioItemProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: ProgressiveImageData;
+type PortfolioItemProps = {
+    data?: ProgressiveImageData;
 }
 
-export const PortfolioItem: FC<PortfolioItemProps> = ({className, data, ...props}: PortfolioItemProps) => {
-    return (
-        <div className={`${classes.portfolioItem__wrapper} ${className}`} {...props}>
+export const PortfolioItem: FC<PortfolioItemProps> = ({data}: PortfolioItemProps) => {
+    return data ? (
+        <div className={`${classes.portfolioItem__wrapper}`}>
             <div className={`${classes.portfolioItem__content} cc-flex cc-width-1of1`}>
                 <ProgressiveImage className={`${classes.portfolioItem__image}`} image={data} />
                 <div className={`${classes.portfolioItem__hover}`}>
@@ -18,5 +18,5 @@ export const PortfolioItem: FC<PortfolioItemProps> = ({className, data, ...props
                 </div>
             </div>
         </div>
-    );
+    ) : undefined;
 };

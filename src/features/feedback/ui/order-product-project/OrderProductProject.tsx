@@ -6,7 +6,7 @@ import {Product} from "@/entities/product";
 
 interface OrderProductProjectProps {
     children: ReactNode;
-    data: Product;
+    data?: Product;
 }
 
 export const OrderProductProject: FC<OrderProductProjectProps> = ({data, children}: OrderProductProjectProps) => {
@@ -19,7 +19,7 @@ export const OrderProductProject: FC<OrderProductProjectProps> = ({data, childre
         }, 100);
     }, [data, dispatch]);
 
-    return (
+    return data ? (
         <Button data={{variant: 'accent'}} onClick={() => openOrder()} semantic="button">{children}</Button>
-    );
+    ) : undefined;
 };

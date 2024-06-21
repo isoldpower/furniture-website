@@ -4,11 +4,11 @@ import classes from './MaterialAdvantages.module.scss';
 import {Advantage} from "@/entities/advantage";
 
 interface MaterialAdvantagesProps {
-    materials: Advantage[];
+    advantages: Advantage[];
     children: ReactElement;
 }
 
-export const MaterialAdvantages: FC<MaterialAdvantagesProps> = ({children, materials}: MaterialAdvantagesProps) => {
+export const MaterialAdvantages: FC<MaterialAdvantagesProps> = ({children, advantages}: MaterialAdvantagesProps) => {
     const getClone = useCallback((material: Advantage, key: number) => {
         return cloneElement(children, {
             ...children.props,
@@ -18,14 +18,14 @@ export const MaterialAdvantages: FC<MaterialAdvantagesProps> = ({children, mater
     }, [children]);
 
     const getElements = useCallback(() => {
-        return materials.map((section, key) => getClone(section, key));
-    }, [getClone, materials]);
+        return advantages.map((section, key) => getClone(section, key));
+    }, [getClone, advantages]);
 
     const elements = useMemo(() => {
         return getElements();
     }, [getElements]);
 
-    return materials ? (
+    return advantages ? (
         <div className={`${classes.materialAdvantages__wrapper}`}>
             {elements}
         </div>

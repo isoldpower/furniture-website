@@ -1,18 +1,17 @@
-import React, {FC, useMemo, useRef} from 'react';
+import React, {cloneElement, FC, ReactElement, useMemo, useRef} from 'react';
 import {Section, SectionSpoiler} from "@/entities/catalog-section";
 import {CatalogSectionPreviewFx} from "@/features/catalog-section";
-import {DetailedProductCard, useGetAllProductsQuery} from "@/widgets/product";
-import {breakpoints, sectionByPostfix, useDocumentSize} from "@/shared/lib";
+import {useGetAllProductsQuery} from "@/widgets/product";
+import {sectionByPostfix} from "@/shared/lib";
 import {Carousel, MoreLink} from "@/shared/ui-toolkit";
-import {Product} from "@/entities/product";
 import classes from "./FeaturedSection.module.scss";
 
-interface CatalogSectionPreviewProps {
+type CatalogSectionPreviewProps = {
     data?: Section;
+    children: ReactElement;
 }
 
-export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data}: CatalogSectionPreviewProps) => {
-    const width = useDocumentSize();
+export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data, children}: CatalogSectionPreviewProps) => {
     const {...query} = useGetAllProductsQuery();
 
     const filteredProducts = useMemo(() => {
@@ -31,23 +30,25 @@ export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data}: CatalogS
 
     return data ? (
         <CatalogSectionPreviewFx {...query} section={data}>
-            {width.x >= breakpoints.laptop
-                ? <SectionSpoiler button={button.current} data={data} sectionLink>
-                    {importantProducts?.map((product: Product, key) => (
-                        <DetailedProductCard data={product} key={key} />
-                    ))}
+            <div className={`${classes.featuredSection__large}`}>
+                <SectionSpoiler button={button.current} data={data} sectionLink>
+                    {importantProducts?.map((product, key) =>
+                        cloneElement(children, {key, data: product})
+                    )}
                 </SectionSpoiler>
-                : <Carousel
+            </div>
+            <div className={`${classes.featuredSection__small}`}>
+                <Carousel
                     button={<div className={`${classes.catalogDisplay__button} cc-grid cc-pt-7`}>{button.current}</div>}
                     id={data.id.toString()}
                     indicators
                     itemClass={`${classes.carouselList__item}`}
                     title={<h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>}>
-                    {filteredProducts?.map((product: Product, key) => (
-                        <DetailedProductCard data={product} key={key}/>
-                    ))}
+                    {filteredProducts?.map((product, key) =>
+                        cloneElement(children, {key, data: product})
+                    )}
                 </Carousel>
-            }
+            </div>
         </CatalogSectionPreviewFx>
     ) : undefined;
 };

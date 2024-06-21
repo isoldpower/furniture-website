@@ -11,7 +11,7 @@ interface PortfolioPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 const PortfolioPage: FC<PortfolioPageProps> = ({className, ...props}: PortfolioPageProps) => {
     return (
         <div className={`${classes.portfolioPage__wrapper} ${className} cc-main-gutter`} {...props}>
-            <div className={`${classes.portfolioPage__content} cc-main-gutter-content`}>
+            <div className={`${classes.portfolioPage__content}`}>
                 <div className={`${classes.portfolioPage__pathWrapper} cc-pt-9`}>
                     <PageTitle className={`${classes.portfolioPage__path}`} />
                 </div>

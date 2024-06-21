@@ -1,0 +1,1 @@
+export {AdvantagesGridFx} from './advantages-grid-fx/AdvantagesGridFx';

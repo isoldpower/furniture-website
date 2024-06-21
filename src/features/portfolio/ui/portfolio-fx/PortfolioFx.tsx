@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import {PortfolioFetching} from "./PortfolioFetching";
 import {PortfolioError} from "./PortfolioError";
 
-interface PortfolioLoaderProps {
+type PortfolioLoaderProps = {
     isLoading?: boolean;
     isError?: boolean;
     children: ReactNode;

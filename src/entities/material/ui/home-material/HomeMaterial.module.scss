@@ -1,14 +1,12 @@
 @use '@/app/scss/useMain' as *;
-@use 'styles/index';
-
-.material__wrapper {
-    border: 1px solid $color-neutral-050;
-}
+@use './styles';
 
 .material__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    border: 1px solid $color-neutral-050;
 }
 
 .material__imageWrapper {

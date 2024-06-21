@@ -1,18 +1,17 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CommercialInformation.module.scss';
 import {AdaptiveLink} from "@/shared/ui-toolkit";
 import {websiteRoutes} from "@/shared/lib";
-import {useSettings} from "@/app/static/useSettings";
+import {useSettings} from "@/app/static";
 
-interface FooterBasementProps extends BaseHTMLAttributes<HTMLDivElement> {
-}
+type FooterBasementProps = object;
 
-export const CommercialInformation: FC<FooterBasementProps> = ({className, ...props}: FooterBasementProps) => {
+export const CommercialInformation: FC<FooterBasementProps> = () => {
     const settings = useSettings();
 
     return (
-        <div className={`${classes.footer__bottom} ${className} cc-grid`} {...props}>
+        <div className={`${classes.footer__bottom} cc-grid`}>
             <address className={`${classes.footer__legalInfo} cc-grid cc-gap-3 cc-desktop-gap-0 cc-fs-100`}>
                 <span>{settings.safeData('COMMERCIAL_NAME')}</span>
                 <span>{settings.safeData('COMMERCIAL_NUMBER')}</span>

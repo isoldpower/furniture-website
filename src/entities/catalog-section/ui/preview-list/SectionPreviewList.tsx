@@ -1,7 +1,7 @@
 import {cloneElement, FC, ReactElement, useCallback, useMemo} from 'react';
 import {Section} from "@/entities/catalog-section";
 
-interface SectionPreviewListProps {
+type SectionPreviewListProps = {
     sections?: Section[];
     children: ReactElement;
 }

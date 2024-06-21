@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import {LoadingPage} from "@/pages/loading-page";
 import {ErrorPage} from "@/pages/error-page";
 
-interface ProductPageFxProps {
+type ProductPageFxProps = {
     isLoading?: boolean;
     isError?: boolean;
     children: ReactNode;

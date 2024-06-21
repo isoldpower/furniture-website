@@ -10,7 +10,7 @@ interface ImagesSliderProps extends BaseHTMLAttributes<HTMLDivElement> {
     data: ProgressiveImageData[];
 }
 
-export const ImagesSlider: FC<ImagesSliderProps> = ({className, data, ...props}: ImagesSliderProps) => {
+export const ImagesSlider: FC<ImagesSliderProps> = ({data, className, ...props}: ImagesSliderProps) => {
     const [current, setCurrent] = useState<number>(0);
     const width = useDocumentSize().x;
 

@@ -1,6 +1,16 @@
 @use '@/app/scss/useMain' as *;
 @use 'styles/index';
 
+.imagesHover__wrapper {
+    width: 100%;
+    height: 386px;
+
+    & > * {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .test {
     background-color: black;
     display: flex;

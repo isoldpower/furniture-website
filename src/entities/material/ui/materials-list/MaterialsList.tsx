@@ -3,8 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './MaterialsList.module.scss';
 import {Material} from "@/entities/material";
 
-
-interface MaterialsListProps {
+type MaterialsListProps = {
     children: ReactElement;
     materials?: Material[];
 }

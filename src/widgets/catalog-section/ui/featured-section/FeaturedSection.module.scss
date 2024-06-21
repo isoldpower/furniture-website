@@ -1,6 +1,20 @@
 @use '@/app/scss/useMain' as *;
 @use 'styles/index';
 
+.featuredSection__large {
+    display: none;
+    @include mq(laptop) {
+        display: contents;
+    }
+}
+
+.featuredSection__small {
+    display: contents;
+    @include mq(laptop) {
+        display: none;
+    }
+}
+
 .carouselList__item {
     padding-right: $size-1;
     padding-left: $size-1;
@@ -22,5 +36,10 @@
         padding-left: calc($size-5 / 2);
         padding-right: calc($size-5 / 2);
         flex-basis: calc(25% - $size-5);
+    }
+
+    & > * {
+        width: 100%;
+        height: 100%;
     }
 }

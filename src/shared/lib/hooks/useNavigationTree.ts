@@ -1,11 +1,13 @@
 import {websiteRoutes} from "@/shared/lib";
-import {useItemRoutes, useSectionRoutes} from "@/app/providers/router/useDynamicRoutes";
+import {useItemRoutes, useSectionRoutes} from "@/app/providers";
 import {useCallback, useEffect, useRef} from "react";
+import {useLocation} from "react-router-dom";
 
 export const useNavigationTree = () => {
     const sectionRoutes = useSectionRoutes();
     const productRoutes = useItemRoutes();
     const staticRoutes = useRef<{[route: string]: string}>({});
+    const {pathname} = useLocation();
 
     useEffect(() => {
         staticRoutes.current[websiteRoutes.home] = 'Главная';
@@ -47,5 +49,10 @@ export const useNavigationTree = () => {
         return 'loading';
     }, [getItem, getSection, isItem, isSection, staticRoutes]);
 
-    return {getPageName}
+    const getCurrentPageName = useCallback(() => {
+        const path = pathname.endsWith('/') ? pathname.slice(0, pathname.length - 1) : pathname;
+        return getPageName(path);
+    }, [getPageName, pathname]);
+
+    return {getPageName, getCurrentPageName}
 }

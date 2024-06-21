@@ -5,3 +5,4 @@ export {ImagesSlider} from './images-slider/ImagesSlider';
 export {ProductImagesFx} from './images-fx/ProductImagesFx';
 export {ListPreviewMaterials} from './list-preview-materials/ListPreviewMaterials';
 export {ProductPageFx} from './product-page-fx/ProductPageFx';
+export {ProductPreviewImagesFx} from './preview-images-fx/ProductPreviewImagesFx';

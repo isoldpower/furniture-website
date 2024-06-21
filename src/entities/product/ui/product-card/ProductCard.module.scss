@@ -1,6 +1,10 @@
 @use '@/app/scss/useMain' as *;
 @use './styles';
 
+.productCard__body {
+    display: inline-flex;
+}
+
 .productCard__imageWrapper {
     height: 386px;
     width: 100%;

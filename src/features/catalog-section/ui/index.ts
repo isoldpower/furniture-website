@@ -6,3 +6,4 @@ export {ImagesHover} from './images-hover/ImagesHover';
 export {CatalogSectionPreviewFx} from './preview-fx/CatalogSectionPreviewFx';
 export {CatalogModalSectionsFx} from './modal-sections-fx/CatalogModalSectionsFx';
 export {InsertCatalogHints} from './insert-catalog-hints/InsertCatalogHints';
+export {CatalogPreviewListFx} from './catalog-list-fx/CatalogPreviewListFx';

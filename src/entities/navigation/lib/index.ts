@@ -1,1 +1,1 @@
-export * from './placeLinkSections';
+export * from './useLinks';

@@ -1,9 +1,8 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {BaseHTMLAttributes, FC, useCallback} from "react";
 import '@/app/scss/main.scss';
 import classes from './PortfolioImageInspect.module.scss';
 import {ProgressiveImage, ProgressiveImageData} from "@/shared/ui-toolkit";
-import {closeWindow, useAppDispatch, useTypedSelector} from "@/app/redux";
-import {selectData} from "@/app/redux/features/modal/modalSlice";
+import {closeWindow, selectData, useAppDispatch, useTypedSelector} from "@/app/redux";
 
 interface PortfolioImageInspectProps extends BaseHTMLAttributes<HTMLDivElement> {
 }
@@ -12,9 +11,7 @@ export const PortfolioImageInspect: FC<PortfolioImageInspectProps> = ({className
     const data = useTypedSelector((state) => selectData(state, 'portfolio'));
     const dispatch = useAppDispatch();
 
-    const close = () => {
-        dispatch(closeWindow('portfolio'));
-    }
+    const close = useCallback(() => dispatch(closeWindow('portfolio')), [dispatch]);
 
     return (
         <div className={`${classes.portfolioImageInspect__wrapper} ${className}`} {...props}>

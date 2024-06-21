@@ -11,7 +11,7 @@ interface MaterialsPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 const MaterialsPage: FC<MaterialsPageProps> = ({className, ...props}: MaterialsPageProps) => {
     return (
         <div className={`${classes.materialsPage__wrapper} ${className} cc-main-gutter`} {...props}>
-            <div className={`${classes.materialsPage__content} cc-main-gutter-content`}>
+            <div className={`${classes.materialsPage__content}`}>
                 <div className={`${classes.materialsPage__pagePath}`}>
                     <PageTitle className={`${classes.materialsPage__path} cc-pb-13`} />
                 </div>

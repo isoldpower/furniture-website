@@ -13,7 +13,7 @@ export const FullscreenModal: FC<FullscreenModalProps> = ({children, className, 
                 <div className={`${classes.fullscreenModal__back}`}/>
                 <div className={`${classes.fullscreenModal__container} ${className} cc-main-gutter`} {...props}>
                     <div className={`${classes.fullscreenModal__containerBack} cc-bg-neutral-000 cc-border-radius-1`}/>
-                    <div className={`${classes.fullscreenModal__catalogWrapper} cc-flex cc-main-gutter-content`}>
+                    <div className={`${classes.fullscreenModal__catalogWrapper} cc-flex`}>
                         {children}
                     </div>
                 </div>

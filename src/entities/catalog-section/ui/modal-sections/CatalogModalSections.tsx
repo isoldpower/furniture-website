@@ -4,8 +4,8 @@ import classes from './CatalogModalSections.module.scss';
 import {Section} from "@/entities/catalog-section";
 import {breakpoints, useDocumentSize} from "@/shared/lib";
 
-interface CatalogModalSectionsProps {
-    sections: Section[];
+type CatalogModalSectionsProps = {
+    sections?: Section[];
     children: ReactElement;
 }
 
@@ -30,7 +30,7 @@ export const CatalogModalSections: FC<CatalogModalSectionsProps> = ({sections, c
         return getElements();
     }, [getElements]);
 
-    return elements ? (
+    return sections ? (
             <div className={`${classes.catalogModal__sections} cc-flex cc-gap-5 cc-py-10`}>
                 {elements}
             </div>

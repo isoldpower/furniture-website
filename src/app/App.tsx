@@ -20,7 +20,9 @@ const App = () => {
 
     return (
         <>
-            <WebsiteHeader id='header' style={{zIndex: 99}} />
+            <div id='header' style={{zIndex: 99}}>
+                <WebsiteHeader />
+            </div>
             <main className={`${classes.pageLayout__body}`} id='body' style={{zIndex: 98, minHeight: '90dvh'}}>
                 <div className="absolute-stretch" id={layers.inactiveModals} style={{position: 'fixed', zIndex: 99, visibility: 'hidden'}}>
                     <ModalProvider id="side-header" identifier="header">

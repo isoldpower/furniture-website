@@ -4,34 +4,30 @@ import {websiteRoutes} from "@/shared/lib";
 import {Product, ProductCard} from "@/entities/product";
 import {useGetProductImagesQuery, useGetProductMaterialsQuery} from "@/widgets/product";
 import {ImagesHover} from "@/features/catalog-section";
-import {ListPreviewMaterials, ProductPreviewMaterialsFx} from "@/features/product";
+import {ListPreviewMaterials, ProductImagesFx, ProductPreviewMaterialsFx} from "@/features/product";
+import {ProductCardDescription} from "@/entities/product/ui/product-card/ProductCardDescription";
+import classes from './DetailedProductCard.module.scss';
 
 interface DetailedProductCardProps {
     data?: Product;
 }
 
 export const DetailedProductCard: FC<DetailedProductCardProps> = ({data}: DetailedProductCardProps) => {
-    const href = websiteRoutes.catalog + data?.section.href_postfix + data?.href_postfix;
     const {...materialsQuery} = useGetProductMaterialsQuery(data?.id);
-
-    const {
-        currentData: images,
-        isLoading: isImageLoading,
-        isError: isImageError,
-        isFetching: isImageFetching
-    } = useGetProductImagesQuery(data?.id);
-
-    if (isImageLoading || isImageFetching) return <div className="cc-fs-500">Идет загрузка...</div>
-    else if (isImageError) return <div className="cc-fs-500">Ошибка :(</div>
+    const {...imagesQuery} = useGetProductImagesQuery(data?.id);
 
     return (
-        <ProductCard
-             data={data}
-             displayImages={<ImagesHover data={{...data, images: images}}/>}
-             href={href}
-             materials={<ProductPreviewMaterialsFx {...materialsQuery}>
-                 <ListPreviewMaterials materials={materialsQuery.currentData} />
-             </ProductPreviewMaterialsFx>}
-        />
+        <ProductCard href={websiteRoutes.catalog + data?.section.href_postfix + data?.href_postfix}>
+            <div className={`${classes.imagesHover__wrapper}`}>
+                <ProductImagesFx {...imagesQuery}>
+                    <ImagesHover images={imagesQuery.currentData} />
+                </ProductImagesFx>
+            </div>
+            <ProductCardDescription data={data}>
+                <ProductPreviewMaterialsFx {...materialsQuery}>
+                    <ListPreviewMaterials materials={materialsQuery.currentData} />
+                </ProductPreviewMaterialsFx>
+            </ProductCardDescription>
+        </ProductCard>
     )
 };

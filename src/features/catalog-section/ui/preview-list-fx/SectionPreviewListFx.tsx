@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import {SectionPreviewListFetching} from "./SectionPreviewListFetching";
 import {SectionPreviewListError} from "./SectionPreviewListError";
 
-interface CatalogLoaderProps {
+type CatalogLoaderProps = {
     isLoading?: boolean;
     isError?: boolean;
     children: ReactNode;
@@ -13,7 +13,5 @@ export const SectionPreviewListFx: FC<CatalogLoaderProps> = ({isError, isLoading
     if (isLoading) return <SectionPreviewListFetching />;
     else if (isError) return <SectionPreviewListError />;
 
-    return (
-        <div>{children}</div>
-    )
+    return children;
 };

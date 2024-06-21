@@ -6,10 +6,8 @@ import {Slash} from "@/shared/icons";
 import {getPathChunks} from "../../lib";
 import {AdaptiveLink} from "@/shared/ui-toolkit";
 import {useNavigationTree} from "@/shared/lib";
-import {PagePathData} from "../../model/props";
 
 interface PagePathProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data?: PagePathData;
 }
 
 export const PagePath: FC<PagePathProps> = ({className, ...props}: PagePathProps) => {

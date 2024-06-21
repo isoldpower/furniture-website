@@ -1,16 +1,17 @@
 @use '@/app/scss/useMain' as *;
-@use 'styles/index';
+@use './styles';
 
-.imagesSlider__wrapper,
-.imagesSlider__content {
-    width: 100%;
+.imageAreas__wrapper,
+.imageAreas__content,
+.imageAreas__images {
+    display: contents;
 }
 
-.imagesSlider__areas {
+.imageAreas__hoverAreas {
     z-index: 10;
 }
 
-.imagesSlider__bar {
+.imageAreas__images {
     z-index: 9;
 }
 
@@ -51,10 +52,4 @@
     &[aria-selected=false] {
         opacity: 0.3;
     }
-}
-
-.imageAreas__wrapper,
-.imageAreas__content {
-    z-index: 2;
-    @extend .absolute-stretch;
 }

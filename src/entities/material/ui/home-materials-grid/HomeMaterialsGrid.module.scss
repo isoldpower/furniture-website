@@ -1,0 +1,19 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.materialsDisplay__buttonWrapper {
+    display: grid;
+    justify-items: center;
+}
+
+.materialsDisplay__grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.materialsDisplay__heading {
+    font-size: 64px;
+}
+
+.materialsDisplay__descriptor {
+    color: $color-soft-text-2;
+}

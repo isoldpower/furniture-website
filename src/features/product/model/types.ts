@@ -1,1 +1,1 @@
-export interface EmptyInterface {}
+export interface IEmptyInterface {}

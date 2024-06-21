@@ -1,11 +1,11 @@
 import {ApiHandler, DBItem} from "@/shared/api/model/ApiHandler";
 import axios, {AxiosInstance} from "axios";
-import {apiPrefix} from "@/app/static";
+import {API_PREFIX} from "@/app/static";
 
 export class AxiosApiHandler<T extends DBItem> implements ApiHandler<T> {
     constructor(baseApiRequest: string) {
         this.baseApiRequest = baseApiRequest;
-        this.axios = axios.create({baseURL: apiPrefix});
+        this.axios = axios.create({baseURL: API_PREFIX});
     }
 
     baseApiRequest: string;

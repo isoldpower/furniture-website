@@ -1,7 +1,7 @@
 import {FC, Children, Fragment, ReactNode} from 'react';
 import {useSettings} from "@/app/static";
 
-interface InsertCatalogHintProps {
+type InsertCatalogHintProps = {
     children: ReactNode;
     hint: ReactNode;
 }

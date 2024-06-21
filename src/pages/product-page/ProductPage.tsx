@@ -22,11 +22,11 @@ const ProductPage: FC<ProductPageProps> = () => {
     return (
         <div className={`${classes.productPage__content}`}>
             <div className={`${classes.productPage__pathWrapper} cc-main-gutter`}>
-                <PagePath className={`${classes.productPage__path} cc-main-gutter-content`}/>
+                <PagePath className={`${classes.productPage__path}`}/>
             </div>
             <ProductPageFx {...productQuery}>
                 <section className={`${classes.productPage__productWrapper} cc-pt-9 cc-laptop-pt-13 cc-main-gutter`}>
-                    <div className={`${classes.productPage__product} cc-main-gutter-content`} >
+                    <div className={`${classes.productPage__product}`} >
                         <ProductOverview data={product} />
                     </div>
                 </section>
@@ -35,7 +35,7 @@ const ProductPage: FC<ProductPageProps> = () => {
                 </section>
             </ProductPageFx>
             <section className={`${classes.productPage__callbackWrapper} cc-main-gutter cc-py-15 cc-laptop-py-17`}>
-                <CallbackSection className={`${classes.productPage__callbackWrapper} cc-main-gutter-content`}/>
+                <CallbackSection />
             </section>
         </div>
     );

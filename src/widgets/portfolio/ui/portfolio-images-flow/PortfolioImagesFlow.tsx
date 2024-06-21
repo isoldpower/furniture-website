@@ -17,7 +17,9 @@ export const PortfolioImagesFlow: FC<PortfolioImagesFlowProps> = () => {
             <PortfolioGrid className={`${classes.portfolioPage__grid}`}>
                 {query?.currentData?.map((item, key) => (
                     <InspectImage className="cc-flex cc-width-1of1" data={item.image} key={key}>
-                        <PortfolioItem className="cc-flex cc-width-1of1" data={item.image} />
+                        <div className="cc-flex cc-width-1of1">
+                            <PortfolioItem data={item.image} />
+                        </div>
                     </InspectImage>
                 ))}
             </PortfolioGrid>

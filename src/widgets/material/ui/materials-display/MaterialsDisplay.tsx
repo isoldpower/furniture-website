@@ -1,62 +1,53 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC, useRef} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialsDisplay.module.scss';
-import {HomeMaterial} from "@/entities/material";
+import {HomeMaterial, HomeMaterialsGrid} from "@/entities/material";
 import {Carousel, MoreLink} from "@/shared/ui-toolkit";
 import {useGetAllMaterialsQuery} from "@/widgets/material";
+import {MaterialsDisplayFx} from "@/features/material";
 
-interface MaterialsDisplayProps extends BaseHTMLAttributes<HTMLDivElement> {
-}
+export const MaterialsDisplay: FC = () => {
+    const {...query} = useGetAllMaterialsQuery();
 
-export const MaterialsDisplay: FC<MaterialsDisplayProps> = ({className, ...props}: MaterialsDisplayProps) => {
-    const {currentData : materials, isLoading, isError} = useGetAllMaterialsQuery();
+    const carouselButton = useRef(
+        <div className={`${classes.materialsDisplay__buttonWrapper} cc-pt-7 cc-laptop-pt-10`}>
+            <MoreLink className={`${classes.materialsDisplay__button}`} to="/materials">Подробнее обо всех
+                материалах</MoreLink>
+        </div>
+    );
 
-    if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>
-    else if (isError) return <div className="cc-fs-500">Ошибка :(</div>
+    const carouselTitle = useRef(
+        <div className={`${classes.materialsDisplay__head} cc-grid cc-gap-2 cc-laptop-pb-7 cc-laptop-flex`}>
+            <h2 className={`${classes.materialsDisplay__heading}`}>Материалы</h2>
+            <div className={`${classes.materialsDisplay__descriptor}`}>Соблюдаем баланс цена-качество</div>
+        </div>
+    );
 
-    const items = materials.filter(material => material.important).map((material, key) => (
-        <HomeMaterial className="cc-min-height-1of1" data={{
-            ...material,
-            button: <MoreLink to={`/materials#${material.href_postfix.replaceAll('/', '')}`}>Подробнее</MoreLink>
-        }} key={key}/>
+    const materialItems = query.currentData?.filter(material => material.important).map((material, key) => (
+        <div className="cc-min-height-1of1" key={key}>
+            <HomeMaterial
+                button={<MoreLink to={`/materials#${material.href_postfix.replaceAll('/', '')}`}>Подробнее</MoreLink>}
+                data={material}
+            />
+        </div>
     ));
 
     return (
-        <div className={`${classes.materialsDisplay__wrapper} ${className}`} {...props}>
-            <div className={`${classes.materialsDisplay__content}`}>
+        <MaterialsDisplayFx {...query}>
+            <div className={`${classes.materialsDisplay__large}`}>
                 <div className="cc-main-gutter">
-                    <div className={`${classes.materialsDisplay__gridWrapper} cc-main-gutter-content`}>
-                        <div className={`${classes.materialsDisplay__head} cc-grid cc-gap-2 cc-laptop-pb-7 cc-laptop-flex`}>
-                            <h2 className={`${classes.materialsDisplay__heading}`}>Материалы</h2>
-                            <div className={`${classes.materialsDisplay__descriptor}`}>Соблюдаем баланс цена-качество</div>
-                        </div>
-                        <div className={`${classes.materialsDisplay__grid} cc-grid cc-gap-5`}>
-                            {items}
-                        </div>
-                        <div className={`${classes.materialsDisplay__buttonWrapper} cc-pt-7 cc-laptop-pt-10`}>
-                            <MoreLink className={`${classes.materialsDisplay__button}`} to="/materials">Подробнее обо всех материалах</MoreLink>
-                        </div>
-                    </div>
-                </div>
-                <div className={classes.materialsDisplay__carousel}>
-                    <Carousel
-                        button={(
-                            <div className={`${classes.materialsDisplay__buttonWrapper} cc-pt-7 cc-laptop-pt-10`}>
-                                <MoreLink className={`${classes.materialsDisplay__button}`} to="/materials">Подробнее обо всех
-                                    материалах</MoreLink>
-                            </div>
-                        )}
-                        id="materials1"
-                        indicators
-                        itemClass={`${classes.materialsDisplay__carouselItem}`}
-                        title={(
-                            <div className={`${classes.materialsDisplay__head} cc-grid cc-gap-2 cc-laptop-pb-7 cc-laptop-flex`}>
-                                <h2 className={`${classes.materialsDisplay__heading}`}>Материалы</h2>
-                                <div className={`${classes.materialsDisplay__descriptor}`}>Соблюдаем баланс цена-качество</div>
-                            </div>
-                        )}>{items}</Carousel>
+                    <HomeMaterialsGrid>
+                        {materialItems}
+                    </HomeMaterialsGrid>
                 </div>
             </div>
-        </div>
+            <div className={classes.materialsDisplay__small}>
+                <Carousel button={carouselButton.current} id="materials1" indicators
+                    itemClass={`${classes.materialsDisplay__carouselItem}`}
+                    title={carouselTitle.current}>
+                    {materialItems}
+                </Carousel>
+            </div>
+        </MaterialsDisplayFx>
     );
 };

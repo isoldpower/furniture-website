@@ -1,13 +1,13 @@
 import {ProgressiveImageType} from "@/shared/ui-toolkit";
 import {fetchBaseQuery} from "@reduxjs/toolkit/query"
 import {createApi} from "@reduxjs/toolkit/query/react";
-import {apiPrefix} from "@/app/static";
+import {API_PREFIX} from "@/app/static";
 import {Product} from "@/entities/product";
 import {FormData} from "@/features/feedback";
 
 export const globalApi = createApi({
     reducerPath: 'globalApi',
-    baseQuery: fetchBaseQuery({baseUrl: apiPrefix}),
+    baseQuery: fetchBaseQuery({baseUrl: API_PREFIX}),
     endpoints: (builder) => ({
         getImage: builder.query<ProgressiveImageType, number>({
             query: (id) => `shared/images/${id}/`

@@ -1,2 +1,3 @@
-export {ProductCard} from '@/entities/product/ui/product-card/ProductCard';
+export {ProductCard} from './product-card/ProductCard';
+export {ProductCardDescription} from './product-card/ProductCardDescription';
 export {CustomProject} from './custom-project/CustomProject';

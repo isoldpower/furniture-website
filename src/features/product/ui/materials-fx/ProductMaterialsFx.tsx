@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import {ProductMaterialsFetching} from "./ProductMaterialsFetching";
 import {ProductMaterialsError} from "./ProductMaterialsError";
 
-interface ProductOverviewMaterialsProps {
+type ProductOverviewMaterialsProps = {
     isLoading?: boolean;
     isError?: boolean;
     children: ReactNode;

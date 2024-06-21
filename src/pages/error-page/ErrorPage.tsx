@@ -11,7 +11,7 @@ interface ErrorPageProps extends BaseHTMLAttributes<HTMLDivElement> {
 export const ErrorPage: FC<ErrorPageProps> = ({className, paragraph, ...props}: ErrorPageProps) => {
     return (
         <div className={`${classes.errorPage__wrapper} ${className} cc-main-gutter`} {...props}>
-            <div className={`${classes.errorPage__content} cc-main-gutter-content cc-grid cc-gap-9 cc-pt-13 cc-laptop-pt-15`}>
+            <div className={`${classes.errorPage__content} cc-grid cc-gap-9 cc-pt-13 cc-laptop-pt-15`}>
                 <h1 className="cc-heading-1">Упс...</h1>
                 <p className="cc-text-gutter">{paragraph ?? 'Похоже, вы наткнулись на страницу, на которой не должны были оказаться. Если вы не производили никаких манипуляций с поисковой строкой и уверены в правильности адреса - сообщите нам об ошибке'}</p>
                 <div className="cc-flex cc-gap-4">

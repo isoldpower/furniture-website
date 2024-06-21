@@ -1,4 +1,4 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './SectionHeaderCard.module.scss';
 import {Section} from "@/entities/catalog-section";
@@ -6,16 +6,16 @@ import {AdaptiveLink, MoreLink, ProgressiveImage} from "@/shared/ui-toolkit";
 import {Reference} from "@/shared/icons";
 import {websiteRoutes} from "@/shared/lib";
 
-interface SectionHeaderCardProps extends BaseHTMLAttributes<HTMLDivElement> {
+type SectionHeaderCardProps = {
     data?: Section;
 }
 
-export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, ...props}: SectionHeaderCardProps) => {
+export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({data}: SectionHeaderCardProps) => {
     const href = websiteRoutes.catalog + data?.href_postfix;
     const linkTitle = 'Перейти в ' + data?.title;
 
-    return (
-        <div className={`${classes.sectionHeaderCard__wrapper} ${className} cc-flex`} {...props}>
+    return data ? (
+        <div className={`${classes.sectionHeaderCard__wrapper} cc-flex`}>
             <div className={`${classes.sectionHeaderCard__content} cc-flex cc-width-1of1 cc-flex-col cc-gap-4 cc-laptop-gap-8`}>
                 <AdaptiveLink className={`${classes.sectionHeaderCard__overlapLink}`} title={linkTitle} to={href}/>
                 <a className={`${classes.sectionHeaderCard__imageWrapper}`} href={href} title={linkTitle}>
@@ -37,5 +37,5 @@ export const SectionHeaderCard: FC<SectionHeaderCardProps> = ({className, data, 
                 </div>
             </div>
         </div>
-    );
+    ) : undefined;
 };

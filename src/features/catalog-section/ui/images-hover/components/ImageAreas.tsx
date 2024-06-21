@@ -1,23 +1,28 @@
-import {BaseHTMLAttributes, FC, ReactNode} from "react";
+import {Children, FC, ReactNode, useCallback} from "react";
 import '@/app/scss/main.scss';
 import classes from '../ImagesHover.module.scss';
-import {ImageAreasData} from "../../../model/props";
 
-interface ImageAreasProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: ImageAreasData;
-}
+type ImageAreasProps = {
+    setActive: (active: number) => void;
+    children: ReactNode;
+};
 
-export const ImageAreas: FC<ImageAreasProps> = ({className, data, ...props}: ImageAreasProps) => {
-    const areas: ReactNode[] = [];
-    for (let i = 0; i < data.amount; i++) {
-        areas.push(<div className={`${classes.imagesSlider__imageArea} cc-width-1of1`} key={i} onMouseEnter={() => data.setActive(i)}/>)
-    }
+export const ImageAreas: FC<ImageAreasProps> = ({setActive, children}: ImageAreasProps) => {
+    const handleMouseEnter = useCallback((index: number) => {
+        setActive(index);
+    }, [setActive]);
 
-    return (
-        <div className={`${classes.imageAreas__wrapper} ${className}`} {...props}>
-            <div className={`${classes.imageAreas__content} cc-flex`}>
-                {areas}
+    return setActive ? (
+        <div className={`${classes.imageAreas__content}`}>
+            <div className={`${classes.imageAreas__hoverAreas} cc-flex`}>
+                {Children.toArray(children).map((index: number) => (
+                    <div className={`${classes.imagesSlider__imageArea} cc-width-1of1`}
+                         key={index} onMouseEnter={() => handleMouseEnter(index)} />
+                ))}
+            </div>
+            <div className={`${classes.imageAreas__images}`}>
+                {children}
             </div>
         </div>
-    );
+    ) : undefined;
 };

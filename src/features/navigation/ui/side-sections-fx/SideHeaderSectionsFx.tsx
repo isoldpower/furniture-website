@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import {SideHeaderSectionsError} from "./SideHeaderSectionsError";
 import {SideHeaderSectionsFetching} from "./SideHeaderSectionsFetching";
 
-interface SideHeaderSectionsProps {
+type SideHeaderSectionsProps = {
     isLoading?: boolean;
     isError?: boolean;
     children: ReactNode;

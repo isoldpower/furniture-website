@@ -22,7 +22,7 @@ const AboutPage: FC<AboutPageProps> = ({className, ...props}: AboutPageProps) =>
 
     return (
         <div className={`${classes.aboutPage__wrapper} ${className} cc-main-gutter`} {...props}>
-            <div className={`${classes.aboutPage__content} cc-main-gutter-content`}>
+            <div className={`${classes.aboutPage__content}`}>
                 <div className={`${classes.aboutPage__pathWrapper} cc-pt-9`}>
                     <PageTitle className={`${classes.aboutPage__path}`} />
                 </div>

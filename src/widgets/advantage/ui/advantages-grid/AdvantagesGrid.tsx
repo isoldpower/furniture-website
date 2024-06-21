@@ -1,22 +1,17 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './AdvantagesGrid.module.scss';
 import {HomeAdvantage} from "@/entities/advantage";
 import {useGetAdvantagesOfFirmQuery} from "@/widgets/advantage";
+import {AdvantagesGridFx} from "@/features/advantage";
 
-interface AdvantagesGridProps extends BaseHTMLAttributes<HTMLDivElement> {
-}
-
-export const AdvantagesGrid: FC<AdvantagesGridProps> = ({className, ...props}: AdvantagesGridProps) => {
-    const {currentData : advantages, isLoading, isError} = useGetAdvantagesOfFirmQuery();
-
-    if(isLoading) return <div className="cc-fs-500">Идет загрузка...</div>
-    else if (isError) return <div className="cc-fs-500">Ошибка :(</div>
+export const AdvantagesGrid: FC = () => {
+    const {...query} = useGetAdvantagesOfFirmQuery();
 
     return (
-        <div className={`${classes.advantagesGrid__wrapper} ${className}`} {...props}>
+        <AdvantagesGridFx {...query}>
             <div className={`${classes.advantagesGrid__content} cc-grid cc-gap-5`}>
-                {advantages.map((advantage, key) => (
+                {query.currentData?.map((advantage, key) => (
                     <div className={`${classes.advantagesGrid__item}`} key={key}>
                         <HomeAdvantage data={{
                             ...advantage,
@@ -25,6 +20,6 @@ export const AdvantagesGrid: FC<AdvantagesGridProps> = ({className, ...props}: A
                     </div>
                 ))}
             </div>
-        </div>
+        </AdvantagesGridFx>
     );
 };

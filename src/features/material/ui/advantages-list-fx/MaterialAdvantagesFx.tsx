@@ -1,21 +1,17 @@
-import {BaseHTMLAttributes, FC, ReactNode} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import {MaterialAdvantagesError} from "./MaterialAdvantagesError";
 import {MaterialAdvantagesFetching} from "./MaterialAdvantagesFetching";
 
-interface MaterialOverviewAdvantagesProps extends BaseHTMLAttributes<HTMLDivElement> {
+type MaterialOverviewAdvantagesProps = {
     isLoading?: boolean;
     isError?: boolean;
     children: ReactNode;
 }
 
-export const MaterialAdvantagesFx: FC<MaterialOverviewAdvantagesProps> = ({isError, isLoading, children, ...props}: MaterialOverviewAdvantagesProps) => {
+export const MaterialAdvantagesFx: FC<MaterialOverviewAdvantagesProps> = ({isError, isLoading, children}: MaterialOverviewAdvantagesProps) => {
     if(isLoading) return <MaterialAdvantagesFetching />
     else if (isError) return <MaterialAdvantagesError />
 
-    return (
-        <div {...props}>
-            {children}
-        </div>
-    );
+    return children;
 };

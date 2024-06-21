@@ -13,16 +13,17 @@ export const HintedProductsList: FC<HintedProductsListProps> = () => {
     const {...query} = useGetAllProductsQuery();
     const products = query.currentData?.filter(product => {
         const section = product.section;
-        return section.href_postfix == '/' + params.section;
+        const excludedLeadingSlash = section.href_postfix.replace('/', '');
+        return excludedLeadingSlash === params.section;
     });
 
     return (
         <ProductsListFx {...query}>
             <div className={`${classes.productsList__wrapper} cc-grid cc-cgap-5 cc-rgap-9`}>
-                <InsertCatalogHints
-                    hint={<CustomProject
-                    paragraph="Свяжитесь с нами — мы найдем решение"
-                    title="Не нашли то что искали?" />}>
+                <InsertCatalogHints hint={<CustomProject data={{
+                        paragraph: "Свяжитесь с нами — мы найдем решение",
+                        title: "Не нашли то что искали?"
+                    }}/>}>
                     {products?.map((product, key) => (
                         <DetailedProductCard data={product} key={key} />
                     ))}

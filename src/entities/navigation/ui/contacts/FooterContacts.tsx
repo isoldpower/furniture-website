@@ -1,20 +1,20 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './FooterContacts.module.scss';
 import {Icon, Logo} from "@/shared/icons";
 import {AdaptiveLink} from "@/shared/ui-toolkit";
-import {ContactsData} from "@/entities/navigation";
 import {useSettings} from "@/app/static";
+import {SocialLink} from "@/entities/navigation";
 
-interface FooterContactsProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: ContactsData;
+type FooterContactsProps = {
+    socials: SocialLink[];
 }
 
-export const FooterContacts: FC<FooterContactsProps> = ({className, data, ...props}: FooterContactsProps) => {
+export const FooterContacts: FC<FooterContactsProps> = ({socials}: FooterContactsProps) => {
     const settings = useSettings();
 
     return (
-        <div className={`${classes.footer__contactsWrapper} ${className}`} {...props}>
+        <div className={`${classes.footer__contactsWrapper}`}>
             <div className={`${classes.footer__logoWrapper} cc-flex cc-align-items-center cc-gap-2`}>
                 <Icon className={`${classes.footer__logoIcon}`} height={28} width={28}/>
                 <Logo className={`${classes.footer__logoText}`} height={18} width={148}/>
@@ -23,7 +23,7 @@ export const FooterContacts: FC<FooterContactsProps> = ({className, data, ...pro
                 интересующие вопросы, подбирает дизайн-проект</p>
             <address className={`${classes.footer__phoneNumber} cc-heading-3 cc-pt-9`}>{settings.safeData('FIRM_NUMBER')}</address>
             <ul className={`${classes.footer__socialNetworks} cc-flex cc-gap-3 cc-pt-4`}>
-                {data.socials.map((link, key) => (
+                {socials?.map((link, key) => (
                     <li className={`${classes.footer__social}`} key={key}>
                         <AdaptiveLink className={`${classes.footer__socialLink}`} target="_blank" to={link.href}>
                             {link.icon}

@@ -1,6 +1,2 @@
 @use '@/app/scss/useMain' as *;
-@use 'styles/index';
-
-.catalogModal__catalog > * {
-    flex-basis: 100%;
-}
+@use 'styles';

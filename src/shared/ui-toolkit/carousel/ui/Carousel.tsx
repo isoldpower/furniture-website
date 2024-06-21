@@ -17,6 +17,9 @@ interface CarouselProps {
     itemClass?: string;
 }
 
+//TODO: Remove itemClass attribute from CarouselProps. Remove props drilling from Carousel component,
+// replace it with Compound Component
+
 export const Carousel: FC<CarouselProps> = ({children, itemClass, id, ...data}: CarouselProps) => {
     const GROUP_ID = `carousel-${id}`;
     const itemType = data.vertical ? 'vertical' : 'horizontal';
@@ -29,35 +32,33 @@ export const Carousel: FC<CarouselProps> = ({children, itemClass, id, ...data}: 
     }
 
     return (
-        <div className={`${classes.horizontalCarousel__wrapper} cc-main-gutter cc-py-1`} itemType={itemType}>
-            <div className={`${classes.horizontalCarousel__content} cc-main-gutter-content`}>
-                <div className={`${classes.horizontalCarousel__headWrapper} cc-flex cc-justify-content-space cc-align-items-center`}>
-                    <div className={`${classes.horizontalCarousel__title}`}>
-                        {data.title ? data.title : undefined}
-                    </div>
-                    <div className={`${classes.horizontalCarousel__controls} cc-flex cc-gap-2`}>
-                        <button aria-disabled={carousel.currentRange.firstIncluded === 1} className={`${classes.horizontalCarousel__arrow}`} onClick={carousel.setPreviousPage}
-                                type='button'>
-                            {data.leftArrow ?? <ArrowLeft className={`${classes.horizontalCarousel__arrowLeft} cc-mb-7`} height={52} width={52}/>}
-                        </button>
-                        <button aria-disabled={carousel.currentRange.lastIncluded === children.length} className={`${classes.horizontalCarousel__arrow}`} onClick={carousel.setNextPage}
-                                type='button'>
-                            {data.rightArrow ?? <ArrowRight className={`${classes.horizontalCarousel__arrowRight} cc-mb-7`} height={52} width={52}/>}
-                        </button>
-                    </div>
+        <div className={`${classes.horizontalCarousel__wrapper} cc-main-gutter cc-flex cc-flex-col cc-py-1`} itemType={itemType}>
+            <div className={`${classes.horizontalCarousel__headWrapper} cc-flex cc-justify-content-space cc-align-items-center`}>
+                <div className={`${classes.horizontalCarousel__title}`}>
+                    {data.title ? data.title : undefined}
                 </div>
-                <div aria-expanded={carousel.currentRange.firstIncluded !== 1} className={`${classes.horizontalCarousel__itemsGroup}`} id={GROUP_ID} itemType={itemType}>
-                    {children.map((child, key) => (
-                        <div aria-current={inActiveRange(key + 1)} className={`${classes.horizontalCarousel__itemWrapper} ${itemClass}`} key={key}>
-                            {child}
-                        </div>
-                    ))}
+                <div className={`${classes.horizontalCarousel__controls} cc-flex cc-gap-2`}>
+                    <button aria-disabled={carousel.currentRange.firstIncluded === 1} className={`${classes.horizontalCarousel__arrow}`} onClick={carousel.setPreviousPage}
+                            type='button'>
+                        {data.leftArrow ?? <ArrowLeft className={`${classes.horizontalCarousel__arrowLeft} cc-mb-7`} height={52} width={52}/>}
+                    </button>
+                    <button aria-disabled={carousel.currentRange.lastIncluded === children.length} className={`${classes.horizontalCarousel__arrow}`} onClick={carousel.setNextPage}
+                            type='button'>
+                        {data.rightArrow ?? <ArrowRight className={`${classes.horizontalCarousel__arrowRight} cc-mb-7`} height={52} width={52}/>}
+                    </button>
                 </div>
-                {data.indicators ? <div className={`${classes.horizontalCarousel__indicatorsWrapper} cc-flex cc-gap-2 cc-pt-7 cc-width-1of1 cc-justify-content-center`}>
-                    {placeIndicators(carousel.currentRange, children.length)}
-                </div> : undefined}
-                {data.button ? data.button : undefined}
             </div>
+            <div aria-expanded={carousel.currentRange.firstIncluded !== 1} className={`${classes.horizontalCarousel__itemsGroup}`} id={GROUP_ID} itemType={itemType}>
+                {children.map((child, key) => (
+                    <div aria-current={inActiveRange(key + 1)} className={`${classes.horizontalCarousel__itemWrapper} ${itemClass}`} key={key}>
+                        {child}
+                    </div>
+                ))}
+            </div>
+            {data.indicators ? <div className={`${classes.horizontalCarousel__indicatorsWrapper} cc-flex cc-gap-2 cc-pt-7 cc-width-1of1 cc-justify-content-center`}>
+                {placeIndicators(carousel.currentRange, children.length)}
+            </div> : undefined}
+            {data.button ? data.button : undefined}
         </div>
     );
 };

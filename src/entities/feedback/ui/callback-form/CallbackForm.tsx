@@ -1,23 +1,24 @@
-import {BaseHTMLAttributes, FC} from "react";
+import {FC, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './CallbackForm.module.scss';
-import {CallbackFormData} from "../../model";
 
-interface CallbackFormProps extends BaseHTMLAttributes<HTMLDivElement> {
-    data: CallbackFormData;
+type CallbackFormProps = {
+    children: ReactNode;
+    hint: ReactNode;
+    action: ReactNode;
 }
 
-export const CallbackForm: FC<CallbackFormProps> = ({className, data, ...props}: CallbackFormProps) => {
+export const CallbackForm: FC<CallbackFormProps> = ({children, hint, action}: CallbackFormProps) => {
     return (
-        <div className={`${classes.callbackForm__wrapper} ${className} cc-width-1of1 cc-border-radius-1`} {...props}>
+        <div className={`${classes.callbackForm__wrapper} cc-width-1of1 cc-border-radius-1`}>
             <div className={`${classes.callbackForm__content} cc-p-7 cc-width-1of1 cc-grid cc-gap-7`}>
                 <div className={`${classes.callbackForm__fields} cc-grid cc-gap-7`}>
-                    {data.fields}
+                    {children}
                 </div>
                 <div className={`${classes.callbackForm__hint} cc-fs-050`}>
-                    {data.softText}
+                    {hint}
                 </div>
-                {data.sendButton}
+                {action}
             </div>
         </div>
     );

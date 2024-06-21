@@ -1,6 +1,19 @@
 @use '@/app/scss/useMain' as *;
 @use 'styles';
 
+.similarProducts__largeDisplay {
+    display: none;
+    @include mq(laptop) {
+        display: inline;
+    }
+}
+
+.similarProducts__smallDisplay {
+    @include mq(laptop) {
+        display: none;
+    }
+}
+
 .catalogDisplay__item {
     padding-right: $size-1;
     padding-left: $size-1;

@@ -23,7 +23,7 @@ export const MaterialOverview: FC<MaterialOverviewProps> = ({data}: MaterialOver
                 </div>
                 <p className={`${classes.materialOverview__paragraph}`}>{data.paragraph}</p>
                 <MaterialAdvantagesFx {...query}>
-                    <MaterialAdvantages materials={query?.currentData}>
+                    <MaterialAdvantages advantages={query?.currentData}>
                         <HomeAdvantage />
                     </MaterialAdvantages>
                 </MaterialAdvantagesFx>

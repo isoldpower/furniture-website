@@ -37,8 +37,9 @@ export const ProductOverview: FC<ItemOverviewProps> = ({data}: ItemOverviewProps
                         <ProductMaterialsFx {...materialsQuery}>
                             <div className={`${classes.itemOverview__materialsWrapper} cc-flex cc-gap-5`}>
                                 {materialsQuery.currentData?.map((material, key) => (
-                                    <MaterialPreview className={`${classes.itemOverview__material}`} data={material}
-                                                     key={key}/>
+                                    <div className={`${classes.itemOverview__material}`} key={key}>
+                                        <MaterialPreview data={material}/>
+                                    </div>
                                 ))}
                             </div>
                         </ProductMaterialsFx>

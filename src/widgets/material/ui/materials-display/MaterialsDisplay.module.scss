@@ -1,29 +1,22 @@
 @use '@/app/scss/useMain' as *;
-@use 'styles/index';
+@use './styles';
 
-.materialsDisplay__gridWrapper {
+.materialsDisplay__large {
     display: none;
     @include mq(laptop) {
-        display: grid;
+        display: contents;
     }
 }
 
-.materialsDisplay__carousel {
+.materialsDisplay__small {
+    display: contents;
     @include mq(laptop) {
         display: none;
     }
 }
 
-.materialsDisplay__grid {
-    grid-template-columns: repeat(2, 1fr);
-}
-
 .materialsDisplay__heading {
     font-size: 42px;
-
-    @include mq(laptop) {
-        font-size: 64px;
-    }
 }
 
 .materialsDisplay__descriptor {
@@ -52,9 +45,4 @@
         padding-right: calc($size-5 / 2);
         flex-basis: calc(25% - $size-5);
     }
-}
-
-.materialsDisplay__buttonWrapper {
-    display: grid;
-    justify-items: center;
 }

@@ -4,7 +4,7 @@ import {CatalogSectionPreviewFetching} from "./CatalogSectionPreviewFetching";
 import {CatalogSectionPreviewError} from "./CatalogSectionPreviewError";
 import {Section} from "@/entities/catalog-section";
 
-interface CatalogSectionLoaderProps {
+type CatalogSectionLoaderProps = {
     isLoading?: boolean;
     isError?: boolean;
     children?: ReactNode;
@@ -15,9 +15,5 @@ export const CatalogSectionPreviewFx: FC<CatalogSectionLoaderProps> = ({isLoadin
     if (isLoading) return <CatalogSectionPreviewFetching section={section} />
     else if (isError) return <CatalogSectionPreviewError section={section} />
 
-    return (
-        <div>
-            {children}
-        </div>
-    );
+    return children;
 };
