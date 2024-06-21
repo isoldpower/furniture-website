@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './ImagesSlider.module.scss';
 import {Carousel, ProgressiveImage, ProgressiveImageData} from "@/shared/ui-toolkit";
 import {ArrowLeft, ArrowRight} from "@/shared/icons";
-import {breakpoints, useDocumentSize} from "@/shared/lib";
+import {breakpoints, imageFailed, useDocumentSize} from "@/shared/lib";
 import {InspectImage} from "@/features/product";
 
 interface ImagesSliderProps extends BaseHTMLAttributes<HTMLDivElement> {
@@ -24,22 +24,21 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({data, className, ...props}:
         <div className={`${classes.imagesSlider__wrapper} ${className}`} {...props}>
             <div className={`${classes.imagesSlider__content} cc-grid`}>
                 <div className={`${classes.imagesSlider__previewsWrapper} cc-flex`}>
-                    <Carousel
-                        id="images-2"
-                        itemClass={`${classes.imagesSlider__carouselItem} ${classes.imagesSlider__itemSpacing}`}
+                    <Carousel id="images-2"
                         leftArrow={<div className={`${classes.imageSlider__leftArrow}`}><ArrowLeft/></div>}
                         rightArrow={<div className={`${classes.imageSlider__rightArrow}`}><ArrowRight/></div>}
                         vertical={width >= breakpoints.laptop}>
-                        {items}
+                        {items.map((item, key) => (
+                            <div className={`${classes.imagesSlider__carouselItem} ${classes.imagesSlider__itemSpacing}`} key={key}>
+                                {item}
+                            </div>
+                        ))}
                     </Carousel>
                 </div>
                 <div className={`${classes.imageSlider__imageWrapper}`}>
                     <InspectImage className={`${classes.imagesSlider__currentImage}`} data={data[current]}>
-                        <ProgressiveImage className={`${classes.imagesSlider__currentImage}`} image={data[current] ?? {
-                            low: '',
-                            high: '',
-                            alt: 'undefined'
-                        }}/>
+                        <ProgressiveImage className={`${classes.imagesSlider__currentImage}`}
+                                          image={data[current] ?? imageFailed} />
                     </InspectImage>
                 </div>
             </div>

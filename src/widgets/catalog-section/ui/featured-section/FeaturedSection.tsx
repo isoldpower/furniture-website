@@ -33,7 +33,7 @@ export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data, children}
             <div className={`${classes.featuredSection__large}`}>
                 <SectionSpoiler button={button.current} data={data} sectionLink>
                     {importantProducts?.map((product, key) =>
-                        cloneElement(children, {key, data: product})
+                        cloneElement(children, {...children.props, key, data: product})
                     )}
                 </SectionSpoiler>
             </div>
@@ -42,11 +42,12 @@ export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data, children}
                     button={<div className={`${classes.catalogDisplay__button} cc-grid cc-pt-7`}>{button.current}</div>}
                     id={data.id.toString()}
                     indicators
-                    itemClass={`${classes.carouselList__item}`}
                     title={<h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>}>
-                    {filteredProducts?.map((product, key) =>
-                        cloneElement(children, {key, data: product})
-                    )}
+                    {filteredProducts?.map((product, key) => (
+                        <div className={classes.carouselList__item} key={key}>
+                            {cloneElement(children, {...children.props, data: product})}
+                        </div>
+                    ))}
                 </Carousel>
             </div>
         </CatalogSectionPreviewFx>

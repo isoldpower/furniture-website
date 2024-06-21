@@ -1,4 +1,4 @@
-import {FC, ReactNode} from "react";
+import {cloneElement, FC, ReactElement, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './Carousel.module.scss';
 import {ArrowLeft, ArrowRight} from "@/shared/icons";
@@ -14,13 +14,9 @@ interface CarouselProps {
     rightArrow?: ReactNode;
     children: ReactNode[];
     id: string;
-    itemClass?: string;
 }
 
-//TODO: Remove itemClass attribute from CarouselProps. Remove props drilling from Carousel component,
-// replace it with Compound Component
-
-export const Carousel: FC<CarouselProps> = ({children, itemClass, id, ...data}: CarouselProps) => {
+export const Carousel: FC<CarouselProps> = ({children, id, ...data}: CarouselProps) => {
     const GROUP_ID = `carousel-${id}`;
     const itemType = data.vertical ? 'vertical' : 'horizontal';
     const carousel = useCarousel(children.length, GROUP_ID, data.vertical);
@@ -49,11 +45,13 @@ export const Carousel: FC<CarouselProps> = ({children, itemClass, id, ...data}: 
                 </div>
             </div>
             <div aria-expanded={carousel.currentRange.firstIncluded !== 1} className={`${classes.horizontalCarousel__itemsGroup}`} id={GROUP_ID} itemType={itemType}>
-                {children.map((child, key) => (
-                    <div aria-current={inActiveRange(key + 1)} className={`${classes.horizontalCarousel__itemWrapper} ${itemClass}`} key={key}>
-                        {child}
-                    </div>
-                ))}
+                {children.map((child, key) => {
+                    const element = child as ReactElement;
+                    return cloneElement(element, {
+                        className: element.props.className + ` ${classes.horizontalCarousel__itemWrapper}`,
+                        "aria-current": inActiveRange(key + 1), key
+                    });
+                })}
             </div>
             {data.indicators ? <div className={`${classes.horizontalCarousel__indicatorsWrapper} cc-flex cc-gap-2 cc-pt-7 cc-width-1of1 cc-justify-content-center`}>
                 {placeIndicators(carousel.currentRange, children.length)}

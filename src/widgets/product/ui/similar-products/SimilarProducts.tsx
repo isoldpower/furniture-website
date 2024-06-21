@@ -29,10 +29,11 @@ export const SimilarProducts: FC<SimilarProductsProps> = ({current, products}: S
             </div>
             <div className={`${classes.similarProducts__smallDisplay}`}>
                 <Carousel id={current?.id.toString()}
-                    itemClass={`${classes.catalogDisplay__item}`}
                     title={<h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>Похожее</h2>}>
                     {similarProducts?.map((product: Product, key) => (
-                        <DetailedProductCard data={product} key={key}/>
+                        <div className={`${classes.catalogDisplay__item}`} key={key}>
+                            <DetailedProductCard data={product}/>
+                        </div>
                     ))}
                 </Carousel>
             </div>

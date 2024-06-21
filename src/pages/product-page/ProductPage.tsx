@@ -8,10 +8,7 @@ import {CallbackSection} from "@/widgets/feedback";
 import {ProductPageFx} from "@/features/product";
 import {SimilarProducts} from "@/widgets/product";
 
-interface ProductPageProps {
-}
-
-const ProductPage: FC<ProductPageProps> = () => {
+const ProductPage: FC = () => {
     const params = useParams();
     const {...productQuery} = useGetAllProductsQuery();
     const product = productQuery.currentData?.find(product => {

@@ -1,0 +1,17 @@
+@use '@/app/scss/useMain' as *;
+@use './styles';
+
+.aboutPage__image {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+
+    @include mq(laptop) {
+        aspect-ratio: unset;
+        max-height: 100%;
+        width: 50%;
+    }
+
+    @include mq(desktop) {
+        width: 40%;
+    }
+}

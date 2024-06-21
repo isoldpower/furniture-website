@@ -11,18 +11,3 @@
         gap: $column-spacing;
     }
 }
-
-.aboutPage__image {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-
-    @include mq(laptop) {
-        aspect-ratio: 1 / 1;
-        height: 100%;
-        width: 50%;
-    }
-
-    @include mq(desktop) {
-        width: 40%;
-    }
-}

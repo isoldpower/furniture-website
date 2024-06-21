@@ -42,10 +42,12 @@ export const MaterialsDisplay: FC = () => {
                 </div>
             </div>
             <div className={classes.materialsDisplay__small}>
-                <Carousel button={carouselButton.current} id="materials1" indicators
-                    itemClass={`${classes.materialsDisplay__carouselItem}`}
-                    title={carouselTitle.current}>
-                    {materialItems}
+                <Carousel button={carouselButton.current} id="materials1" indicators title={carouselTitle.current}>
+                    {materialItems?.map((materialItem, key) => (
+                        <div className={`${classes.materialsDisplay__carouselItem}`} key={key}>
+                            {materialItem}
+                        </div>
+                    ))}
                 </Carousel>
             </div>
         </MaterialsDisplayFx>
