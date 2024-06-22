@@ -1,7 +1,8 @@
-import {cloneElement, FC, ReactElement, useCallback, useMemo} from "react";
+import {cloneElement, FC, ReactElement} from "react";
 import '@/app/scss/main.scss';
 import classes from './MaterialAdvantages.module.scss';
 import {Advantage} from "@/entities/advantage";
+import {useClonedElements} from "@/shared/lib";
 
 interface MaterialAdvantagesProps {
     advantages: Advantage[];
@@ -9,25 +10,14 @@ interface MaterialAdvantagesProps {
 }
 
 export const MaterialAdvantages: FC<MaterialAdvantagesProps> = ({children, advantages}: MaterialAdvantagesProps) => {
-    const getClone = useCallback((material: Advantage, key: number) => {
-        return cloneElement(children, {
-            ...children.props,
-            data: material,
-            key
-        });
-    }, [children]);
-
-    const getElements = useCallback(() => {
-        return advantages.map((section, key) => getClone(section, key));
-    }, [getClone, advantages]);
-
-    const elements = useMemo(() => {
-        return getElements();
-    }, [getElements]);
+    const clonedElements = useClonedElements(children, advantages);
 
     return advantages ? (
         <div className={`${classes.materialAdvantages__wrapper}`}>
-            {elements}
+            {clonedElements.map((element, index) => cloneElement(element, {
+                ...element.props,
+                order: index + 1
+            }))}
         </div>
     ) : undefined;
 };

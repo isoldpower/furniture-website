@@ -1,7 +1,8 @@
-import {cloneElement, FC, ReactElement, useCallback, useMemo} from "react";
+import {FC, ReactElement, useMemo} from "react";
 import '@/app/scss/main.scss';
 import {Section} from "@/entities/catalog-section";
 import classes from './SideHeaderSections.module.scss';
+import {useClonedElements} from "@/shared/lib";
 
 interface SideHeaderSectionsProps {
     sections: Section[];
@@ -9,21 +10,11 @@ interface SideHeaderSectionsProps {
 }
 
 export const SideHeaderSections: FC<SideHeaderSectionsProps> = ({sections, children}: SideHeaderSectionsProps) => {
-    const getClone = useCallback((material: Section, key: number) => {
-        return cloneElement(children, {
-            ...children.props,
-            data: material,
-            key
-        });
-    }, [children]);
-
-    const getElements = useCallback(() => {
-        return sections.map((section, key) => getClone(section, key)).slice(0, 4);
-    }, [getClone, sections]);
+    const clonedElements = useClonedElements(children, sections);
 
     const elements = useMemo(() => {
-        return getElements();
-    }, [getElements]);
+        return clonedElements.slice(0, 4);
+    }, [clonedElements]);
 
     return sections ? (
         <div className={`${classes.header__catalogPreview} cc-grid cc-gap-7`}>

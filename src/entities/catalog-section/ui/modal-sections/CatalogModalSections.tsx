@@ -1,8 +1,8 @@
-import {cloneElement, FC, ReactElement, useCallback, useMemo} from "react";
+import {FC, ReactElement, useMemo} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogModalSections.module.scss';
 import {Section} from "@/entities/catalog-section";
-import {breakpoints, useDocumentSize} from "@/shared/lib";
+import {breakpoints, useClonedElements, useDocumentSize} from "@/shared/lib";
 
 type CatalogModalSectionsProps = {
     sections?: Section[];
@@ -11,28 +11,16 @@ type CatalogModalSectionsProps = {
 
 export const CatalogModalSections: FC<CatalogModalSectionsProps> = ({sections, children}: CatalogModalSectionsProps) => {
     const width = useDocumentSize().x;
-
-    const getClone = useCallback((section: Section, key: number) => {
-        return cloneElement(children, {
-            ...children.props,
-            data: section,
-            key
-        });
-    }, [children]);
-
-    const getElements = useCallback(() => {
-        const sectionsAmount = width >= breakpoints.desktop ? 4 : 3;
-        const sectionsChunk = sections?.slice(0, sectionsAmount);
-        return sectionsChunk?.map((section, key) => getClone(section, key));
-    }, [width, getClone, sections]);
+    const clonedElements = useClonedElements(children, sections);
 
     const elements = useMemo(() => {
-        return getElements();
-    }, [getElements]);
+        const sectionsAmount = width >= breakpoints.desktop ? 4 : 3;
+        return clonedElements?.slice(0, sectionsAmount);
+    }, [width, clonedElements]);
 
     return sections ? (
-            <div className={`${classes.catalogModal__sections} cc-flex cc-gap-5 cc-py-10`}>
-                {elements}
-            </div>
-        ) : undefined;
+        <div className={`${classes.catalogModal__sections} cc-flex cc-gap-5 cc-py-10`}>
+            {elements}
+        </div>
+    ) : undefined;
 };

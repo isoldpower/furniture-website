@@ -13,10 +13,7 @@ export const AdvantagesGrid: FC = () => {
             <div className={`${classes.advantagesGrid__content} cc-grid cc-gap-5`}>
                 {query.currentData?.map((advantage, key) => (
                     <div className={`${classes.advantagesGrid__item}`} key={key}>
-                        <HomeAdvantage data={{
-                            ...advantage,
-                            order: ('0' + (key + 1)).slice(-2)
-                        }}/>
+                        <HomeAdvantage data={advantage} order={key + 1} />
                     </div>
                 ))}
             </div>
