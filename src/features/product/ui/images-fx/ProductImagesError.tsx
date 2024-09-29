@@ -1,8 +1,14 @@
 import {FC} from "react";
 import '@/app/scss/main.scss';
+import {imageFailed} from "@/shared/lib";
+import {ProgressiveImage} from "@/shared/ui-toolkit";
 
-export const ProductImagesError: FC = () => {
+type ProductImagesErrorProps = {
+    className?: string;
+}
+
+export const ProductImagesError: FC<ProductImagesErrorProps> = ({ className }) => {
     return (
-        <div className="cc-fs-200">Ошибка :(</div>
+        <ProgressiveImage className={className} image={imageFailed} />
     );
 };
