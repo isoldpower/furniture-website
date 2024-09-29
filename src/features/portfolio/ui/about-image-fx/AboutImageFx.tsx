@@ -10,7 +10,7 @@ type AboutImageFxProps = {
 }
 
 export const AboutImageFx: FC<AboutImageFxProps> = ({children, isLoading, isError}: AboutImageFxProps) => {
-    if (isLoading) return <ProductImagesFetching />;
+    if (isLoading) return <ProductImagesFetching className={children.props.className} />;
     else if (isError) return <ProductImagesError className={children.props.className} />;
 
     return children;
