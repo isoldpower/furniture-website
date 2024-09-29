@@ -4,24 +4,23 @@ import classes from './ProductOverview.module.scss';
 import {Product} from "@/entities/product";
 import {ProductMaterialsFx, ProductImagesFx, ImagesSlider} from "@/features/product";
 import {OrderProductProject} from "@/features/feedback";
-import {useGetProductImagesQuery, useGetProductMaterialsQuery} from "@/widgets/product";
 import {MaterialPreview} from "@/entities/material";
+import {useParamsParsed} from "@/app/providers";
 
 interface ItemOverviewProps {
     data: Product;
 }
 
 export const ProductOverview: FC<ItemOverviewProps> = ({data}: ItemOverviewProps) => {
-    const {...imagesQuery} = useGetProductImagesQuery(data?.id);
-    const {...materialsQuery} = useGetProductMaterialsQuery(data?.id);
+    const { product, isLoading, isError } = useParamsParsed();
 
     return (
         <div className={`${classes.itemOverview__content} cc-grid cc-rgap-9`}>
             <div className={`${classes.itemOverview__smallHeading}`}>
                 <h1 className={`${classes.itemOverview__heading}`}>{data?.title}</h1>;
             </div>
-            <ProductImagesFx {...imagesQuery}>
-                <ImagesSlider data={imagesQuery.currentData} />
+            <ProductImagesFx isLoading={isLoading} isError={isError}>
+                <ImagesSlider data={product.images} />
             </ProductImagesFx>
             <div className={`${classes.itemOverview__bodyWrapper} cc-flex cc-flex-col cc-gap-10`}>
                 <div className={`${classes.itemOverview__largeHeading}`}>
@@ -34,9 +33,9 @@ export const ProductOverview: FC<ItemOverviewProps> = ({data}: ItemOverviewProps
                     </div>
                     <div className={`${classes.itemOverview__materials} cc-grid cc-gap-4 cc-desktop-gap-7`}>
                         <h4 className={`${classes.itemOverview__materialsHeading} cc-fs-300`}>Материалы</h4>
-                        <ProductMaterialsFx {...materialsQuery}>
+                        <ProductMaterialsFx isError={isError} isLoading={isLoading}>
                             <div className={`${classes.itemOverview__materialsWrapper} cc-flex cc-gap-5`}>
-                                {materialsQuery.currentData?.map((material, key) => (
+                                {product.materials.map((material, key) => (
                                     <div className={`${classes.itemOverview__material}`} key={key}>
                                         <MaterialPreview data={material}/>
                                     </div>
@@ -47,7 +46,7 @@ export const ProductOverview: FC<ItemOverviewProps> = ({data}: ItemOverviewProps
                     <div className={`${classes.itemOverview__additional} cc-grid cc-gap-4 cc-desktop-gap-7`}>
                         <h4 className={`${classes.itemOverview__additionalHeading} cc-fs-300`}>Срок изготовления и
                             стоимость</h4>
-                        <p className={`${classes.itemOverview__materialsParagraph}`}>{data?.duration}, {data?.cost}</p>
+                        <p className={`${classes.itemOverview__materialsParagraph}`}>{data?.preparation_time}, {data?.estimated_cost}</p>
                     </div>
                     <div className={`${classes.itemOverview__buttonWrapper}`}>
                         <OrderProductProject data={data}>Заказать проект</OrderProductProject>

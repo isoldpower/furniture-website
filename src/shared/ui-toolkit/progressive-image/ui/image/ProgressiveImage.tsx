@@ -13,23 +13,27 @@ export const ProgressiveImage: FC<ProgressiveImageProps> = ({image, className, .
 
     const createEmptyImage = useCallback(() => {
         const fullImage = new Image();
-        fullImage.src = image.high;
+        fullImage.src = image?.src;
         return fullImage;
-    }, [image.high]);
+    }, [image?.src]);
 
     const swapImageFace = useCallback(() => {
-        setImgSrc(image.high);
+        setImgSrc(image?.src);
         setColor('black');
-    }, [image.high]);
+    }, [image?.src]);
 
     useEffect(() => {
-        setImgSrc(image.low);
+        setImgSrc(image?.low_src);
         const backLoader = createEmptyImage();
         backLoader.addEventListener('load', swapImageFace);
         return () => backLoader.removeEventListener('load', swapImageFace);
     }, [createEmptyImage, swapImageFace, image]);
 
     return (
-        <img alt={image.alt} className={`${classes.progressiveImage__image} ${className}`} src={imgSrc} style={{color: color, ...props.style}} {...props} />
+        <img alt={image?.alt}
+             className={`${classes.progressiveImage__image} ${className}`}
+             src={imgSrc}
+             style={{color: color, ...props.style}}
+             {...props} />
     );
 };

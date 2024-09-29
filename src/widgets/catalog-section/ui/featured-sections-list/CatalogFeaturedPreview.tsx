@@ -1,7 +1,8 @@
 import {FC, ReactElement} from "react";
 import '@/app/scss/main.scss';
-import {SectionPreviewListFx, useGetAllSectionsQuery} from "@/features/catalog-section";
+import {SectionPreviewListFx} from "@/features/catalog-section";
 import {SectionPreviewList} from "@/entities/catalog-section";
+import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogFeaturedPreviewProps {
     children?: ReactElement;

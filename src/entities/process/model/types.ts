@@ -1,7 +1,8 @@
 import {ProgressiveImageType} from "@/shared/ui-toolkit";
 
 export interface Process {
-    id: number;
+    order: number;
+    title: string;
     paragraph: string;
     image: ProgressiveImageType;
 }

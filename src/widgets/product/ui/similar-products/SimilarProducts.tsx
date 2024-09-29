@@ -3,25 +3,23 @@ import '@/app/scss/main.scss';
 import classes from "./SimilarProducts.module.scss";
 import {Product} from "@/entities/product";
 import {DetailedProductCard} from "@/widgets/product";
-import {SectionSpoiler} from "@/entities/catalog-section";
+import {SectionDetail, SectionSpoiler} from "@/entities/catalog-section";
 import {Carousel} from "@/shared/ui-toolkit";
 
 interface SimilarProductsProps {
+    section: SectionDetail;
     current: Product;
-    products: Product[];
 }
 
-export const SimilarProducts: FC<SimilarProductsProps> = ({current, products}: SimilarProductsProps) => {
-    const similarProducts = products?.filter(item => {
-        const isSameSection = item.section?.id == current?.section?.id;
-        const isNotCurrent = item.id != current?.id;
-        return isSameSection && isNotCurrent;
+export const SimilarProducts: FC<SimilarProductsProps> = ({section, current}: SimilarProductsProps) => {
+    const similarProducts = section.products?.filter(item => {
+        return item.id !== current.id;
     });
 
     return current ? (
         <div className={`${classes.productPage__sectionPreview}`}>
             <div className={`${classes.similarProducts__largeDisplay}`}>
-                <SectionSpoiler data={current?.section}>
+                <SectionSpoiler data={section}>
                     {similarProducts?.map((product: Product, key) => (
                         <DetailedProductCard data={product} key={key} />
                     ))}

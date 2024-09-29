@@ -18,7 +18,7 @@ export const HomeMaterial: FC<HomeMaterialProps> = ({data, button}: HomeMaterial
                     <ProgressiveImage className={`${classes.material__image} cc-round`} image={data.image ?? imageFailed} />
                 </div>
                 <h3 className={`${classes.material__heading} cc-heading-3`}>{data.title}</h3>
-                <p className={`${classes.material__paragraph}`}>{data.paragraph}</p>
+                <p className={`${classes.material__paragraph}`}>{data.first_paragraph}</p>
             </div>
             <div className={`${classes.material__buttonWrapper}`}>
                 {button}

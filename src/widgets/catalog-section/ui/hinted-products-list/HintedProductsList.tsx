@@ -1,21 +1,16 @@
-import {FC} from 'react';
-import {DetailedProductCard, useGetAllProductsQuery} from "@/widgets/product";
+import {FC, useMemo} from 'react';
+import {DetailedProductCard} from "@/widgets/product";
 import {InsertCatalogHints, ProductsListFx} from "@/features/catalog-section";
-import {useParams} from "react-router-dom";
 import {CustomProject} from "@/entities/product";
 import classes from './HintedProductsList.module.scss';
+import {useParamsParsed} from "@/app/providers";
 
 interface HintedProductsListProps {
 }
 
 export const HintedProductsList: FC<HintedProductsListProps> = () => {
-    const params = useParams();
-    const {...query} = useGetAllProductsQuery();
-    const products = query.currentData?.filter(product => {
-        const section = product.section;
-        const excludedLeadingSlash = section.href_postfix.replace('/', '');
-        return excludedLeadingSlash === params.section;
-    });
+    const {...query} = useParamsParsed();
+    const products = useMemo(() => query.section.products, [query.section]);
 
     return (
         <ProductsListFx {...query}>

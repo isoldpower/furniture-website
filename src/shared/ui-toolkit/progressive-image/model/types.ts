@@ -1,12 +1,8 @@
-export interface ProgressiveImageData {
-    high: string;
-    low: string;
+export type ProgressiveImage = {
+    id: number;
+    src: string;
     alt?: string;
+    low_src: string;
 }
 
-export interface ProgressiveImage {
-    id: number;
-    high: string;
-    low: string;
-    alt?: string;
-}
+export type ProgressiveImageData = Omit<ProgressiveImage, 'id'>;

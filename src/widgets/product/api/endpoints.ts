@@ -1,26 +1,19 @@
 import globalApi from "../../../app/redux/api/globalApi";
-import {Product} from "@/entities/product";
-import {ProgressiveImageType} from "@/shared/ui-toolkit";
-import {Material} from "@/entities/material";
+import {Product, ProductDetail} from "@/entities/product";
+import {apiRoutes, CATALOGUE_API_POSTFIX} from "@/app/static";
 
 export const productApi = globalApi.injectEndpoints({
     endpoints: (builder) => ({
         getAllProducts: builder.query<Product[], void>({
-            query: () => `catalog/products/`,
+            query: () => apiRoutes[CATALOGUE_API_POSTFIX].products,
         }),
-        getProduct: builder.query<Product, number>({
-            query: (id) =>  `catalog/products/${id}/`
-        }),
-        getProductImages: builder.query<ProgressiveImageType[], number>({
-            query: (id) => `catalog/products/${id}/images/`,
-        }),
-        getProductMaterials: builder.query<Material[], number>({
-            query: (id) => `catalog/products/${id}/materials/`
+        getProduct: builder.query<ProductDetail, number>({
+            query: (id) =>  apiRoutes[CATALOGUE_API_POSTFIX].productDetails(id),
         }),
         getImportantProducts: builder.query<Product[], boolean>({
-            query: (isImportant) => `catalog/products/?important=${isImportant}`
+            query: (isImportant) => apiRoutes[CATALOGUE_API_POSTFIX].products + `?important=${isImportant}`
         })
     })
 });
 
-export const {useGetProductQuery, useGetImportantProductsQuery, useGetProductImagesQuery, useGetProductMaterialsQuery, useGetAllProductsQuery} = productApi;
+export const {useGetProductQuery, useGetImportantProductsQuery, useGetAllProductsQuery} = productApi;

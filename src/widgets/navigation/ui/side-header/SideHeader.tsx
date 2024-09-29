@@ -5,8 +5,8 @@ import {AdaptiveLink, FullscreenModal, List} from "@/shared/ui-toolkit";
 import {SideHeaderSectionsFx} from "@/features/navigation";
 import {SectionHeaderCard} from "@/entities/catalog-section";
 import {SideHeaderSections} from "@/entities/navigation";
-import {useGetAllSectionsQuery} from "@/features/catalog-section";
 import {navigationElements} from "../../config";
+import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface SideHeaderProps {
 }

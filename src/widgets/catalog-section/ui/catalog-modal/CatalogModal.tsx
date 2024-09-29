@@ -1,9 +1,10 @@
 import {FC} from "react";
 import '@/app/scss/main.scss';
-import {CatalogModalSectionsFx, useGetAllSectionsQuery} from "@/features/catalog-section";
+import {CatalogModalSectionsFx} from "@/features/catalog-section";
 import {SectionHeaderCard, CatalogModalSections} from "@/entities/catalog-section";
 import {FullscreenModal} from "@/shared/ui-toolkit";
 import classes from './CatalogModal.module.scss';
+import {useGetAllSectionsQuery} from "@/widgets/catalog-section";
 
 interface CatalogModalProps {
 }

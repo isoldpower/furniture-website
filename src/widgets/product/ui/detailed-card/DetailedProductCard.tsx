@@ -1,31 +1,30 @@
 import {FC} from "react";
+import classes from './DetailedProductCard.module.scss';
 import '@/app/scss/main.scss';
+
 import {websiteRoutes} from "@/shared/lib";
-import {Product, ProductCard} from "@/entities/product";
-import {useGetProductImagesQuery, useGetProductMaterialsQuery} from "@/widgets/product";
+import {Product, ProductCard, ProductCardDescription} from "@/entities/product";
 import {ImagesHover} from "@/features/catalog-section";
 import {ListPreviewMaterials, ProductImagesFx, ProductPreviewMaterialsFx} from "@/features/product";
-import {ProductCardDescription} from "@/entities/product/ui/product-card/ProductCardDescription";
-import classes from './DetailedProductCard.module.scss';
+import {useParamsParsed} from "@/app/providers";
 
 interface DetailedProductCardProps {
     data?: Product;
 }
 
 export const DetailedProductCard: FC<DetailedProductCardProps> = ({data}: DetailedProductCardProps) => {
-    const {...materialsQuery} = useGetProductMaterialsQuery(data?.id);
-    const {...imagesQuery} = useGetProductImagesQuery(data?.id);
+    const {section, product} = useParamsParsed();
 
     return (
-        <ProductCard href={websiteRoutes.catalog + data?.section.href_postfix + data?.href_postfix}>
+        <ProductCard href={websiteRoutes.catalog + section.href_postfix + data?.href_postfix}>
             <div className={`${classes.imagesHover__wrapper}`}>
-                <ProductImagesFx {...imagesQuery}>
-                    <ImagesHover images={imagesQuery.currentData} />
+                <ProductImagesFx {...product}>
+                    <ImagesHover images={product.images} />
                 </ProductImagesFx>
             </div>
             <ProductCardDescription data={data}>
-                <ProductPreviewMaterialsFx {...materialsQuery}>
-                    <ListPreviewMaterials materials={materialsQuery.currentData} />
+                <ProductPreviewMaterialsFx {...product}>
+                    <ListPreviewMaterials materials={product.materials} />
                 </ProductPreviewMaterialsFx>
             </ProductCardDescription>
         </ProductCard>
