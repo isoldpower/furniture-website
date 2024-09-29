@@ -16,14 +16,17 @@ const ProductPage: FC = () => {
             <div className={`${classes.productPage__pathWrapper} cc-main-gutter`}>
                 <PagePath className={`${classes.productPage__path}`}/>
             </div>
-            <ProductPageFx {...queryParams}>
+            <ProductPageFx isError={queryParams.isError} isLoading={queryParams.isLoading}>
                 <section className={`${classes.productPage__productWrapper} cc-pt-9 cc-laptop-pt-13 cc-main-gutter`}>
                     <div className={`${classes.productPage__product}`} >
                         <ProductOverview data={queryParams.product} />
                     </div>
                 </section>
                 <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
-                    <SimilarProducts current={queryParams.product} section={queryParams.section} />
+                    {queryParams.section && queryParams.product
+                        ? <SimilarProducts current={queryParams.product} section={queryParams.section}/>
+                        : undefined
+                    }
                 </section>
             </ProductPageFx>
             <section className={`${classes.productPage__callbackWrapper} cc-main-gutter cc-py-15 cc-laptop-py-17`}>

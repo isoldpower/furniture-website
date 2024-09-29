@@ -16,7 +16,7 @@ interface CarouselProps {
     id: string;
 }
 
-export const Carousel: FC<CarouselProps> = ({children, id, ...data}: CarouselProps) => {
+export const Carousel: FC<CarouselProps> = ({children = [], id, ...data}: CarouselProps) => {
     const GROUP_ID = `carousel-${id}`;
     const itemType = data.vertical ? 'vertical' : 'horizontal';
     const carousel = useCarousel(children.length, GROUP_ID, data.vertical);

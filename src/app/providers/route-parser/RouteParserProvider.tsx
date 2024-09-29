@@ -1,4 +1,4 @@
-import {createContext, FC, ReactNode, useEffect, useMemo, useRef, useState} from "react";
+import {createContext, FC, ReactNode, useEffect, useRef, useState} from "react";
 import {ProductDetail} from "@/entities/product";
 import {SectionDetail} from "@/entities/catalog-section";
 import {useParams} from "react-router-dom";
@@ -8,6 +8,10 @@ import {sectionApi, useGetAllSectionsQuery} from "@/widgets/catalog-section";
 export type RouteParserContextType = {
     product: ProductDetail;
     section: SectionDetail;
+    isSectionLoading?: boolean;
+    isProductLoading?: boolean;
+    isSectionError?: boolean;
+    isProductError?: boolean;
     isLoading?: boolean;
     isError?: boolean;
 }
@@ -21,16 +25,18 @@ type RouteParserProviderProps = {
 export const RouteParserProvider: FC<RouteParserProviderProps> = ({children}) => {
     const {...productsQuery} = useGetAllProductsQuery();
     const {...sectionsQuery} = useGetAllSectionsQuery();
-    const { item, section } = useParams<{ item: string, section: string }>();
+    const {item, section} = useParams();
 
-    const isLoading = useMemo(() => productsQuery.isLoading || sectionsQuery.isLoading, [productsQuery.isLoading, sectionsQuery.isLoading]);
-    const isError = useMemo(() => productsQuery.isError || sectionsQuery.isError, [productsQuery.isError, sectionsQuery.isError]);
+    const [isSectionLoading, setIsSectionLoading] = useState(true);
+    const [isSectionError, setIsSectionError] = useState(false);
+    const [isProductLoading, setIsProductLoading] = useState(true);
+    const [isProductError, setIsProductError] = useState(false);
 
     const itemsDictionary = useRef<{ [name: string]: string }>({});
     const sectionsDictionary = useRef<{ [name: string]: string }>({});
 
-    const [currentProduct, setProduct] = useState<ProductDetail>();
-    const [currentSection, setSection] = useState<SectionDetail>();
+    const [currentProduct, setProduct] = useState<ProductDetail>(undefined);
+    const [currentSection, setSection] = useState<SectionDetail>(undefined);
 
     useEffect(() => {
         if (productsQuery.currentData) {
@@ -53,8 +59,11 @@ export const RouteParserProvider: FC<RouteParserProviderProps> = ({children}) =>
     useEffect(() => {
         if (item && itemsDictionary.current[item]) {
             productsApi.getItem(parseInt(itemsDictionary.current[item]))
-                .then((product) => setProduct(product));
+                .then((product) => setProduct(product))
+                .catch(() => setIsProductError(true))
+                .finally(() => setIsProductLoading(false));
         } else {
+            setIsProductLoading(false);
             setProduct(undefined);
         }
     }, [item, productsQuery.currentData]);
@@ -62,14 +71,26 @@ export const RouteParserProvider: FC<RouteParserProviderProps> = ({children}) =>
     useEffect(() => {
         if (section && sectionsDictionary.current[section]) {
             sectionApi.getItem(parseInt(sectionsDictionary.current[section]))
-                .then((section) => setSection(section));
+                .then((section) => setSection(section))
+                .catch(() => setIsSectionError(true))
+                .finally(() => setIsSectionLoading(false))
         } else {
+            setIsSectionLoading(false);
             setSection(undefined);
         }
     }, [section, sectionsQuery.currentData]);
 
     return (
-        <RouteParserContext.Provider value={{product: currentProduct, section: currentSection, isLoading, isError}}>
+        <RouteParserContext.Provider value={{
+            product: currentProduct,
+            section: currentSection,
+            isLoading: isProductLoading || isSectionLoading,
+            isError: isProductError || isSectionError,
+            isSectionLoading,
+            isProductLoading,
+            isSectionError,
+            isProductError
+        }}>
             {children}
         </RouteParserContext.Provider>
     )

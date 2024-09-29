@@ -19,7 +19,7 @@ export const CatalogModalSections: FC<CatalogModalSectionsProps> = ({sections, c
     }, [width, clonedElements]);
 
     return sections ? (
-        <div className={`${classes.catalogModal__sections} cc-flex cc-gap-5 cc-py-10`}>
+        <div className={`${classes.catalogModal__sections} cc-grid cc-gap-5 cc-py-10`}>
             {elements}
         </div>
     ) : undefined;

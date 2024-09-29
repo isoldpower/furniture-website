@@ -22,8 +22,8 @@ export const MaterialOverview: FC<MaterialOverviewProps> = ({data}: MaterialOver
                     <ProgressiveImage className={`${classes.materialOverview__image} cc-round`} image={data.image}/>
                 </div>
                 <p className={`${classes.materialOverview__paragraph}`}>{data.first_paragraph}</p>
-                <MaterialAdvantagesFx {...query}>
-                    <MaterialAdvantages advantages={query?.currentData.advantages}>
+                <MaterialAdvantagesFx isError={query.isError} isLoading={query.isLoading}>
+                    <MaterialAdvantages advantages={query.currentData?.advantages}>
                         <HomeAdvantage />
                     </MaterialAdvantages>
                 </MaterialAdvantagesFx>

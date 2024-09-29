@@ -4,7 +4,7 @@ import {CatalogSectionPreviewFx} from "@/features/catalog-section";
 import {sectionByPostfix} from "@/shared/lib";
 import {Carousel, MoreLink} from "@/shared/ui-toolkit";
 import classes from "./FeaturedSection.module.scss";
-import {useParamsParsed} from "@/app/providers";
+import {useGetSectionQuery} from "@/widgets/catalog-section";
 
 type CatalogSectionPreviewProps = {
     data?: Section;
@@ -12,22 +12,22 @@ type CatalogSectionPreviewProps = {
 }
 
 export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data, children}: CatalogSectionPreviewProps) => {
-    const {...query} = useParamsParsed();
+    const {...detailsQuery} = useGetSectionQuery(data.id);
 
     const filteredProducts = useMemo(() => {
-        return query.section?.products.filter((product) => product.important) ?? [];
-    }, [query.section]);
+        return detailsQuery.currentData?.products?.filter((product) => product.important) ?? [];
+    }, [detailsQuery]);
 
     const button = useRef(
         <MoreLink to={sectionByPostfix(data?.href_postfix)}>Смотреть все товары</MoreLink>
     );
 
     return data ? (
-        <CatalogSectionPreviewFx {...query} section={data}>
+        <CatalogSectionPreviewFx {...detailsQuery} section={data}>
             <div className={`${classes.featuredSection__large}`}>
                 <SectionSpoiler button={button.current} data={data} sectionLink>
                     {filteredProducts?.map((product, key) =>
-                        cloneElement(children, {...children.props, key, data: product})
+                        cloneElement(children, {...children.props, key, data: product, section: data})
                     )}
                 </SectionSpoiler>
             </div>
@@ -39,7 +39,7 @@ export const FeaturedSection: FC<CatalogSectionPreviewProps> = ({data, children}
                     title={<h2 className={`${classes.catalogDisplay__heading} cc-heading-2`}>{data.title}</h2>}>
                     {filteredProducts?.map((product, key) => (
                         <div className={classes.carouselList__item} key={key}>
-                            {cloneElement(children, {...children.props, data: product})}
+                            {cloneElement(children, {...children.props, data: product, section: data})}
                         </div>
                     ))}
                 </Carousel>

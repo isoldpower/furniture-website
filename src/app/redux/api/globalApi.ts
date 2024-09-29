@@ -30,8 +30,8 @@ export const globalApi = createApi({
                 method: 'POST',
                 body: {
                     name: data.form.name.value,
-                    email: data.form.mail.value,
-                    phone: data.form.phone.value,
+                    email_address: data.form.mail.value,
+                    phone_number: data.form.phone.value,
                     product: data.product
                 }
             })
