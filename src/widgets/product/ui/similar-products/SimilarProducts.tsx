@@ -16,7 +16,7 @@ export const SimilarProducts: FC<SimilarProductsProps> = ({section, current}: Si
     const {...sectionQuery} = useGetSectionQuery(section?.id);
     const similarProducts = useMemo(() => {
         return sectionQuery.currentData?.products
-            ?.filter((product: Product) => product.id !== current.id)
+            ?.filter((product: Product) => product.id !== current?.id)
     }, [sectionQuery.currentData?.products, current?.id]);
 
     return current ? (

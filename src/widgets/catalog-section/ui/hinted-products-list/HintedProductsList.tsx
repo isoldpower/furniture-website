@@ -1,4 +1,4 @@
-import {FC, useEffect, useMemo} from 'react';
+import {FC, useMemo} from 'react';
 import {DetailedProductCard} from "@/widgets/product";
 import {InsertCatalogHints, ProductsListFx} from "@/features/catalog-section";
 import {CustomProject} from "@/entities/product";
@@ -10,7 +10,7 @@ interface HintedProductsListProps {
 
 export const HintedProductsList: FC<HintedProductsListProps> = () => {
     const {...query} = useParamsParsed();
-    const products = useMemo(() => query?.section?.products, [query.section]);
+    const products = useMemo(() => query?.section?.currentData?.products, [query.section]);
 
     return (
         <ProductsListFx {...query}>
@@ -20,7 +20,7 @@ export const HintedProductsList: FC<HintedProductsListProps> = () => {
                         title: "Не нашли то что искали?"
                     }}/>}>
                     {products?.map((product, key) => (
-                        <DetailedProductCard data={product} section={query.section} key={key} />
+                        <DetailedProductCard data={product} section={query.section.currentData} key={key} />
                     ))}
                 </InsertCatalogHints>
             </div>

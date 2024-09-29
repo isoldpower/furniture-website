@@ -1,7 +1,7 @@
 import {FC, ReactElement} from "react";
 import '@/app/scss/main.scss';
-import {ProductImagesFetching} from "@/features/product/ui/images-fx/ProductImagesFetching";
-import {ProductImagesError} from "@/features/product/ui/images-fx/ProductImagesError";
+import {ProductImagesFetching} from "./ProductImagesFetching";
+import {ProductImagesError} from "./ProductImagesError";
 
 type AboutImageFxProps = {
     isLoading?: boolean;

@@ -1,8 +1,7 @@
-import {closeWindow, openWindow, switchWindow, useAppDispatch, useTypedSelector} from "@/app/redux";
+import {closeWindow, openWindow, switchWindow, useAppDispatch, useTypedSelector, selectIsActive} from "@/app/redux";
 import {useLocation} from "react-router-dom";
 import {useCallback, useEffect} from "react";
 import {breakpoints, useDocumentSize} from "@/shared/lib";
-import {selectIsActive} from "@/app/redux/features/modal/modalSlice";
 
 export const useHamburger = () => {
     const isActive = useTypedSelector((state) => selectIsActive(state, ['header', 'catalog']));

@@ -2,6 +2,7 @@ import {FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogSectionPreviewList.module.scss';
 import {AdaptiveLink, List} from "@/shared/ui-toolkit";
+
 import {CatalogSectionCard} from "@/entities/catalog-section";
 import {CatalogPreviewListFx} from "@/features/catalog-section";
 import {useGetAllSectionsQuery} from "@/widgets/catalog-section";

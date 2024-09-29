@@ -19,12 +19,13 @@ const ProductPage: FC = () => {
             <ProductPageFx isError={queryParams.isError} isLoading={queryParams.isLoading}>
                 <section className={`${classes.productPage__productWrapper} cc-pt-9 cc-laptop-pt-13 cc-main-gutter`}>
                     <div className={`${classes.productPage__product}`} >
-                        <ProductOverview data={queryParams.product} />
+                        <ProductOverview data={queryParams.product.currentData} />
                     </div>
                 </section>
                 <section className={`${classes.productPage__sectionWrapper} cc-pt-15 cc-laptop-pt-17`}>
                     {queryParams.section && queryParams.product
-                        ? <SimilarProducts current={queryParams.product} section={queryParams.section}/>
+                        ? <SimilarProducts current={queryParams.product.currentData}
+                                           section={queryParams.section.currentData} />
                         : undefined
                     }
                 </section>

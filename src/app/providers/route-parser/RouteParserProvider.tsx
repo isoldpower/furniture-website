@@ -1,17 +1,13 @@
-import {createContext, FC, ReactNode, useEffect, useRef, useState} from "react";
+import {createContext, FC, ReactNode} from "react";
 import {ProductDetail} from "@/entities/product";
 import {SectionDetail} from "@/entities/catalog-section";
-import {useParams} from "react-router-dom";
 import {productsApi, useGetAllProductsQuery} from "@/widgets/product";
 import {sectionApi, useGetAllSectionsQuery} from "@/widgets/catalog-section";
+import {useRouteArgument, UseRouteArgumentReturn} from "./useRouteArgument";
 
 export type RouteParserContextType = {
-    product: ProductDetail;
-    section: SectionDetail;
-    isSectionLoading?: boolean;
-    isProductLoading?: boolean;
-    isSectionError?: boolean;
-    isProductError?: boolean;
+    product: UseRouteArgumentReturn<ProductDetail>
+    section: UseRouteArgumentReturn<SectionDetail>;
     isLoading?: boolean;
     isError?: boolean;
 }
@@ -23,73 +19,18 @@ type RouteParserProviderProps = {
 }
 
 export const RouteParserProvider: FC<RouteParserProviderProps> = ({children}) => {
-    const {...productsQuery} = useGetAllProductsQuery();
-    const {...sectionsQuery} = useGetAllSectionsQuery();
-    const {item, section} = useParams();
+    const productsQuery = useGetAllProductsQuery();
+    const sectionQuery = useGetAllSectionsQuery();
 
-    const [isSectionLoading, setIsSectionLoading] = useState(true);
-    const [isSectionError, setIsSectionError] = useState(false);
-    const [isProductLoading, setIsProductLoading] = useState(true);
-    const [isProductError, setIsProductError] = useState(false);
-
-    const itemsDictionary = useRef<{ [name: string]: string }>({});
-    const sectionsDictionary = useRef<{ [name: string]: string }>({});
-
-    const [currentProduct, setProduct] = useState<ProductDetail>(undefined);
-    const [currentSection, setSection] = useState<SectionDetail>(undefined);
-
-    useEffect(() => {
-        if (productsQuery.currentData) {
-            productsQuery.currentData.forEach(product => {
-                const clearPostfix = product.href_postfix.replaceAll('/', '');
-                itemsDictionary.current[clearPostfix] = product.id.toString();
-            });
-        }
-    }, [productsQuery.currentData]);
-
-    useEffect(() => {
-        if (sectionsQuery.currentData) {
-            sectionsQuery.currentData.forEach(section => {
-                const clearPostfix = section.href_postfix.replaceAll('/', '');
-                sectionsDictionary.current[clearPostfix] = section.id.toString();
-            });
-        }
-    }, [sectionsQuery.currentData]);
-
-    useEffect(() => {
-        if (item && itemsDictionary.current[item]) {
-            productsApi.getItem(parseInt(itemsDictionary.current[item]))
-                .then((product) => setProduct(product))
-                .catch(() => setIsProductError(true))
-                .finally(() => setIsProductLoading(false));
-        } else {
-            setIsProductLoading(false);
-            setProduct(undefined);
-        }
-    }, [item, productsQuery.currentData]);
-
-    useEffect(() => {
-        if (section && sectionsDictionary.current[section]) {
-            sectionApi.getItem(parseInt(sectionsDictionary.current[section]))
-                .then((section) => setSection(section))
-                .catch(() => setIsSectionError(true))
-                .finally(() => setIsSectionLoading(false))
-        } else {
-            setIsSectionLoading(false);
-            setSection(undefined);
-        }
-    }, [section, sectionsQuery.currentData]);
+    const currentProduct = useRouteArgument(productsQuery, productsApi.getItem, 'item');
+    const currentSection = useRouteArgument(sectionQuery, sectionApi.getItem, 'section');
 
     return (
         <RouteParserContext.Provider value={{
             product: currentProduct,
             section: currentSection,
-            isLoading: isProductLoading || isSectionLoading,
-            isError: isProductError || isSectionError,
-            isSectionLoading,
-            isProductLoading,
-            isSectionError,
-            isProductError
+            isLoading: currentSection.isLoading || currentProduct.isLoading,
+            isError: currentProduct.isError || currentSection.isError
         }}>
             {children}
         </RouteParserContext.Provider>

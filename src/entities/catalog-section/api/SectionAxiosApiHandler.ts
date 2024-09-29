@@ -1,4 +1,4 @@
-import {AxiosApiHandler} from "@/shared/api/model/AxiosApiHandler";
+import {AxiosApiHandler} from "@/shared/api";
 import {Section, SectionApiHandler, SectionDetail} from "@/entities/catalog-section";
 
 export class SectionAxiosApiHandler extends AxiosApiHandler<SectionDetail> implements SectionApiHandler {

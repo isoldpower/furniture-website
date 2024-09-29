@@ -1,0 +1,1 @@
+export {AnchorScroll} from './AnchorScroll';

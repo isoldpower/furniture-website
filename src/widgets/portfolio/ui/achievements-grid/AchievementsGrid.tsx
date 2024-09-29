@@ -3,7 +3,7 @@ import '@/app/scss/main.scss';
 import classes from './AchievementsGrid.module.scss';
 import {AboutAdvantage} from "@/entities/advantage";
 import {useSettings} from "@/app/static";
-import {useAdvantages} from "@/widgets/portfolio/config/useAdvantages";
+import {useAdvantages} from "../../config/useAdvantages";
 
 interface AchievementsGridProps extends BaseHTMLAttributes<HTMLDivElement> {
 }

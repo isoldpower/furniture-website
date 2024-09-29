@@ -1,10 +1,8 @@
 import {useFormField} from "./useFormField";
-import {useAppDispatch, usePostRequestMutation} from "@/app/redux";
+import {useAppDispatch, usePostRequestMutation, addNotification, NotificationType} from "@/app/redux";
 import {useCallback, useEffect, useMemo, useRef} from "react";
-import {addNotification} from "@/app/redux/features/notification/notificationSlice";
 import {Product} from "@/entities/product";
-import {NOTIFICATION_DURATION_MS} from "@/app/config/constants/notification";
-import {NotificationType} from "@/app/redux/features/notification/types";
+import {NOTIFICATION_DURATION_MS} from "@/app/config";
 import {FormData, FormFieldReturn} from "@/features/feedback";
 
 export const useForm = () => {

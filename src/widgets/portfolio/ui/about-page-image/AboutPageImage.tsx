@@ -4,7 +4,7 @@ import classes from './AboutPageImage.module.scss';
 import {ProgressiveImage} from "@/shared/ui-toolkit";
 import {useSettings} from "@/app/static";
 import {useGetImageQuery} from "@/app/redux";
-import {AboutImageFx} from "@/features/portfolio/ui/about-image-fx/AboutImageFx";
+import {AboutImageFx} from "@/features/portfolio";
 
 export const AboutPageImage: FC = () => {
     const settings = useSettings();

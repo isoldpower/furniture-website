@@ -1,9 +1,9 @@
 import {cloneElement, FC, ReactElement, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './Carousel.module.scss';
-import {ArrowLeft, ArrowRight} from "@/shared/icons";
 import {useCarousel} from "../model";
-import {placeIndicators} from "@/shared/ui-toolkit/carousel/lib";
+import {ArrowLeft, ArrowRight} from "@/shared/icons";
+import {placeIndicators} from "@/shared/ui-toolkit";
 
 interface CarouselProps {
     indicators?: boolean;

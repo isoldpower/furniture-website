@@ -1,8 +1,7 @@
 import {ButtonHTMLAttributes, FC} from "react";
 import '@/app/scss/main.scss';
 import classes from './Button.module.scss';
-import {ButtonData} from "@/shared/ui-toolkit/button/model";
-import {AdaptiveLink} from "@/shared/ui-toolkit";
+import {AdaptiveLink, ButtonData} from "@/shared/ui-toolkit";
 import {LinkProps} from "react-router-dom";
 
 type ButtonProps = {

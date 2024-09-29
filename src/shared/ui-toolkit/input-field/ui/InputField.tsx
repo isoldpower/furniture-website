@@ -1,7 +1,7 @@
 import {FC, InputHTMLAttributes} from "react";
 import '@/app/scss/main.scss';
 import classes from './InputField.module.scss';
-import {InputFieldData} from "@/shared/ui-toolkit/input-field/model";
+import {InputFieldData} from "@/shared/ui-toolkit";
 
 interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     data: InputFieldData;

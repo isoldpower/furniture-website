@@ -1,1 +1,4 @@
-export {Carousel} from '@/shared/ui-toolkit/carousel/ui/Carousel';
+export {Carousel} from './ui/Carousel';
+
+export * from './model';
+export * from './lib';
