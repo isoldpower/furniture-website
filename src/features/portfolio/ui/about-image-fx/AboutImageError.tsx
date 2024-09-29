@@ -3,8 +3,12 @@ import '@/app/scss/main.scss';
 import {ProgressiveImage} from "@/shared/ui-toolkit";
 import {imageFailed} from "@/shared/lib";
 
-export const AboutImageError: FC = () => {
+type AboutImageErrorProps = {
+    className: string;
+}
+
+export const AboutImageError: FC<AboutImageErrorProps> = ({ className }) => {
     return (
-        <ProgressiveImage image={imageFailed} />
+        <ProgressiveImage className={className} image={imageFailed} />
     );
 };

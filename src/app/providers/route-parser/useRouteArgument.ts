@@ -14,7 +14,7 @@ export const useRouteArgument = <T extends {id: number, href_postfix: string}, D
     routeParam: string
 ): UseRouteArgumentReturn<D> => {
     const params = useParams();
-    const item = useMemo(() => params[routeParam], [params]);
+    const item = useMemo(() => params[routeParam], [routeParam, params]);
 
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -41,7 +41,7 @@ export const useRouteArgument = <T extends {id: number, href_postfix: string}, D
             setIsLoading(false);
             setCurrentData(undefined);
         }
-    }, [item, parse.currentData]);
+    }, [getItem, item, parse.currentData]);
 
     return {
         isLoading,

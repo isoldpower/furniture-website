@@ -20,7 +20,7 @@ export const HintedProductsList: FC<HintedProductsListProps> = () => {
                         title: "Не нашли то что искали?"
                     }}/>}>
                     {products?.map((product, key) => (
-                        <DetailedProductCard data={product} section={query.section.currentData} key={key} />
+                        <DetailedProductCard data={product} key={key} section={query.section.currentData} />
                     ))}
                 </InsertCatalogHints>
             </div>
