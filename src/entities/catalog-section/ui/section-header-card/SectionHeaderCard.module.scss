@@ -52,6 +52,14 @@
     }
 }
 
+.sectionHeaderCard__content {
+    @include mq(laptop) {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 5;
+    }
+}
+
 .sectionHeaderCard__headingWrapper {
     position: absolute;
     z-index: 3;
@@ -69,6 +77,7 @@
     font-size: 22px;
 
     @include mq(laptop) {
+        position: relative;
         font-size: 40px;
         color: black;
     }

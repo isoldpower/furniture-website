@@ -14,13 +14,13 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({data, className, ...props}:
     const [current, setCurrent] = useState<number>(0);
     const width = useDocumentSize().x;
 
-    const items = data.map((image, key) => (
+    const items = data?.map((image, key) => (
         <button className={`${classes.imagesSlider__previewWrapper} cc-width-1of1`} key={key} onClick={() => setCurrent(key)} type='button'>
             <ProgressiveImage aria-selected={key === current} className={`${classes.imagesSlider__preview}`} image={image} />
         </button>
     ));
 
-    return (
+    return data ? (
         <div className={`${classes.imagesSlider__wrapper} ${className}`} {...props}>
             <div className={`${classes.imagesSlider__content} cc-grid`}>
                 <div className={`${classes.imagesSlider__previewsWrapper} cc-flex`}>
@@ -43,5 +43,5 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({data, className, ...props}:
                 </div>
             </div>
         </div>
-    );
+    ) : undefined;
 };

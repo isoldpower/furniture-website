@@ -1,9 +1,9 @@
 import {cloneElement, FC, ReactElement, ReactNode} from "react";
 import '@/app/scss/main.scss';
 import classes from './Carousel.module.scss';
-import {ArrowLeft, ArrowRight} from "@/shared/icons";
 import {useCarousel} from "../model";
-import {placeIndicators} from "@/shared/ui-toolkit/carousel/lib";
+import {ArrowLeft, ArrowRight} from "@/shared/icons";
+import {placeIndicators} from "@/shared/ui-toolkit";
 
 interface CarouselProps {
     indicators?: boolean;
@@ -16,7 +16,7 @@ interface CarouselProps {
     id: string;
 }
 
-export const Carousel: FC<CarouselProps> = ({children, id, ...data}: CarouselProps) => {
+export const Carousel: FC<CarouselProps> = ({children = [], id, ...data}: CarouselProps) => {
     const GROUP_ID = `carousel-${id}`;
     const itemType = data.vertical ? 'vertical' : 'horizontal';
     const carousel = useCarousel(children.length, GROUP_ID, data.vertical);

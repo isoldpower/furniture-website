@@ -20,8 +20,8 @@ export const PortfolioImageInspect: FC<PortfolioImageInspectProps> = ({className
                 <div className={`${classes.portfolioImageInspect__container}`}>
                     <div className={`${classes.portfolioImageInspect__imageWrapper}`}>
                         <ProgressiveImage className={`${classes.portfolioImageInspect__image}`} image={data as ProgressiveImageData ?? {
-                            high: '',
-                            low: '',
+                            src: '',
+                            low_src: '',
                             alt: 'undefined'
                         }}/>
                     </div>

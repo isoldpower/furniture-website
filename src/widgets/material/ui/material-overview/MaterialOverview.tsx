@@ -4,15 +4,15 @@ import classes from './MaterialOverview.module.scss';
 import {Material, MaterialAdvantages} from "@/entities/material";
 import {ProgressiveImage} from "@/shared/ui-toolkit";
 import {MaterialAdvantagesFx} from "@/features/material";
-import {useGetMaterialAdvantagesQuery} from "@/widgets/material";
 import {HomeAdvantage} from "@/entities/advantage";
+import {useGetMaterialQuery} from "@/widgets/material";
 
 interface MaterialOverviewProps {
     data?: Material;
 }
 
 export const MaterialOverview: FC<MaterialOverviewProps> = ({data}: MaterialOverviewProps) => {
-    const {...query} = useGetMaterialAdvantagesQuery(data.id);
+    const {...query} = useGetMaterialQuery(data.id);
 
     return data ? (
         <div className={`${classes.materialOverview__wrapper}`} id={data.href_postfix.replaceAll('/', '')}>
@@ -21,13 +21,13 @@ export const MaterialOverview: FC<MaterialOverviewProps> = ({data}: MaterialOver
                 <div className={`${classes.materialOverview__imageWrapper}`}>
                     <ProgressiveImage className={`${classes.materialOverview__image} cc-round`} image={data.image}/>
                 </div>
-                <p className={`${classes.materialOverview__paragraph}`}>{data.paragraph}</p>
-                <MaterialAdvantagesFx {...query}>
-                    <MaterialAdvantages advantages={query?.currentData}>
+                <p className={`${classes.materialOverview__paragraph}`}>{data.first_paragraph}</p>
+                <MaterialAdvantagesFx isError={query.isError} isLoading={query.isLoading}>
+                    <MaterialAdvantages advantages={query.currentData?.advantages}>
                         <HomeAdvantage />
                     </MaterialAdvantages>
                 </MaterialAdvantagesFx>
-                <p className={`${classes.materialOverview__endingParagraph}`}>{data.ending}</p>
+                <p className={`${classes.materialOverview__endingParagraph}`}>{data.second_paragraph}</p>
             </div>
         </div>) : undefined;
 };

@@ -1,7 +1,7 @@
-import {Section, SectionApiHandler} from "@/entities/catalog-section";
-import {MockApiHandler} from "@/shared/api/model/MockApiHandler";
+import {Section, SectionApiHandler, SectionDetail} from "@/entities/catalog-section";
+import {MockApiHandler} from "@/shared/api";
 
-export class SectionMockApiHandler extends MockApiHandler<Section> implements SectionApiHandler{
+export class SectionMockApiHandler extends MockApiHandler<SectionDetail> implements SectionApiHandler {
     getSectionsChunk = (size: number): Promise<Section[]> => {
         return new Promise(() => this.items.slice(0, size));
     }

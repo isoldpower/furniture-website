@@ -3,8 +3,12 @@ import '@/app/scss/main.scss';
 import {ProgressiveImage} from "@/shared/ui-toolkit";
 import {imageDefault} from "@/shared/lib";
 
-export const AboutImageFetching: FC = () => {
+type AboutImageFetchingProps = {
+    className: string;
+}
+
+export const AboutImageFetching: FC<AboutImageFetchingProps> = ({ className }) => {
     return (
-        <ProgressiveImage image={imageDefault} />
+        <ProgressiveImage className={className} image={imageDefault} />
     );
 };

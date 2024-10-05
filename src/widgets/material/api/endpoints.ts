@@ -1,19 +1,16 @@
 import globalApi from "../../../app/redux/api/globalApi";
-import {Material} from "@/entities/material";
-import {Advantage} from "@/entities/advantage/model";
+import {Material, MaterialDetail} from "@/entities/material";
+import {apiRoutes, CATALOGUE_API_POSTFIX} from "@/app/static";
 
 export const materialApi = globalApi.injectEndpoints({
     endpoints: (builder) => ({
-        getMaterial: builder.query<Material, number>({
-            query: (id: number) => `landing/materials/${id}/`
+        getMaterial: builder.query<MaterialDetail, number>({
+            query: (id: number) => apiRoutes[CATALOGUE_API_POSTFIX].materialDetails(id)
         }),
         getAllMaterials: builder.query<Material[], void>({
-            query: () => 'landing/materials/'
-        }),
-        getMaterialAdvantages: builder.query<Advantage[], number>({
-            query: (id) => `landing/materials/${id}/advantages/`
-        }),
+            query: () => apiRoutes[CATALOGUE_API_POSTFIX].materials
+        })
     })
 });
 
-export const {useGetAllMaterialsQuery, useGetMaterialAdvantagesQuery, useGetMaterialQuery} = materialApi;
+export const {useGetAllMaterialsQuery, useGetMaterialQuery} = materialApi;

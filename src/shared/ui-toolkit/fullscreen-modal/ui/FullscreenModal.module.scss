@@ -21,11 +21,19 @@
     right: $size-4;
 }
 
+$header-margin: calc($header-height + $size-2);
+
 .fullscreenModal__container {
     z-index: 6;
-    $header-margin: calc($header-height + $size-2);
 
     margin-top: $header-margin;
     padding-top: $size-2;
     max-height: calc(100dvh - $header-margin - $size-4);
+    width: 100%;
+    overflow: hidden;
+}
+
+.fullscreenModal__catalogWrapper {
+    max-height: calc(100dvh - $header-margin - $size-4 - $size-2);
+    overflow: scroll;
 }

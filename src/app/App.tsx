@@ -1,7 +1,7 @@
 import classes from '@/app/App.module.scss';
 import {Outlet, useLocation} from 'react-router-dom';
 import {layers} from "@/shared/lib";
-import {ModalProvider} from "@/app/providers";
+import {ModalProvider, RouteParserProvider} from "@/app/providers";
 import {useEffect} from "react";
 import {WebsiteHeader, WebsiteFooter, SideHeader} from "@/widgets/navigation";
 import {closeAll, useAppDispatch} from "@/app/redux";
@@ -19,7 +19,7 @@ const App = () => {
     }, [dispatch, location]);
 
     return (
-        <>
+        <RouteParserProvider>
             <div id='header' style={{zIndex: 99}}>
                 <WebsiteHeader />
             </div>
@@ -48,7 +48,7 @@ const App = () => {
                 </div>
             </main>
             <WebsiteFooter />
-        </>
+        </RouteParserProvider>
     );
 };
 

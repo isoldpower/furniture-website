@@ -1,8 +1,15 @@
 import {FC} from "react";
 import '@/app/scss/main.scss';
+import {Load} from "@/shared/icons";
 
-export const ProductImagesFetching: FC = () => {
+type ProductImagesFetchingProps = {
+    className: string;
+}
+
+export const ProductImagesFetching: FC<ProductImagesFetchingProps> = ({ className }) => {
     return (
-        <div className="cc-fs-200">Идет загрузка...</div>
+        <div className={`${className} cc-flex cc-justify-content-center cc-align-items-center`}>
+            <Load />
+        </div>
     );
 };

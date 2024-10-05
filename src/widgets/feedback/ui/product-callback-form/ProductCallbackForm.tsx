@@ -1,4 +1,4 @@
-import {FC, useRef} from "react";
+import {FC, useMemo, useRef} from "react";
 import '@/app/scss/main.scss';
 import classes from './ProductCallbackForm.module.scss';
 import {AdaptiveLink, Button, InputField} from "@/shared/ui-toolkit";
@@ -12,11 +12,11 @@ type ProductCallbackFormProps = {
 }
 
 export const ProductCallbackForm: FC<ProductCallbackFormProps> = ({form, onClick}: ProductCallbackFormProps) => {
-    const action = useRef(
+    const action = useMemo(() => (
         <Button data={{variant: 'accent'}} onClick={onClick} semantic="button">
             Отправить
         </Button>
-    );
+    ), [onClick]);
 
     const hint = useRef(
         <div className={`${classes.callbackSection__hint}`}>
@@ -29,7 +29,7 @@ export const ProductCallbackForm: FC<ProductCallbackFormProps> = ({form, onClick
     );
 
     return (
-        <CallbackForm action={action.current} hint={hint.current}>
+        <CallbackForm action={action} hint={hint.current}>
             <InputField className={`${classes.callbackSection__field}`} data={{title: 'Ваше имя *'}}
                         itemType={form.data.name.state} key={0} onInput={form.data.name.onInput}
                         placeholder="Александр"/>

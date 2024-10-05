@@ -1,8 +1,6 @@
-import {productsApi} from "@/widgets/product";
 import {useCallback, useEffect, useState} from "react";
-import {Section} from "@/entities/catalog-section";
-import {Product} from "@/entities/product";
-import {sectionApi} from "@/features/catalog-section";
+import {Section, SectionDetail} from "@/entities/catalog-section";
+import {sectionApi} from "@/widgets/catalog-section";
 
 export const useSectionRoutes = () => {
     const [sectionRoutes, setSectionRoutes] = useState<{[route: string]: string}>({});
@@ -27,17 +25,18 @@ export const useSectionRoutes = () => {
 export const useItemRoutes = () => {
     const [itemRoutes, setItemRoutes] = useState<{[name: string]: string}>({});
 
-    const setItems = (items: Product[]) => {
-        for (const item of items) {
-            const section = item.section;
-            setItemRoutes(current => {
-                return ({...current, [section.href_postfix + item.href_postfix]: item.title});
-            })
+    const setItems = (sections: SectionDetail[]) => {
+        for (const section of sections) {
+            for (const product of section.products) {
+                setItemRoutes(current => {
+                    return ({...current, [section.href_postfix + product.href_postfix]: product.title});
+                })
+            }
         }
     }
 
     useEffect(() => {
-        productsApi.getAll()
+        sectionApi.getAll()
             .then(products => setItems(products))
             .catch(error => console.warn('product error:', error));
     }, [])
