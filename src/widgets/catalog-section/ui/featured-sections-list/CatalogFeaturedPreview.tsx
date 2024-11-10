@@ -1,4 +1,5 @@
-import {FC, ReactElement} from "react";
+import {FC, ReactElement, useMemo} from "react";
+
 import '@/app/scss/main.scss';
 import {SectionPreviewListFx} from "@/features/catalog-section";
 import {SectionPreviewList} from "@/entities/catalog-section";
@@ -10,10 +11,11 @@ interface CatalogFeaturedPreviewProps {
 
 export const CatalogFeaturedPreview: FC<CatalogFeaturedPreviewProps> = ({children}: CatalogFeaturedPreviewProps) => {
     const {...query} = useGetAllSectionsQuery();
+    const importantSections = useMemo(() => query.currentData?.filter(section => section.visible_in_preview), [query.currentData]);
 
     return (
         <SectionPreviewListFx {...query}>
-            <SectionPreviewList sections={query.currentData}>
+            <SectionPreviewList sections={importantSections}>
                 {children}
             </SectionPreviewList>
         </SectionPreviewListFx>

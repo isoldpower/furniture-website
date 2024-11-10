@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, useMemo} from "react";
 import '@/app/scss/main.scss';
 import {CatalogModalSectionsFx} from "@/features/catalog-section";
 import {SectionHeaderCard, CatalogModalSections} from "@/entities/catalog-section";
@@ -11,12 +11,13 @@ interface CatalogModalProps {
 
 export const CatalogModal: FC<CatalogModalProps> = () => {
     const {...query} = useGetAllSectionsQuery();
+    const importantSections = useMemo(() => query.currentData?.filter(section => section.visible_in_header), [query.currentData]);
 
     return (
         <FullscreenModal>
             <CatalogModalSectionsFx {...query}>
                 <div className={`${classes.catalogModal__catalog}`}>
-                    <CatalogModalSections sections={query?.currentData}>
+                    <CatalogModalSections sections={importantSections}>
                         <SectionHeaderCard />
                     </CatalogModalSections>
                 </div>

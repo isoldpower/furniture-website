@@ -36,4 +36,5 @@ $header-margin: calc($header-height + $size-2);
 .fullscreenModal__catalogWrapper {
     max-height: calc(100dvh - $header-margin - $size-4 - $size-2);
     overflow: scroll;
+    overflow-x: hidden;
 }

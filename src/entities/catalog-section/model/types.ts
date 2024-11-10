@@ -7,6 +7,8 @@ export interface Section {
     paragraph: string;
     href_postfix: string;
     preview_image: ProgressiveImageType;
+    visible_in_header: boolean;
+    visible_in_preview: boolean;
 }
 
 export interface SectionDetail extends Section {

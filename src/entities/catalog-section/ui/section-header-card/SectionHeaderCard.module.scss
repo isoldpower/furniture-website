@@ -53,6 +53,8 @@
 }
 
 .sectionHeaderCard__content {
+    word-break: break-all;
+
     @include mq(laptop) {
         display: grid;
         grid-template-rows: subgrid;
