@@ -10,7 +10,7 @@ type ProductCardProps = {
 
 export const ProductCard: FC<ProductCardProps> = ({href, children}: ProductCardProps) => {
     return (
-        <div className={`${classes.productCard__content} cc-grid cc-gap-7`}>
+        <div className={`${classes.productCard__content} cc-flex cc-flex-col cc-width-1of1 cc-gap-7`}>
             {children}
             <div className={`${classes.productCard__buttonWrapper} cc-flex cc-align-items-end`}>
                 <MoreLink className={`${classes.productCard__button}`} to={href}>Подробнее</MoreLink>
