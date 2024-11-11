@@ -29,7 +29,7 @@ export const useNavigationTree = () => {
 
     const getItem = useCallback((route: string) => {
         const postfix = route.replace(websiteRoutes.catalog, '');
-        return productRoutes[postfix] ?? 'item error';
+        return productRoutes[postfix] ?? 'загрузка';
     }, [productRoutes])
 
     const isSection = useCallback((route: string) => {
@@ -39,14 +39,14 @@ export const useNavigationTree = () => {
 
     const getSection = useCallback((route: string) => {
         const postfix = route.replace(websiteRoutes.catalog, '');
-        return sectionRoutes[postfix] ?? 'section error';
+        return sectionRoutes[postfix] ?? 'загрузка';
     }, [sectionRoutes])
 
     const getPageName = useCallback((route: string) => {
         if (route in staticRoutes.current) return staticRoutes.current[route];
         else if (isSection(route)) return getSection(route);
         else if (isItem(route)) return getItem(route);
-        return 'loading';
+        return 'загрузка';
     }, [getItem, getSection, isItem, isSection, staticRoutes]);
 
     const getCurrentPageName = useCallback(() => {
