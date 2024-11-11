@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, useMemo} from "react";
 import '@/app/scss/main.scss';
 import classes from './SideHeader.module.scss';
 import {AdaptiveLink, FullscreenModal, List} from "@/shared/ui-toolkit";
@@ -13,6 +13,11 @@ interface SideHeaderProps {
 
 export const SideHeader: FC<SideHeaderProps> = () => {
     const {...query} = useGetAllSectionsQuery();
+    const displayedSections = useMemo(() => {
+        return query?.currentData
+            ?.filter((section) => section.visible_in_header)
+            ?.slice(0, 4);
+    }, [query.currentData]);
 
     return (
         <FullscreenModal className={classes.sideHeader__containerAppear}>
@@ -27,7 +32,7 @@ export const SideHeader: FC<SideHeaderProps> = () => {
                 </List>
                 <hr className={`${classes.header__separator}`}/>
                 <SideHeaderSectionsFx {...query}>
-                    <SideHeaderSections sections={query?.currentData}>
+                    <SideHeaderSections sections={displayedSections}>
                         <SectionHeaderCard/>
                     </SideHeaderSections>
                 </SideHeaderSectionsFx>

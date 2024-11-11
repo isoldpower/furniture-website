@@ -15,9 +15,11 @@ export const ImageAreas: FC<ImageAreasProps> = ({setActive, children}: ImageArea
     return setActive ? (
         <div className={`${classes.imageAreas__content}`}>
             <div className={`${classes.imageAreas__hoverAreas} cc-flex`}>
-                {Children.toArray(children).map((index: number) => (
+                {Children.toArray(children).map((_, index: number) => (
                     <div className={`${classes.imagesSlider__imageArea} cc-width-1of1`}
-                         key={index} onMouseEnter={() => handleMouseEnter(index)} />
+                         key={index} 
+                         onClick={() => handleMouseEnter(index)}
+                         onMouseEnter={() => handleMouseEnter(index)} />
                 ))}
             </div>
             <div className={`${classes.imageAreas__images}`}>

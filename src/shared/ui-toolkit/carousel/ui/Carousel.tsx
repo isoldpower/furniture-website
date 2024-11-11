@@ -44,7 +44,9 @@ export const Carousel: FC<CarouselProps> = ({children = [], id, ...data}: Carous
                     </button>
                 </div>
             </div>
-            <div aria-expanded={carousel.currentRange.firstIncluded !== 1} className={`${classes.horizontalCarousel__itemsGroup}`} id={GROUP_ID} itemType={itemType}>
+            <div aria-expanded={carousel.currentRange.firstIncluded !== 1} 
+                 className={`${classes.horizontalCarousel__itemsGroup}`}
+                 id={GROUP_ID}>
                 {children.map((child, key) => {
                     const element = child as ReactElement;
                     return cloneElement(element, {
