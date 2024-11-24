@@ -8,7 +8,7 @@ type ListPreviewMaterialsProps = {
 }
 
 export const ListPreviewMaterials: FC<ListPreviewMaterialsProps> = ({materials}: ListPreviewMaterialsProps) => {
-    return materials.length > 0 ? (
+    return materials?.length > 0 ? (
             materials?.map((material, key) => (
                 <span className={`${classes.productCard__material}`} key={key}>
                     {material.title}

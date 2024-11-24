@@ -1,4 +1,4 @@
-import {FC, ReactElement, useMemo} from "react";
+import {FC, ReactElement, useEffect, useMemo} from "react";
 import '@/app/scss/main.scss';
 import classes from './CatalogModalSections.module.scss';
 import {Section} from "@/entities/catalog-section";
