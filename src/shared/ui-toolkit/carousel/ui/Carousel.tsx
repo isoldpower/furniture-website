@@ -46,6 +46,7 @@ export const Carousel: FC<CarouselProps> = ({children = [], id, ...data}: Carous
             </div>
             <div aria-expanded={carousel.currentRange.firstIncluded !== 1} 
                  className={`${classes.horizontalCarousel__itemsGroup}`}
+                 itemType={itemType}
                  id={GROUP_ID}>
                 {children.map((child, key) => {
                     const element = child as ReactElement;
