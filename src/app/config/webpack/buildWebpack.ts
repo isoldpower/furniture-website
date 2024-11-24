@@ -21,6 +21,9 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
         module: {
             rules: buildLoaders(options)
         },
+        ignoreWarnings: [
+            /sass-loader/
+        ],
         plugins: buildPlugins(options),
         resolve: buildResolvers(options),
         devtool: isDevelopment ? 'inline-source-map' : false,

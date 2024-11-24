@@ -15,7 +15,17 @@ export function buildModulesLoader(options: BuildOptions) {
                     }
                 }
             },
-            'sass-loader'
+            {
+                loader: 'sass-loader',
+                options: {
+                    sourceMap: isDevelopment,
+                    api: 'legacy',
+                    sassOptions: {
+                        quietDeps: true,
+                        silenceDeprecations: ['legacy-js-api']
+                    }
+                }
+            }
         ]
     }
 }
