@@ -44,7 +44,7 @@ export const Carousel: FC<CarouselProps> = ({children = [], id, ...data}: Carous
                     </button>
                 </div>
             </div>
-            <div aria-expanded={carousel.currentRange.firstIncluded !== 1} 
+            <div aria-expanded={carousel.currentRange.firstIncluded !== 1}
                  className={`${classes.horizontalCarousel__itemsGroup}`}
                  itemType={itemType}
                  id={GROUP_ID}>
