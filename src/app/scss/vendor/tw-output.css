@@ -570,9 +570,12 @@ video {
   display: none;
 }
 
-.size-0 {
-  width: 0px;
-  height: 0px;
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .transform {
@@ -581,15 +584,6 @@ video {
 
 .resize {
   resize: both;
-}
-
-.border {
-  border-width: 1px;
-}
-
-.border-red-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
 }
 
 .filter {

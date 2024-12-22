@@ -24,7 +24,7 @@ export const ImagesSlider: FC<ImagesSliderProps> = ({data, className, ...props}:
         <div className={`${classes.imagesSlider__wrapper} ${className}`} {...props}>
             <div className={`${classes.imagesSlider__content} cc-grid`}>
                 <div className={`${classes.imagesSlider__previewsWrapper} cc-flex`}>
-                    <Carousel id="images-2"
+                    <Carousel
                         leftArrow={<div className={`${classes.imageSlider__leftArrow}`}><ArrowLeft/></div>}
                         rightArrow={<div className={`${classes.imageSlider__rightArrow}`}><ArrowRight/></div>}
                         vertical={width >= breakpoints.laptop}>

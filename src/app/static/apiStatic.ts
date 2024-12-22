@@ -1,4 +1,4 @@
-export const API_HOST_WITH_PREFIX = 'http://localhost:8000/api/v1/';
+export const API_HOST_WITH_PREFIX = 'https://cozycraft.space/api/v1';
 export const CATALOGUE_API_POSTFIX = '/catalogue';
 export const FEEDBACK_API_POSTFIX = '/feedback';
 export const PORTFOLIO_API_POSTFIX = '/portfolio';
