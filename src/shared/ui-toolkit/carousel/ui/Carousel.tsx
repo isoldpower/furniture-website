@@ -63,7 +63,7 @@ export const Carousel: FC<CarouselProps> = ({
                 </div>
             </div>
             {Children.toArray(children).length > 0 ? (
-                <div className='h-full w-full' ref={emblaRef}>
+                <div className={`${classes.horizontalCarousel__container} h-full w-full`} ref={emblaRef}>
                     <div
                         aria-expanded={!prevBtnDisabled}
                         className={classes.horizontalCarousel__itemsGroup}

@@ -39,6 +39,10 @@
     }
 }
 
+.horizontalCarousel__container {
+    touch-action: pan-y pinch-zoom;
+}
+
 .horizontalCarousel__title:not(:empty) {
     margin-bottom: $size-7;
 }
